@@ -8,22 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		FC5C492B2326C55B00106CB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C492A2326C55B00106CB9 /* AppDelegate.swift */; };
-		FC5C492D2326C55B00106CB9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C492C2326C55B00106CB9 /* ViewController.swift */; };
 		FC5C49302326C55B00106CB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC5C492E2326C55B00106CB9 /* Main.storyboard */; };
 		FC5C49332326C55B00106CB9 /* Anti_Snooze_Alarm.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC5C49312326C55B00106CB9 /* Anti_Snooze_Alarm.xcdatamodeld */; };
 		FC5C49352326C55B00106CB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC5C49342326C55B00106CB9 /* Assets.xcassets */; };
 		FC5C49382326C55B00106CB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC5C49362326C55B00106CB9 /* LaunchScreen.storyboard */; };
+		FC5C49452326CDD600106CB9 /* RangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C49442326CDD600106CB9 /* RangeSlider.swift */; };
+		FC5C49482326CE2000106CB9 /* RangeSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C49472326CE2000106CB9 /* RangeSliderViewController.swift */; };
+		FC5C494C2326D59C00106CB9 /* RangeSliderThumbLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C494B2326D59C00106CB9 /* RangeSliderThumbLayer.swift */; };
+		FC5C494E2326D9DC00106CB9 /* RangeSliderTrackLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C494D2326D9DC00106CB9 /* RangeSliderTrackLayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FC5C49272326C55B00106CB9 /* Anti-Snooze-Alarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Anti-Snooze-Alarm.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC5C492A2326C55B00106CB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FC5C492C2326C55B00106CB9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FC5C492F2326C55B00106CB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FC5C49322326C55B00106CB9 /* Anti_Snooze_Alarm.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Anti_Snooze_Alarm.xcdatamodel; sourceTree = "<group>"; };
 		FC5C49342326C55B00106CB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC5C49372326C55B00106CB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC5C49392326C55B00106CB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC5C49442326CDD600106CB9 /* RangeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeSlider.swift; sourceTree = "<group>"; };
+		FC5C49472326CE2000106CB9 /* RangeSliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeSliderViewController.swift; sourceTree = "<group>"; };
+		FC5C494B2326D59C00106CB9 /* RangeSliderThumbLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeSliderThumbLayer.swift; sourceTree = "<group>"; };
+		FC5C494D2326D9DC00106CB9 /* RangeSliderTrackLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeSliderTrackLayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +62,66 @@
 		FC5C49292326C55B00106CB9 /* Anti-Snooze-Alarm */ = {
 			isa = PBXGroup;
 			children = (
-				FC5C492A2326C55B00106CB9 /* AppDelegate.swift */,
-				FC5C492C2326C55B00106CB9 /* ViewController.swift */,
-				FC5C492E2326C55B00106CB9 /* Main.storyboard */,
-				FC5C49342326C55B00106CB9 /* Assets.xcassets */,
-				FC5C49362326C55B00106CB9 /* LaunchScreen.storyboard */,
-				FC5C49392326C55B00106CB9 /* Info.plist */,
+				FC5C49432326C63C00106CB9 /* Storyboards */,
+				FC5C49422326C62E00106CB9 /* View Controllers */,
+				FC5C49412326C62600106CB9 /* Model Controllers */,
+				FC5C49402326C62000106CB9 /* Models */,
+				FC5C493F2326C61300106CB9 /* Resources */,
 				FC5C49312326C55B00106CB9 /* Anti_Snooze_Alarm.xcdatamodeld */,
 			);
 			path = "Anti-Snooze-Alarm";
+			sourceTree = "<group>";
+		};
+		FC5C493F2326C61300106CB9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FC5C492A2326C55B00106CB9 /* AppDelegate.swift */,
+				FC5C49342326C55B00106CB9 /* Assets.xcassets */,
+				FC5C49362326C55B00106CB9 /* LaunchScreen.storyboard */,
+				FC5C49392326C55B00106CB9 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FC5C49402326C62000106CB9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FC5C49412326C62600106CB9 /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		FC5C49422326C62E00106CB9 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FC5C49462326CDFF00106CB9 /* RangeSlider */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		FC5C49432326C63C00106CB9 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				FC5C492E2326C55B00106CB9 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		FC5C49462326CDFF00106CB9 /* RangeSlider */ = {
+			isa = PBXGroup;
+			children = (
+				FC5C49472326CE2000106CB9 /* RangeSliderViewController.swift */,
+				FC5C49442326CDD600106CB9 /* RangeSlider.swift */,
+				FC5C494B2326D59C00106CB9 /* RangeSliderThumbLayer.swift */,
+				FC5C494D2326D9DC00106CB9 /* RangeSliderTrackLayer.swift */,
+			);
+			path = RangeSlider;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +195,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC5C492D2326C55B00106CB9 /* ViewController.swift in Sources */,
+				FC5C494C2326D59C00106CB9 /* RangeSliderThumbLayer.swift in Sources */,
 				FC5C49332326C55B00106CB9 /* Anti_Snooze_Alarm.xcdatamodeld in Sources */,
+				FC5C49482326CE2000106CB9 /* RangeSliderViewController.swift in Sources */,
+				FC5C49452326CDD600106CB9 /* RangeSlider.swift in Sources */,
+				FC5C494E2326D9DC00106CB9 /* RangeSliderTrackLayer.swift in Sources */,
 				FC5C492B2326C55B00106CB9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,7 +348,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C39EPG5VUE;
-				INFOPLIST_FILE = "Anti-Snooze-Alarm/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Anti-Snooze-Alarm/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -306,7 +366,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C39EPG5VUE;
-				INFOPLIST_FILE = "Anti-Snooze-Alarm/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Anti-Snooze-Alarm/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
