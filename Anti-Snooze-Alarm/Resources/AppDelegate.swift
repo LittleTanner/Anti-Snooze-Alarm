@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Request authorization to send notifications
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (success, error) in
+            // Check for error
+            if let error = error {
+                print("There was an error in \(#function), error: \(error), error localized description: \(error.localizedDescription)")
+            }
+            
+            // Check for success
+            if success {
+                print("Permission to use notifications granted")
+            }
+        }
+        
         return true
     }
 
