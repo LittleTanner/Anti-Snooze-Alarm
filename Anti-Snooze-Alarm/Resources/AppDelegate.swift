@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             // Check for success
             if success {
-                print("Permission to use notifications granted")
+                print("Permission to send notifications granted")
             }
         }
         

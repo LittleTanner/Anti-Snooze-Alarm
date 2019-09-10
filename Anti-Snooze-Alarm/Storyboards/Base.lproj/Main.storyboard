@@ -177,7 +177,7 @@
             </objects>
             <point key="canvasLocation" x="1962.3188405797102" y="115.84821428571428"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings-->
         <scene sceneID="93l-qk-6wE">
             <objects>
                 <viewController id="jtt-qf-AbN" sceneMemberID="viewController">
@@ -187,10 +187,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="mxR-qd-7k8"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Settings" id="eTb-GZ-DAM"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ooB-yN-3gh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1365" y="846"/>
+            <point key="canvasLocation" x="1252" y="852"/>
         </scene>
         <!--Set Alarm-->
         <scene sceneID="1lM-Vx-Z53">
@@ -369,7 +370,31 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ofL-OV-fTy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2648" y="846"/>
+            <point key="canvasLocation" x="2000" y="852"/>
+        </scene>
+        <!--Memorize Number View Controller-->
+        <scene sceneID="c3q-um-x9K">
+            <objects>
+                <viewController storyboardIdentifier="MemorizeNumberGame" id="DEw-tw-U5f" customClass="MemorizeNumberViewController" customModule="Anti_Snooze_Alarm" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5iS-Pd-IMH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Memorize Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BgO-S5-eYx">
+                                <rect key="frame" x="136" y="120" width="142" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="B0q-Be-i0C"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JiI-Ll-prH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2890" y="856"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Unv-jg-Zfe">

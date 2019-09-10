@@ -27,6 +27,9 @@ class MainViewController: UIViewController {
         // Create action
         let startGame = UIAlertAction(title: "START", style: .default) { (_) in
             print("User tapped the start button, send them to a mini game")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "MemorizeNumberGame")
+            self.present(controller, animated: true, completion: nil)
         }
         
         // Add action

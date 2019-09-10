@@ -17,6 +17,7 @@
 		FC5C494C2326D59C00106CB9 /* RangeSliderThumbLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C494B2326D59C00106CB9 /* RangeSliderThumbLayer.swift */; };
 		FC5C494E2326D9DC00106CB9 /* RangeSliderTrackLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C494D2326D9DC00106CB9 /* RangeSliderTrackLayer.swift */; };
 		FCAD137023283C57000F4EF5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAD136F23283C57000F4EF5 /* MainViewController.swift */; };
+		FCAD137223284065000F4EF5 /* MemorizeNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAD137123284065000F4EF5 /* MemorizeNumberViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		FC5C494B2326D59C00106CB9 /* RangeSliderThumbLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeSliderThumbLayer.swift; sourceTree = "<group>"; };
 		FC5C494D2326D9DC00106CB9 /* RangeSliderTrackLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeSliderTrackLayer.swift; sourceTree = "<group>"; };
 		FCAD136F23283C57000F4EF5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		FCAD137123284065000F4EF5 /* MemorizeNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeNumberViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 			children = (
 				FCAD136F23283C57000F4EF5 /* MainViewController.swift */,
 				FC5C49462326CDFF00106CB9 /* RangeSlider */,
+				FCAD13732328406B000F4EF5 /* Mini Games */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -125,6 +128,14 @@
 				FC5C494D2326D9DC00106CB9 /* RangeSliderTrackLayer.swift */,
 			);
 			path = RangeSlider;
+			sourceTree = "<group>";
+		};
+		FCAD13732328406B000F4EF5 /* Mini Games */ = {
+			isa = PBXGroup;
+			children = (
+				FCAD137123284065000F4EF5 /* MemorizeNumberViewController.swift */,
+			);
+			path = "Mini Games";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCAD137023283C57000F4EF5 /* MainViewController.swift in Sources */,
+				FCAD137223284065000F4EF5 /* MemorizeNumberViewController.swift in Sources */,
 				FC5C494C2326D59C00106CB9 /* RangeSliderThumbLayer.swift in Sources */,
 				FC5C49332326C55B00106CB9 /* Anti_Snooze_Alarm.xcdatamodeld in Sources */,
 				FC5C49482326CE2000106CB9 /* RangeSliderViewController.swift in Sources */,
