@@ -37,18 +37,7 @@ class SetAlarmTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Changes the alarm color picker color to white
-        alarmValuePicker.setValue(UIColor.white, forKey: "textColor")
-        
-        // Changes the days of the week buttons to be circles
-        sundayButton.layer.cornerRadius = sundayButton.frame.height / 2
-        mondayButton.layer.cornerRadius = mondayButton.frame.height / 2
-        tuesdayButton.layer.cornerRadius = tuesdayButton.frame.height / 2
-        wednesdayButton.layer.cornerRadius = wednesdayButton.frame.height / 2
-        thursdayButton.layer.cornerRadius = thursdayButton.frame.height / 2
-        fridayButton.layer.cornerRadius = fridayButton.frame.height / 2
-        saturdayButton.layer.cornerRadius = saturdayButton.frame.height / 2
-        
+        setsUpUI()
     }
 
     // MARK: - Actions
@@ -159,6 +148,19 @@ class SetAlarmTableViewController: UITableViewController {
     // MARK: - Custom Methods
 
 
+    func setsUpUI() {
+        // Changes the alarm color picker color to white
+        alarmValuePicker.setValue(UIColor.white, forKey: "textColor")
+        
+        // Changes the days of the week buttons to be circles
+        sundayButton.layer.cornerRadius = sundayButton.frame.height / 2
+        mondayButton.layer.cornerRadius = mondayButton.frame.height / 2
+        tuesdayButton.layer.cornerRadius = tuesdayButton.frame.height / 2
+        wednesdayButton.layer.cornerRadius = wednesdayButton.frame.height / 2
+        thursdayButton.layer.cornerRadius = thursdayButton.frame.height / 2
+        fridayButton.layer.cornerRadius = fridayButton.frame.height / 2
+        saturdayButton.layer.cornerRadius = saturdayButton.frame.height / 2
+    }
    
 
 }
