@@ -213,7 +213,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="BLM-5n-07z">
-                                                    <rect key="frame" x="0.0" y="14" width="414" height="216"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="243.5"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="589757899.16182005">
                                                         <!--2019-09-09 21:38:19 +0000-->
                                                     </date>
@@ -223,6 +223,7 @@
                                                 </datePicker>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="BLM-5n-07z" firstAttribute="height" secondItem="i8L-Fw-hu0" secondAttribute="height" id="Ebc-43-ibJ"/>
                                                 <constraint firstItem="BLM-5n-07z" firstAttribute="width" secondItem="i8L-Fw-hu0" secondAttribute="width" id="KJ2-qJ-cSN"/>
                                                 <constraint firstItem="BLM-5n-07z" firstAttribute="centerY" secondItem="i8L-Fw-hu0" secondAttribute="centerY" id="Ung-sO-tfp"/>
                                                 <constraint firstItem="BLM-5n-07z" firstAttribute="centerX" secondItem="i8L-Fw-hu0" secondAttribute="centerX" id="isj-J9-e8T"/>
