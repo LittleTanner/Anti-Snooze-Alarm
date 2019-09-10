@@ -27,8 +27,18 @@ class MainViewController: UIViewController {
         // Create action
         let startGame = UIAlertAction(title: "START", style: .default) { (_) in
             print("User tapped the start button, send them to a mini game")
+            
+            // Create an instance of the main storyboard
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "MemorizeNumberGame")
+            // Within that storyboard find the memorize number view controller
+            
+            let randomNumber = Int.random(in: 0...4)
+            
+            let arrayOfMiniGames = ["MemorizeNumberGame", "WordOfTheDayGame", "MathGame", "SquaresGame", "LeftBrainRightBrainGame"]
+            
+            
+            let controller = storyboard.instantiateViewController(withIdentifier: arrayOfMiniGames[randomNumber])
+            // Present the user with the memorize number view controller
             self.present(controller, animated: true, completion: nil)
         }
         
