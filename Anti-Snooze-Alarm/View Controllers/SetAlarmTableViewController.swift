@@ -51,11 +51,11 @@ class SetAlarmTableViewController: UITableViewController {
         sundayButtonIsSelected.toggle()
         
         if sundayButtonIsSelected == true {
-            sundayButton.backgroundColor = #colorLiteral(red: 0.1596083343, green: 0.627512455, blue: 0.8221227527, alpha: 1)
-            sundayButton.setTitleColor(UIColor.init(red: 28.0/255.0, green: 53.0/255.0, blue: 75.0/255.0, alpha: 1.0), for: .normal)
+            sundayButton.backgroundColor = UIColor.blueAccent
+            sundayButton.setTitleColor(UIColor.darkBlue, for: .normal)
         } else {
-            sundayButton.backgroundColor = #colorLiteral(red: 0.07138665766, green: 0.2125675678, blue: 0.3019170761, alpha: 1)
-            sundayButton.setTitleColor(UIColor.white, for: .normal)
+            sundayButton.backgroundColor = UIColor.darkBlue
+            sundayButton.setTitleColor(UIColor.mainTextColor, for: .normal)
         }
         
     }
@@ -66,11 +66,11 @@ class SetAlarmTableViewController: UITableViewController {
         mondayButtonIsSelected.toggle()
         
         if mondayButtonIsSelected == true {
-            mondayButton.backgroundColor = #colorLiteral(red: 0.1596083343, green: 0.627512455, blue: 0.8221227527, alpha: 1)
-            mondayButton.setTitleColor(UIColor.init(red: 28.0/255.0, green: 53.0/255.0, blue: 75.0/255.0, alpha: 1.0), for: .normal)
+            mondayButton.backgroundColor = UIColor.blueAccent
+            mondayButton.setTitleColor(UIColor.darkBlue, for: .normal)
         } else {
-            mondayButton.backgroundColor = #colorLiteral(red: 0.07138665766, green: 0.2125675678, blue: 0.3019170761, alpha: 1)
-            mondayButton.setTitleColor(UIColor.white, for: .normal)
+            mondayButton.backgroundColor = UIColor.darkBlue
+            mondayButton.setTitleColor(UIColor.mainTextColor, for: .normal)
         }
     }
     
@@ -80,11 +80,11 @@ class SetAlarmTableViewController: UITableViewController {
         tuesdayButtonIsSelected.toggle()
         
         if tuesdayButtonIsSelected == true {
-            tuesdayButton.backgroundColor = #colorLiteral(red: 0.1596083343, green: 0.627512455, blue: 0.8221227527, alpha: 1)
-            tuesdayButton.setTitleColor(UIColor.init(red: 28.0/255.0, green: 53.0/255.0, blue: 75.0/255.0, alpha: 1.0), for: .normal)
+            tuesdayButton.backgroundColor = UIColor.blueAccent
+            tuesdayButton.setTitleColor(UIColor.darkBlue, for: .normal)
         } else {
-            tuesdayButton.backgroundColor = #colorLiteral(red: 0.07138665766, green: 0.2125675678, blue: 0.3019170761, alpha: 1)
-            tuesdayButton.setTitleColor(UIColor.white, for: .normal)
+            tuesdayButton.backgroundColor = UIColor.darkBlue
+            tuesdayButton.setTitleColor(UIColor.mainTextColor, for: .normal)
         }
     }
     
@@ -94,11 +94,11 @@ class SetAlarmTableViewController: UITableViewController {
         wednesdayButtonIsSelected.toggle()
         
         if wednesdayButtonIsSelected == true {
-            wednesdayButton.backgroundColor = #colorLiteral(red: 0.1596083343, green: 0.627512455, blue: 0.8221227527, alpha: 1)
-            wednesdayButton.setTitleColor(UIColor.init(red: 28.0/255.0, green: 53.0/255.0, blue: 75.0/255.0, alpha: 1.0), for: .normal)
+            wednesdayButton.backgroundColor = UIColor.blueAccent
+            wednesdayButton.setTitleColor(UIColor.darkBlue, for: .normal)
         } else {
-            wednesdayButton.backgroundColor = #colorLiteral(red: 0.07138665766, green: 0.2125675678, blue: 0.3019170761, alpha: 1)
-            wednesdayButton.setTitleColor(UIColor.white, for: .normal)
+            wednesdayButton.backgroundColor = UIColor.darkBlue
+            wednesdayButton.setTitleColor(UIColor.mainTextColor, for: .normal)
         }
     }
     
@@ -108,11 +108,11 @@ class SetAlarmTableViewController: UITableViewController {
         thursdayButtonIsSelected.toggle()
         
         if thursdayButtonIsSelected == true {
-            thursdayButton.backgroundColor = #colorLiteral(red: 0.1596083343, green: 0.627512455, blue: 0.8221227527, alpha: 1)
-            thursdayButton.setTitleColor(UIColor.init(red: 28.0/255.0, green: 53.0/255.0, blue: 75.0/255.0, alpha: 1.0), for: .normal)
+            thursdayButton.backgroundColor = UIColor.blueAccent
+            thursdayButton.setTitleColor(UIColor.darkBlue, for: .normal)
         } else {
-            thursdayButton.backgroundColor = #colorLiteral(red: 0.07138665766, green: 0.2125675678, blue: 0.3019170761, alpha: 1)
-            thursdayButton.setTitleColor(UIColor.white, for: .normal)
+            thursdayButton.backgroundColor = UIColor.darkBlue
+            thursdayButton.setTitleColor(UIColor.mainTextColor, for: .normal)
         }
     }
     
@@ -122,11 +122,11 @@ class SetAlarmTableViewController: UITableViewController {
         fridayButtonIsSelected.toggle()
         
         if fridayButtonIsSelected == true {
-            fridayButton.backgroundColor = #colorLiteral(red: 0.1596083343, green: 0.627512455, blue: 0.8221227527, alpha: 1)
-            fridayButton.setTitleColor(UIColor.init(red: 28.0/255.0, green: 53.0/255.0, blue: 75.0/255.0, alpha: 1.0), for: .normal)
+            fridayButton.backgroundColor = UIColor.blueAccent
+            fridayButton.setTitleColor(UIColor.darkBlue, for: .normal)
         } else {
-            fridayButton.backgroundColor = #colorLiteral(red: 0.07138665766, green: 0.2125675678, blue: 0.3019170761, alpha: 1)
-            fridayButton.setTitleColor(UIColor.white, for: .normal)
+            fridayButton.backgroundColor = UIColor.darkBlue
+            fridayButton.setTitleColor(UIColor.mainTextColor, for: .normal)
         }
     }
     
@@ -136,11 +136,11 @@ class SetAlarmTableViewController: UITableViewController {
         saturdayButtonIsSelected.toggle()
         
         if saturdayButtonIsSelected == true {
-            saturdayButton.backgroundColor = #colorLiteral(red: 0.1596083343, green: 0.627512455, blue: 0.8221227527, alpha: 1)
-            saturdayButton.setTitleColor(UIColor.init(red: 28.0/255.0, green: 53.0/255.0, blue: 75.0/255.0, alpha: 1.0), for: .normal)
+            saturdayButton.backgroundColor = UIColor.blueAccent
+            saturdayButton.setTitleColor(UIColor.darkBlue, for: .normal)
         } else {
-            saturdayButton.backgroundColor = #colorLiteral(red: 0.07138665766, green: 0.2125675678, blue: 0.3019170761, alpha: 1)
-            saturdayButton.setTitleColor(UIColor.white, for: .normal)
+            saturdayButton.backgroundColor = UIColor.darkBlue
+            saturdayButton.setTitleColor(UIColor.mainTextColor, for: .normal)
         }
     }
     

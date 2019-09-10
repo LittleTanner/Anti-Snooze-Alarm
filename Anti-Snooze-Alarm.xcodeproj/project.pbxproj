@@ -24,6 +24,8 @@
 		FCAD137B2328432C000F4EF5 /* LeftBrainRightBrainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAD137A2328432C000F4EF5 /* LeftBrainRightBrainViewController.swift */; };
 		FCAD137E23284ACA000F4EF5 /* SetAlarmTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAD137D23284ACA000F4EF5 /* SetAlarmTableViewController.swift */; };
 		FCAD138023285B7E000F4EF5 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAD137F23285B7E000F4EF5 /* Alarm.swift */; };
+		FCAD138223286161000F4EF5 /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAD138123286161000F4EF5 /* StyleGuide.swift */; };
+		FCAD138423286236000F4EF5 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCAD138323286236000F4EF5 /* Colors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,8 @@
 		FCAD137C2328473A000F4EF5 /* Anti-Snooze-Alarm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Anti-Snooze-Alarm.entitlements"; sourceTree = "<group>"; };
 		FCAD137D23284ACA000F4EF5 /* SetAlarmTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAlarmTableViewController.swift; sourceTree = "<group>"; };
 		FCAD137F23285B7E000F4EF5 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		FCAD138123286161000F4EF5 /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
+		FCAD138323286236000F4EF5 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,7 @@
 			children = (
 				FC5C492A2326C55B00106CB9 /* AppDelegate.swift */,
 				FC5C49342326C55B00106CB9 /* Assets.xcassets */,
+				FCAD138323286236000F4EF5 /* Colors.xcassets */,
 				FC5C49362326C55B00106CB9 /* LaunchScreen.storyboard */,
 				FC5C49392326C55B00106CB9 /* Info.plist */,
 			);
@@ -131,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				FC5C492E2326C55B00106CB9 /* Main.storyboard */,
+				FCAD138123286161000F4EF5 /* StyleGuide.swift */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -225,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC5C49382326C55B00106CB9 /* LaunchScreen.storyboard in Resources */,
+				FCAD138423286236000F4EF5 /* Colors.xcassets in Resources */,
 				FC5C49352326C55B00106CB9 /* Assets.xcassets in Resources */,
 				FC5C49302326C55B00106CB9 /* Main.storyboard in Resources */,
 			);
@@ -245,6 +252,7 @@
 				FCAD138023285B7E000F4EF5 /* Alarm.swift in Sources */,
 				FC5C49332326C55B00106CB9 /* Anti_Snooze_Alarm.xcdatamodeld in Sources */,
 				FC5C49482326CE2000106CB9 /* RangeSliderViewController.swift in Sources */,
+				FCAD138223286161000F4EF5 /* StyleGuide.swift in Sources */,
 				FCAD137723284304000F4EF5 /* MathViewController.swift in Sources */,
 				FC5C49452326CDD600106CB9 /* RangeSlider.swift in Sources */,
 				FCAD137E23284ACA000F4EF5 /* SetAlarmTableViewController.swift in Sources */,

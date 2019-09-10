@@ -247,6 +247,7 @@
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JtN-9m-aZZ">
                                                             <rect key="frame" x="0.0" y="0.0" width="46.5" height="46.5"/>
+                                                            <color key="backgroundColor" red="0.10980392156862745" green="0.20784313725490194" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="JtN-9m-aZZ" secondAttribute="height" multiplier="1:1" id="pg2-ZE-BoE"/>
                                                             </constraints>
@@ -260,7 +261,6 @@
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4q-dZ-EO8">
                                                             <rect key="frame" x="54.5" y="0.0" width="46.5" height="46.5"/>
-                                                            <color key="backgroundColor" red="0.071311362087726593" green="0.21222692728042603" blue="0.30050021409988403" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="i4q-dZ-EO8" secondAttribute="height" multiplier="1:1" id="wUb-uK-80L"/>
                                                             </constraints>
