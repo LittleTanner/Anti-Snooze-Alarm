@@ -22,6 +22,7 @@
 		FCAD137723284304000F4EF5 /* MathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAD137623284304000F4EF5 /* MathViewController.swift */; };
 		FCAD137923284315000F4EF5 /* SquaresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAD137823284315000F4EF5 /* SquaresViewController.swift */; };
 		FCAD137B2328432C000F4EF5 /* LeftBrainRightBrainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAD137A2328432C000F4EF5 /* LeftBrainRightBrainViewController.swift */; };
+		FCAD137E23284ACA000F4EF5 /* SetAlarmTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAD137D23284ACA000F4EF5 /* SetAlarmTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,8 @@
 		FCAD137623284304000F4EF5 /* MathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathViewController.swift; sourceTree = "<group>"; };
 		FCAD137823284315000F4EF5 /* SquaresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquaresViewController.swift; sourceTree = "<group>"; };
 		FCAD137A2328432C000F4EF5 /* LeftBrainRightBrainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftBrainRightBrainViewController.swift; sourceTree = "<group>"; };
+		FCAD137C2328473A000F4EF5 /* Anti-Snooze-Alarm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Anti-Snooze-Alarm.entitlements"; sourceTree = "<group>"; };
+		FCAD137D23284ACA000F4EF5 /* SetAlarmTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAlarmTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +77,7 @@
 		FC5C49292326C55B00106CB9 /* Anti-Snooze-Alarm */ = {
 			isa = PBXGroup;
 			children = (
+				FCAD137C2328473A000F4EF5 /* Anti-Snooze-Alarm.entitlements */,
 				FC5C49432326C63C00106CB9 /* Storyboards */,
 				FC5C49422326C62E00106CB9 /* View Controllers */,
 				FC5C49412326C62600106CB9 /* Model Controllers */,
@@ -115,6 +119,7 @@
 				FCAD136F23283C57000F4EF5 /* MainViewController.swift */,
 				FC5C49462326CDFF00106CB9 /* RangeSlider */,
 				FCAD13732328406B000F4EF5 /* Mini Games */,
+				FCAD137D23284ACA000F4EF5 /* SetAlarmTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -182,6 +187,14 @@
 				TargetAttributes = {
 					FC5C49262326C55B00106CB9 = {
 						CreatedOnToolsVersion = 10.3;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -230,6 +243,7 @@
 				FC5C49482326CE2000106CB9 /* RangeSliderViewController.swift in Sources */,
 				FCAD137723284304000F4EF5 /* MathViewController.swift in Sources */,
 				FC5C49452326CDD600106CB9 /* RangeSlider.swift in Sources */,
+				FCAD137E23284ACA000F4EF5 /* SetAlarmTableViewController.swift in Sources */,
 				FC5C494E2326D9DC00106CB9 /* RangeSliderTrackLayer.swift in Sources */,
 				FCAD137B2328432C000F4EF5 /* LeftBrainRightBrainViewController.swift in Sources */,
 				FC5C492B2326C55B00106CB9 /* AppDelegate.swift in Sources */,
@@ -378,6 +392,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Anti-Snooze-Alarm/Anti-Snooze-Alarm.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C39EPG5VUE;
 				INFOPLIST_FILE = "$(SRCROOT)/Anti-Snooze-Alarm/Resources/Info.plist";
@@ -396,6 +411,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Anti-Snooze-Alarm/Anti-Snooze-Alarm.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C39EPG5VUE;
 				INFOPLIST_FILE = "$(SRCROOT)/Anti-Snooze-Alarm/Resources/Info.plist";

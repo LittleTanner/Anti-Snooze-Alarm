@@ -196,7 +196,7 @@
         <!--Set Alarm-->
         <scene sceneID="1lM-Vx-Z53">
             <objects>
-                <tableViewController id="4sc-Yk-ZsX" sceneMemberID="viewController">
+                <tableViewController id="4sc-Yk-ZsX" customClass="SetAlarmTableViewController" customModule="Anti_Snooze_Alarm" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2nu-Ay-brk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -217,6 +217,9 @@
                                                     <date key="date" timeIntervalSinceReferenceDate="589757899.16182005">
                                                         <!--2019-09-09 21:38:19 +0000-->
                                                     </date>
+                                                    <connections>
+                                                        <action selector="alarmValuePickerValueChanged:" destination="4sc-Yk-ZsX" eventType="valueChanged" id="GeX-55-CBJ"/>
+                                                    </connections>
                                                 </datePicker>
                                             </subviews>
                                             <constraints>
@@ -239,61 +242,103 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="QuT-6U-bHr">
-                                                    <rect key="frame" x="20.5" y="21.5" width="373" height="41"/>
+                                                    <rect key="frame" x="20.5" y="18.5" width="373" height="46.5"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JtN-9m-aZZ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="46.5" height="41"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="46.5" height="46.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="JtN-9m-aZZ" secondAttribute="height" multiplier="1:1" id="pg2-ZE-BoE"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                                             <state key="normal" title="S">
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="sundayButtonTapped:" destination="4sc-Yk-ZsX" eventType="touchUpInside" id="1Xy-n2-ioS"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4q-dZ-EO8">
-                                                            <rect key="frame" x="54.5" y="0.0" width="46.5" height="41"/>
-                                                            <color key="backgroundColor" red="0.31417581439999998" green="0.61853557830000006" blue="0.80394870039999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <rect key="frame" x="54.5" y="0.0" width="46.5" height="46.5"/>
+                                                            <color key="backgroundColor" red="0.071311362087726593" green="0.21222692728042603" blue="0.30050021409988403" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="i4q-dZ-EO8" secondAttribute="height" multiplier="1:1" id="wUb-uK-80L"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                                             <state key="normal" title="M">
-                                                                <color key="titleColor" red="0.071311362087726593" green="0.21222692728042603" blue="0.30050021409988403" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="mondayButtonTapped:" destination="4sc-Yk-ZsX" eventType="touchUpInside" id="B1B-wO-b6C"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9k-vW-mdq">
-                                                            <rect key="frame" x="109" y="0.0" width="46.5" height="41"/>
-                                                            <color key="backgroundColor" red="0.31417581439999998" green="0.61853557830000006" blue="0.80394870039999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <rect key="frame" x="109" y="0.0" width="46.5" height="46.5"/>
+                                                            <color key="backgroundColor" red="0.071311362087726593" green="0.21222692728042603" blue="0.30050021409988403" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="r9k-vW-mdq" secondAttribute="height" multiplier="1:1" id="33f-02-AZV"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                                             <state key="normal" title="T">
-                                                                <color key="titleColor" red="0.071311362087726593" green="0.21222692728042603" blue="0.30050021409988403" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="tuesdayButtonTapped:" destination="4sc-Yk-ZsX" eventType="touchUpInside" id="R0v-cX-br3"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nU7-f0-7EE">
-                                                            <rect key="frame" x="163.5" y="0.0" width="46" height="41"/>
-                                                            <color key="backgroundColor" red="0.31417581439999998" green="0.61853557830000006" blue="0.80394870039999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <rect key="frame" x="163.5" y="0.0" width="46" height="46.5"/>
+                                                            <color key="backgroundColor" red="0.071311362087726593" green="0.21222692728042603" blue="0.30050021409988403" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="nU7-f0-7EE" secondAttribute="height" multiplier="1:1" id="ISE-yi-EA0"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                                             <state key="normal" title="W">
-                                                                <color key="titleColor" red="0.071311362087726593" green="0.21222692728042603" blue="0.30050021409988403" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="wednesdayButtonTapped:" destination="4sc-Yk-ZsX" eventType="touchUpInside" id="nVJ-Sg-kLi"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dgj-6R-aXZ">
-                                                            <rect key="frame" x="217.5" y="0.0" width="46.5" height="41"/>
-                                                            <color key="backgroundColor" red="0.31417581439999998" green="0.61853557830000006" blue="0.80394870039999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <rect key="frame" x="217.5" y="0.0" width="46.5" height="46.5"/>
+                                                            <color key="backgroundColor" red="0.071311362087726593" green="0.21222692728042603" blue="0.30050021409988403" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="Dgj-6R-aXZ" secondAttribute="height" multiplier="1:1" id="mAc-K8-KMZ"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                                             <state key="normal" title="T">
-                                                                <color key="titleColor" red="0.071311362087726593" green="0.21222692728042603" blue="0.30050021409988403" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="thursdayButtonTapped:" destination="4sc-Yk-ZsX" eventType="touchUpInside" id="LlY-cO-86G"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Luf-Ic-hQK">
-                                                            <rect key="frame" x="272" y="0.0" width="46.5" height="41"/>
-                                                            <color key="backgroundColor" red="0.31417581439999998" green="0.61853557830000006" blue="0.80394870039999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <rect key="frame" x="272" y="0.0" width="46.5" height="46.5"/>
+                                                            <color key="backgroundColor" red="0.071311362087726593" green="0.21222692728042603" blue="0.30050021409988403" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="Luf-Ic-hQK" secondAttribute="height" multiplier="1:1" id="nSn-lu-jkx"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                                             <state key="normal" title="F">
-                                                                <color key="titleColor" red="0.071311362087726593" green="0.21222692728042603" blue="0.30050021409988403" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="fridayButtonTapped:" destination="4sc-Yk-ZsX" eventType="touchUpInside" id="lG7-wh-LoY"/>
+                                                            </connections>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGR-Li-hXh">
-                                                            <rect key="frame" x="326.5" y="0.0" width="46.5" height="41"/>
+                                                            <rect key="frame" x="326.5" y="0.0" width="46.5" height="46.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="eGR-Li-hXh" secondAttribute="height" multiplier="1:1" id="Oi0-qx-bvr"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                                             <state key="normal" title="S">
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="saturdayButtonTapped:" destination="4sc-Yk-ZsX" eventType="touchUpInside" id="vUE-Cy-9hy"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
@@ -367,6 +412,16 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="jvc-A9-3Uf"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="MK5-gk-ijx"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="alarmValuePicker" destination="BLM-5n-07z" id="Lrj-2y-m2b"/>
+                        <outlet property="fridayButton" destination="Luf-Ic-hQK" id="zHD-u9-65H"/>
+                        <outlet property="mondayButton" destination="i4q-dZ-EO8" id="lsa-ai-xb3"/>
+                        <outlet property="saturdayButton" destination="eGR-Li-hXh" id="tPb-O8-hm3"/>
+                        <outlet property="sundayButton" destination="JtN-9m-aZZ" id="bKg-Kn-mjJ"/>
+                        <outlet property="thursdayButton" destination="Dgj-6R-aXZ" id="m8u-xW-SA6"/>
+                        <outlet property="tuesdayButton" destination="r9k-vW-mdq" id="gjO-YJ-To7"/>
+                        <outlet property="wednesdayButton" destination="nU7-f0-7EE" id="2M3-S6-OXc"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ofL-OV-fTy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
