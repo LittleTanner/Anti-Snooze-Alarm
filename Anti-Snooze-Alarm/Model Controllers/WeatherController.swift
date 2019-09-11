@@ -34,9 +34,9 @@ class WeatherController {
                 return
             }
             
-            if let response = response {
-                print("The response was: \(response)")
-            }
+//            if let response = response {
+//                print("The response from Weather was: \(response)")
+//            }
             
             guard let data = data else {
                 print("There was no Weather data found in \(#function).")
@@ -47,10 +47,10 @@ class WeatherController {
             let jsonDecoder = JSONDecoder()
             
             do {
-                let WeatherObject = try jsonDecoder.decode(Weather.self, from: data)
-                completion(WeatherObject)
+                let WeatherObject = try jsonDecoder.decode(WeatherTopLevel.self, from: data)
+                completion(Weather(weatherObject: WeatherObject))
             } catch {
-                print("There was an error decoding Weather JSON in \(#function).")
+                print("There was an error decoding Weather JSON in \(#function). \n Error: \(error), \n Error Localized Description: \(error.localizedDescription)")
                 completion(nil)
                 return
             }

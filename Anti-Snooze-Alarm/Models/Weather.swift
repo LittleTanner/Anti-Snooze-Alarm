@@ -26,4 +26,17 @@ class Weather: Decodable {
         self.dailyMinTemp = weatherObject.dailyWeather.data.first?.dailyMinTemperature
         self.hourlyWeatherSummary = weatherObject.hourlyWeather.hourlyWeatherSummary
     }
+    
+    enum currentWeatherIconImage: String {
+        case clearDay = "clear-day"
+        case clearNight = "clear-night"
+        case rain
+        case snow
+        case sleet
+        case wind
+        case fog
+        case cloudy
+        case partlyCloudyDay = "partly-cloudly-day"
+        case partlyCloudyNight = "partly-cloudly-night"
+    }
 }

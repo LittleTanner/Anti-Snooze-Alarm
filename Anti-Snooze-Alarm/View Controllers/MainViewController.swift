@@ -10,16 +10,78 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    // MARK: - Outlets
+    
+    @IBOutlet weak var currentWeatherIconLabel: UILabel!
+    @IBOutlet weak var currentWeatherLabel: UILabel!
+    @IBOutlet weak var currentWeatherSummaryLabel: UILabel!
+    @IBOutlet weak var currentFeelsLikeTempLabel: UILabel!
+    @IBOutlet weak var dailyTempLowLabel: UILabel!
+    @IBOutlet weak var dailyTempHighLabel: UILabel!
+    @IBOutlet weak var dayWeatherSummaryLabel: UILabel!
+    
+
+    // MARK: - Properties
+
+    // MARK: - Lifecycle Methods
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let weather = WeatherController()
+        weather.fetchWeatherForecast(latitude: 40.387880, longitude: -111.849170) { (weather) in
+            guard let weather = weather else { return }
+            
+            DispatchQueue.main.async {
+                self.currentWeatherLabel.text = "\(Int(weather.currentWeatherTemp))°"
+                self.currentWeatherSummaryLabel.text = weather.currentWeatherSummary
+                self.currentFeelsLikeTempLabel.text = "\(Int(weather.currentFeelsLikeTemp))°"
+                self.dayWeatherSummaryLabel.text = weather.hourlyWeatherSummary
+                
+                if let temperatureLow = weather.dailyMinTemp {
+                    self.dailyTempLowLabel.text = "\(Int(temperatureLow))°"
+                } else {
+                    self.dailyTempLowLabel.text = "🤷🏽‍♂️"
+                }
+                
+                if let temperatureHigh = weather.dailyMaxTemp {
+                    self.dailyTempHighLabel.text = "\(Int(temperatureHigh))°"
+                } else {
+                    self.dailyTempLowLabel.text = "🤷🏽‍♂️"
+                }
+                
+                var currentWeatherIcon = ""
+                switch weather.currentWeatherIconName {
+                case Weather.currentWeatherIconImage.clearDay.rawValue: currentWeatherIcon = "☀️"
+                case Weather.currentWeatherIconImage.clearNight.rawValue: currentWeatherIcon = "☀️"
+                case Weather.currentWeatherIconImage.rain.rawValue: currentWeatherIcon = "🌧"
+                case Weather.currentWeatherIconImage.snow.rawValue: currentWeatherIcon = "🌨"
+                case Weather.currentWeatherIconImage.sleet.rawValue: currentWeatherIcon = "🌨"
+                case Weather.currentWeatherIconImage.wind.rawValue: currentWeatherIcon = "💨"
+                case Weather.currentWeatherIconImage.fog.rawValue: currentWeatherIcon = "🌫"
+                case Weather.currentWeatherIconImage.cloudy.rawValue: currentWeatherIcon = "☁️"
+                case Weather.currentWeatherIconImage.partlyCloudyDay.rawValue: currentWeatherIcon = "🌥"
+                case Weather.currentWeatherIconImage.partlyCloudyNight.rawValue: currentWeatherIcon = "🌥"
+                default: currentWeatherIcon = "🤷🏽‍♂️"
+                }
+                
+                
+                self.currentWeatherIconLabel.text = currentWeatherIcon
+                
+            }
+        }
+        
         // Do any additional setup after loading the view.
     }
     
+    // MARK: - Actions
+
     @IBAction func presentAlertControllerButtonTapped(_ sender: Any) {
         presentAlarmAlert()
     }
     
+    // MARK: - Custom Methods
+
     func presentAlarmAlert() {
         // Create alert controller
         let alertController = UIAlertController(title: "It's Time To Wake Up!", message: "When ready click start below to get started", preferredStyle: .alert)
