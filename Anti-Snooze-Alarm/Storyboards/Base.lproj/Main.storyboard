@@ -151,25 +151,25 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="tg3-31-bkM">
-                                <rect key="frame" x="0.0" y="132" width="414" height="133"/>
+                                <rect key="frame" x="0.0" y="132" width="414" height="189"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="2tC-nv-3tz">
                                         <rect key="frame" x="20.5" y="0.0" width="373" height="60"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="☀️" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j7p-n1-MQ1">
-                                                <rect key="frame" x="0.0" y="0.0" width="71" height="60"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="68.5" height="60"/>
                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="50"/>
                                                 <color key="textColor" name="mainText"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="102°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3G7-oQ-uwz">
-                                                <rect key="frame" x="71" y="0.0" width="126" height="60"/>
+                                                <rect key="frame" x="68.5" y="0.0" width="121" height="60"/>
                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="50"/>
                                                 <color key="textColor" name="mainText"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmx-Zp-JdH">
-                                                <rect key="frame" x="197" y="0.0" width="176" height="60"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Current Summary)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hmx-Zp-JdH">
+                                                <rect key="frame" x="189.5" y="0.0" width="183.5" height="60"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                 <color key="textColor" name="mainText"/>
                                                 <nil key="highlightedColor"/>
@@ -238,6 +238,19 @@
                                         <color key="textColor" name="mainText"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YRH-Wa-dIW">
+                                        <rect key="frame" x="118.5" y="149" width="177" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="YRH-Wa-dIW" secondAttribute="height" multiplier="3350:759" id="2XU-kD-tfl"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="9TQ-Cj-eD9"/>
+                                        </constraints>
+                                        <state key="normal" title="Powered by Dark Sky" image="poweredByDarkSky">
+                                            <color key="titleColor" name="mainText"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="poweredByDarkSkyButtonTapped:" destination="lSY-zc-XCT" eventType="touchUpInside" id="cd6-AM-Kce"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="lO1-yV-mH3" firstAttribute="width" secondItem="tg3-31-bkM" secondAttribute="width" multiplier="0.9" id="Eeb-bi-0oT"/>
@@ -676,6 +689,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="poweredByDarkSky" width="3350" height="759"/>
         <namedColor name="mainText">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

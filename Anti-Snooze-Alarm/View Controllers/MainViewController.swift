@@ -23,6 +23,7 @@ class MainViewController: UIViewController {
     
 
     // MARK: - Properties
+    
     let locationManager = CLLocationManager()
     var userLatitude: CLLocationDegrees = 0.0
     var userLongitude: CLLocationDegrees = 0.0
@@ -40,51 +41,6 @@ class MainViewController: UIViewController {
             locationManager.startUpdatingLocation()
             print("Inside the location services enabled")
         }
-        
-        
-//        let weather = WeatherController()
-//
-//        weather.fetchWeatherForecast(latitude: userLatitude, longitude: userLongitude) { (weather) in
-//            guard let weather = weather else { return }
-//
-//            DispatchQueue.main.async {
-//                self.currentWeatherLabel.text = "\(Int(weather.currentWeatherTemp))°"
-//                self.currentWeatherSummaryLabel.text = weather.currentWeatherSummary
-//                self.currentFeelsLikeTempLabel.text = "\(Int(weather.currentFeelsLikeTemp))°"
-//                self.dayWeatherSummaryLabel.text = weather.hourlyWeatherSummary
-//
-//                if let temperatureLow = weather.dailyMinTemp {
-//                    self.dailyTempLowLabel.text = "\(Int(temperatureLow))°"
-//                } else {
-//                    self.dailyTempLowLabel.text = "🤷🏼‍♂️"
-//                }
-//
-//                if let temperatureHigh = weather.dailyMaxTemp {
-//                    self.dailyTempHighLabel.text = "\(Int(temperatureHigh))°"
-//                } else {
-//                    self.dailyTempLowLabel.text = "🤷🏼‍♂️"
-//                }
-//
-//                var currentWeatherIcon = ""
-//                switch weather.currentWeatherIconName {
-//                case Weather.currentWeatherIconImage.clearDay.rawValue: currentWeatherIcon = "☀️"
-//                case Weather.currentWeatherIconImage.clearNight.rawValue: currentWeatherIcon = "☀️"
-//                case Weather.currentWeatherIconImage.rain.rawValue: currentWeatherIcon = "🌧"
-//                case Weather.currentWeatherIconImage.snow.rawValue: currentWeatherIcon = "🌨"
-//                case Weather.currentWeatherIconImage.sleet.rawValue: currentWeatherIcon = "🌨"
-//                case Weather.currentWeatherIconImage.wind.rawValue: currentWeatherIcon = "💨"
-//                case Weather.currentWeatherIconImage.fog.rawValue: currentWeatherIcon = "🌫"
-//                case Weather.currentWeatherIconImage.cloudy.rawValue: currentWeatherIcon = "☁️"
-//                case Weather.currentWeatherIconImage.partlyCloudyDay.rawValue: currentWeatherIcon = "🌥"
-//                case Weather.currentWeatherIconImage.partlyCloudyNight.rawValue: currentWeatherIcon = "🌥"
-//                default: currentWeatherIcon = "🤷🏼‍♂️"
-//                }
-//
-//                self.currentWeatherIconLabel.text = currentWeatherIcon
-//            }
-//        }
-        
-        // Do any additional setup after loading the view.
     }
     
     // MARK: - Actions
@@ -92,6 +48,13 @@ class MainViewController: UIViewController {
     @IBAction func presentAlertControllerButtonTapped(_ sender: Any) {
         presentAlarmAlert()
     }
+    
+    @IBAction func poweredByDarkSkyButtonTapped(_ sender: Any) {
+        if let darkSkyURL = URL(string: "https://darksky.net/poweredby/") {
+            UIApplication.shared.open(darkSkyURL, options: [:], completionHandler: nil)
+        }
+    }
+    
     
     // MARK: - Custom Methods
 
