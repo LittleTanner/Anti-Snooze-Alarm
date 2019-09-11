@@ -11,6 +11,7 @@ import UIKit
 class SetAlarmTableViewController: UITableViewController {
 
     // MARK: - Outlets
+    
     @IBOutlet weak var alarmValuePicker: UIDatePicker!
     @IBOutlet weak var sundayButton: UIButton!
     @IBOutlet weak var mondayButton: UIButton!
@@ -22,6 +23,7 @@ class SetAlarmTableViewController: UITableViewController {
     
     
     // MARK: - Properties
+    
     var alarmValue: Date?
     
     var sundayButtonIsSelected = false
@@ -41,6 +43,7 @@ class SetAlarmTableViewController: UITableViewController {
     }
 
     // MARK: - Actions
+    
     @IBAction func alarmValuePickerValueChanged(_ sender: Any) {
         print("Alarm Time changed to: \(alarmValuePicker.date)")
     }
@@ -57,7 +60,6 @@ class SetAlarmTableViewController: UITableViewController {
             sundayButton.backgroundColor = UIColor.darkBlue
             sundayButton.setTitleColor(UIColor.mainTextColor, for: .normal)
         }
-        
     }
     
     @IBAction func mondayButtonTapped(_ sender: Any) {
@@ -147,7 +149,6 @@ class SetAlarmTableViewController: UITableViewController {
     
     // MARK: - Custom Methods
 
-
     func setsUpUI() {
         // Changes the alarm color picker color to white
         alarmValuePicker.setValue(UIColor.white, forKey: "textColor")
@@ -163,4 +164,4 @@ class SetAlarmTableViewController: UITableViewController {
     }
    
 
-}
+} // End of class

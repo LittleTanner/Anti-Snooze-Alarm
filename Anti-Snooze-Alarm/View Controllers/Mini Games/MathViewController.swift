@@ -13,6 +13,7 @@ class MathViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        view.backgroundColor = UIColor.darkBlue
         // Do any additional setup after loading the view.
     }
     
