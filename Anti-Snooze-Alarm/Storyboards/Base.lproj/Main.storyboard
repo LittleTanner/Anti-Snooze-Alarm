@@ -29,7 +29,7 @@
         <!--Anti-Snooze-->
         <scene sceneID="NuF-LD-x3R">
             <objects>
-                <viewController id="lSY-zc-XCT" customClass="MainViewController" customModule="Anti_Snooze_Alarm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainStoryboard" id="lSY-zc-XCT" customClass="MainViewController" customModule="Anti_Snooze_Alarm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="us0-SG-Vhd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -557,21 +557,106 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Memorize Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BgO-S5-eYx">
-                                <rect key="frame" x="136" y="120" width="142" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Memorize Number" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BgO-S5-eYx">
+                                <rect key="frame" x="0.0" y="48.5" width="414" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="90" id="uEo-XI-j4n"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
+                                <color key="textColor" name="mainText"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="npF-kG-fXz">
+                                <rect key="frame" x="103.5" y="434" width="207" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="m37-LK-Z5e"/>
+                                </constraints>
                                 <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="yNm-Bx-3t2">
+                                <rect key="frame" x="41.5" y="521" width="331" height="45"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u6p-xz-op6">
+                                        <rect key="frame" x="0.0" y="0.0" width="157.5" height="45"/>
+                                        <color key="backgroundColor" name="mainText"/>
+                                        <state key="normal" title="Forgot?">
+                                            <color key="titleColor" name="darkBlue"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="forgotNumberButtonTapped:" destination="DEw-tw-U5f" eventType="touchUpInside" id="xNU-cK-YuA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lqP-3G-OLG">
+                                        <rect key="frame" x="173.5" y="0.0" width="157.5" height="45"/>
+                                        <color key="backgroundColor" name="blueAccent"/>
+                                        <state key="normal" title="Enter">
+                                            <color key="titleColor" name="mainText"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="enterButtonTapped:" destination="DEw-tw-U5f" eventType="touchUpInside" id="38a-ea-T4g"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZsR-st-gDg">
+                                <rect key="frame" x="20.5" y="152" width="373" height="107.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Memorize the number below and be prepared to input it into the text field below in:" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMI-1C-GNn">
+                                        <rect key="frame" x="0.0" y="0.0" width="182.5" height="107.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                        <color key="textColor" name="mainText"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Po0-zu-XJC">
+                                        <rect key="frame" x="190.5" y="0.0" width="182.5" height="107.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="35"/>
+                                        <color key="textColor" name="blueAccent"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12345" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZpN-da-kW4">
+                                <rect key="frame" x="41.5" y="272.5" width="331" height="140.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="65"/>
+                                <color key="textColor" name="mainText"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="darkBlue"/>
+                        <constraints>
+                            <constraint firstItem="yNm-Bx-3t2" firstAttribute="centerY" secondItem="B0q-Be-i0C" secondAttribute="centerY" multiplier="1.2" id="AOK-BL-TCJ"/>
+                            <constraint firstItem="yNm-Bx-3t2" firstAttribute="height" secondItem="5iS-Pd-IMH" secondAttribute="height" multiplier="0.05" id="BEK-AW-g0g"/>
+                            <constraint firstItem="npF-kG-fXz" firstAttribute="top" secondItem="ZpN-da-kW4" secondAttribute="bottom" multiplier="1.05" id="BT3-mk-x5Q"/>
+                            <constraint firstItem="BgO-S5-eYx" firstAttribute="centerX" secondItem="B0q-Be-i0C" secondAttribute="centerX" id="Bke-vb-KxC"/>
+                            <constraint firstItem="ZsR-st-gDg" firstAttribute="width" secondItem="5iS-Pd-IMH" secondAttribute="width" multiplier="0.9" id="G90-9k-voG"/>
+                            <constraint firstItem="npF-kG-fXz" firstAttribute="centerX" secondItem="B0q-Be-i0C" secondAttribute="centerX" id="HbV-bv-eDN"/>
+                            <constraint firstItem="BgO-S5-eYx" firstAttribute="top" secondItem="B0q-Be-i0C" secondAttribute="top" multiplier="1.1" id="L8C-kY-v1m"/>
+                            <constraint firstItem="yNm-Bx-3t2" firstAttribute="top" secondItem="npF-kG-fXz" secondAttribute="bottom" multiplier="1.1" id="Suo-eZ-hLM"/>
+                            <constraint firstItem="npF-kG-fXz" firstAttribute="width" secondItem="5iS-Pd-IMH" secondAttribute="width" multiplier="0.5" id="TJ8-lI-EiL"/>
+                            <constraint firstItem="BgO-S5-eYx" firstAttribute="width" secondItem="5iS-Pd-IMH" secondAttribute="width" id="Uv4-va-iZ1"/>
+                            <constraint firstItem="yNm-Bx-3t2" firstAttribute="centerX" secondItem="B0q-Be-i0C" secondAttribute="centerX" id="VDQ-4p-bpO"/>
+                            <constraint firstItem="ZsR-st-gDg" firstAttribute="centerX" secondItem="B0q-Be-i0C" secondAttribute="centerX" id="YO0-yt-jVL"/>
+                            <constraint firstItem="ZsR-st-gDg" firstAttribute="top" secondItem="BgO-S5-eYx" secondAttribute="bottom" multiplier="1.1" id="fGl-nt-Cm3"/>
+                            <constraint firstItem="ZpN-da-kW4" firstAttribute="width" secondItem="5iS-Pd-IMH" secondAttribute="width" multiplier="0.8" id="hxC-kM-xCL"/>
+                            <constraint firstItem="ZpN-da-kW4" firstAttribute="centerX" secondItem="B0q-Be-i0C" secondAttribute="centerX" id="j0l-P5-1CG"/>
+                            <constraint firstItem="yNm-Bx-3t2" firstAttribute="width" secondItem="5iS-Pd-IMH" secondAttribute="width" multiplier="0.8" id="rYF-pu-r8F"/>
+                            <constraint firstItem="ZpN-da-kW4" firstAttribute="top" secondItem="ZsR-st-gDg" secondAttribute="bottom" multiplier="1.05" id="tlH-kQ-mUX"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="B0q-Be-i0C"/>
                     </view>
+                    <connections>
+                        <outlet property="countdownLabel" destination="Po0-zu-XJC" id="M5X-3u-ACB"/>
+                        <outlet property="enterButton" destination="lqP-3G-OLG" id="lhj-b7-MFK"/>
+                        <outlet property="forgotNumberButton" destination="u6p-xz-op6" id="vFY-vV-LAD"/>
+                        <outlet property="numberTextField" destination="npF-kG-fXz" id="1Bs-nO-j5L"/>
+                        <outlet property="randomNumberLabel" destination="ZpN-da-kW4" id="7Np-B8-x4Q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JiI-Ll-prH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3206" y="852"/>
+            <point key="canvasLocation" x="3205.7971014492755" y="851.78571428571422"/>
         </scene>
         <!--Word Of The Day View Controller-->
         <scene sceneID="wNW-HT-2GW">
@@ -690,6 +775,12 @@
     </scenes>
     <resources>
         <image name="poweredByDarkSky" width="3350" height="759"/>
+        <namedColor name="blueAccent">
+            <color red="0.15686274509803921" green="0.66666666666666663" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="darkBlue">
+            <color red="0.10980392156862745" green="0.20784313725490197" blue="0.29411764705882354" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="mainText">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

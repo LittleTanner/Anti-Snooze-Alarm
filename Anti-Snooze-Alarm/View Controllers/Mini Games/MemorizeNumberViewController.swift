@@ -10,12 +10,91 @@ import UIKit
 
 class MemorizeNumberViewController: UIViewController {
 
+    // MARK: - Outlets
+    @IBOutlet weak var countdownLabel: UILabel!
+    @IBOutlet weak var randomNumberLabel: UILabel!
+    @IBOutlet weak var numberTextField: UITextField!
+    @IBOutlet weak var forgotNumberButton: UIButton!
+    @IBOutlet weak var enterButton: UIButton!
+    
+    
+    // MARK: - Properties
+    var randomNumber = Int.random(in: 10000...99999)
+    var seconds = 4
+    var countdownTimer = Timer()
+    var isTimerRunning = true
+    
+    // MARK: - Lifecycle Methods
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setsUpUI()
+        runTimer()
     }
     
+    
+    // MARK: - Actions
+    @IBAction func forgotNumberButtonTapped(_ sender: Any) {
+        randomNumber = Int.random(in: 10000...99999)
+        randomNumberLabel.text = String(randomNumber)
+        seconds = 5
+        runTimer()
+    }
+    
+    @IBAction func enterButtonTapped(_ sender: Any) {
+        guard let inputNumberText = numberTextField.text else { return }
+        
+        if inputNumberText == String(randomNumber) {
+            print("Correct")
+            
+            // Create an instance of the main storyboard
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            // Create an instance of the view controller
+            let controller = storyboard.instantiateViewController(withIdentifier: "mainStoryboard")
+            // Present the user with the random mini game view controller
+            self.present(controller, animated: true, completion: nil)
+            
+            
+        } else {
+            print("Incorrect")
+        }
+    }
+    
+    // MARK: - Custom Methods
+    
+    func setsUpUI() {
+        self.view.backgroundColor = UIColor.darkBlue
+        randomNumberLabel.text = String(randomNumber)
+        forgotNumberButton.isHidden = true
+        enterButton.isHidden = true
+        numberTextField.isHidden = true
+    }
+    
+    func runTimer() {
+        countdownTimer.invalidate()
+        countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(updateTimer)), userInfo: nil, repeats: true)
+    }
+
+    @objc func updateTimer() {
+        seconds -= 1
+        
+        if seconds >= 0 {
+            randomNumberLabel.isHidden = false
+            countdownLabel.text = String(seconds)
+            numberTextField.isHidden = true
+            forgotNumberButton.isHidden = true
+            enterButton.isHidden = true
+        } else {
+            randomNumberLabel.isHidden = true
+            numberTextField.isHidden = false
+            forgotNumberButton.isHidden = false
+            enterButton.isHidden = false
+            countdownTimer.invalidate()
+        }
+    }
+    
+
 
     /*
     // MARK: - Navigation

@@ -71,9 +71,10 @@ class MainViewController: UIViewController {
             // Create a random number
             let randomNumber = Int.random(in: 0...4)
             // Create an array of the view controller's identifier mini game names
-            let arrayOfMiniGames = ["MemorizeNumberGame", "WordOfTheDayGame", "MathGame", "SquaresGame", "LeftBrainRightBrainGame"]
+            // let arrayOfMiniGames = ["MemorizeNumberGame", "WordOfTheDayGame", "MathGame", "SquaresGame", "LeftBrainRightBrainGame"]
             // Create an instance of the view controller
-            let controller = storyboard.instantiateViewController(withIdentifier: arrayOfMiniGames[randomNumber])
+            let controller = storyboard.instantiateViewController(withIdentifier: "MemorizeNumberGame")
+//            let controller = storyboard.instantiateViewController(withIdentifier: arrayOfMiniGames[randomNumber])
             // Present the user with the random mini game view controller
             self.present(controller, animated: true, completion: nil)
         }
