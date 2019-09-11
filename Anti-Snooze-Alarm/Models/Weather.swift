@@ -36,7 +36,7 @@ class Weather: Decodable {
         case wind
         case fog
         case cloudy
-        case partlyCloudyDay = "partly-cloudly-day"
-        case partlyCloudyNight = "partly-cloudly-night"
+        case partlyCloudyDay = "partly-cloudy-day"
+        case partlyCloudyNight = "partly-cloudy-night"
     }
 }

@@ -7,12 +7,13 @@
 //
 
 import Foundation
+import CoreLocation
 
 class WeatherController {
     // URL to create
     // https://api.darksky.net/forecast/83e3034647d9444ddd308d1ba30f44f2/37.8267,-122.4233
     
-    func fetchWeatherForecast(latitude: Double, longitude: Double, completion: @escaping (Weather?) -> Void) {
+    func fetchWeatherForecast(latitude: CLLocationDegrees, longitude: CLLocationDegrees, completion: @escaping (Weather?) -> Void) {
         
         guard let baseURL = URL(string: "https://api.darksky.net/forecast") else {
             completion(nil)

@@ -39,5 +39,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Requesting access to your location to provide local weather forecasts.</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Requesting access to your location to provide local weather forecasts.</string>
 </dict>
 </plist>

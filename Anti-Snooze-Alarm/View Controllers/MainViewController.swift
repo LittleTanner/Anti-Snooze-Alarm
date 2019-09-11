@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class MainViewController: UIViewController {
 
@@ -22,54 +23,66 @@ class MainViewController: UIViewController {
     
 
     // MARK: - Properties
-
+    let locationManager = CLLocationManager()
+    var userLatitude: CLLocationDegrees = 0.0
+    var userLongitude: CLLocationDegrees = 0.0
+    
     // MARK: - Lifecycle Methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let weather = WeatherController()
-        weather.fetchWeatherForecast(latitude: 40.387880, longitude: -111.849170) { (weather) in
-            guard let weather = weather else { return }
-            
-            DispatchQueue.main.async {
-                self.currentWeatherLabel.text = "\(Int(weather.currentWeatherTemp))°"
-                self.currentWeatherSummaryLabel.text = weather.currentWeatherSummary
-                self.currentFeelsLikeTempLabel.text = "\(Int(weather.currentFeelsLikeTemp))°"
-                self.dayWeatherSummaryLabel.text = weather.hourlyWeatherSummary
-                
-                if let temperatureLow = weather.dailyMinTemp {
-                    self.dailyTempLowLabel.text = "\(Int(temperatureLow))°"
-                } else {
-                    self.dailyTempLowLabel.text = "🤷🏽‍♂️"
-                }
-                
-                if let temperatureHigh = weather.dailyMaxTemp {
-                    self.dailyTempHighLabel.text = "\(Int(temperatureHigh))°"
-                } else {
-                    self.dailyTempLowLabel.text = "🤷🏽‍♂️"
-                }
-                
-                var currentWeatherIcon = ""
-                switch weather.currentWeatherIconName {
-                case Weather.currentWeatherIconImage.clearDay.rawValue: currentWeatherIcon = "☀️"
-                case Weather.currentWeatherIconImage.clearNight.rawValue: currentWeatherIcon = "☀️"
-                case Weather.currentWeatherIconImage.rain.rawValue: currentWeatherIcon = "🌧"
-                case Weather.currentWeatherIconImage.snow.rawValue: currentWeatherIcon = "🌨"
-                case Weather.currentWeatherIconImage.sleet.rawValue: currentWeatherIcon = "🌨"
-                case Weather.currentWeatherIconImage.wind.rawValue: currentWeatherIcon = "💨"
-                case Weather.currentWeatherIconImage.fog.rawValue: currentWeatherIcon = "🌫"
-                case Weather.currentWeatherIconImage.cloudy.rawValue: currentWeatherIcon = "☁️"
-                case Weather.currentWeatherIconImage.partlyCloudyDay.rawValue: currentWeatherIcon = "🌥"
-                case Weather.currentWeatherIconImage.partlyCloudyNight.rawValue: currentWeatherIcon = "🌥"
-                default: currentWeatherIcon = "🤷🏽‍♂️"
-                }
-                
-                
-                self.currentWeatherIconLabel.text = currentWeatherIcon
-                
-            }
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
+            locationManager.startUpdatingLocation()
+            print("Inside the location services enabled")
         }
+        
+        
+//        let weather = WeatherController()
+//
+//        weather.fetchWeatherForecast(latitude: userLatitude, longitude: userLongitude) { (weather) in
+//            guard let weather = weather else { return }
+//
+//            DispatchQueue.main.async {
+//                self.currentWeatherLabel.text = "\(Int(weather.currentWeatherTemp))°"
+//                self.currentWeatherSummaryLabel.text = weather.currentWeatherSummary
+//                self.currentFeelsLikeTempLabel.text = "\(Int(weather.currentFeelsLikeTemp))°"
+//                self.dayWeatherSummaryLabel.text = weather.hourlyWeatherSummary
+//
+//                if let temperatureLow = weather.dailyMinTemp {
+//                    self.dailyTempLowLabel.text = "\(Int(temperatureLow))°"
+//                } else {
+//                    self.dailyTempLowLabel.text = "🤷🏼‍♂️"
+//                }
+//
+//                if let temperatureHigh = weather.dailyMaxTemp {
+//                    self.dailyTempHighLabel.text = "\(Int(temperatureHigh))°"
+//                } else {
+//                    self.dailyTempLowLabel.text = "🤷🏼‍♂️"
+//                }
+//
+//                var currentWeatherIcon = ""
+//                switch weather.currentWeatherIconName {
+//                case Weather.currentWeatherIconImage.clearDay.rawValue: currentWeatherIcon = "☀️"
+//                case Weather.currentWeatherIconImage.clearNight.rawValue: currentWeatherIcon = "☀️"
+//                case Weather.currentWeatherIconImage.rain.rawValue: currentWeatherIcon = "🌧"
+//                case Weather.currentWeatherIconImage.snow.rawValue: currentWeatherIcon = "🌨"
+//                case Weather.currentWeatherIconImage.sleet.rawValue: currentWeatherIcon = "🌨"
+//                case Weather.currentWeatherIconImage.wind.rawValue: currentWeatherIcon = "💨"
+//                case Weather.currentWeatherIconImage.fog.rawValue: currentWeatherIcon = "🌫"
+//                case Weather.currentWeatherIconImage.cloudy.rawValue: currentWeatherIcon = "☁️"
+//                case Weather.currentWeatherIconImage.partlyCloudyDay.rawValue: currentWeatherIcon = "🌥"
+//                case Weather.currentWeatherIconImage.partlyCloudyNight.rawValue: currentWeatherIcon = "🌥"
+//                default: currentWeatherIcon = "🤷🏼‍♂️"
+//                }
+//
+//                self.currentWeatherIconLabel.text = currentWeatherIcon
+//            }
+//        }
         
         // Do any additional setup after loading the view.
     }
@@ -119,4 +132,56 @@ class MainViewController: UIViewController {
     }
     */
 
+} // End of class
+
+
+extension MainViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let currentLocation: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        print("The user's current location is at latitude: \(currentLocation.latitude) and longitude: \(currentLocation.longitude)")
+        userLatitude = currentLocation.latitude
+        userLongitude = currentLocation.longitude
+        
+        let weather = WeatherController()
+        
+        self.locationManager.stopUpdatingLocation()
+        weather.fetchWeatherForecast(latitude: userLatitude, longitude: userLongitude) { (weather) in
+            guard let weather = weather else { return }
+            DispatchQueue.main.async {
+                self.currentWeatherLabel.text = "\(Int(weather.currentWeatherTemp))°"
+                self.currentWeatherSummaryLabel.text = weather.currentWeatherSummary
+                self.currentFeelsLikeTempLabel.text = "\(Int(weather.currentFeelsLikeTemp))°"
+                self.dayWeatherSummaryLabel.text = weather.hourlyWeatherSummary
+                
+                if let temperatureLow = weather.dailyMinTemp {
+                    self.dailyTempLowLabel.text = "\(Int(temperatureLow))°"
+                } else {
+                    self.dailyTempLowLabel.text = "🤷🏼‍♂️"
+                }
+                
+                if let temperatureHigh = weather.dailyMaxTemp {
+                    self.dailyTempHighLabel.text = "\(Int(temperatureHigh))°"
+                } else {
+                    self.dailyTempLowLabel.text = "🤷🏼‍♂️"
+                }
+                
+                var currentWeatherIcon = ""
+                switch weather.currentWeatherIconName {
+                case Weather.currentWeatherIconImage.clearDay.rawValue: currentWeatherIcon = "☀️"
+                case Weather.currentWeatherIconImage.clearNight.rawValue: currentWeatherIcon = "☀️"
+                case Weather.currentWeatherIconImage.rain.rawValue: currentWeatherIcon = "🌧"
+                case Weather.currentWeatherIconImage.snow.rawValue: currentWeatherIcon = "🌨"
+                case Weather.currentWeatherIconImage.sleet.rawValue: currentWeatherIcon = "🌨"
+                case Weather.currentWeatherIconImage.wind.rawValue: currentWeatherIcon = "💨"
+                case Weather.currentWeatherIconImage.fog.rawValue: currentWeatherIcon = "🌫"
+                case Weather.currentWeatherIconImage.cloudy.rawValue: currentWeatherIcon = "☁️"
+                case Weather.currentWeatherIconImage.partlyCloudyDay.rawValue: currentWeatherIcon = "🌥"
+                case Weather.currentWeatherIconImage.partlyCloudyNight.rawValue: currentWeatherIcon = "🌥"
+                default: currentWeatherIcon = "🤷🏼‍♂️"
+                }
+                
+                self.currentWeatherIconLabel.text = currentWeatherIcon
+            }
+        }
+    }
 }
