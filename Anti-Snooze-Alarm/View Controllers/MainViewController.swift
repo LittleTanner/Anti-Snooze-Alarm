@@ -32,6 +32,7 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setsUpUI()
 
         self.locationManager.requestWhenInUseAuthorization()
         
@@ -57,6 +58,13 @@ class MainViewController: UIViewController {
     
     
     // MARK: - Custom Methods
+    
+    func setsUpUI() {
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.barTintColor = UIColor.darkBlue
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.mainTextColor ?? UIColor.darkGray]
+        navigationController?.navigationBar.tintColor = UIColor.blueAccent
+    }
 
     func presentAlarmAlert() {
         // Create alert controller
