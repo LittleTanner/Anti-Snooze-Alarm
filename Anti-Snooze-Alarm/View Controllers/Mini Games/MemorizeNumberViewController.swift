@@ -17,7 +17,6 @@ class MemorizeNumberViewController: UIViewController {
     @IBOutlet weak var forgotNumberButton: UIButton!
     @IBOutlet weak var enterButton: UIButton!
     
-    
     // MARK: - Properties
     var randomNumber = Int.random(in: 10000...99999)
     var seconds = 4
@@ -25,14 +24,11 @@ class MemorizeNumberViewController: UIViewController {
     var isTimerRunning = true
     
     // MARK: - Lifecycle Methods
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setsUpUI()
         runTimer()
     }
-    
     
     // MARK: - Actions
     @IBAction func forgotNumberButtonTapped(_ sender: Any) {
@@ -51,18 +47,20 @@ class MemorizeNumberViewController: UIViewController {
             // Create an instance of the main storyboard
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             // Create an instance of the view controller
-            let controller = storyboard.instantiateViewController(withIdentifier: "mainStoryboard")
+            let controller = storyboard.instantiateViewController(withIdentifier: "mainNavigationController")
             // Present the user with the random mini game view controller
             self.present(controller, animated: true, completion: nil)
-            
             
         } else {
             print("Incorrect")
         }
     }
     
-    // MARK: - Custom Methods
-    
+    // MARK: - UI Adjustments
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
     func setsUpUI() {
         self.view.backgroundColor = UIColor.darkBlue
         randomNumberLabel.text = String(randomNumber)
@@ -71,6 +69,7 @@ class MemorizeNumberViewController: UIViewController {
         numberTextField.isHidden = true
     }
     
+    // MARK: - Custom Methods
     func runTimer() {
         countdownTimer.invalidate()
         countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(updateTimer)), userInfo: nil, repeats: true)
@@ -93,17 +92,4 @@ class MemorizeNumberViewController: UIViewController {
             countdownTimer.invalidate()
         }
     }
-    
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
+} // End of class
