@@ -10,7 +10,7 @@ import Foundation
 
 class Alarm {
     
-    enum daysOfWeek {
+    enum daysOfWeek: String {
         case sunday
         case monday
         case wednesday
@@ -23,11 +23,18 @@ class Alarm {
     var daysOfWeek: [String]
     var alarmSound: String
     var alarmVolume: Int
+    var isEnabled: Bool
+    var alarmTimeAsString: String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .short
+        return dateFormatter.string(from: alarmTime)
+    }
     
-    init(alarmTime: Date, daysOfWeek: [String], alarmSound: String = "default", alarmVolume: Int) {
+    init(alarmTime: Date, daysOfWeek: [String], alarmSound: String = "default", alarmVolume: Int, isEnabled: Bool = true) {
         self.alarmTime = alarmTime
         self.daysOfWeek = daysOfWeek
         self.alarmSound = alarmSound
         self.alarmVolume = alarmVolume
+        self.isEnabled = isEnabled
     }
 }

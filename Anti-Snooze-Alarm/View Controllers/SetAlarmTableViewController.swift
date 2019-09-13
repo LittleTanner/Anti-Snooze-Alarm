@@ -33,6 +33,8 @@ class SetAlarmTableViewController: UITableViewController {
     var thursdayButtonIsSelected = false
     var fridayButtonIsSelected = false
     var saturdayButtonIsSelected = false
+    
+    var daysOfTheWeekSelected: [String] = []
 
     // MARK: - Lifecycle Methods
 
@@ -46,6 +48,10 @@ class SetAlarmTableViewController: UITableViewController {
     
     @IBAction func alarmValuePickerValueChanged(_ sender: Any) {
         print("Alarm Time changed to: \(alarmValuePicker.date)")
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .short
+        dateFormatter.string(from: alarmValuePicker.date)
+        print("Formatted Alarm Time changed to: \(dateFormatter.string(from: alarmValuePicker.date))")
     }
     
     @IBAction func sundayButtonTapped(_ sender: Any) {
@@ -56,6 +62,7 @@ class SetAlarmTableViewController: UITableViewController {
         if sundayButtonIsSelected == true {
             sundayButton.backgroundColor = UIColor.blueAccent
             sundayButton.setTitleColor(UIColor.darkBlue, for: .normal)
+            daysOfTheWeekSelected.append(Alarm.daysOfWeek.sunday.rawValue)
         } else {
             sundayButton.backgroundColor = UIColor.darkBlue
             sundayButton.setTitleColor(UIColor.mainTextColor, for: .normal)
@@ -145,6 +152,13 @@ class SetAlarmTableViewController: UITableViewController {
             saturdayButton.setTitleColor(UIColor.mainTextColor, for: .normal)
         }
     }
+    
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        AlarmController.sharedInstance.createAlarm(alarmTime: alarmValuePicker.date, daysOfWeek: daysOfTheWeekSelected, alarmSound: "default", alarmVolume: 1)
+        
+        navigationController?.popViewController(animated: true)
+    }
+    
     
     
     // MARK: - Custom Methods

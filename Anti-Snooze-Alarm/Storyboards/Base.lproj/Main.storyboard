@@ -272,7 +272,7 @@
                         <viewLayoutGuide key="safeArea" id="3TT-lZ-U2O"/>
                     </view>
                     <navigationItem key="navigationItem" title="Anti-Snooze" id="IsP-dE-pZA">
-                        <barButtonItem key="leftBarButtonItem" title="Settings Gear" id="e1C-hO-8gp">
+                        <barButtonItem key="leftBarButtonItem" title="⚙︎" id="e1C-hO-8gp">
                             <color key="tintColor" red="0.31417581439999998" green="0.61853557830000006" blue="0.80394870039999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <segue destination="jtt-qf-AbN" kind="show" id="9pM-8W-rGC"/>
@@ -286,6 +286,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="alarmAMOrPMLabel" destination="8DY-Gi-Ijy" id="hgH-Zr-TMe"/>
+                        <outlet property="alarmHourLabel" destination="ymO-3m-MId" id="otL-wt-Oo5"/>
+                        <outlet property="alarmMinuteLabel" destination="B3X-tS-vSR" id="0FV-01-AxR"/>
                         <outlet property="currentFeelsLikeTempLabel" destination="hcB-eq-fVt" id="0R0-8V-C4f"/>
                         <outlet property="currentWeatherIconLabel" destination="j7p-n1-MQ1" id="g44-mi-ESV"/>
                         <outlet property="currentWeatherLabel" destination="3G7-oQ-uwz" id="9eE-Xd-MdY"/>
@@ -533,7 +536,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Set Alarm" id="twF-BQ-VbM">
                         <barButtonItem key="backBarButtonItem" title="Back" id="jvc-A9-3Uf"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="MK5-gk-ijx"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="MK5-gk-ijx">
+                            <connections>
+                                <action selector="saveButtonTapped:" destination="4sc-Yk-ZsX" id="jUC-fv-rR0"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="alarmValuePicker" destination="BLM-5n-07z" id="Lrj-2y-m2b"/>

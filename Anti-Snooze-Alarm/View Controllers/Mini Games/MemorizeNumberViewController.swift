@@ -18,7 +18,7 @@ class MemorizeNumberViewController: UIViewController {
     @IBOutlet weak var enterButton: UIButton!
     
     // MARK: - Properties
-    var randomNumber = Int.random(in: 10000...99999)
+    var randomNumber = Int.random(in: 100000...999999)
     var seconds = 4
     var countdownTimer = Timer()
     var isTimerRunning = true
@@ -32,7 +32,7 @@ class MemorizeNumberViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func forgotNumberButtonTapped(_ sender: Any) {
-        randomNumber = Int.random(in: 10000...99999)
+        randomNumber = Int.random(in: 100000...999999)
         randomNumberLabel.text = String(randomNumber)
         seconds = 5
         runTimer()

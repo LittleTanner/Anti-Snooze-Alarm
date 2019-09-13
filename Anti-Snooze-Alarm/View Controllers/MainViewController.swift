@@ -20,9 +20,18 @@ class MainViewController: UIViewController {
     @IBOutlet weak var dailyTempLowLabel: UILabel!
     @IBOutlet weak var dailyTempHighLabel: UILabel!
     @IBOutlet weak var dayWeatherSummaryLabel: UILabel!
+    @IBOutlet weak var alarmHourLabel: UILabel!
+    @IBOutlet weak var alarmMinuteLabel: UILabel!
+    @IBOutlet weak var alarmAMOrPMLabel: UILabel!
     
 
     // MARK: - Properties
+    
+    var alarm: Alarm? {
+        didSet {
+            updateViews()
+        }
+    }
     
     let locationManager = CLLocationManager()
     var userLatitude: CLLocationDegrees = 0.0
@@ -56,16 +65,37 @@ class MainViewController: UIViewController {
         }
     }
     
+    // MARK: - UI Adjustments
     
-    // MARK: - Custom Methods
-    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+
     func setsUpUI() {
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.barTintColor = UIColor.darkBlue
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.mainTextColor ?? UIColor.darkGray]
         navigationController?.navigationBar.tintColor = UIColor.blueAccent
     }
-
+    
+    // MARK: - Custom Methods
+    
+    
+    // NOT SURE IF THIS WORKS?
+    func updateViews() {
+        if let alarm = alarm {
+            let alarmTimeAsString = alarm.alarmTimeAsString
+            let hoursAndMinutes = alarmTimeAsString.components(separatedBy: ":")
+            let AMorPM = alarmTimeAsString.components(separatedBy: " ")
+            alarmHourLabel.text = hoursAndMinutes[0]
+            alarmMinuteLabel.text = hoursAndMinutes[1]
+            alarmAMOrPMLabel.text = AMorPM[1]
+            
+        } else {
+            print("Alarm is nil")
+        }
+    }
+    
     func presentAlarmAlert() {
         // Create alert controller
         let alertController = UIAlertController(title: "It's Time To Wake Up!", message: "When ready click start below to get started", preferredStyle: .alert)

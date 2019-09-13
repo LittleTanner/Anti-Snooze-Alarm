@@ -19,6 +19,7 @@
 		FC887E0123295C260019CEF9 /* WeatherDecoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC887E0023295C260019CEF9 /* WeatherDecoding.swift */; };
 		FC887E032329610B0019CEF9 /* WeatherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC887E022329610B0019CEF9 /* WeatherController.swift */; };
 		FC887E05232963250019CEF9 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC887E04232963250019CEF9 /* Weather.swift */; };
+		FC9D7FB6232C2126009960E3 /* AlarmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9D7FB5232C2126009960E3 /* AlarmController.swift */; };
 		FCAD137023283C57000F4EF5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAD136F23283C57000F4EF5 /* MainViewController.swift */; };
 		FCAD137223284065000F4EF5 /* MemorizeNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAD137123284065000F4EF5 /* MemorizeNumberViewController.swift */; };
 		FCAD1375232842A7000F4EF5 /* WordOfTheDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAD1374232842A7000F4EF5 /* WordOfTheDayViewController.swift */; };
@@ -46,6 +47,7 @@
 		FC887E0023295C260019CEF9 /* WeatherDecoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDecoding.swift; sourceTree = "<group>"; };
 		FC887E022329610B0019CEF9 /* WeatherController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherController.swift; sourceTree = "<group>"; };
 		FC887E04232963250019CEF9 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		FC9D7FB5232C2126009960E3 /* AlarmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmController.swift; sourceTree = "<group>"; };
 		FCAD136F23283C57000F4EF5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FCAD137123284065000F4EF5 /* MemorizeNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeNumberViewController.swift; sourceTree = "<group>"; };
 		FCAD1374232842A7000F4EF5 /* WordOfTheDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordOfTheDayViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				FC887E022329610B0019CEF9 /* WeatherController.swift */,
+				FC9D7FB5232C2126009960E3 /* AlarmController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				FC887E05232963250019CEF9 /* Weather.swift in Sources */,
 				FC5C494C2326D59C00106CB9 /* RangeSliderThumbLayer.swift in Sources */,
 				FCAD138023285B7E000F4EF5 /* Alarm.swift in Sources */,
+				FC9D7FB6232C2126009960E3 /* AlarmController.swift in Sources */,
 				FC5C49332326C55B00106CB9 /* Anti_Snooze_Alarm.xcdatamodeld in Sources */,
 				FC5C49482326CE2000106CB9 /* RangeSliderViewController.swift in Sources */,
 				FC887E0123295C260019CEF9 /* WeatherDecoding.swift in Sources */,
