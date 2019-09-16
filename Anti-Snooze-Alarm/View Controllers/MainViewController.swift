@@ -89,7 +89,6 @@ class MainViewController: UIViewController {
         }
     }
     
-    
     // MARK: - UI Adjustments
 
     func setsUpUI() {
@@ -109,7 +108,6 @@ class MainViewController: UIViewController {
     
     // MARK: - Custom Methods
     
-    // NOT SURE IF THIS WORKS?
     func updateViews() {
         if let alarm = AlarmController.sharedInstance.alarm {
             let alarmTimeAsString = alarm.alarmTimeAsString

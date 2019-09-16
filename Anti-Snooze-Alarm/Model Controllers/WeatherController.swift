@@ -57,9 +57,5 @@ class WeatherController {
             }
         }
         dataTask.resume()
-        
-        
-        
     }
-    
 }
