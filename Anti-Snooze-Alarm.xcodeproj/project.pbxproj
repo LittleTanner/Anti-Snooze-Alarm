@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		FC32FFE3232FDFC00066397F /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC32FFE2232FDFC00066397F /* MainNavigationViewController.swift */; };
+		FC32FFE52330211A0066397F /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC32FFE42330211A0066397F /* CoreDataStack.swift */; };
+		FC32FFE72330225E0066397F /* Alarm+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC32FFE62330225E0066397F /* Alarm+Convenience.swift */; };
+		FC32FFE9233023AE0066397F /* DateFormatterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC32FFE8233023AE0066397F /* DateFormatterHelper.swift */; };
 		FC5C492B2326C55B00106CB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C492A2326C55B00106CB9 /* AppDelegate.swift */; };
 		FC5C49302326C55B00106CB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC5C492E2326C55B00106CB9 /* Main.storyboard */; };
 		FC5C49332326C55B00106CB9 /* Anti_Snooze_Alarm.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC5C49312326C55B00106CB9 /* Anti_Snooze_Alarm.xcdatamodeld */; };
@@ -35,6 +38,9 @@
 
 /* Begin PBXFileReference section */
 		FC32FFE2232FDFC00066397F /* MainNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
+		FC32FFE42330211A0066397F /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		FC32FFE62330225E0066397F /* Alarm+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alarm+Convenience.swift"; sourceTree = "<group>"; };
+		FC32FFE8233023AE0066397F /* DateFormatterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterHelper.swift; sourceTree = "<group>"; };
 		FC5C49272326C55B00106CB9 /* Anti-Snooze-Alarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Anti-Snooze-Alarm.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC5C492A2326C55B00106CB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC5C492F2326C55B00106CB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -122,6 +128,9 @@
 				FCAD137F23285B7E000F4EF5 /* Alarm.swift */,
 				FC887E0023295C260019CEF9 /* WeatherDecoding.swift */,
 				FC887E04232963250019CEF9 /* Weather.swift */,
+				FC32FFE42330211A0066397F /* CoreDataStack.swift */,
+				FC32FFE62330225E0066397F /* Alarm+Convenience.swift */,
+				FC32FFE8233023AE0066397F /* DateFormatterHelper.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -259,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC32FFE52330211A0066397F /* CoreDataStack.swift in Sources */,
 				FCAD1375232842A7000F4EF5 /* WordOfTheDayViewController.swift in Sources */,
 				FCAD137023283C57000F4EF5 /* MainViewController.swift in Sources */,
 				FCAD137923284315000F4EF5 /* SquaresViewController.swift in Sources */,
@@ -267,10 +277,12 @@
 				FC5C494C2326D59C00106CB9 /* RangeSliderThumbLayer.swift in Sources */,
 				FC32FFE3232FDFC00066397F /* MainNavigationViewController.swift in Sources */,
 				FCAD138023285B7E000F4EF5 /* Alarm.swift in Sources */,
+				FC32FFE72330225E0066397F /* Alarm+Convenience.swift in Sources */,
 				FC9D7FB6232C2126009960E3 /* AlarmController.swift in Sources */,
 				FC5C49332326C55B00106CB9 /* Anti_Snooze_Alarm.xcdatamodeld in Sources */,
 				FC5C49482326CE2000106CB9 /* RangeSliderViewController.swift in Sources */,
 				FC887E0123295C260019CEF9 /* WeatherDecoding.swift in Sources */,
+				FC32FFE9233023AE0066397F /* DateFormatterHelper.swift in Sources */,
 				FCAD138223286161000F4EF5 /* StyleGuide.swift in Sources */,
 				FCAD137723284304000F4EF5 /* MathViewController.swift in Sources */,
 				FC887E032329610B0019CEF9 /* WeatherController.swift in Sources */,
