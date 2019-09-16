@@ -26,6 +26,11 @@ class AlarmController {
         // Save to core data
     }
     
+    // Read Alarm
+    func fetchAlarm(alarm: Alarm) {
+        self.alarm = alarm
+    }
+    
     // Update Alarm
     func updateAlarm(alarm: Alarm, alarmTime: Date, daysOfWeek: [String], alarmSound: String, alarmVolume: Int, isEnabled: Bool) {
         alarm.alarmTime = alarmTime

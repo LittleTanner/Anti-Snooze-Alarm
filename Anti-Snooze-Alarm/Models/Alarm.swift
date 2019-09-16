@@ -13,6 +13,7 @@ class Alarm {
     enum daysOfWeek: String {
         case sunday
         case monday
+        case tuesday
         case wednesday
         case thursday
         case friday

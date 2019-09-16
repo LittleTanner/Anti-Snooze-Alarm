@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC32FFE3232FDFC00066397F /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC32FFE2232FDFC00066397F /* MainNavigationViewController.swift */; };
 		FC5C492B2326C55B00106CB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C492A2326C55B00106CB9 /* AppDelegate.swift */; };
 		FC5C49302326C55B00106CB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC5C492E2326C55B00106CB9 /* Main.storyboard */; };
 		FC5C49332326C55B00106CB9 /* Anti_Snooze_Alarm.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC5C49312326C55B00106CB9 /* Anti_Snooze_Alarm.xcdatamodeld */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FC32FFE2232FDFC00066397F /* MainNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
 		FC5C49272326C55B00106CB9 /* Anti-Snooze-Alarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Anti-Snooze-Alarm.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC5C492A2326C55B00106CB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC5C492F2326C55B00106CB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				FC5C49462326CDFF00106CB9 /* RangeSlider */,
 				FCAD13732328406B000F4EF5 /* Mini Games */,
 				FCAD137D23284ACA000F4EF5 /* SetAlarmTableViewController.swift */,
+				FC32FFE2232FDFC00066397F /* MainNavigationViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				FCAD137223284065000F4EF5 /* MemorizeNumberViewController.swift in Sources */,
 				FC887E05232963250019CEF9 /* Weather.swift in Sources */,
 				FC5C494C2326D59C00106CB9 /* RangeSliderThumbLayer.swift in Sources */,
+				FC32FFE3232FDFC00066397F /* MainNavigationViewController.swift in Sources */,
 				FCAD138023285B7E000F4EF5 /* Alarm.swift in Sources */,
 				FC9D7FB6232C2126009960E3 /* AlarmController.swift in Sources */,
 				FC5C49332326C55B00106CB9 /* Anti_Snooze_Alarm.xcdatamodeld in Sources */,

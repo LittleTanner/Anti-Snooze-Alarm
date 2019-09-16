@@ -23,15 +23,17 @@ class MainViewController: UIViewController {
     @IBOutlet weak var alarmHourLabel: UILabel!
     @IBOutlet weak var alarmMinuteLabel: UILabel!
     @IBOutlet weak var alarmAMOrPMLabel: UILabel!
+    @IBOutlet weak var sundayLabel: UILabel!
+    @IBOutlet weak var mondayLabel: UILabel!
+    @IBOutlet weak var tuesdayLabel: UILabel!
+    @IBOutlet weak var wednesdayLabel: UILabel!
+    @IBOutlet weak var thursdayLabel: UILabel!
+    @IBOutlet weak var fridayLabel: UILabel!
+    @IBOutlet weak var saturdayLabel: UILabel!
     
-
     // MARK: - Properties
     
-    var alarm: Alarm? {
-        didSet {
-            updateViews()
-        }
-    }
+
     
     let locationManager = CLLocationManager()
     var userLatitude: CLLocationDegrees = 0.0
@@ -53,6 +55,18 @@ class MainViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadViewIfNeeded()
+        
+        guard let alarm = AlarmController.sharedInstance.alarm else { return }
+        updateViews()
+        
+//        if let alarm = alarm {
+//            AlarmController.sharedInstance.fetchAlarm(alarm: alarm)
+//        }
+    }
+    
     // MARK: - Actions
 
     @IBAction func presentAlertControllerButtonTapped(_ sender: Any) {
@@ -66,30 +80,82 @@ class MainViewController: UIViewController {
     }
     
     // MARK: - UI Adjustments
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
 
     func setsUpUI() {
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.barTintColor = UIColor.darkBlue
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.mainTextColor ?? UIColor.darkGray]
         navigationController?.navigationBar.tintColor = UIColor.blueAccent
+        sundayLabel.textColor = UIColor.unSelectedTextColor
+        mondayLabel.textColor = UIColor.unSelectedTextColor
+        tuesdayLabel.textColor = UIColor.unSelectedTextColor
+        wednesdayLabel.textColor = UIColor.unSelectedTextColor
+        thursdayLabel.textColor = UIColor.unSelectedTextColor
+        fridayLabel.textColor = UIColor.unSelectedTextColor
+        saturdayLabel.textColor = UIColor.unSelectedTextColor
+
     }
     
     // MARK: - Custom Methods
     
-    
     // NOT SURE IF THIS WORKS?
     func updateViews() {
-        if let alarm = alarm {
+        if let alarm = AlarmController.sharedInstance.alarm {
             let alarmTimeAsString = alarm.alarmTimeAsString
-            let hoursAndMinutes = alarmTimeAsString.components(separatedBy: ":")
+            let hours = alarmTimeAsString.components(separatedBy: ":")
             let AMorPM = alarmTimeAsString.components(separatedBy: " ")
-            alarmHourLabel.text = hoursAndMinutes[0]
-            alarmMinuteLabel.text = hoursAndMinutes[1]
+            let minutes = AMorPM[0].components(separatedBy: ":")
+            alarmHourLabel.text = hours[0]
+            print(hours[0])
+            alarmMinuteLabel.text = minutes[1]
+            print(minutes[1])
             alarmAMOrPMLabel.text = AMorPM[1]
+            print(AMorPM[1])
+            
+            if alarm.daysOfWeek.contains(Alarm.daysOfWeek.sunday.rawValue) {
+                sundayLabel.textColor = UIColor.mainTextColor
+            } else {
+                sundayLabel.textColor = UIColor.unSelectedTextColor
+            }
+            
+            if alarm.daysOfWeek.contains(Alarm.daysOfWeek.monday.rawValue) {
+                mondayLabel.textColor = UIColor.mainTextColor
+            } else {
+                mondayLabel.textColor = UIColor.unSelectedTextColor
+            }
+            
+            if alarm.daysOfWeek.contains(Alarm.daysOfWeek.tuesday.rawValue) {
+                tuesdayLabel.textColor = UIColor.mainTextColor
+            } else {
+                tuesdayLabel.textColor = UIColor.unSelectedTextColor
+            }
+            
+            if alarm.daysOfWeek.contains(Alarm.daysOfWeek.wednesday.rawValue) {
+                wednesdayLabel.textColor = UIColor.mainTextColor
+            } else {
+                wednesdayLabel.textColor = UIColor.unSelectedTextColor
+            }
+            
+            if alarm.daysOfWeek.contains(Alarm.daysOfWeek.thursday.rawValue) {
+                thursdayLabel.textColor = UIColor.mainTextColor
+            } else {
+                thursdayLabel.textColor = UIColor.unSelectedTextColor
+            }
+            
+            if alarm.daysOfWeek.contains(Alarm.daysOfWeek.friday.rawValue) {
+                fridayLabel.textColor = UIColor.mainTextColor
+            } else {
+                fridayLabel.textColor = UIColor.unSelectedTextColor
+            }
+            
+            if alarm.daysOfWeek.contains(Alarm.daysOfWeek.saturday.rawValue) {
+                saturdayLabel.textColor = UIColor.mainTextColor
+            } else {
+                saturdayLabel.textColor = UIColor.unSelectedTextColor
+            }
+
+            
+            
             
         } else {
             print("Alarm is nil")
@@ -124,15 +190,25 @@ class MainViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
 
-    /*
+
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        // IIDOO
+        
+        guard let alarm = AlarmController.sharedInstance.alarm else { return }
+        
+        if segue.identifier == "updateAlarm" {
+            
+            guard let destinationVC = segue.destination as? SetAlarmTableViewController else { return }
+            
+            let alarmToSend = alarm
+            
+            destinationVC.alarm = alarmToSend
+            
+        }
     }
-    */
+ 
 
 } // End of class
 

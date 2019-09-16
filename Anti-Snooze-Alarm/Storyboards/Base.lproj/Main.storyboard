@@ -281,7 +281,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="R41-f9-Qap">
                             <color key="tintColor" red="0.31417581439999998" green="0.61853557830000006" blue="0.80394870039999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
-                                <segue destination="4sc-Yk-ZsX" kind="show" id="3N7-0X-739"/>
+                                <segue destination="4sc-Yk-ZsX" kind="show" identifier="updateAlarm" id="3N7-0X-739"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -296,6 +296,13 @@
                         <outlet property="dailyTempHighLabel" destination="hUN-HO-B4H" id="W9f-O4-wdg"/>
                         <outlet property="dailyTempLowLabel" destination="Zlk-6J-f9n" id="fpj-OW-Xgx"/>
                         <outlet property="dayWeatherSummaryLabel" destination="Q67-We-Ihm" id="FyY-zz-BMR"/>
+                        <outlet property="fridayLabel" destination="7vf-M5-vRD" id="nEb-Fg-4oT"/>
+                        <outlet property="mondayLabel" destination="Bgi-8P-BuB" id="fIo-en-VBg"/>
+                        <outlet property="saturdayLabel" destination="JnJ-dr-Ogf" id="Mok-eC-LQc"/>
+                        <outlet property="sundayLabel" destination="OM7-x0-qHo" id="UXB-Wk-fG9"/>
+                        <outlet property="thursdayLabel" destination="r3i-dM-aFb" id="LHr-2Y-u4Z"/>
+                        <outlet property="tuesdayLabel" destination="o27-ea-DdX" id="5iE-4m-e0n"/>
+                        <outlet property="wednesdayLabel" destination="ieS-ta-gC6" id="Wwg-YR-DLX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v4S-oV-Owv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -625,7 +632,7 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12345" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZpN-da-kW4">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123456" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZpN-da-kW4">
                                 <rect key="frame" x="41.5" y="272.5" width="331" height="140.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="65"/>
                                 <color key="textColor" name="mainText"/>
@@ -762,10 +769,10 @@
             </objects>
             <point key="canvasLocation" x="6625" y="852"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Main Navigation View Controller-->
         <scene sceneID="Unv-jg-Zfe">
             <objects>
-                <navigationController storyboardIdentifier="mainNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="8U5-Xr-Avg" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="mainNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="8U5-Xr-Avg" customClass="MainNavigationViewController" customModule="Anti_Snooze_Alarm" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8LK-JJ-3OA">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
