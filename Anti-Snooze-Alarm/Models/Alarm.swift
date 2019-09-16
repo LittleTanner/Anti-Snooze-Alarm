@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+/*
 class Alarm {
     
     enum daysOfWeek: String {
@@ -39,3 +39,4 @@ class Alarm {
         self.isEnabled = isEnabled
     }
 }
+*/

@@ -7,38 +7,59 @@
 //
 
 import UIKit
+import CoreData
 
 
 class AlarmController {
     
     static let sharedInstance = AlarmController()
     
-    var alarm: Alarm?
+    var alarm: [Alarm]? {
+        
+        let moc = CoreDataStack.context
+        
+        let fetchRequest: NSFetchRequest<Alarm> = Alarm.fetchRequest()
+        
+        fetchRequest.fetchLimit = 1
+        
+        return (try? moc.fetch(fetchRequest)) ?? []
+    }
     
     // CRUD
     
     // Create Alarm
-    func createAlarm(alarmTime: Date, daysOfWeek: [String], alarmSound: String, alarmVolume: Int) {
-        let alarm = Alarm(alarmTime: alarmTime, daysOfWeek: daysOfWeek, alarmSound: alarmSound, alarmVolume: alarmVolume)
-        
-        self.alarm = alarm
-        
+    func createAlarm(alarmTime: Date, daysOfWeek: [String], alarmSound: String, alarmVolume: Int16) {
+        let _ = Alarm(alarmTime: alarmTime, daysOfWeek: daysOfWeek, alarmSound: alarmSound, alarmVolume: alarmVolume)
+
         // Save to core data
-    }
-    
-    // Read Alarm
-    func fetchAlarm(alarm: Alarm) {
-        self.alarm = alarm
+        saveToPersistentStore()
+        
     }
     
     // Update Alarm
-    func updateAlarm(alarm: Alarm, alarmTime: Date, daysOfWeek: [String], alarmSound: String, alarmVolume: Int, isEnabled: Bool) {
+    func updateAlarm(alarm: Alarm, alarmTime: Date, daysOfWeek: [String], alarmSound: String, alarmVolume: Int16, isEnabled: Bool) {
         alarm.alarmTime = alarmTime
         alarm.daysOfWeek = daysOfWeek
         alarm.alarmSound = alarmSound
         alarm.alarmVolume = alarmVolume
         alarm.isEnabled = isEnabled
+        alarm.alarmTimeAsString = alarmTime.stringWith(timeStyle: .short)
         
         // save to core data
+        saveToPersistentStore()
+        
+    }
+    
+    // Persistence
+    
+    func saveToPersistentStore() {
+        
+        let moc = CoreDataStack.context
+        
+        do {
+            try moc.save()
+        } catch {
+            print("Error saving to persistent Store in \(#function), error: \(error), error localized Description: \(error.localizedDescription)")
+        }
     }
 }

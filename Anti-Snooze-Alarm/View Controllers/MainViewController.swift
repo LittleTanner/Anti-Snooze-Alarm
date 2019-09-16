@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 
 class MainViewController: UIViewController {
-
+    
     // MARK: - Outlets
     
     @IBOutlet weak var currentWeatherIconLabel: UILabel!
@@ -34,18 +34,18 @@ class MainViewController: UIViewController {
     
     // MARK: - Properties
     
-
+    
     
     let locationManager = CLLocationManager()
     var userLatitude: CLLocationDegrees = 0.0
     var userLongitude: CLLocationDegrees = 0.0
     
     // MARK: - Lifecycle Methods
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setsUpUI()
-
+        
         self.locationManager.requestWhenInUseAuthorization()
         
         if CLLocationManager.locationServicesEnabled() {
@@ -65,7 +65,7 @@ class MainViewController: UIViewController {
     }
     
     // MARK: - Actions
-
+    
     @IBAction func presentAlertControllerButtonTapped(_ sender: Any) {
         presentAlarmAlert()
     }
@@ -77,7 +77,7 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func alarmToggleButtonTapped(_ sender: Any) {
-        if let alarm = AlarmController.sharedInstance.alarm {
+        if let alarms = AlarmController.sharedInstance.alarm, let alarm = alarms.first {
             
             if alarmToggleButton.isOn == true {
                 alarm.isEnabled = true
@@ -90,7 +90,7 @@ class MainViewController: UIViewController {
     }
     
     // MARK: - UI Adjustments
-
+    
     func setsUpUI() {
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.barTintColor = UIColor.darkBlue
@@ -103,14 +103,14 @@ class MainViewController: UIViewController {
         thursdayLabel.textColor = UIColor.unSelectedTextColor
         fridayLabel.textColor = UIColor.unSelectedTextColor
         saturdayLabel.textColor = UIColor.unSelectedTextColor
-
+        
     }
     
     // MARK: - Custom Methods
     
     func updateViews() {
-        if let alarm = AlarmController.sharedInstance.alarm {
-            let alarmTimeAsString = alarm.alarmTimeAsString
+        if let alarms = AlarmController.sharedInstance.alarm, let alarm = alarms.first, let daysOfWeek = alarm.daysOfWeek  {
+            guard let alarmTimeAsString = alarm.alarmTimeAsString else { return }
             let hours = alarmTimeAsString.components(separatedBy: ":")
             let AMorPM = alarmTimeAsString.components(separatedBy: " ")
             let minutes = AMorPM[0].components(separatedBy: ":")
@@ -118,43 +118,44 @@ class MainViewController: UIViewController {
             alarmMinuteLabel.text = minutes[1]
             alarmAMOrPMLabel.text = AMorPM[1]
             
-            if alarm.daysOfWeek.contains(Alarm.daysOfWeek.sunday.rawValue) {
+            
+            if daysOfWeek.contains(Alarm.daysOfWeek.sunday.rawValue) {
                 sundayLabel.textColor = UIColor.mainTextColor
             } else {
                 sundayLabel.textColor = UIColor.unSelectedTextColor
             }
             
-            if alarm.daysOfWeek.contains(Alarm.daysOfWeek.monday.rawValue) {
+            if daysOfWeek.contains(Alarm.daysOfWeek.monday.rawValue) {
                 mondayLabel.textColor = UIColor.mainTextColor
             } else {
                 mondayLabel.textColor = UIColor.unSelectedTextColor
             }
             
-            if alarm.daysOfWeek.contains(Alarm.daysOfWeek.tuesday.rawValue) {
+            if daysOfWeek.contains(Alarm.daysOfWeek.tuesday.rawValue) {
                 tuesdayLabel.textColor = UIColor.mainTextColor
             } else {
                 tuesdayLabel.textColor = UIColor.unSelectedTextColor
             }
             
-            if alarm.daysOfWeek.contains(Alarm.daysOfWeek.wednesday.rawValue) {
+            if daysOfWeek.contains(Alarm.daysOfWeek.wednesday.rawValue) {
                 wednesdayLabel.textColor = UIColor.mainTextColor
             } else {
                 wednesdayLabel.textColor = UIColor.unSelectedTextColor
             }
             
-            if alarm.daysOfWeek.contains(Alarm.daysOfWeek.thursday.rawValue) {
+            if daysOfWeek.contains(Alarm.daysOfWeek.thursday.rawValue) {
                 thursdayLabel.textColor = UIColor.mainTextColor
             } else {
                 thursdayLabel.textColor = UIColor.unSelectedTextColor
             }
             
-            if alarm.daysOfWeek.contains(Alarm.daysOfWeek.friday.rawValue) {
+            if daysOfWeek.contains(Alarm.daysOfWeek.friday.rawValue) {
                 fridayLabel.textColor = UIColor.mainTextColor
             } else {
                 fridayLabel.textColor = UIColor.unSelectedTextColor
             }
             
-            if alarm.daysOfWeek.contains(Alarm.daysOfWeek.saturday.rawValue) {
+            if daysOfWeek.contains(Alarm.daysOfWeek.saturday.rawValue) {
                 saturdayLabel.textColor = UIColor.mainTextColor
             } else {
                 saturdayLabel.textColor = UIColor.unSelectedTextColor
@@ -180,7 +181,7 @@ class MainViewController: UIViewController {
             // let arrayOfMiniGames = ["MemorizeNumberGame", "WordOfTheDayGame", "MathGame", "SquaresGame", "LeftBrainRightBrainGame"]
             // Create an instance of the view controller
             let controller = storyboard.instantiateViewController(withIdentifier: "MemorizeNumberGame")
-//            let controller = storyboard.instantiateViewController(withIdentifier: arrayOfMiniGames[randomNumber])
+            //            let controller = storyboard.instantiateViewController(withIdentifier: arrayOfMiniGames[randomNumber])
             // Present the user with the random mini game view controller
             self.present(controller, animated: true, completion: nil)
         }
@@ -191,27 +192,26 @@ class MainViewController: UIViewController {
         // Present alert controller
         self.present(alertController, animated: true, completion: nil)
     }
-
-
+    
+    
     // MARK: - Navigation
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // IIDOO
         
-        guard let alarm = AlarmController.sharedInstance.alarm else { return }
+        guard let alarms = AlarmController.sharedInstance.alarm else { return }
         
         if segue.identifier == "updateAlarm" {
             
             guard let destinationVC = segue.destination as? SetAlarmTableViewController else { return }
             
-            let alarmToSend = alarm
+            let alarmsToSend = alarms
             
-            destinationVC.alarm = alarmToSend
-            
+            destinationVC.alarms = alarmsToSend
         }
     }
- 
-
+    
+    
 } // End of class
 
 
