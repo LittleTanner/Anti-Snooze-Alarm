@@ -30,6 +30,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var thursdayLabel: UILabel!
     @IBOutlet weak var fridayLabel: UILabel!
     @IBOutlet weak var saturdayLabel: UILabel!
+    @IBOutlet weak var alarmToggleButton: UISwitch!
     
     // MARK: - Properties
     
@@ -59,12 +60,8 @@ class MainViewController: UIViewController {
         super.viewWillAppear(animated)
         loadViewIfNeeded()
         
-        guard let alarm = AlarmController.sharedInstance.alarm else { return }
+        guard AlarmController.sharedInstance.alarm != nil else { return }
         updateViews()
-        
-//        if let alarm = alarm {
-//            AlarmController.sharedInstance.fetchAlarm(alarm: alarm)
-//        }
     }
     
     // MARK: - Actions
@@ -78,6 +75,20 @@ class MainViewController: UIViewController {
             UIApplication.shared.open(darkSkyURL, options: [:], completionHandler: nil)
         }
     }
+    
+    @IBAction func alarmToggleButtonTapped(_ sender: Any) {
+        if let alarm = AlarmController.sharedInstance.alarm {
+            
+            if alarmToggleButton.isOn == true {
+                alarm.isEnabled = true
+                print(alarm.isEnabled)
+            } else {
+                alarm.isEnabled = false
+                print(alarm.isEnabled)
+            }
+        }
+    }
+    
     
     // MARK: - UI Adjustments
 
@@ -106,11 +117,8 @@ class MainViewController: UIViewController {
             let AMorPM = alarmTimeAsString.components(separatedBy: " ")
             let minutes = AMorPM[0].components(separatedBy: ":")
             alarmHourLabel.text = hours[0]
-            print(hours[0])
             alarmMinuteLabel.text = minutes[1]
-            print(minutes[1])
             alarmAMOrPMLabel.text = AMorPM[1]
-            print(AMorPM[1])
             
             if alarm.daysOfWeek.contains(Alarm.daysOfWeek.sunday.rawValue) {
                 sundayLabel.textColor = UIColor.mainTextColor
@@ -153,10 +161,6 @@ class MainViewController: UIViewController {
             } else {
                 saturdayLabel.textColor = UIColor.unSelectedTextColor
             }
-
-            
-            
-            
         } else {
             print("Alarm is nil")
         }

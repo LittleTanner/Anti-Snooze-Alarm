@@ -50,11 +50,11 @@ class SetAlarmTableViewController: UITableViewController {
     // MARK: - Actions
     
     @IBAction func alarmValuePickerValueChanged(_ sender: Any) {
-        print("Alarm Time changed to: \(alarmValuePicker.date)")
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeStyle = .short
-        dateFormatter.string(from: alarmValuePicker.date)
-        print("Formatted Alarm Time changed to: \(dateFormatter.string(from: alarmValuePicker.date))")
+//        print("Alarm Time changed to: \(alarmValuePicker.date)")
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.timeStyle = .short
+//        dateFormatter.string(from: alarmValuePicker.date)
+//        print("Formatted Alarm Time changed to: \(dateFormatter.string(from: alarmValuePicker.date))")
     }
     
     @IBAction func sundayButtonTapped(_ sender: Any) {

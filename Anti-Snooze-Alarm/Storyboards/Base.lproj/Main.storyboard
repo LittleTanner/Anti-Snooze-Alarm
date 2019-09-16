@@ -139,6 +139,9 @@
                                         <rect key="frame" x="324" y="56.5" width="51" height="31"/>
                                         <color key="onTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="thumbTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="alarmToggleButtonTapped:" destination="lSY-zc-XCT" eventType="valueChanged" id="x0T-pL-Vtk"/>
+                                        </connections>
                                     </switch>
                                 </subviews>
                             </stackView>
@@ -289,6 +292,7 @@
                         <outlet property="alarmAMOrPMLabel" destination="8DY-Gi-Ijy" id="hgH-Zr-TMe"/>
                         <outlet property="alarmHourLabel" destination="ymO-3m-MId" id="otL-wt-Oo5"/>
                         <outlet property="alarmMinuteLabel" destination="B3X-tS-vSR" id="0FV-01-AxR"/>
+                        <outlet property="alarmToggleButton" destination="nwx-e0-DTe" id="2KE-fh-3Bc"/>
                         <outlet property="currentFeelsLikeTempLabel" destination="hcB-eq-fVt" id="0R0-8V-C4f"/>
                         <outlet property="currentWeatherIconLabel" destination="j7p-n1-MQ1" id="g44-mi-ESV"/>
                         <outlet property="currentWeatherLabel" destination="3G7-oQ-uwz" id="9eE-Xd-MdY"/>
