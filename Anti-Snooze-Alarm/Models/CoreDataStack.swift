@@ -9,6 +9,8 @@
 import Foundation
 import CoreData
 
+// DO I NEED ANOTHER ONE OF THESE TO LOAD WEATHER????
+
 enum CoreDataStack {
     static let container: NSPersistentContainer = {
         

@@ -39,6 +39,8 @@ class MainViewController: UIViewController {
     let locationManager = CLLocationManager()
     var userLatitude: CLLocationDegrees = 0.0
     var userLongitude: CLLocationDegrees = 0.0
+    var weather: Weather?
+//    var hasFetchedWeather = false
     
     // MARK: - Lifecycle Methods
     
@@ -61,6 +63,9 @@ class MainViewController: UIViewController {
         loadViewIfNeeded()
         
         guard AlarmController.sharedInstance.alarm != nil else { return }
+        updateViews()
+        
+        guard weather != nil else { return }
         updateViews()
     }
     
@@ -103,7 +108,6 @@ class MainViewController: UIViewController {
         thursdayLabel.textColor = UIColor.unSelectedTextColor
         fridayLabel.textColor = UIColor.unSelectedTextColor
         saturdayLabel.textColor = UIColor.unSelectedTextColor
-        
     }
     
     // MARK: - Custom Methods
@@ -160,6 +164,35 @@ class MainViewController: UIViewController {
             } else {
                 saturdayLabel.textColor = UIColor.unSelectedTextColor
             }
+            
+            
+            
+            // THERE APPEARS TO BE A SAVING THE WEATHER ISSUE
+            if let weatherArray = WeatherController.sharedInstance.weather, let weather = weatherArray.first {
+                currentWeatherLabel.text = "\(Int(weather.currentWeatherTemp))"
+                currentFeelsLikeTempLabel.text = "\(Int(weather.currentFeelsLikeTemp))"
+                currentWeatherSummaryLabel.text = weather.currentWeatherSummary
+//                currentWeatherIconLabel.text = weather.currentWeatherIconName
+                dailyTempLowLabel.text = "\(Int(weather.dailyMinTemp))"
+                dailyTempLowLabel.text = "\(Int(weather.dailyMaxTemp))"
+                dayWeatherSummaryLabel.text = weather.hourlyWeatherSummary
+                var currentWeatherIcon = ""
+                switch weather.currentWeatherIconName {
+                case Weather.currentWeatherIconImage.clearDay.rawValue: currentWeatherIcon = "☀️"
+                case Weather.currentWeatherIconImage.clearNight.rawValue: currentWeatherIcon = "☀️"
+                case Weather.currentWeatherIconImage.rain.rawValue: currentWeatherIcon = "🌧"
+                case Weather.currentWeatherIconImage.snow.rawValue: currentWeatherIcon = "🌨"
+                case Weather.currentWeatherIconImage.sleet.rawValue: currentWeatherIcon = "🌨"
+                case Weather.currentWeatherIconImage.wind.rawValue: currentWeatherIcon = "💨"
+                case Weather.currentWeatherIconImage.fog.rawValue: currentWeatherIcon = "🌫"
+                case Weather.currentWeatherIconImage.cloudy.rawValue: currentWeatherIcon = "☁️"
+                case Weather.currentWeatherIconImage.partlyCloudyDay.rawValue: currentWeatherIcon = "🌥"
+                case Weather.currentWeatherIconImage.partlyCloudyNight.rawValue: currentWeatherIcon = "🌥"
+                default: currentWeatherIcon = "🤷🏼‍♂️"
+                }
+                currentWeatherIconLabel.text = currentWeatherIcon
+            }
+            
         } else {
             print("Alarm is nil")
         }
@@ -233,17 +266,13 @@ extension MainViewController: CLLocationManagerDelegate {
                 self.currentFeelsLikeTempLabel.text = "\(Int(weather.currentFeelsLikeTemp))°"
                 self.dayWeatherSummaryLabel.text = weather.hourlyWeatherSummary
                 
-                if let temperatureLow = weather.dailyMinTemp {
-                    self.dailyTempLowLabel.text = "\(Int(temperatureLow))°"
-                } else {
-                    self.dailyTempLowLabel.text = "🤷🏼‍♂️"
-                }
+                let temperatureLow = weather.dailyMinTemp
+                self.dailyTempLowLabel.text = "\(Int(temperatureLow))°"
                 
-                if let temperatureHigh = weather.dailyMaxTemp {
-                    self.dailyTempHighLabel.text = "\(Int(temperatureHigh))°"
-                } else {
-                    self.dailyTempLowLabel.text = "🤷🏼‍♂️"
-                }
+                
+                let temperatureHigh = weather.dailyMaxTemp
+                self.dailyTempHighLabel.text = "\(Int(temperatureHigh))°"
+                
                 
                 var currentWeatherIcon = ""
                 switch weather.currentWeatherIconName {
@@ -259,8 +288,9 @@ extension MainViewController: CLLocationManagerDelegate {
                 case Weather.currentWeatherIconImage.partlyCloudyNight.rawValue: currentWeatherIcon = "🌥"
                 default: currentWeatherIcon = "🤷🏼‍♂️"
                 }
-                
+//                self.hasFetchedWeather = true
                 self.currentWeatherIconLabel.text = currentWeatherIcon
+                self.weather = weather
             }
         }
     }
