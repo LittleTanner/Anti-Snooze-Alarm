@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14492.1" systemVersion="18G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Alarm" representedClassName="Alarm" syncable="YES" codeGenerationType="class">
-        <attribute name="alarmSound" optional="YES" attributeType="String" defaultValueString="&quot;default&quot;" syncable="YES"/>
-        <attribute name="alarmTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="alarmTimeAsString" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="alarmVolume" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="alarmSound" attributeType="String" defaultValueString="&quot;default&quot;" syncable="YES"/>
+        <attribute name="alarmTime" attributeType="Date" defaultDateTimeInterval="590333460" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="alarmTimeAsString" attributeType="String" defaultValueString="7:30 am" syncable="YES"/>
+        <attribute name="alarmVolume" attributeType="Integer 16" defaultValueString="1" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="daysOfWeek" attributeType="Transformable" customClassName="[String]" syncable="YES"/>
-        <attribute name="isEnabled" optional="YES" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isEnabled" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
+    <entity name="Weather" representedClassName="Weather" syncable="YES" codeGenerationType="class">
+        <attribute name="currentFeelsLikeTemp" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="currentWeatherIconName" attributeType="String" syncable="YES"/>
+        <attribute name="currentWeatherSummary" attributeType="String" syncable="YES"/>
+        <attribute name="currentWeatherTemp" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="dailyMaxTemp" optional="YES" attributeType="Double" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="dailyMinTemp" optional="YES" attributeType="Double" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="hourlyWeatherSummary" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="Alarm" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="Weather" positionX="-45" positionY="45" width="128" height="150"/>
     </elements>
 </model>

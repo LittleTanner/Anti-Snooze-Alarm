@@ -48,7 +48,7 @@ class MemorizeNumberViewController: UIViewController {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             // Create an instance of the view controller
             let controller = storyboard.instantiateViewController(withIdentifier: "mainNavigationController")
-            // Present the user with the random mini game view controller
+            // Present the user with the main view controller
             self.present(controller, animated: true, completion: nil)
             
         } else {

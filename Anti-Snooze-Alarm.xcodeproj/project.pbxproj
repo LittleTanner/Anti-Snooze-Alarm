@@ -11,6 +11,7 @@
 		FC32FFE52330211A0066397F /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC32FFE42330211A0066397F /* CoreDataStack.swift */; };
 		FC32FFE72330225E0066397F /* Alarm+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC32FFE62330225E0066397F /* Alarm+Convenience.swift */; };
 		FC32FFE9233023AE0066397F /* DateFormatterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC32FFE8233023AE0066397F /* DateFormatterHelper.swift */; };
+		FC32FFEB23303DED0066397F /* Weather+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC32FFEA23303DED0066397F /* Weather+Convenience.swift */; };
 		FC5C492B2326C55B00106CB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C492A2326C55B00106CB9 /* AppDelegate.swift */; };
 		FC5C49302326C55B00106CB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC5C492E2326C55B00106CB9 /* Main.storyboard */; };
 		FC5C49332326C55B00106CB9 /* Anti_Snooze_Alarm.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC5C49312326C55B00106CB9 /* Anti_Snooze_Alarm.xcdatamodeld */; };
@@ -41,6 +42,7 @@
 		FC32FFE42330211A0066397F /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		FC32FFE62330225E0066397F /* Alarm+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alarm+Convenience.swift"; sourceTree = "<group>"; };
 		FC32FFE8233023AE0066397F /* DateFormatterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterHelper.swift; sourceTree = "<group>"; };
+		FC32FFEA23303DED0066397F /* Weather+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weather+Convenience.swift"; sourceTree = "<group>"; };
 		FC5C49272326C55B00106CB9 /* Anti-Snooze-Alarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Anti-Snooze-Alarm.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC5C492A2326C55B00106CB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC5C492F2326C55B00106CB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				FC32FFE42330211A0066397F /* CoreDataStack.swift */,
 				FC32FFE62330225E0066397F /* Alarm+Convenience.swift */,
 				FC32FFE8233023AE0066397F /* DateFormatterHelper.swift */,
+				FC32FFEA23303DED0066397F /* Weather+Convenience.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				FC887E032329610B0019CEF9 /* WeatherController.swift in Sources */,
 				FC5C49452326CDD600106CB9 /* RangeSlider.swift in Sources */,
 				FCAD137E23284ACA000F4EF5 /* SetAlarmTableViewController.swift in Sources */,
+				FC32FFEB23303DED0066397F /* Weather+Convenience.swift in Sources */,
 				FC5C494E2326D9DC00106CB9 /* RangeSliderTrackLayer.swift in Sources */,
 				FCAD137B2328432C000F4EF5 /* LeftBrainRightBrainViewController.swift in Sources */,
 				FC5C492B2326C55B00106CB9 /* AppDelegate.swift in Sources */,
