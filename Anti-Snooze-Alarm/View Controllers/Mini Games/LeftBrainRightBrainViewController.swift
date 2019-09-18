@@ -12,7 +12,6 @@ class LeftBrainRightBrainViewController: UIViewController {
 
     // MARK: - Outlets
     
-    
     // MARK: - Properties
     
     
@@ -29,8 +28,15 @@ class LeftBrainRightBrainViewController: UIViewController {
     
     // MARK: - Custom Methods
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     func setsUpUI() {
         self.view.backgroundColor = UIColor.darkBlue
+        
+        // Use this to change the label text color of certain words
+        // https://www.hackingwithswift.com/articles/113/nsattributedstring-by-example
     }
     
     
