@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import UserNotifications
 
 class MainViewController: UIViewController {
     
@@ -47,7 +48,6 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setsUpUI()
-        
         self.locationManager.requestWhenInUseAuthorization()
         
         if CLLocationManager.locationServicesEnabled() {
@@ -115,13 +115,16 @@ class MainViewController: UIViewController {
     func updateViews() {
         if let alarms = AlarmController.sharedInstance.alarm, let alarm = alarms.first, let daysOfWeek = alarm.daysOfWeek  {
             guard let alarmTimeAsString = alarm.alarmTimeAsString else { return }
-            let hours = alarmTimeAsString.components(separatedBy: ":")
-            let AMorPM = alarmTimeAsString.components(separatedBy: " ")
-            let minutes = AMorPM[0].components(separatedBy: ":")
-            alarmHourLabel.text = hours[0]
-            alarmMinuteLabel.text = minutes[1]
-            alarmAMOrPMLabel.text = AMorPM[1]
             
+            let alarmTime = alarmTimeAsString.components(separatedBy: [":", " "])
+            print("alarmTime for label is: \(alarmTime)")
+            
+            let hours = alarmTime[0]
+            let minutes = alarmTime[1]
+            let AMorPM = alarmTime[2]
+            alarmHourLabel.text = hours
+            alarmMinuteLabel.text = minutes
+            alarmAMOrPMLabel.text = AMorPM
             
             if daysOfWeek.contains(Alarm.daysOfWeek.sunday.rawValue) {
                 sundayLabel.textColor = UIColor.mainTextColor
@@ -225,6 +228,8 @@ class MainViewController: UIViewController {
         // Present alert controller
         self.present(alertController, animated: true, completion: nil)
     }
+    
+    
     
     
     // MARK: - Navigation

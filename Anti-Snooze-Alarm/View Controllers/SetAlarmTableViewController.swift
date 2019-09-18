@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class SetAlarmTableViewController: UITableViewController {
 
@@ -191,11 +192,52 @@ class SetAlarmTableViewController: UITableViewController {
         } else {
             AlarmController.sharedInstance.createAlarm(alarmTime: alarmValuePicker.date, daysOfWeek: daysOfTheWeekSelected, alarmSound: "default", alarmVolume: 1)
         }
-        
+        scheduleLocalAlarmAlert()
         navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Custom Methods
+    
+    func scheduleLocalAlarmAlert() {
+        
+        guard let alarms = AlarmController.sharedInstance.alarm, let alarm = alarms.first else { return }
+        
+        // content of our notification (what it looks like)
+        let content = UNMutableNotificationContent()
+        content.title = "Time to wake up"
+        content.body = "It works???"
+        content.sound = UNNotificationSound.default
+        
+        guard let alarmTimeAsString = alarm.alarmTimeAsString else { return }
+        
+        var date = DateComponents()
+        
+        let alarmTime = alarmTimeAsString.components(separatedBy: [":", " "])
+        print("alarmTime for local notification is: \(alarmTime)")
+        
+        let hours = alarmTime[0]
+        let minutes = alarmTime[1]
+//        let AMorPM = alarmTime[2]
+        
+        date.hour = Int(hours)
+        date.minute = Int(minutes)
+        
+        // how long into the future it will be scheduled
+        let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
+        
+        // the completed request ( content + trigger)
+        let request = UNNotificationRequest(identifier: "localAlarmAlert", content: content, trigger: trigger)
+        
+        // schedule the request
+        UNUserNotificationCenter.current().add(request) { (error) in
+            if let error = error {
+                
+                print("Notification failed")
+                print(error.localizedDescription)
+                print(error)
+            }
+        }
+    }
 
     func setsUpUI() {
         // Changes the alarm color picker color to white
