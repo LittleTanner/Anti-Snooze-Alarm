@@ -561,6 +561,7 @@
                         <outlet property="sundayButton" destination="JtN-9m-aZZ" id="bKg-Kn-mjJ"/>
                         <outlet property="thursdayButton" destination="Dgj-6R-aXZ" id="m8u-xW-SA6"/>
                         <outlet property="tuesdayButton" destination="r9k-vW-mdq" id="gjO-YJ-To7"/>
+                        <outlet property="volumeSlider" destination="yYB-WP-JKl" id="VJc-4r-Hph"/>
                         <outlet property="wednesdayButton" destination="nU7-f0-7EE" id="2M3-S6-OXc"/>
                     </connections>
                 </tableViewController>

@@ -28,7 +28,7 @@ class AlarmController {
     // CRUD
     
     // Create Alarm
-    func createAlarm(alarmTime: Date, daysOfWeek: [String], alarmSound: String, alarmVolume: Int16) {
+    func createAlarm(alarmTime: Date, daysOfWeek: [String], alarmSound: String, alarmVolume: Float) {
         let _ = Alarm(alarmTime: alarmTime, daysOfWeek: daysOfWeek, alarmSound: alarmSound, alarmVolume: alarmVolume)
 
         // Save to core data
@@ -37,7 +37,7 @@ class AlarmController {
     }
     
     // Update Alarm
-    func updateAlarm(alarm: Alarm, alarmTime: Date, daysOfWeek: [String], alarmSound: String, alarmVolume: Int16, isEnabled: Bool) {
+    func updateAlarm(alarm: Alarm, alarmTime: Date, daysOfWeek: [String], alarmSound: String, alarmVolume: Float, isEnabled: Bool) {
         alarm.alarmTime = alarmTime
         alarm.daysOfWeek = daysOfWeek
         alarm.alarmSound = alarmSound

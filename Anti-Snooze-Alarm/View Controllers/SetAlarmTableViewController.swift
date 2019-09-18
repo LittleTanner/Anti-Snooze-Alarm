@@ -21,6 +21,7 @@ class SetAlarmTableViewController: UITableViewController {
     @IBOutlet weak var thursdayButton: UIButton!
     @IBOutlet weak var fridayButton: UIButton!
     @IBOutlet weak var saturdayButton: UIButton!
+    @IBOutlet weak var volumeSlider: UISlider!
     
     
     // MARK: - Properties
@@ -188,10 +189,12 @@ class SetAlarmTableViewController: UITableViewController {
     @IBAction func saveButtonTapped(_ sender: Any) {
         
         if let alarms = alarms, let alarm = alarms.first {
-            AlarmController.sharedInstance.updateAlarm(alarm: alarm, alarmTime: alarmValuePicker.date, daysOfWeek: daysOfTheWeekSelected, alarmSound: "default", alarmVolume: 1, isEnabled: true)
+            AlarmController.sharedInstance.updateAlarm(alarm: alarm, alarmTime: alarmValuePicker.date, daysOfWeek: daysOfTheWeekSelected, alarmSound: "default", alarmVolume: self.volumeSlider.value, isEnabled: true)
         } else {
-            AlarmController.sharedInstance.createAlarm(alarmTime: alarmValuePicker.date, daysOfWeek: daysOfTheWeekSelected, alarmSound: "default", alarmVolume: 1)
+            AlarmController.sharedInstance.createAlarm(alarmTime: alarmValuePicker.date, daysOfWeek: daysOfTheWeekSelected, alarmSound: "default", alarmVolume: self.volumeSlider.value)
         }
+        
+        print("Volume Selected From Slider: \(self.volumeSlider.value)")
         
         if daysOfTheWeekSelected.contains(Alarm.daysOfWeek.sunday.rawValue) {
             scheduleLocalAlarmAlert(for: 1)
@@ -236,6 +239,7 @@ class SetAlarmTableViewController: UITableViewController {
         content.title = "Time to wake up"
         content.body = "It works???"
         content.sound = UNNotificationSound.default
+//        content.sound = UNNotificationSound.defaultCriticalSound(withAudioVolume: 0.5)
         
         guard let alarmTimeAsString = alarm.alarmTimeAsString else { return }
         
@@ -285,8 +289,12 @@ class SetAlarmTableViewController: UITableViewController {
     }
 
     func setsUpUI() {
+        
         // Changes the alarm color picker color to white
         alarmValuePicker.setValue(UIColor.white, forKey: "textColor")
+        
+        // Changes UISlider 
+        volumeSlider.minimumTrackTintColor = UIColor.blueAccent
         
         // Changes the days of the week buttons to be circles
         sundayButton.layer.cornerRadius = sundayButton.frame.height / 2
@@ -304,6 +312,7 @@ class SetAlarmTableViewController: UITableViewController {
         loadViewIfNeeded()
         
         alarmValuePicker.date = alarmTime
+        volumeSlider.value = alarm.alarmVolume
         
         if daysOfWeek.contains(Alarm.daysOfWeek.sunday.rawValue) {
             sundayButton.backgroundColor = UIColor.blueAccent
