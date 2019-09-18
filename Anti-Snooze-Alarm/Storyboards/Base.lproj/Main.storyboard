@@ -11,21 +11,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Range Slider View Controller-->
-        <scene sceneID="cPp-ST-2MQ">
-            <objects>
-                <viewController id="Czc-7K-HE0" customClass="RangeSliderViewController" customModule="Anti_Snooze_Alarm" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="6pw-4j-AUt">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="O74-Xt-CmY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="27n-hC-fm4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="125" y="157"/>
-        </scene>
         <!--Anti-Snooze-->
         <scene sceneID="NuF-LD-x3R">
             <objects>
@@ -561,6 +546,7 @@
                         <outlet property="sundayButton" destination="JtN-9m-aZZ" id="bKg-Kn-mjJ"/>
                         <outlet property="thursdayButton" destination="Dgj-6R-aXZ" id="m8u-xW-SA6"/>
                         <outlet property="tuesdayButton" destination="r9k-vW-mdq" id="gjO-YJ-To7"/>
+                        <outlet property="volumeSlider" destination="yYB-WP-JKl" id="VJc-4r-Hph"/>
                         <outlet property="wednesdayButton" destination="nU7-f0-7EE" id="2M3-S6-OXc"/>
                     </connections>
                 </tableViewController>

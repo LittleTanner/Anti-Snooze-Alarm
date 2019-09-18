@@ -4,7 +4,7 @@
         <attribute name="alarmSound" attributeType="String" defaultValueString="&quot;default&quot;" syncable="YES"/>
         <attribute name="alarmTime" attributeType="Date" defaultDateTimeInterval="590333460" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="alarmTimeAsString" attributeType="String" defaultValueString="7:30 am" syncable="YES"/>
-        <attribute name="alarmVolume" attributeType="Integer 16" defaultValueString="1" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="alarmVolume" attributeType="Float" defaultValueString="1" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="daysOfWeek" attributeType="Transformable" customClassName="[String]" syncable="YES"/>
         <attribute name="isEnabled" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
     </entity>

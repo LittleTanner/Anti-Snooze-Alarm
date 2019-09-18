@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 extension Alarm {
-    @discardableResult convenience init(alarmTime: Date, daysOfWeek: [String], alarmSound: String, alarmVolume: Int16, isEnabled: Bool = true, context: NSManagedObjectContext = CoreDataStack.context) {
+    @discardableResult convenience init(alarmTime: Date, daysOfWeek: [String], alarmSound: String, alarmVolume: Float, isEnabled: Bool = true, context: NSManagedObjectContext = CoreDataStack.context) {
         
         self.init(context: context)
         
