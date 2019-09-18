@@ -192,13 +192,42 @@ class SetAlarmTableViewController: UITableViewController {
         } else {
             AlarmController.sharedInstance.createAlarm(alarmTime: alarmValuePicker.date, daysOfWeek: daysOfTheWeekSelected, alarmSound: "default", alarmVolume: 1)
         }
-        scheduleLocalAlarmAlert()
+        
+        if daysOfTheWeekSelected.contains(Alarm.daysOfWeek.sunday.rawValue) {
+            scheduleLocalAlarmAlert(for: 1)
+        }
+        
+        if daysOfTheWeekSelected.contains(Alarm.daysOfWeek.monday.rawValue) {
+            scheduleLocalAlarmAlert(for: 2)
+        }
+        
+        if daysOfTheWeekSelected.contains(Alarm.daysOfWeek.tuesday.rawValue) {
+            scheduleLocalAlarmAlert(for: 3)
+        }
+        
+        if daysOfTheWeekSelected.contains(Alarm.daysOfWeek.wednesday.rawValue) {
+            scheduleLocalAlarmAlert(for: 4)
+        }
+        
+        if daysOfTheWeekSelected.contains(Alarm.daysOfWeek.thursday.rawValue) {
+            scheduleLocalAlarmAlert(for: 5)
+        }
+        
+        if daysOfTheWeekSelected.contains(Alarm.daysOfWeek.friday.rawValue) {
+            scheduleLocalAlarmAlert(for: 6)
+        }
+        
+        if daysOfTheWeekSelected.contains(Alarm.daysOfWeek.saturday.rawValue) {
+            scheduleLocalAlarmAlert(for: 7)
+        }
+        
+        
         navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Custom Methods
     
-    func scheduleLocalAlarmAlert() {
+    func scheduleLocalAlarmAlert(for dayOfWeek: Int) {
         
         guard let alarms = AlarmController.sharedInstance.alarm, let alarm = alarms.first else { return }
         
@@ -217,10 +246,26 @@ class SetAlarmTableViewController: UITableViewController {
         
         let hours = alarmTime[0]
         let minutes = alarmTime[1]
-//        let AMorPM = alarmTime[2]
+        let AMorPM = alarmTime[2]
         
-        date.hour = Int(hours)
+        if AMorPM == "AM" {
+            if Int(hours) == 12 {
+                date.hour = 0
+            } else {
+                date.hour = Int(hours)
+            }
+        } else {
+            if Int(hours) == 12 {
+                date.hour = Int(hours)
+            } else {
+                date.hour = Int(hours)! + 12
+            }
+        }
+        
         date.minute = Int(minutes)
+        print("date: \(date)")
+        
+        date.weekday = dayOfWeek
         
         // how long into the future it will be scheduled
         let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)

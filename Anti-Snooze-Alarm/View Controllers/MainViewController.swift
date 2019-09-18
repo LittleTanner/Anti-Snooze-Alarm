@@ -90,8 +90,12 @@ class MainViewController: UIViewController {
             } else {
                 alarm.isEnabled = false
                 print(alarm.isEnabled)
+                let localNotificationCenter = UNUserNotificationCenter.current()
+                localNotificationCenter.removeAllPendingNotificationRequests()
             }
         }
+        
+        
     }
     
     // MARK: - UI Adjustments
