@@ -54,7 +54,6 @@ class MainViewController: UIViewController {
             locationManager.delegate = self
             locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
             locationManager.startUpdatingLocation()
-            print("Inside the location services enabled")
         }
     }
     
@@ -121,7 +120,6 @@ class MainViewController: UIViewController {
             guard let alarmTimeAsString = alarm.alarmTimeAsString else { return }
             
             let alarmTime = alarmTimeAsString.components(separatedBy: [":", " "])
-            print("alarmTime for label is: \(alarmTime)")
             
             let hours = alarmTime[0]
             let minutes = alarmTime[1]
@@ -176,12 +174,12 @@ class MainViewController: UIViewController {
             
             // THERE APPEARS TO BE A SAVING THE WEATHER ISSUE
             if let weatherArray = WeatherController.sharedInstance.weather, let weather = weatherArray.first {
-                currentWeatherLabel.text = "\(Int(weather.currentWeatherTemp))"
-                currentFeelsLikeTempLabel.text = "\(Int(weather.currentFeelsLikeTemp))"
+                currentWeatherLabel.text = "\(Int(weather.currentWeatherTemp))°"
+                currentFeelsLikeTempLabel.text = "\(Int(weather.currentFeelsLikeTemp))°"
                 currentWeatherSummaryLabel.text = weather.currentWeatherSummary
 //                currentWeatherIconLabel.text = weather.currentWeatherIconName
-                dailyTempLowLabel.text = "\(Int(weather.dailyMinTemp))"
-                dailyTempLowLabel.text = "\(Int(weather.dailyMaxTemp))"
+                dailyTempLowLabel.text = "\(Int(weather.dailyMinTemp))°"
+                dailyTempLowLabel.text = "\(Int(weather.dailyMaxTemp))°"
                 dayWeatherSummaryLabel.text = weather.hourlyWeatherSummary
                 var currentWeatherIcon = ""
                 switch weather.currentWeatherIconName {
@@ -260,7 +258,7 @@ class MainViewController: UIViewController {
 extension MainViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let currentLocation: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-        print("The user's current location is at latitude: \(currentLocation.latitude) and longitude: \(currentLocation.longitude)")
+//        print("The user's current location is at latitude: \(currentLocation.latitude) and longitude: \(currentLocation.longitude)")
         userLatitude = currentLocation.latitude
         userLongitude = currentLocation.longitude
         

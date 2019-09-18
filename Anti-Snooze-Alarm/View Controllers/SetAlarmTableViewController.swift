@@ -196,30 +196,31 @@ class SetAlarmTableViewController: UITableViewController {
         
         print("Volume Selected From Slider: \(self.volumeSlider.value)")
         
+//        scheduleLocalAlarmAlert()
         if daysOfTheWeekSelected.contains(Alarm.daysOfWeek.sunday.rawValue) {
             scheduleLocalAlarmAlert(for: 1)
         }
-        
+
         if daysOfTheWeekSelected.contains(Alarm.daysOfWeek.monday.rawValue) {
             scheduleLocalAlarmAlert(for: 2)
         }
-        
+
         if daysOfTheWeekSelected.contains(Alarm.daysOfWeek.tuesday.rawValue) {
             scheduleLocalAlarmAlert(for: 3)
         }
-        
+
         if daysOfTheWeekSelected.contains(Alarm.daysOfWeek.wednesday.rawValue) {
             scheduleLocalAlarmAlert(for: 4)
         }
-        
+
         if daysOfTheWeekSelected.contains(Alarm.daysOfWeek.thursday.rawValue) {
             scheduleLocalAlarmAlert(for: 5)
         }
-        
+
         if daysOfTheWeekSelected.contains(Alarm.daysOfWeek.friday.rawValue) {
             scheduleLocalAlarmAlert(for: 6)
         }
-        
+
         if daysOfTheWeekSelected.contains(Alarm.daysOfWeek.saturday.rawValue) {
             scheduleLocalAlarmAlert(for: 7)
         }
@@ -239,14 +240,12 @@ class SetAlarmTableViewController: UITableViewController {
         content.title = "Time to wake up"
         content.body = "It works???"
         content.sound = UNNotificationSound.default
-//        content.sound = UNNotificationSound.defaultCriticalSound(withAudioVolume: 0.5)
         
         guard let alarmTimeAsString = alarm.alarmTimeAsString else { return }
         
         var date = DateComponents()
         
         let alarmTime = alarmTimeAsString.components(separatedBy: [":", " "])
-        print("alarmTime for local notification is: \(alarmTime)")
         
         let hours = alarmTime[0]
         let minutes = alarmTime[1]
@@ -267,15 +266,26 @@ class SetAlarmTableViewController: UITableViewController {
         }
         
         date.minute = Int(minutes)
-        print("date: \(date)")
-        
         date.weekday = dayOfWeek
+        
+        var alertName = ""
+        
+        switch dayOfWeek {
+        case 1: alertName = "localSundayAlert"
+        case 2: alertName = "localMondayAlert"
+        case 3: alertName = "localTuesdayAlert"
+        case 4: alertName = "localWednesdayAlert"
+        case 5: alertName = "localThursdayAlert"
+        case 6: alertName = "localFridayAlert"
+        case 7: alertName = "localSaturdayAlert"
+        default: print("🤷🏼‍♂️ something wrong with localAlert")
+        }
         
         // how long into the future it will be scheduled
         let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
         
         // the completed request ( content + trigger)
-        let request = UNNotificationRequest(identifier: "localAlarmAlert", content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: alertName, content: content, trigger: trigger)
         
         // schedule the request
         UNUserNotificationCenter.current().add(request) { (error) in
@@ -293,7 +303,7 @@ class SetAlarmTableViewController: UITableViewController {
         // Changes the alarm color picker color to white
         alarmValuePicker.setValue(UIColor.white, forKey: "textColor")
         
-        // Changes UISlider 
+        // Changes UISlider
         volumeSlider.minimumTrackTintColor = UIColor.blueAccent
         
         // Changes the days of the week buttons to be circles

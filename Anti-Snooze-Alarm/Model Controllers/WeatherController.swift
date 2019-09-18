@@ -49,7 +49,7 @@ class WeatherController {
         // Append Current Users Location
         builtURL.appendPathComponent("\(latitude),\(longitude)")
         
-        print("The builtURL is: \(builtURL)")
+//        print("The builtURL is: \(builtURL)")
         
         let dataTask = URLSession.shared.dataTask(with: builtURL) { (data, response, error) in
             if let error = error {

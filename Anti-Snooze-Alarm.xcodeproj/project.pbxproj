@@ -17,10 +17,6 @@
 		FC5C49332326C55B00106CB9 /* Anti_Snooze_Alarm.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC5C49312326C55B00106CB9 /* Anti_Snooze_Alarm.xcdatamodeld */; };
 		FC5C49352326C55B00106CB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC5C49342326C55B00106CB9 /* Assets.xcassets */; };
 		FC5C49382326C55B00106CB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC5C49362326C55B00106CB9 /* LaunchScreen.storyboard */; };
-		FC5C49452326CDD600106CB9 /* RangeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C49442326CDD600106CB9 /* RangeSlider.swift */; };
-		FC5C49482326CE2000106CB9 /* RangeSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C49472326CE2000106CB9 /* RangeSliderViewController.swift */; };
-		FC5C494C2326D59C00106CB9 /* RangeSliderThumbLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C494B2326D59C00106CB9 /* RangeSliderThumbLayer.swift */; };
-		FC5C494E2326D9DC00106CB9 /* RangeSliderTrackLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5C494D2326D9DC00106CB9 /* RangeSliderTrackLayer.swift */; };
 		FC887E0123295C260019CEF9 /* WeatherDecoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC887E0023295C260019CEF9 /* WeatherDecoding.swift */; };
 		FC887E032329610B0019CEF9 /* WeatherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC887E022329610B0019CEF9 /* WeatherController.swift */; };
 		FC887E05232963250019CEF9 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC887E04232963250019CEF9 /* Weather.swift */; };
@@ -50,10 +46,6 @@
 		FC5C49342326C55B00106CB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC5C49372326C55B00106CB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC5C49392326C55B00106CB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FC5C49442326CDD600106CB9 /* RangeSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeSlider.swift; sourceTree = "<group>"; };
-		FC5C49472326CE2000106CB9 /* RangeSliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeSliderViewController.swift; sourceTree = "<group>"; };
-		FC5C494B2326D59C00106CB9 /* RangeSliderThumbLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeSliderThumbLayer.swift; sourceTree = "<group>"; };
-		FC5C494D2326D9DC00106CB9 /* RangeSliderTrackLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeSliderTrackLayer.swift; sourceTree = "<group>"; };
 		FC887E0023295C260019CEF9 /* WeatherDecoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDecoding.swift; sourceTree = "<group>"; };
 		FC887E022329610B0019CEF9 /* WeatherController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherController.swift; sourceTree = "<group>"; };
 		FC887E04232963250019CEF9 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
@@ -87,6 +79,7 @@
 			children = (
 				FC5C49292326C55B00106CB9 /* Anti-Snooze-Alarm */,
 				FC5C49282326C55B00106CB9 /* Products */,
+				FCB9949C2332DAE0009A1780 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -151,7 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				FCAD136F23283C57000F4EF5 /* MainViewController.swift */,
-				FC5C49462326CDFF00106CB9 /* RangeSlider */,
 				FCAD13732328406B000F4EF5 /* Mini Games */,
 				FCAD137D23284ACA000F4EF5 /* SetAlarmTableViewController.swift */,
 				FC32FFE2232FDFC00066397F /* MainNavigationViewController.swift */,
@@ -168,17 +160,6 @@
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
-		FC5C49462326CDFF00106CB9 /* RangeSlider */ = {
-			isa = PBXGroup;
-			children = (
-				FC5C49472326CE2000106CB9 /* RangeSliderViewController.swift */,
-				FC5C49442326CDD600106CB9 /* RangeSlider.swift */,
-				FC5C494B2326D59C00106CB9 /* RangeSliderThumbLayer.swift */,
-				FC5C494D2326D9DC00106CB9 /* RangeSliderTrackLayer.swift */,
-			);
-			path = RangeSlider;
-			sourceTree = "<group>";
-		};
 		FCAD13732328406B000F4EF5 /* Mini Games */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +170,13 @@
 				FCAD137A2328432C000F4EF5 /* LeftBrainRightBrainViewController.swift */,
 			);
 			path = "Mini Games";
+			sourceTree = "<group>";
+		};
+		FCB9949C2332DAE0009A1780 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +213,9 @@
 						CreatedOnToolsVersion = 10.3;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+							com.apple.InterAppAudio = {
 								enabled = 0;
 							};
 							com.apple.Push = {
@@ -277,22 +268,18 @@
 				FCAD137923284315000F4EF5 /* SquaresViewController.swift in Sources */,
 				FCAD137223284065000F4EF5 /* MemorizeNumberViewController.swift in Sources */,
 				FC887E05232963250019CEF9 /* Weather.swift in Sources */,
-				FC5C494C2326D59C00106CB9 /* RangeSliderThumbLayer.swift in Sources */,
 				FC32FFE3232FDFC00066397F /* MainNavigationViewController.swift in Sources */,
 				FCAD138023285B7E000F4EF5 /* Alarm.swift in Sources */,
 				FC32FFE72330225E0066397F /* Alarm+Convenience.swift in Sources */,
 				FC9D7FB6232C2126009960E3 /* AlarmController.swift in Sources */,
 				FC5C49332326C55B00106CB9 /* Anti_Snooze_Alarm.xcdatamodeld in Sources */,
-				FC5C49482326CE2000106CB9 /* RangeSliderViewController.swift in Sources */,
 				FC887E0123295C260019CEF9 /* WeatherDecoding.swift in Sources */,
 				FC32FFE9233023AE0066397F /* DateFormatterHelper.swift in Sources */,
 				FCAD138223286161000F4EF5 /* StyleGuide.swift in Sources */,
 				FCAD137723284304000F4EF5 /* MathViewController.swift in Sources */,
 				FC887E032329610B0019CEF9 /* WeatherController.swift in Sources */,
-				FC5C49452326CDD600106CB9 /* RangeSlider.swift in Sources */,
 				FCAD137E23284ACA000F4EF5 /* SetAlarmTableViewController.swift in Sources */,
 				FC32FFEB23303DED0066397F /* Weather+Convenience.swift in Sources */,
-				FC5C494E2326D9DC00106CB9 /* RangeSliderTrackLayer.swift in Sources */,
 				FCAD137B2328432C000F4EF5 /* LeftBrainRightBrainViewController.swift in Sources */,
 				FC5C492B2326C55B00106CB9 /* AppDelegate.swift in Sources */,
 			);
