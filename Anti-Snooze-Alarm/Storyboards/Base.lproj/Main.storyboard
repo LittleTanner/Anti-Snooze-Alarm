@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8U5-Xr-Avg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="khe-eC-XKs">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -695,8 +695,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Math" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybv-Ob-lc4">
-                                <rect key="frame" x="0.0" y="48.5" width="414" height="36"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Multiplication" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybv-Ob-lc4">
+                                <rect key="frame" x="0.0" y="48.5" width="414" height="76"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="90" id="2fv-Us-eYp"/>
                                 </constraints>
@@ -704,19 +704,116 @@
                                 <color key="textColor" name="mainText"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xui-Ba-IN7">
+                                <rect key="frame" x="20.5" y="137" width="373" height="150.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ChX-en-71R">
+                                        <rect key="frame" x="0.0" y="0.0" width="186.5" height="150.5"/>
+                                        <string key="text">Input the multiplication of the left number times the right number in the text box below. The alarm will stop after 10 correct answers.</string>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                        <color key="textColor" name="mainText"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUK-V9-Ffe">
+                                        <rect key="frame" x="186.5" y="0.0" width="186.5" height="150.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="35"/>
+                                        <color key="textColor" name="blueAccent"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="78E-tn-QXQ">
+                                <rect key="frame" x="83" y="316.5" width="248" height="78"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5n-C0-rcf">
+                                        <rect key="frame" x="0.0" y="0.0" width="82.5" height="78"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="65"/>
+                                        <color key="textColor" name="mainText"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CWQ-Wt-hTa">
+                                        <rect key="frame" x="82.5" y="0.0" width="83" height="78"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="65"/>
+                                        <color key="textColor" name="mainText"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YbY-ws-VLf">
+                                        <rect key="frame" x="165.5" y="0.0" width="82.5" height="78"/>
+                                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="65"/>
+                                        <color key="textColor" name="mainText"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="wIt-ul-APJ">
+                                <rect key="frame" x="41.5" y="521" width="331" height="45"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJK-vV-heD">
+                                        <rect key="frame" x="0.0" y="0.0" width="157.5" height="45"/>
+                                        <color key="backgroundColor" name="mainText"/>
+                                        <state key="normal" title="Skip">
+                                            <color key="titleColor" name="darkBlue"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="skipButtonTapped:" destination="khe-eC-XKs" eventType="touchUpInside" id="Lqt-Oj-sNh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LEm-kk-nz7">
+                                        <rect key="frame" x="173.5" y="0.0" width="157.5" height="45"/>
+                                        <color key="backgroundColor" name="blueAccent"/>
+                                        <state key="normal" title="Enter">
+                                            <color key="titleColor" name="mainText"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="enterButtonTapped:" destination="khe-eC-XKs" eventType="touchUpInside" id="pdO-tC-7ZW"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BHP-4g-URH">
+                                <rect key="frame" x="103.5" y="434" width="207" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="1Bj-vA-lHW"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" name="darkBlue"/>
                         <constraints>
+                            <constraint firstItem="wIt-ul-APJ" firstAttribute="centerY" secondItem="BvQ-Iq-PyG" secondAttribute="centerY" multiplier="1.2" id="19u-u5-4VT"/>
                             <constraint firstItem="ybv-Ob-lc4" firstAttribute="centerX" secondItem="BvQ-Iq-PyG" secondAttribute="centerX" id="3zM-UL-bZD"/>
+                            <constraint firstItem="78E-tn-QXQ" firstAttribute="width" secondItem="Dc2-SG-6Jv" secondAttribute="width" multiplier="0.6" id="5YV-HW-vkq"/>
+                            <constraint firstItem="BHP-4g-URH" firstAttribute="top" secondItem="78E-tn-QXQ" secondAttribute="bottom" multiplier="1.1" id="7GR-mE-f9w"/>
+                            <constraint firstItem="BHP-4g-URH" firstAttribute="width" secondItem="Dc2-SG-6Jv" secondAttribute="width" multiplier="0.5" id="8M8-lJ-bBm"/>
+                            <constraint firstItem="Xui-Ba-IN7" firstAttribute="top" secondItem="ybv-Ob-lc4" secondAttribute="bottom" multiplier="1.1" id="90x-1g-y7R"/>
+                            <constraint firstItem="wIt-ul-APJ" firstAttribute="height" secondItem="Dc2-SG-6Jv" secondAttribute="height" multiplier="0.05" id="B5G-9n-lxp"/>
+                            <constraint firstItem="wIt-ul-APJ" firstAttribute="width" secondItem="Dc2-SG-6Jv" secondAttribute="width" multiplier="0.8" id="Gpd-Hs-MmU"/>
+                            <constraint firstItem="Xui-Ba-IN7" firstAttribute="centerX" secondItem="BvQ-Iq-PyG" secondAttribute="centerX" id="H0v-ZK-dGI"/>
                             <constraint firstItem="ybv-Ob-lc4" firstAttribute="top" secondItem="BvQ-Iq-PyG" secondAttribute="top" multiplier="1.1" id="INE-ma-PEQ"/>
+                            <constraint firstItem="wIt-ul-APJ" firstAttribute="centerX" secondItem="BvQ-Iq-PyG" secondAttribute="centerX" id="WqO-2x-vn5"/>
+                            <constraint firstItem="78E-tn-QXQ" firstAttribute="top" secondItem="Xui-Ba-IN7" secondAttribute="bottom" multiplier="1.1" id="aLq-XA-eTA"/>
+                            <constraint firstItem="wIt-ul-APJ" firstAttribute="top" secondItem="BHP-4g-URH" secondAttribute="bottom" multiplier="1.1" id="dSz-fo-bgT"/>
+                            <constraint firstItem="Xui-Ba-IN7" firstAttribute="width" secondItem="Dc2-SG-6Jv" secondAttribute="width" multiplier="0.9" id="fqq-oe-c6e"/>
+                            <constraint firstItem="78E-tn-QXQ" firstAttribute="centerX" secondItem="BvQ-Iq-PyG" secondAttribute="centerX" id="gKO-nY-MWG"/>
+                            <constraint firstItem="BHP-4g-URH" firstAttribute="centerX" secondItem="BvQ-Iq-PyG" secondAttribute="centerX" id="kdo-Zf-eCW"/>
                             <constraint firstItem="ybv-Ob-lc4" firstAttribute="width" secondItem="Dc2-SG-6Jv" secondAttribute="width" id="xak-e2-1oV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BvQ-Iq-PyG"/>
                     </view>
+                    <connections>
+                        <outlet property="countCorrectLabel" destination="iUK-V9-Ffe" id="N2t-7S-dS8"/>
+                        <outlet property="inputNumberTextField" destination="BHP-4g-URH" id="QB0-Dz-hg5"/>
+                        <outlet property="instructionsLabel" destination="ChX-en-71R" id="SMY-iy-MIB"/>
+                        <outlet property="leftNumberLabel" destination="S5n-C0-rcf" id="xBs-ck-6zh"/>
+                        <outlet property="rightNumberLabel" destination="YbY-ws-VLf" id="eGg-iV-qfg"/>
+                        <outlet property="titleLabel" destination="ybv-Ob-lc4" id="h9a-uq-7xQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fmn-0O-TLs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4939" y="852"/>
+            <point key="canvasLocation" x="4937.68115942029" y="851.78571428571422"/>
         </scene>
         <!--Squares View Controller-->
         <scene sceneID="nsg-Xz-rOd">
@@ -1219,16 +1316,16 @@
                                 <rect key="frame" x="20.5" y="152" width="373" height="282"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="cP3-S1-OWK">
-                                        <rect key="frame" x="0.0" y="0.0" width="373" height="152"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="373" height="220.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the square with the background color that matches the word below. After 10 correct answers in a row the alarm will stop." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azO-GT-mUm">
-                                                <rect key="frame" x="0.0" y="0.0" width="186.5" height="152"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="186.5" height="220.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                                 <color key="textColor" name="mainText"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppv-XZ-6yk">
-                                                <rect key="frame" x="186.5" y="0.0" width="186.5" height="152"/>
+                                                <rect key="frame" x="186.5" y="0.0" width="186.5" height="220.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="35"/>
                                                 <color key="textColor" name="blueAccent"/>
                                                 <nil key="highlightedColor"/>
@@ -1236,7 +1333,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(COLOR)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNm-ea-IoB">
-                                        <rect key="frame" x="0.0" y="152" width="373" height="130"/>
+                                        <rect key="frame" x="0.0" y="220.5" width="373" height="61.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
                                         <color key="textColor" name="mainText"/>
                                         <nil key="highlightedColor"/>
