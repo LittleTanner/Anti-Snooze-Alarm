@@ -238,24 +238,15 @@
                                     <constraint firstItem="Q67-We-Ihm" firstAttribute="width" secondItem="tg3-31-bkM" secondAttribute="width" multiplier="0.9" id="gkn-6p-45g"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i0i-WR-Aaq">
-                                <rect key="frame" x="126" y="460" width="162" height="30"/>
-                                <state key="normal" title="Present Alert Controller"/>
-                                <connections>
-                                    <action selector="presentAlertControllerButtonTapped:" destination="lSY-zc-XCT" eventType="touchUpInside" id="J00-V5-rOc"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.071311362087726593" green="0.21222692728042603" blue="0.30050021409988403" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="tg3-31-bkM" firstAttribute="width" secondItem="us0-SG-Vhd" secondAttribute="width" id="0rn-HO-hH8"/>
-                            <constraint firstItem="i0i-WR-Aaq" firstAttribute="centerX" secondItem="3TT-lZ-U2O" secondAttribute="centerX" id="1ZG-Of-FtJ"/>
                             <constraint firstItem="sdL-R7-Ik4" firstAttribute="width" secondItem="us0-SG-Vhd" secondAttribute="width" multiplier="0.9" id="6Pi-eA-BNt"/>
                             <constraint firstItem="3TT-lZ-U2O" firstAttribute="bottom" secondItem="sdL-R7-Ik4" secondAttribute="bottom" multiplier="1.2" id="IqK-oX-uXI"/>
                             <constraint firstItem="tg3-31-bkM" firstAttribute="top" secondItem="3TT-lZ-U2O" secondAttribute="top" multiplier="1.5" id="QKe-Sm-7AD"/>
                             <constraint firstItem="tg3-31-bkM" firstAttribute="centerX" secondItem="3TT-lZ-U2O" secondAttribute="centerX" id="QeH-M7-3iV"/>
                             <constraint firstItem="sdL-R7-Ik4" firstAttribute="centerX" secondItem="3TT-lZ-U2O" secondAttribute="centerX" id="d04-GR-F5b"/>
-                            <constraint firstItem="i0i-WR-Aaq" firstAttribute="centerY" secondItem="3TT-lZ-U2O" secondAttribute="centerY" id="pH0-c1-SVg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3TT-lZ-U2O"/>
                     </view>
@@ -301,11 +292,24 @@
         <!--Settings-->
         <scene sceneID="93l-qk-6wE">
             <objects>
-                <viewController id="jtt-qf-AbN" sceneMemberID="viewController">
+                <viewController id="jtt-qf-AbN" customClass="SettingsViewController" customModule="Anti_Snooze_Alarm" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5zt-yQ-EJV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NxW-a9-Jyo">
+                                <rect key="frame" x="154.5" y="460" width="105" height="30"/>
+                                <state key="normal" title="Play Mini Game"/>
+                                <connections>
+                                    <action selector="playMiniGameButtonTapped:" destination="jtt-qf-AbN" eventType="touchUpInside" id="NOL-PI-YFf"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NxW-a9-Jyo" firstAttribute="centerY" secondItem="mxR-qd-7k8" secondAttribute="centerY" id="Gam-RF-nue"/>
+                            <constraint firstItem="NxW-a9-Jyo" firstAttribute="centerX" secondItem="mxR-qd-7k8" secondAttribute="centerX" id="YF0-QL-83w"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="mxR-qd-7k8"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="eTb-GZ-DAM"/>
