@@ -49,6 +49,11 @@ class SetAlarmTableViewController: UITableViewController {
         super.viewDidLoad()
         setsUpUI()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setsUpUI()
+    }
 
     // MARK: - Actions
     
