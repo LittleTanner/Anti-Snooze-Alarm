@@ -35,8 +35,6 @@ class MainViewController: UIViewController {
     
     // MARK: - Properties
     
-    
-    
     let locationManager = CLLocationManager()
     var userLatitude: CLLocationDegrees = 0.0
     var userLongitude: CLLocationDegrees = 0.0
@@ -89,8 +87,6 @@ class MainViewController: UIViewController {
                 localNotificationCenter.removeAllPendingNotificationRequests()
             }
         }
-        
-        
     }
     
     // MARK: - UI Adjustments
@@ -166,8 +162,6 @@ class MainViewController: UIViewController {
                 saturdayLabel.textColor = UIColor.unSelectedTextColor
             }
             
-            
-            
             // THERE APPEARS TO BE A SAVING THE WEATHER ISSUE
             if let weatherArray = WeatherController.sharedInstance.weather, let weather = weatherArray.first {
                 currentWeatherLabel.text = "\(Int(weather.currentWeatherTemp))°"
@@ -193,7 +187,6 @@ class MainViewController: UIViewController {
                 }
                 currentWeatherIconLabel.text = currentWeatherIcon
             }
-            
         } else {
             print("Alarm is nil")
         }
@@ -216,9 +209,7 @@ class MainViewController: UIViewController {
         }
     }
     
-    
 } // End of class
-
 
 extension MainViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
