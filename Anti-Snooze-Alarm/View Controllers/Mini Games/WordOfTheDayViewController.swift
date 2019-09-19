@@ -14,7 +14,8 @@ class WordOfTheDayViewController: UIViewController {
     
     
     // MARK: - Properties
-    
+    var word = ""
+    var definition = ""
     
     // MARK: - Lifecycle Methods
     
@@ -24,6 +25,24 @@ class WordOfTheDayViewController: UIViewController {
         setsUpUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let wordController = WordController()
+        
+        wordController.fetchWordOfTheDay(word: "test") { (word) in
+            guard let word = word,
+                let searchedWord = word.word,
+                let definition = word.definition else { return }
+            
+            self.word = searchedWord
+            self.definition = definition
+            
+            print("Searched Word: \(searchedWord)")
+            print("Definition: \(definition)")
+        }
+    }
+    
     // MARK: - Actions
     
     
@@ -31,6 +50,9 @@ class WordOfTheDayViewController: UIViewController {
     
     func setsUpUI() {
         self.view.backgroundColor = UIColor.darkBlue
+        DispatchQueue.main.async {
+            // labels for word and definition updated
+        }
     }
     
     
