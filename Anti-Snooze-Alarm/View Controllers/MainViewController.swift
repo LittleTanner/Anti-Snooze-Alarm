@@ -41,7 +41,7 @@ class MainViewController: UIViewController {
     var userLatitude: CLLocationDegrees = 0.0
     var userLongitude: CLLocationDegrees = 0.0
     var weather: Weather?
-//    var hasFetchedWeather = false
+    //    var hasFetchedWeather = false
     
     // MARK: - Lifecycle Methods
     
@@ -177,7 +177,7 @@ class MainViewController: UIViewController {
                 currentWeatherLabel.text = "\(Int(weather.currentWeatherTemp))°"
                 currentFeelsLikeTempLabel.text = "\(Int(weather.currentFeelsLikeTemp))°"
                 currentWeatherSummaryLabel.text = weather.currentWeatherSummary
-//                currentWeatherIconLabel.text = weather.currentWeatherIconName
+                //                currentWeatherIconLabel.text = weather.currentWeatherIconName
                 dailyTempLowLabel.text = "\(Int(weather.dailyMinTemp))°"
                 dailyTempLowLabel.text = "\(Int(weather.dailyMaxTemp))°"
                 dayWeatherSummaryLabel.text = weather.hourlyWeatherSummary
@@ -216,10 +216,9 @@ class MainViewController: UIViewController {
             // Create a random number
             let randomNumber = Int.random(in: 0...4)
             // Create an array of the view controller's identifier mini game names
-            // let arrayOfMiniGames = ["MemorizeNumberGame", "WordOfTheDayGame", "MathGame", "SquaresGame", "LeftBrainRightBrainGame"]
+            let arrayOfMiniGames = ["MemorizeNumberGame", "WordOfTheDayGame", "MathGame", "SquaresGame", "LeftBrainRightBrainGame"]
             // Create an instance of the view controller
-            let controller = storyboard.instantiateViewController(withIdentifier: "LeftBrainRightBrainGame")
-            //            let controller = storyboard.instantiateViewController(withIdentifier: arrayOfMiniGames[randomNumber])
+            let controller = storyboard.instantiateViewController(withIdentifier: arrayOfMiniGames[randomNumber])
             // Present the user with the random mini game view controller
             self.present(controller, animated: true, completion: nil)
         }
@@ -258,7 +257,7 @@ class MainViewController: UIViewController {
 extension MainViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let currentLocation: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-//        print("The user's current location is at latitude: \(currentLocation.latitude) and longitude: \(currentLocation.longitude)")
+        //        print("The user's current location is at latitude: \(currentLocation.latitude) and longitude: \(currentLocation.longitude)")
         userLatitude = currentLocation.latitude
         userLongitude = currentLocation.longitude
         
@@ -295,7 +294,7 @@ extension MainViewController: CLLocationManagerDelegate {
                 case Weather.currentWeatherIconImage.partlyCloudyNight.rawValue: currentWeatherIcon = "🌥"
                 default: currentWeatherIcon = "🤷🏼‍♂️"
                 }
-//                self.hasFetchedWeather = true
+                //                self.hasFetchedWeather = true
                 self.currentWeatherIconLabel.text = currentWeatherIcon
                 self.weather = weather
             }
