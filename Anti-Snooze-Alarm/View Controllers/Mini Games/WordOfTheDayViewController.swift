@@ -20,13 +20,13 @@ class WordOfTheDayViewController: UIViewController {
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var enterButton: UIButton!
     
-    
     // MARK: - Properties
     
     var word = ""
     var definition = "Pulling Definition From The Web.. Please wait typically about 5 seconds"
     
     let wordController = WordController()
+    
     // MARK: - Lifecycle Methods
     
     override func viewDidLoad() {
@@ -38,14 +38,6 @@ class WordOfTheDayViewController: UIViewController {
         updateViews()
         fetchWord()
     }
-
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        generateRandomWord()
-//        updateViews()
-//        fetchWord()
-//    }
     
     // MARK: - Actions
     
@@ -83,8 +75,6 @@ class WordOfTheDayViewController: UIViewController {
     }
     
     func fetchWord() {
-//        let wordController = WordController()
-        
         wordController.fetchWordOfTheDay(word: word) { (word) in
             guard let word = word,
                 let searchedWord = word.word,
