@@ -26,7 +26,7 @@ class RandomWordController {
             return
         }
         
-        let apiKey = "WMDFHP4S"
+        let apiKey = "Q5QLDBOR"
         
         let apiKeyQueryItem = URLQueryItem(name: "key", value: apiKey)
         let numberOfWordsReturnedQueryItem = URLQueryItem(name: "number", value: "1")
@@ -39,10 +39,14 @@ class RandomWordController {
             return
         }
         
+        var urlRequest = URLRequest(url: builtURL)
+        urlRequest.httpMethod = "GET"
+        
         
         print("The builtURL is: \(builtURL)")
+        print("The urlRequestURL is : \(urlRequest)")
         
-        let dataTask = URLSession.shared.dataTask(with: builtURL) { (data, response, error) in
+        let dataTask = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             if let error = error {
                 print("There was an error with the url in \(#function). \n Error: \(error), \n Error Localized Description: \(error.localizedDescription)")
                 completion(nil)
