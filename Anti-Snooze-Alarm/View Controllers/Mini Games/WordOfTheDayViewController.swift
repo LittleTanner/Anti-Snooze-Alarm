@@ -38,6 +38,7 @@ class WordOfTheDayViewController: UIViewController {
         updateViews()
         fetchWord()
     }
+
     
 //    override func viewWillAppear(_ animated: Bool) {
 //        super.viewWillAppear(animated)

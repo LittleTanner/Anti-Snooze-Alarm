@@ -47,14 +47,17 @@ class SetAlarmTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setsUpUI()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        setsUpUI()
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setsUpUI()
+    }
+    
     // MARK: - Actions
     
     @IBAction func alarmValuePickerValueChanged(_ sender: Any) {
