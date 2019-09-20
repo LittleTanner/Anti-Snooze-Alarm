@@ -34,6 +34,8 @@
 		FCE24B442334251100A9A29F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE24B432334251100A9A29F /* SettingsViewController.swift */; };
 		FCE24B4623342B2200A9A29F /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE24B4523342B2200A9A29F /* Word.swift */; };
 		FCE24B4823342BAD00A9A29F /* WordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE24B4723342BAD00A9A29F /* WordController.swift */; };
+		FCE24B4C233456D900A9A29F /* RandomWordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE24B4B233456D900A9A29F /* RandomWordController.swift */; };
+		FCE24B4E233457CD00A9A29F /* RandomWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE24B4D233457CD00A9A29F /* RandomWord.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +69,8 @@
 		FCE24B432334251100A9A29F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FCE24B4523342B2200A9A29F /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		FCE24B4723342BAD00A9A29F /* WordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordController.swift; sourceTree = "<group>"; };
+		FCE24B4B233456D900A9A29F /* RandomWordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomWordController.swift; sourceTree = "<group>"; };
+		FCE24B4D233457CD00A9A29F /* RandomWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomWord.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +138,7 @@
 				FC32FFE8233023AE0066397F /* DateFormatterHelper.swift */,
 				FC32FFEA23303DED0066397F /* Weather+Convenience.swift */,
 				FCE24B4523342B2200A9A29F /* Word.swift */,
+				FCE24B4D233457CD00A9A29F /* RandomWord.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -144,6 +149,7 @@
 				FC887E022329610B0019CEF9 /* WeatherController.swift */,
 				FC9D7FB5232C2126009960E3 /* AlarmController.swift */,
 				FCE24B4723342BAD00A9A29F /* WordController.swift */,
+				FCE24B4B233456D900A9A29F /* RandomWordController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -271,10 +277,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCE24B4E233457CD00A9A29F /* RandomWord.swift in Sources */,
 				FC32FFE52330211A0066397F /* CoreDataStack.swift in Sources */,
 				FCAD1375232842A7000F4EF5 /* WordOfTheDayViewController.swift in Sources */,
 				FCE24B442334251100A9A29F /* SettingsViewController.swift in Sources */,
 				FCAD137023283C57000F4EF5 /* MainViewController.swift in Sources */,
+				FCE24B4C233456D900A9A29F /* RandomWordController.swift in Sources */,
 				FCAD137923284315000F4EF5 /* SquaresViewController.swift in Sources */,
 				FCAD137223284065000F4EF5 /* MemorizeNumberViewController.swift in Sources */,
 				FC887E05232963250019CEF9 /* Weather.swift in Sources */,
