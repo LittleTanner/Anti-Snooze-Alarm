@@ -19,4 +19,5 @@ extension UIColor {
     static let blueAccent = UIColor(named: "blueAccent")
     static let mainTextColor = UIColor(named: "mainText")
     static let unSelectedTextColor = UIColor(named: "unSelectedText")
+    static let redAccent = UIColor(named: "redAccent")
 }
