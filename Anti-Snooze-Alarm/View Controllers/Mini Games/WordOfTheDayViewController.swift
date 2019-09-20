@@ -25,8 +25,6 @@ class WordOfTheDayViewController: UIViewController {
     var word = ""
     var definition = "Pulling Definition From The Web.. Please wait typically about 5 seconds"
     
-    let wordController = WordController()
-    
     // MARK: - Lifecycle Methods
     
     override func viewDidLoad() {
@@ -63,7 +61,6 @@ class WordOfTheDayViewController: UIViewController {
         }
     }
     
-    
     // MARK: - Custom Methods
     
     func generateRandomWord() {
@@ -75,7 +72,7 @@ class WordOfTheDayViewController: UIViewController {
     }
     
     func fetchWord() {
-        wordController.fetchWordOfTheDay(word: word) { (word) in
+        WordController.shareInstance.fetchWordOfTheDay(word: word) { (word) in
             guard let word = word,
                 let searchedWord = word.word,
                 let definition = word.definition else { return }
@@ -126,7 +123,6 @@ class WordOfTheDayViewController: UIViewController {
         self.wordDefinitionLabel.text = self.definition
         skipButton.isHidden = true
         enterButton.isHidden = true
-        
     }
     
     func updateViews() {
