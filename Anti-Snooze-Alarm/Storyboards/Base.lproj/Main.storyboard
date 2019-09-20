@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L0v-1i-trh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8U5-Xr-Avg">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -612,7 +612,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZsR-st-gDg">
                                 <rect key="frame" x="20.5" y="152" width="373" height="107.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Memorize the number below and be prepared to input it into the text field below in:" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMI-1C-GNn">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Memorize the number below and be prepared to input it into the text field below in:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iMI-1C-GNn">
                                         <rect key="frame" x="0.0" y="0.0" width="182.5" height="107.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                         <color key="textColor" name="mainText"/>
@@ -675,21 +675,107 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Word of the day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J0Z-Ku-X5U">
-                                <rect key="frame" x="146" y="139" width="122" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word of the day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J0Z-Ku-X5U">
+                                <rect key="frame" x="0.0" y="48.5" width="414" height="90"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="90" id="3KB-bV-L5R"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
+                                <color key="textColor" name="mainText"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D8p-KV-P8h">
+                                <rect key="frame" x="20.5" y="145.5" width="373" height="86"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copy the definition exactly as it appears. The text is case sensitive." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTi-QH-QPs">
+                                        <rect key="frame" x="0.0" y="0.0" width="186.5" height="86"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                        <color key="textColor" name="mainText"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Word)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Es6-PX-cdB">
+                                        <rect key="frame" x="186.5" y="0.0" width="186.5" height="86"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                        <color key="textColor" name="blueAccent"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Input Definition Here..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rJB-ey-c0k">
+                                <rect key="frame" x="20.5" y="363" width="373" height="89.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" name="darkBlue"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="jPC-aR-G6Y">
+                                <rect key="frame" x="20.5" y="475" width="373" height="45"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sxc-H6-uPP">
+                                        <rect key="frame" x="0.0" y="0.0" width="178.5" height="45"/>
+                                        <color key="backgroundColor" name="mainText"/>
+                                        <state key="normal" title="Skip">
+                                            <color key="titleColor" name="darkBlue"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="skipButtonTapped:" destination="L0v-1i-trh" eventType="touchUpInside" id="NhQ-qU-BLU"/>
+                                            <action selector="skipButtonTapped:" destination="khe-eC-XKs" eventType="touchUpInside" id="jq5-dB-UrG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="73K-B3-qjh">
+                                        <rect key="frame" x="194.5" y="0.0" width="178.5" height="45"/>
+                                        <color key="backgroundColor" name="blueAccent"/>
+                                        <state key="normal" title="Enter">
+                                            <color key="titleColor" name="mainText"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="enterButtonTapped:" destination="L0v-1i-trh" eventType="touchUpInside" id="3Ra-Fb-U1f"/>
+                                            <action selector="enterButtonTapped:" destination="khe-eC-XKs" eventType="touchUpInside" id="ugT-z3-MzW"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Definition) Type the following definition of the word into the text field below. The text field is case sensitive." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scZ-g8-PQP">
+                                <rect key="frame" x="20.5" y="243" width="373" height="102.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                <color key="textColor" name="mainText"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="darkBlue"/>
+                        <constraints>
+                            <constraint firstItem="D8p-KV-P8h" firstAttribute="width" secondItem="tiK-Hr-oJG" secondAttribute="width" multiplier="0.9" id="0Es-G2-JCx"/>
+                            <constraint firstItem="rJB-ey-c0k" firstAttribute="centerY" secondItem="89l-CU-yIC" secondAttribute="centerY" multiplier="0.9" id="4fI-IH-sa3"/>
+                            <constraint firstItem="J0Z-Ku-X5U" firstAttribute="centerX" secondItem="89l-CU-yIC" secondAttribute="centerX" id="54Q-DF-IIs"/>
+                            <constraint firstItem="jPC-aR-G6Y" firstAttribute="centerX" secondItem="89l-CU-yIC" secondAttribute="centerX" id="5aG-xq-1f0"/>
+                            <constraint firstItem="J0Z-Ku-X5U" firstAttribute="width" secondItem="tiK-Hr-oJG" secondAttribute="width" id="BAC-3P-tbf"/>
+                            <constraint firstItem="D8p-KV-P8h" firstAttribute="centerX" secondItem="89l-CU-yIC" secondAttribute="centerX" id="DOc-Dk-JDH"/>
+                            <constraint firstItem="jPC-aR-G6Y" firstAttribute="height" secondItem="tiK-Hr-oJG" secondAttribute="height" multiplier="0.05" id="LWg-nh-YKw"/>
+                            <constraint firstItem="rJB-ey-c0k" firstAttribute="height" secondItem="tiK-Hr-oJG" secondAttribute="height" multiplier="0.1" id="PPo-q4-hXZ"/>
+                            <constraint firstItem="scZ-g8-PQP" firstAttribute="centerX" secondItem="89l-CU-yIC" secondAttribute="centerX" id="SPS-ni-JHN"/>
+                            <constraint firstItem="rJB-ey-c0k" firstAttribute="top" secondItem="scZ-g8-PQP" secondAttribute="bottom" multiplier="1.05" id="aT9-5E-AIa"/>
+                            <constraint firstItem="J0Z-Ku-X5U" firstAttribute="top" secondItem="89l-CU-yIC" secondAttribute="top" multiplier="1.1" id="b6r-Nd-j0u"/>
+                            <constraint firstItem="jPC-aR-G6Y" firstAttribute="width" secondItem="tiK-Hr-oJG" secondAttribute="width" multiplier="0.9" id="pam-BZ-UDp"/>
+                            <constraint firstItem="rJB-ey-c0k" firstAttribute="centerX" secondItem="89l-CU-yIC" secondAttribute="centerX" id="rLh-Vu-Ynu"/>
+                            <constraint firstItem="scZ-g8-PQP" firstAttribute="top" secondItem="D8p-KV-P8h" secondAttribute="bottom" multiplier="1.05" id="tRg-qW-Dly"/>
+                            <constraint firstItem="D8p-KV-P8h" firstAttribute="top" secondItem="J0Z-Ku-X5U" secondAttribute="bottom" multiplier="1.05" id="vgJ-M9-YtI"/>
+                            <constraint firstItem="scZ-g8-PQP" firstAttribute="width" secondItem="tiK-Hr-oJG" secondAttribute="width" multiplier="0.9" id="yRD-H5-XHM"/>
+                            <constraint firstItem="jPC-aR-G6Y" firstAttribute="top" secondItem="rJB-ey-c0k" secondAttribute="bottom" multiplier="1.05" id="ysC-RV-5d8"/>
+                            <constraint firstItem="rJB-ey-c0k" firstAttribute="width" secondItem="tiK-Hr-oJG" secondAttribute="width" multiplier="0.9" id="zgM-zA-Ymu"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="89l-CU-yIC"/>
                     </view>
+                    <connections>
+                        <outlet property="inputDefinitionTextField" destination="rJB-ey-c0k" id="Cdc-2Z-AQC"/>
+                        <outlet property="instructionsLabel" destination="KTi-QH-QPs" id="rs6-uD-fyU"/>
+                        <outlet property="titleLabel" destination="J0Z-Ku-X5U" id="8eS-3X-SnJ"/>
+                        <outlet property="wordDefinitionLabel" destination="scZ-g8-PQP" id="dQM-p4-bny"/>
+                        <outlet property="wordLabel" destination="Es6-PX-cdB" id="MNo-9X-xmZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qic-mn-4bB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4067" y="852"/>
+            <point key="canvasLocation" x="4066.666666666667" y="851.78571428571422"/>
         </scene>
         <!--Math View Controller-->
         <scene sceneID="bpy-FK-kCJ">
