@@ -10,6 +10,8 @@ import Foundation
 
 class WordController {
     
+    static let shareInstance = WordController()
+    
     // Fetch
     
     // URL to create
