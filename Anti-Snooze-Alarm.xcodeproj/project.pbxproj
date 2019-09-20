@@ -31,6 +31,7 @@
 		FCAD138023285B7E000F4EF5 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAD137F23285B7E000F4EF5 /* Alarm.swift */; };
 		FCAD138223286161000F4EF5 /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAD138123286161000F4EF5 /* StyleGuide.swift */; };
 		FCAD138423286236000F4EF5 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCAD138323286236000F4EF5 /* Colors.xcassets */; };
+		FCB2A55223352642005FCDED /* ListOfWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB2A55123352642005FCDED /* ListOfWords.swift */; };
 		FCE24B442334251100A9A29F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE24B432334251100A9A29F /* SettingsViewController.swift */; };
 		FCE24B4623342B2200A9A29F /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE24B4523342B2200A9A29F /* Word.swift */; };
 		FCE24B4823342BAD00A9A29F /* WordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE24B4723342BAD00A9A29F /* WordController.swift */; };
@@ -66,6 +67,7 @@
 		FCAD137F23285B7E000F4EF5 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		FCAD138123286161000F4EF5 /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
 		FCAD138323286236000F4EF5 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		FCB2A55123352642005FCDED /* ListOfWords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfWords.swift; sourceTree = "<group>"; };
 		FCE24B432334251100A9A29F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FCE24B4523342B2200A9A29F /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		FCE24B4723342BAD00A9A29F /* WordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordController.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				FC32FFEA23303DED0066397F /* Weather+Convenience.swift */,
 				FCE24B4523342B2200A9A29F /* Word.swift */,
 				FCE24B4D233457CD00A9A29F /* RandomWord.swift */,
+				FCB2A55123352642005FCDED /* ListOfWords.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -299,6 +302,7 @@
 				FC887E032329610B0019CEF9 /* WeatherController.swift in Sources */,
 				FCE24B4623342B2200A9A29F /* Word.swift in Sources */,
 				FCAD137E23284ACA000F4EF5 /* SetAlarmTableViewController.swift in Sources */,
+				FCB2A55223352642005FCDED /* ListOfWords.swift in Sources */,
 				FC32FFEB23303DED0066397F /* Weather+Convenience.swift in Sources */,
 				FCAD137B2328432C000F4EF5 /* LeftBrainRightBrainViewController.swift in Sources */,
 				FC5C492B2326C55B00106CB9 /* AppDelegate.swift in Sources */,

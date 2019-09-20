@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8U5-Xr-Avg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L0v-1i-trh">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -685,23 +685,23 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D8p-KV-P8h">
-                                <rect key="frame" x="20.5" y="145.5" width="373" height="86"/>
+                                <rect key="frame" x="20.5" y="145.5" width="373" height="107.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copy the definition exactly as it appears. The text is case sensitive." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTi-QH-QPs">
-                                        <rect key="frame" x="0.0" y="0.0" width="186.5" height="86"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type the definition exactly as it appears in the text field below. The text is case sensitive." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KTi-QH-QPs">
+                                        <rect key="frame" x="0.0" y="0.0" width="186.5" height="107.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                         <color key="textColor" name="mainText"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Word)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Es6-PX-cdB">
-                                        <rect key="frame" x="186.5" y="0.0" width="186.5" height="86"/>
+                                        <rect key="frame" x="186.5" y="0.0" width="186.5" height="107.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                         <color key="textColor" name="blueAccent"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Input Definition Here..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rJB-ey-c0k">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rJB-ey-c0k">
                                 <rect key="frame" x="20.5" y="363" width="373" height="89.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" name="darkBlue"/>
@@ -736,7 +736,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Definition) Type the following definition of the word into the text field below. The text field is case sensitive." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scZ-g8-PQP">
-                                <rect key="frame" x="20.5" y="243" width="373" height="102.5"/>
+                                <rect key="frame" x="20.5" y="265.5" width="373" height="80"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                 <color key="textColor" name="mainText"/>
                                 <nil key="highlightedColor"/>
@@ -766,8 +766,10 @@
                         <viewLayoutGuide key="safeArea" id="89l-CU-yIC"/>
                     </view>
                     <connections>
+                        <outlet property="enterButton" destination="73K-B3-qjh" id="iNO-Mc-2yt"/>
                         <outlet property="inputDefinitionTextField" destination="rJB-ey-c0k" id="Cdc-2Z-AQC"/>
                         <outlet property="instructionsLabel" destination="KTi-QH-QPs" id="rs6-uD-fyU"/>
+                        <outlet property="skipButton" destination="Sxc-H6-uPP" id="d1j-U6-fF2"/>
                         <outlet property="titleLabel" destination="J0Z-Ku-X5U" id="8eS-3X-SnJ"/>
                         <outlet property="wordDefinitionLabel" destination="scZ-g8-PQP" id="dQM-p4-bny"/>
                         <outlet property="wordLabel" destination="Es6-PX-cdB" id="MNo-9X-xmZ"/>
