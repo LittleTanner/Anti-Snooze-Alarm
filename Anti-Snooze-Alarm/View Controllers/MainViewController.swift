@@ -45,6 +45,11 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        UNUserNotificationCenter.current().getPendingNotificationRequests { (notifications) in
+            print("Pending notifications scheduled: \(notifications.count)")
+        }
+        
         setsUpUI()
         self.locationManager.requestWhenInUseAuthorization()
         

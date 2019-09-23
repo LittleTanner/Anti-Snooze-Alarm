@@ -9,11 +9,16 @@
 import UIKit
 import CoreData
 import UserNotifications
+import AVKit
+import MediaPlayer
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
+//    var player: AVAudioPlayer?
+    
+//    var audioPlayer: AVAudioPlayer?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -34,13 +39,57 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 print("Denied permission to send notifications")
             }
         }
-        
+
         UNUserNotificationCenter.current().delegate = self
         
         return true
     }
     
+    
+    
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        // Create an instance of the main storyboard
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        // Create a random number
+        let randomNumber = 0 //Int.random(in: 0...4)
+
+        // Create an instance of the view controller
+        switch randomNumber {
+        case 0:
+            if let controller = storyboard.instantiateViewController(withIdentifier: "MemorizeNumberGame") as? MemorizeNumberViewController {
+                self.window?.rootViewController = controller
+            }
+        case 1:
+            if let controller = storyboard.instantiateViewController(withIdentifier: "WordOfTheDayGame") as? WordOfTheDayViewController {
+                self.window?.rootViewController = controller
+            }
+        case 2:
+            if let controller = storyboard.instantiateViewController(withIdentifier: "MathGame") as? MathViewController {
+                self.window?.rootViewController = controller
+            }
+        case 3:
+            if let controller = storyboard.instantiateViewController(withIdentifier: "SquaresGame") as? SquaresViewController {
+                self.window?.rootViewController = controller
+            }
+        case 4:
+            if let controller = storyboard.instantiateViewController(withIdentifier: "LeftBrainRightBrainGame") as? LeftBrainRightBrainViewController {
+                self.window?.rootViewController = controller
+            }
+        default:
+            if let controller = storyboard.instantiateViewController(withIdentifier: "mainNavigationController") as? MainNavigationViewController {
+                self.window?.rootViewController = controller
+            }
+            print("User clicked on local notification. There was an error sending user to random game so sent them to the main page")
+        }
+        
+        completionHandler()
+    }
+    
+    
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        print("Notification sent")
         completionHandler([.alert, .sound, .badge])
     }
     
@@ -53,6 +102,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        self.saveContext()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -114,5 +164,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
     }
 
-}
-
+} // End of class

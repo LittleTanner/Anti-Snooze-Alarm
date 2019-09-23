@@ -47,6 +47,9 @@ class SetAlarmTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // This does not work????
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: nil, action: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -243,12 +246,6 @@ class SetAlarmTableViewController: UITableViewController {
         
         guard let alarms = AlarmController.sharedInstance.alarm, let alarm = alarms.first else { return }
         
-        // content of our notification (what it looks like)
-        let content = UNMutableNotificationContent()
-        content.title = "Time to wake up"
-        content.body = "It works???"
-        content.sound = UNNotificationSound.default
-        
         guard let alarmTimeAsString = alarm.alarmTimeAsString else { return }
         
         var date = DateComponents()
@@ -275,6 +272,7 @@ class SetAlarmTableViewController: UITableViewController {
         
         date.minute = Int(minutes)
         date.weekday = dayOfWeek
+        date.second = 0
         
         var alertName = ""
         
@@ -289,22 +287,36 @@ class SetAlarmTableViewController: UITableViewController {
         default: print("🤷🏼‍♂️ something wrong with localAlert")
         }
         
-        // how long into the future it will be scheduled
-        let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
+        // content of our notification (what it looks like)
+        let content = UNMutableNotificationContent()
+        content.title = "Time to wake up"
+        content.body = "It works???"
+        let notificationSound = UNNotificationSoundName("Birds.caf")
+        content.sound = UNNotificationSound.init(named: notificationSound)
         
-        // the completed request ( content + trigger)
-        let request = UNNotificationRequest(identifier: alertName, content: content, trigger: trigger)
-        
-        // schedule the request
-        UNUserNotificationCenter.current().add(request) { (error) in
-            if let error = error {
-                
-                print("Notification failed")
-                print(error.localizedDescription)
-                print(error)
+        for num in 1...8 {
+            date.second = date.second! + 7
+            print(date)
+            // how long into the future it will be scheduled
+            let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
+            //        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
+            let alertNamee = alertName + "\(num)"
+            // the completed request ( content + trigger)
+            let request = UNNotificationRequest(identifier: alertNamee, content: content, trigger: trigger)
+            // schedule the request
+            UNUserNotificationCenter.current().add(request) { (error) in
+                if let error = error {
+                    print("Notification failed")
+                    print(error.localizedDescription)
+                    print(error)
+                }
             }
         }
+        
+        
     }
+    
+    // MARK: - UI Adjustments
 
     func setsUpUI() {
         

@@ -37,7 +37,23 @@
 		FCE24B4823342BAD00A9A29F /* WordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE24B4723342BAD00A9A29F /* WordController.swift */; };
 		FCE24B4C233456D900A9A29F /* RandomWordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE24B4B233456D900A9A29F /* RandomWordController.swift */; };
 		FCE24B4E233457CD00A9A29F /* RandomWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE24B4D233457CD00A9A29F /* RandomWord.swift */; };
+		FCEC4EAF23391E3D00344469 /* Ping.aiff in Resources */ = {isa = PBXBuildFile; fileRef = FCEC4EAE23391E3D00344469 /* Ping.aiff */; };
+		FCEC4EB22339231C00344469 /* BeesSwarming.caf in Resources */ = {isa = PBXBuildFile; fileRef = FCEC4EB12339231C00344469 /* BeesSwarming.caf */; };
+		FCEC4EB4233923D500344469 /* Birds.caf in Resources */ = {isa = PBXBuildFile; fileRef = FCEC4EB3233923CE00344469 /* Birds.caf */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FC0F4D232335932C00479664 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		FC32FFE2232FDFC00066397F /* MainNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +89,9 @@
 		FCE24B4723342BAD00A9A29F /* WordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordController.swift; sourceTree = "<group>"; };
 		FCE24B4B233456D900A9A29F /* RandomWordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomWordController.swift; sourceTree = "<group>"; };
 		FCE24B4D233457CD00A9A29F /* RandomWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomWord.swift; sourceTree = "<group>"; };
+		FCEC4EAE23391E3D00344469 /* Ping.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Ping.aiff; sourceTree = "<group>"; };
+		FCEC4EB12339231C00344469 /* BeesSwarming.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BeesSwarming.caf; sourceTree = "<group>"; };
+		FCEC4EB3233923CE00344469 /* Birds.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Birds.caf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +139,7 @@
 		FC5C493F2326C61300106CB9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FCEC4EB0233922C100344469 /* Sounds */,
 				FC5C492A2326C55B00106CB9 /* AppDelegate.swift */,
 				FC5C49342326C55B00106CB9 /* Assets.xcassets */,
 				FCAD138323286236000F4EF5 /* Colors.xcassets */,
@@ -197,6 +217,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FCEC4EB0233922C100344469 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				FCEC4EAE23391E3D00344469 /* Ping.aiff */,
+				FCEC4EB3233923CE00344469 /* Birds.caf */,
+				FCEC4EB12339231C00344469 /* BeesSwarming.caf */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -207,6 +237,7 @@
 				FC5C49232326C55B00106CB9 /* Sources */,
 				FC5C49242326C55B00106CB9 /* Frameworks */,
 				FC5C49252326C55B00106CB9 /* Resources */,
+				FC0F4D232335932C00479664 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -231,7 +262,7 @@
 						CreatedOnToolsVersion = 10.3;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.InterAppAudio = {
 								enabled = 0;
@@ -269,7 +300,10 @@
 				FC5C49382326C55B00106CB9 /* LaunchScreen.storyboard in Resources */,
 				FCAD138423286236000F4EF5 /* Colors.xcassets in Resources */,
 				FC5C49352326C55B00106CB9 /* Assets.xcassets in Resources */,
+				FCEC4EB4233923D500344469 /* Birds.caf in Resources */,
+				FCEC4EAF23391E3D00344469 /* Ping.aiff in Resources */,
 				FC5C49302326C55B00106CB9 /* Main.storyboard in Resources */,
+				FCEC4EB22339231C00344469 /* BeesSwarming.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
