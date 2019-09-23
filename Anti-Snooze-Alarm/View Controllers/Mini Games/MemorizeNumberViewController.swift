@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class MemorizeNumberViewController: UIViewController {
 
@@ -22,6 +23,8 @@ class MemorizeNumberViewController: UIViewController {
     var seconds = 4
     var countdownTimer = Timer()
     var isTimerRunning = true
+    
+    var player: AVAudioPlayer?
     
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
@@ -43,6 +46,12 @@ class MemorizeNumberViewController: UIViewController {
         
         if inputNumberText == String(randomNumber) {
             print("Correct")
+            
+            guard let player = player else { return }
+            player.stop()
+            
+            UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
             
             // Create an instance of the main storyboard
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -84,12 +93,34 @@ class MemorizeNumberViewController: UIViewController {
             numberTextField.isHidden = true
             forgotNumberButton.isHidden = true
             enterButton.isHidden = true
+            guard let player = player else { return }
+            player.stop()
         } else {
             randomNumberLabel.isHidden = true
             numberTextField.isHidden = false
             forgotNumberButton.isHidden = false
             enterButton.isHidden = false
             countdownTimer.invalidate()
+            playSound()
+        }
+    }
+    
+    func playSound() {
+        let soundURL = NSURL(fileURLWithPath: "/System/Library/Audio/UISounds/ReceivedMessage.caf")
+
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setActive(true)
+
+            player = try AVAudioPlayer(contentsOf: soundURL as URL, fileTypeHint: "caf")
+
+            guard let player = player else { return }
+
+            player.numberOfLoops = -1
+            player.play()
+
+        } catch let error {
+            print(error.localizedDescription)
         }
     }
 } // End of class
