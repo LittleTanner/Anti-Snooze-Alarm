@@ -47,6 +47,9 @@ class MemorizeNumberViewController: UIViewController {
         if inputNumberText == String(randomNumber) {
             print("Correct")
             
+            guard let alarms = AlarmController.sharedInstance.alarm,
+            let alarm = alarms.first else { return }
+            SoundManager.sharedInstance.stopSound()
             // Create an instance of the main storyboard
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             // Create an instance of the view controller
@@ -54,10 +57,8 @@ class MemorizeNumberViewController: UIViewController {
             // Present the user with the main view controller
             self.present(controller, animated: true, completion: nil)
             
-            guard let player = player else { return }
-            player.stop()
-            
             AlarmController.sharedInstance.removeNotifications()
+            AlarmController.ScheduleNotifications(alarms: alarms, alarmValuePicker: alarm.alarmTime!, daysOfTheWeekSelected: alarm.daysOfWeek!, volumeSlider: alarm.alarmVolume)
             
         } else {
             print("Incorrect")
@@ -103,9 +104,6 @@ class MemorizeNumberViewController: UIViewController {
             guard let alarms = AlarmController.sharedInstance.alarm,
                 let alarm = alarms.first else { return }
             SoundManager.sharedInstance.playSound(withVolume: alarm.alarmVolume)
-//            let audioSession = AVAudioSession.sharedInstance()
-//            let volume: Float = audioSession.outputVolume
-//            print("Audio Session output volume: \(volume)")
         }
     }
 } // End of class

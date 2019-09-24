@@ -18,18 +18,6 @@ class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Add MPVolumeView in a holder view
-        let mpVolumeHolderView = UIView(frame: CGRect(x: 100, y: view.bounds.midY + 20, width: view.bounds.width / 2, height: view.bounds.height))
-        // Set the holder view's background color to transparent
-        mpVolumeHolderView.backgroundColor = .clear
-        let mpVolume = MPVolumeView(frame: mpVolumeHolderView.bounds)
-        // This hides the airplay symbol at the trailing edge of the slider
-        mpVolume.showsRouteButton = false
-    
-        mpVolumeHolderView.addSubview(mpVolume)
-        view.addSubview(mpVolumeHolderView)
-        
         // Do any additional setup after loading the view.
     }
     
@@ -44,9 +32,13 @@ class SettingsViewController: UIViewController {
 //        guard let alarms = AlarmController.sharedInstance.alarm,
 //            let alarm = alarms.first else { return }
         
-        let date = Date().addingTimeInterval(5)
-        let timer = Timer(fireAt: date, interval: 0, target: self, selector: #selector(runCode), userInfo: nil, repeats: false)
-        RunLoop.main.add(timer, forMode: .common)
+        guard let alarms = AlarmController.sharedInstance.alarm,
+        let alarm = alarms.first else { return }
+        SoundManager.sharedInstance.playSound(withVolume: alarm.alarmVolume)
+        
+//        let date = Date().addingTimeInterval(5)
+//        let timer = Timer(fireAt: date, interval: 0, target: self, selector: #selector(runCode), userInfo: nil, repeats: false)
+//        RunLoop.main.add(timer, forMode: .common)
         
 //        SoundManager.sharedInstance.playSound(withVolume: alarm.alarmVolume)
     }
