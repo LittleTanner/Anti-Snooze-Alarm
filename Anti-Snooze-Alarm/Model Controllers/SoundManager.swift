@@ -18,18 +18,42 @@ class SoundManager {
     
     var audioPlayer: AVAudioPlayer?
     
+//    // To play system sounds
+//    func playSound(withVolume volume: Float) {
+//        let soundURL = NSURL(fileURLWithPath: "/System/Library/Audio/UISounds/ReceivedMessage.caf")
+//
+//        do {
+//            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+//            try AVAudioSession.sharedInstance().setActive(true)
+//
+//            audioPlayer = try AVAudioPlayer(contentsOf: soundURL as URL, fileTypeHint: "caf")
+//
+//            guard let audioPlayer = audioPlayer else { return }
+//
+//
+//            print("Output Volume: \(AVAudioSession.sharedInstance().outputVolume)")
+//
+//            audioPlayer.volume = volume
+//            audioPlayer.numberOfLoops = -1
+//            audioPlayer.play()
+//
+//
+//        } catch let error {
+//            print(error.localizedDescription)
+//        }
+//    }
     
     func playSound(withVolume volume: Float) {
-        let soundURL = NSURL(fileURLWithPath: "/System/Library/Audio/UISounds/ReceivedMessage.caf")
-
+        
+        guard let url = Bundle.main.url(forResource: "Birds", withExtension: "caf") else { return }
+        
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
             try AVAudioSession.sharedInstance().setActive(true)
 
-            audioPlayer = try AVAudioPlayer(contentsOf: soundURL as URL, fileTypeHint: "caf")
+            audioPlayer = try AVAudioPlayer(contentsOf: url, fileTypeHint: "caf")
 
             guard let audioPlayer = audioPlayer else { return }
-            
             
             print("Output Volume: \(AVAudioSession.sharedInstance().outputVolume)")
             
@@ -37,10 +61,15 @@ class SoundManager {
             audioPlayer.numberOfLoops = -1
             audioPlayer.play()
             
-
         } catch let error {
             print(error.localizedDescription)
         }
+    }
+    
+    func stopSound() {
+        guard let audioPlayer = audioPlayer else { return }
+        
+        audioPlayer.stop()
     }
 } // End of class
 
