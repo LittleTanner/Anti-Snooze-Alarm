@@ -90,7 +90,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         print("Notification sent")
-        completionHandler([.alert, .sound, .badge])
+        // removed alert from showing in the app, need to have some way for them to get to the mini game from the home screen if they open the app directly and don't click on a notification.
+        completionHandler([/*.alert, */.sound, .badge])
     }
     
 

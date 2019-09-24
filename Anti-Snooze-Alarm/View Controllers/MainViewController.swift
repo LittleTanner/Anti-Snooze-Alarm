@@ -45,11 +45,6 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        UNUserNotificationCenter.current().getPendingNotificationRequests { (notifications) in
-            print("Pending notifications scheduled: \(notifications.count)")
-        }
-        
         setsUpUI()
         self.locationManager.requestWhenInUseAuthorization()
         
@@ -63,6 +58,10 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadViewIfNeeded()
+        
+        UNUserNotificationCenter.current().getPendingNotificationRequests { (notifications) in
+            print("Pending notifications scheduled: \(notifications.count)")
+        }
         
         guard AlarmController.sharedInstance.alarm != nil else { return }
         updateViews()
@@ -84,12 +83,12 @@ class MainViewController: UIViewController {
             
             if alarmToggleButton.isOn == true {
                 alarm.isEnabled = true
-                print(alarm.isEnabled)
+                print("Alarm is set to: \(alarm.isEnabled)")
+                AlarmController.ScheduleNotifications(alarms: alarms, alarmValuePicker: alarm.alarmTime!, daysOfTheWeekSelected: alarm.daysOfWeek!, volumeSlider: alarm.alarmVolume)
             } else {
                 alarm.isEnabled = false
-                print(alarm.isEnabled)
-                let localNotificationCenter = UNUserNotificationCenter.current()
-                localNotificationCenter.removeAllPendingNotificationRequests()
+                print("Alarm is set to: \(alarm.isEnabled)")
+                AlarmController.sharedInstance.removeNotifications()
             }
         }
     }
@@ -115,6 +114,8 @@ class MainViewController: UIViewController {
     func updateViews() {
         if let alarms = AlarmController.sharedInstance.alarm, let alarm = alarms.first, let daysOfWeek = alarm.daysOfWeek  {
             guard let alarmTimeAsString = alarm.alarmTimeAsString else { return }
+            
+            alarmToggleButton.isOn = alarm.isEnabled
             
             let alarmTime = alarmTimeAsString.components(separatedBy: [":", " "])
             

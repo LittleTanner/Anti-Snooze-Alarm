@@ -8,17 +8,28 @@
 
 import UIKit
 import AVFoundation
+import MediaPlayer
 
 class SettingsViewController: UIViewController {
 
     // MARK: - Properties
-    var player: AVAudioPlayer?
 
     // MARK: - Lifecycle Methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Add MPVolumeView in a holder view
+        let mpVolumeHolderView = UIView(frame: CGRect(x: 100, y: view.bounds.midY + 20, width: view.bounds.width / 2, height: view.bounds.height))
+        // Set the holder view's background color to transparent
+        mpVolumeHolderView.backgroundColor = .clear
+        let mpVolume = MPVolumeView(frame: mpVolumeHolderView.bounds)
+        // This hides the airplay symbol at the trailing edge of the slider
+        mpVolume.showsRouteButton = false
+    
+        mpVolumeHolderView.addSubview(mpVolume)
+        view.addSubview(mpVolumeHolderView)
+        
         // Do any additional setup after loading the view.
     }
     
@@ -30,13 +41,24 @@ class SettingsViewController: UIViewController {
     
     @IBAction func playSound(_ sender: Any) {
         
+//        guard let alarms = AlarmController.sharedInstance.alarm,
+//            let alarm = alarms.first else { return }
+        
         let date = Date().addingTimeInterval(5)
-        let timer = Timer(fireAt: date, interval: 5, target: self, selector: #selector(runCode), userInfo: nil, repeats: true)
+        let timer = Timer(fireAt: date, interval: 0, target: self, selector: #selector(runCode), userInfo: nil, repeats: false)
         RunLoop.main.add(timer, forMode: .common)
+        
+//        SoundManager.sharedInstance.playSound(withVolume: alarm.alarmVolume)
     }
     
     
     // MARK: - Custom Methods
+    
+    @objc func runCode() {
+        guard let alarms = AlarmController.sharedInstance.alarm,
+        let alarm = alarms.first else { return }
+        SoundManager.sharedInstance.playSound(withVolume: alarm.alarmVolume)
+    }
     
     func presentAlarmAlert() {
         // Create alert controller
@@ -63,51 +85,6 @@ class SettingsViewController: UIViewController {
         
         // Present alert controller
         self.present(alertController, animated: true, completion: nil)
-    }
-    
-    // List of system Sounds https://github.com/TUNER88/iOSSystemSoundsLibrary
-//    This workds to play a sound :)
-//    func playSound() {
-//        let soundURL = NSURL(fileURLWithPath: "/System/Library/Audio/UISounds/tweet_sent.caf")
-//
-//        do {
-//            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
-//            try AVAudioSession.sharedInstance().setActive(true)
-//
-//            player = try AVAudioPlayer(contentsOf: soundURL as URL, fileTypeHint: "caf")
-//
-//            guard let player = player else { return }
-//
-//            // This keeps the sound looping continuously
-//            // player.numberOfLoops = -1
-//            player.play()
-//
-//        } catch let error {
-//            print(error.localizedDescription)
-//        }
-//    }
-    
-    @objc func runCode() {
-        playSound()
-    }
-    
-    func playSound() {
-        let soundURL = NSURL(fileURLWithPath: "/System/Library/Audio/UISounds/ReceivedMessage.caf")
-
-        do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
-            try AVAudioSession.sharedInstance().setActive(true)
-
-            player = try AVAudioPlayer(contentsOf: soundURL as URL, fileTypeHint: "caf")
-
-            guard let player = player else { return }
-            
-//            player.numberOfLoops = -1
-            player.play()
-
-        } catch let error {
-            print(error.localizedDescription)
-        }
     }
 
     /*
