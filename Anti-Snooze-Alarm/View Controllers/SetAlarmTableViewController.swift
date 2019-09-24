@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications
+import MediaPlayer
 
 class SetAlarmTableViewController: UITableViewController {
 
@@ -201,120 +202,19 @@ class SetAlarmTableViewController: UITableViewController {
         
         if let alarms = alarms, let alarm = alarms.first {
             AlarmController.sharedInstance.updateAlarm(alarm: alarm, alarmTime: alarmValuePicker.date, daysOfWeek: daysOfTheWeekSelected, alarmSound: "default", alarmVolume: self.volumeSlider.value, isEnabled: true)
+            
+            AlarmController.ScheduleNotifications(alarms: alarms, alarmValuePicker: alarmValuePicker.date, daysOfTheWeekSelected: daysOfTheWeekSelected, volumeSlider: self.volumeSlider.value)
         } else {
             AlarmController.sharedInstance.createAlarm(alarmTime: alarmValuePicker.date, daysOfWeek: daysOfTheWeekSelected, alarmSound: "default", alarmVolume: self.volumeSlider.value)
+            
+            AlarmController.ScheduleNotifications(alarms: alarms, alarmValuePicker: alarmValuePicker.date, daysOfTheWeekSelected: daysOfTheWeekSelected, volumeSlider: self.volumeSlider.value)
         }
-        
-        print("Volume Selected From Slider: \(self.volumeSlider.value)")
-        
-//        scheduleLocalAlarmAlert()
-        if daysOfTheWeekSelected.contains(Alarm.daysOfWeek.sunday.rawValue) {
-            scheduleLocalAlarmAlert(for: 1)
-        }
-
-        if daysOfTheWeekSelected.contains(Alarm.daysOfWeek.monday.rawValue) {
-            scheduleLocalAlarmAlert(for: 2)
-        }
-
-        if daysOfTheWeekSelected.contains(Alarm.daysOfWeek.tuesday.rawValue) {
-            scheduleLocalAlarmAlert(for: 3)
-        }
-
-        if daysOfTheWeekSelected.contains(Alarm.daysOfWeek.wednesday.rawValue) {
-            scheduleLocalAlarmAlert(for: 4)
-        }
-
-        if daysOfTheWeekSelected.contains(Alarm.daysOfWeek.thursday.rawValue) {
-            scheduleLocalAlarmAlert(for: 5)
-        }
-
-        if daysOfTheWeekSelected.contains(Alarm.daysOfWeek.friday.rawValue) {
-            scheduleLocalAlarmAlert(for: 6)
-        }
-
-        if daysOfTheWeekSelected.contains(Alarm.daysOfWeek.saturday.rawValue) {
-            scheduleLocalAlarmAlert(for: 7)
-        }
-        
         
         navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Custom Methods
     
-    func scheduleLocalAlarmAlert(for dayOfWeek: Int) {
-        
-        guard let alarms = AlarmController.sharedInstance.alarm, let alarm = alarms.first else { return }
-        
-        guard let alarmTimeAsString = alarm.alarmTimeAsString else { return }
-        
-        var date = DateComponents()
-        
-        let alarmTime = alarmTimeAsString.components(separatedBy: [":", " "])
-        
-        let hours = alarmTime[0]
-        let minutes = alarmTime[1]
-        let AMorPM = alarmTime[2]
-        
-        if AMorPM == "AM" {
-            if Int(hours) == 12 {
-                date.hour = 0
-            } else {
-                date.hour = Int(hours)
-            }
-        } else {
-            if Int(hours) == 12 {
-                date.hour = Int(hours)
-            } else {
-                date.hour = Int(hours)! + 12
-            }
-        }
-        
-        date.minute = Int(minutes)
-        date.weekday = dayOfWeek
-        date.second = 0
-        
-        var alertName = ""
-        
-        switch dayOfWeek {
-        case 1: alertName = "localSundayAlert"
-        case 2: alertName = "localMondayAlert"
-        case 3: alertName = "localTuesdayAlert"
-        case 4: alertName = "localWednesdayAlert"
-        case 5: alertName = "localThursdayAlert"
-        case 6: alertName = "localFridayAlert"
-        case 7: alertName = "localSaturdayAlert"
-        default: print("🤷🏼‍♂️ something wrong with localAlert")
-        }
-        
-        // content of our notification (what it looks like)
-        let content = UNMutableNotificationContent()
-        content.title = "Time to wake up"
-        content.body = "It works???"
-        let notificationSound = UNNotificationSoundName("Birds.caf")
-        content.sound = UNNotificationSound.init(named: notificationSound)
-        
-        for num in 1...8 {
-            date.second = date.second! + 7
-            print(date)
-            // how long into the future it will be scheduled
-            let trigger = UNCalendarNotificationTrigger(dateMatching: date, repeats: true)
-            //        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 60, repeats: true)
-            let alertNamee = alertName + "\(num)"
-            // the completed request ( content + trigger)
-            let request = UNNotificationRequest(identifier: alertNamee, content: content, trigger: trigger)
-            // schedule the request
-            UNUserNotificationCenter.current().add(request) { (error) in
-                if let error = error {
-                    print("Notification failed")
-                    print(error.localizedDescription)
-                    print(error)
-                }
-            }
-        }
-        
-        
-    }
     
     // MARK: - UI Adjustments
 
@@ -416,3 +316,5 @@ class SetAlarmTableViewController: UITableViewController {
     }
 
 } // End of class
+
+

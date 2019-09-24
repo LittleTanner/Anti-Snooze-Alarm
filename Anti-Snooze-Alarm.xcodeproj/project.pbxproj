@@ -40,6 +40,7 @@
 		FCEC4EAF23391E3D00344469 /* Ping.aiff in Resources */ = {isa = PBXBuildFile; fileRef = FCEC4EAE23391E3D00344469 /* Ping.aiff */; };
 		FCEC4EB22339231C00344469 /* BeesSwarming.caf in Resources */ = {isa = PBXBuildFile; fileRef = FCEC4EB12339231C00344469 /* BeesSwarming.caf */; };
 		FCEC4EB4233923D500344469 /* Birds.caf in Resources */ = {isa = PBXBuildFile; fileRef = FCEC4EB3233923CE00344469 /* Birds.caf */; };
+		FCFBF08C233A89A2006B5120 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFBF08B233A89A2006B5120 /* SoundManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -92,6 +93,7 @@
 		FCEC4EAE23391E3D00344469 /* Ping.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Ping.aiff; sourceTree = "<group>"; };
 		FCEC4EB12339231C00344469 /* BeesSwarming.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BeesSwarming.caf; sourceTree = "<group>"; };
 		FCEC4EB3233923CE00344469 /* Birds.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Birds.caf; sourceTree = "<group>"; };
+		FCFBF08B233A89A2006B5120 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 				FC9D7FB5232C2126009960E3 /* AlarmController.swift */,
 				FCE24B4723342BAD00A9A29F /* WordController.swift */,
 				FCE24B4B233456D900A9A29F /* RandomWordController.swift */,
+				FCFBF08B233A89A2006B5120 /* SoundManager.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				FC5C49332326C55B00106CB9 /* Anti_Snooze_Alarm.xcdatamodeld in Sources */,
 				FC887E0123295C260019CEF9 /* WeatherDecoding.swift in Sources */,
 				FC32FFE9233023AE0066397F /* DateFormatterHelper.swift in Sources */,
+				FCFBF08C233A89A2006B5120 /* SoundManager.swift in Sources */,
 				FCAD138223286161000F4EF5 /* StyleGuide.swift in Sources */,
 				FCAD137723284304000F4EF5 /* MathViewController.swift in Sources */,
 				FC887E032329610B0019CEF9 /* WeatherController.swift in Sources */,

@@ -47,18 +47,17 @@ class MemorizeNumberViewController: UIViewController {
         if inputNumberText == String(randomNumber) {
             print("Correct")
             
-            guard let player = player else { return }
-            player.stop()
-            
-            UNUserNotificationCenter.current().removeAllDeliveredNotifications()
-            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-            
             // Create an instance of the main storyboard
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             // Create an instance of the view controller
             let controller = storyboard.instantiateViewController(withIdentifier: "mainNavigationController")
             // Present the user with the main view controller
             self.present(controller, animated: true, completion: nil)
+            
+            guard let player = player else { return }
+            player.stop()
+            
+            AlarmController.sharedInstance.removeNotifications()
             
         } else {
             print("Incorrect")
@@ -101,26 +100,12 @@ class MemorizeNumberViewController: UIViewController {
             forgotNumberButton.isHidden = false
             enterButton.isHidden = false
             countdownTimer.invalidate()
-            playSound()
-        }
-    }
-    
-    func playSound() {
-        let soundURL = NSURL(fileURLWithPath: "/System/Library/Audio/UISounds/ReceivedMessage.caf")
-
-        do {
-            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
-            try AVAudioSession.sharedInstance().setActive(true)
-
-            player = try AVAudioPlayer(contentsOf: soundURL as URL, fileTypeHint: "caf")
-
-            guard let player = player else { return }
-
-            player.numberOfLoops = -1
-            player.play()
-
-        } catch let error {
-            print(error.localizedDescription)
+            guard let alarms = AlarmController.sharedInstance.alarm,
+                let alarm = alarms.first else { return }
+            SoundManager.sharedInstance.playSound(withVolume: alarm.alarmVolume)
+//            let audioSession = AVAudioSession.sharedInstance()
+//            let volume: Float = audioSession.outputVolume
+//            print("Audio Session output volume: \(volume)")
         }
     }
 } // End of class
