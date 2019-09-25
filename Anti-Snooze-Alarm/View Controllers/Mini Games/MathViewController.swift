@@ -107,19 +107,6 @@ class MathViewController: UIViewController {
         }
     }
     
-    func presentAnswerIncorrectAlert() {
-        // Create alert controller
-        let alertController = UIAlertController(title: "Incorrect", message: nil, preferredStyle: .alert)
-        
-        // Create action
-        let tryAgain = UIAlertAction(title: "TRY AGAIN", style: .cancel, handler: nil)
-        
-        // Add action
-        alertController.addAction(tryAgain)
-        
-        // Present alert controller
-        self.present(alertController, animated: true, completion: nil)
-    }
     // MARK: - UI Adjustments
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

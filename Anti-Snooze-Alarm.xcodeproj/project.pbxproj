@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC18CE0D233BDD2E005AB2AC /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC18CE0C233BDD2E005AB2AC /* AlertManager.swift */; };
 		FC32FFE3232FDFC00066397F /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC32FFE2232FDFC00066397F /* MainNavigationViewController.swift */; };
 		FC32FFE52330211A0066397F /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC32FFE42330211A0066397F /* CoreDataStack.swift */; };
 		FC32FFE72330225E0066397F /* Alarm+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC32FFE62330225E0066397F /* Alarm+Convenience.swift */; };
@@ -57,6 +58,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FC18CE0C233BDD2E005AB2AC /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		FC32FFE2232FDFC00066397F /* MainNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
 		FC32FFE42330211A0066397F /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		FC32FFE62330225E0066397F /* Alarm+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alarm+Convenience.swift"; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				FCE24B4723342BAD00A9A29F /* WordController.swift */,
 				FCE24B4B233456D900A9A29F /* RandomWordController.swift */,
 				FCFBF08B233A89A2006B5120 /* SoundManager.swift */,
+				FC18CE0C233BDD2E005AB2AC /* AlertManager.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -329,6 +332,7 @@
 				FCE24B4823342BAD00A9A29F /* WordController.swift in Sources */,
 				FC32FFE3232FDFC00066397F /* MainNavigationViewController.swift in Sources */,
 				FCAD138023285B7E000F4EF5 /* Alarm.swift in Sources */,
+				FC18CE0D233BDD2E005AB2AC /* AlertManager.swift in Sources */,
 				FC32FFE72330225E0066397F /* Alarm+Convenience.swift in Sources */,
 				FC9D7FB6232C2126009960E3 /* AlarmController.swift in Sources */,
 				FC5C49332326C55B00106CB9 /* Anti_Snooze_Alarm.xcdatamodeld in Sources */,

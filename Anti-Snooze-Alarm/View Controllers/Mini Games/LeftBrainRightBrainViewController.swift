@@ -250,7 +250,7 @@ class LeftBrainRightBrainViewController: UIViewController {
     
     func randomizeColorToSelectLabelColor() {
         let randomNumber = Int.random(in: 0...2)
-        var backgroundColors: [UIColor] = [UIColor.mainTextColor!, UIColor.red, UIColor.blueAccent!]
+        let backgroundColors: [UIColor] = [UIColor.mainTextColor!, UIColor.red, UIColor.blueAccent!]
         colorToSelectLabel.textColor = backgroundColors[randomNumber]
     }
     
