@@ -31,6 +31,7 @@ class MemorizeNumberViewController: UIViewController {
         super.viewDidLoad()
         setsUpUI()
         runTimer()
+        numberTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
     }
     
     // MARK: - Actions
@@ -47,9 +48,6 @@ class MemorizeNumberViewController: UIViewController {
         if inputNumberText == String(randomNumber) {
             print("Correct")
             
-            guard let alarms = AlarmController.sharedInstance.alarm,
-            let alarm = alarms.first else { return }
-            SoundManager.sharedInstance.stopSound()
             // Create an instance of the main storyboard
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             // Create an instance of the view controller
@@ -58,10 +56,12 @@ class MemorizeNumberViewController: UIViewController {
             self.present(controller, animated: true, completion: nil)
             
             AlarmController.sharedInstance.removeNotifications()
-            AlarmController.ScheduleNotifications(alarms: alarms, alarmValuePicker: alarm.alarmTime!, daysOfTheWeekSelected: alarm.daysOfWeek!, volumeSlider: alarm.alarmVolume)
+            SoundManager.sharedInstance.stopSound()
+            print("MemorizeNumber AudioPlayer is set too: \(String(describing: SoundManager.sharedInstance.audioPlayer?.isPlaying))")
             
         } else {
             print("Incorrect")
+            self.presentAnswerIncorrectAlert()
         }
     }
     
@@ -79,6 +79,24 @@ class MemorizeNumberViewController: UIViewController {
     }
     
     // MARK: - Custom Methods
+    
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        
+        if numberTextField.text == String(randomNumber) {
+            print("Correct")
+            // Create an instance of the main storyboard
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            // Create an instance of the view controller
+            let controller = storyboard.instantiateViewController(withIdentifier: "mainNavigationController")
+            // Present the user with the main view controller
+            self.present(controller, animated: true, completion: nil)
+            
+            AlarmController.sharedInstance.removeNotifications()
+            SoundManager.sharedInstance.stopSound()
+            print("MemorizeNumber AudioPlayer is set too: \(String(describing: SoundManager.sharedInstance.audioPlayer?.isPlaying))")
+        }
+    }
+    
     func runTimer() {
         countdownTimer.invalidate()
         countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(updateTimer)), userInfo: nil, repeats: true)
@@ -88,14 +106,18 @@ class MemorizeNumberViewController: UIViewController {
         seconds -= 1
         
         if seconds >= 0 {
+            numberTextField.text = ""
+            numberTextField.resignFirstResponder()
             randomNumberLabel.isHidden = false
             countdownLabel.text = String(seconds)
             numberTextField.isHidden = true
             forgotNumberButton.isHidden = true
             enterButton.isHidden = true
-            guard let player = player else { return }
-            player.stop()
+            SoundManager.sharedInstance.pauseSound()
+            print("MemorizeNumber AudioPlayer is set too: \(String(describing: SoundManager.sharedInstance.audioPlayer?.isPlaying))")
         } else {
+            numberTextField.becomeFirstResponder()
+            print("The correct answer is: \(randomNumber)")
             randomNumberLabel.isHidden = true
             numberTextField.isHidden = false
             forgotNumberButton.isHidden = false
@@ -104,6 +126,7 @@ class MemorizeNumberViewController: UIViewController {
             guard let alarms = AlarmController.sharedInstance.alarm,
                 let alarm = alarms.first else { return }
             SoundManager.sharedInstance.playSound(withVolume: alarm.alarmVolume)
+            print("MemorizeNumber AudioPlayer is set too: \(String(describing: SoundManager.sharedInstance.audioPlayer?.isPlaying))")
         }
     }
 } // End of class

@@ -48,47 +48,35 @@ class AlarmController {
         print("Volume Selected From Slider: \(volumeSlider)")
         
         if daysOfTheWeekSelected.contains(Alarm.daysOfWeek.sunday.rawValue) {
-//            CreateNotifications(forDay: 1)
-            for num in 0...4 {
-                CreateNotificationsPlus(forDay: 1, minutesToAdd: num)
-            }
+            CreateNotifications(forDay: 1)
             
         }
         
         if daysOfTheWeekSelected.contains(Alarm.daysOfWeek.monday.rawValue) {
-            for num in 0...4 {
-                CreateNotificationsPlus(forDay: 2, minutesToAdd: num)
-            }
+            CreateNotifications(forDay: 2)
         }
         
         if daysOfTheWeekSelected.contains(Alarm.daysOfWeek.tuesday.rawValue) {
-            for num in 0...4 {
-                CreateNotificationsPlus(forDay: 3, minutesToAdd: num)
-            }
+            CreateNotifications(forDay: 3)
+//            for num in 0...4 {
+//                CreateNotificationsPlus(forDay: 3, minutesToAdd: num)
+//            }
         }
         
         if daysOfTheWeekSelected.contains(Alarm.daysOfWeek.wednesday.rawValue) {
-            for num in 0...4 {
-                CreateNotificationsPlus(forDay: 4, minutesToAdd: num)
-            }
+            CreateNotifications(forDay: 4)
         }
         
         if daysOfTheWeekSelected.contains(Alarm.daysOfWeek.thursday.rawValue) {
-            for num in 0...4 {
-                CreateNotificationsPlus(forDay: 5, minutesToAdd: num)
-            }
+            CreateNotifications(forDay: 5)
         }
         
         if daysOfTheWeekSelected.contains(Alarm.daysOfWeek.friday.rawValue) {
-            for num in 0...4 {
-                CreateNotificationsPlus(forDay: 6, minutesToAdd: num)
-            }
+            CreateNotifications(forDay: 6)
         }
         
         if daysOfTheWeekSelected.contains(Alarm.daysOfWeek.saturday.rawValue) {
-            for num in 0...4 {
-                CreateNotificationsPlus(forDay: 7, minutesToAdd: num)
-            }
+            CreateNotifications(forDay: 7)
         }
         
     }
@@ -140,8 +128,8 @@ class AlarmController {
         
         // content of our notification (what it looks like)
         let content = UNMutableNotificationContent()
-        content.title = "Time to wake up"
-        content.body = "It works???"
+        content.title = "TIME TO WAKE UP!!!"
+        content.body = "Today is a great day, wake up now to enjoy it 😃"
         let notificationSound = UNNotificationSoundName("Birds.caf")
         content.sound = UNNotificationSound.init(named: notificationSound)
         
@@ -201,23 +189,10 @@ class AlarmController {
             date.weekday = dayOfWeek
             date.second = 0
             
-            var alertName = ""
-            
-            switch dayOfWeek {
-            case 1: alertName = "localSundayAlert"
-            case 2: alertName = "localMondayAlert"
-            case 3: alertName = "localTuesdayAlert"
-            case 4: alertName = "localWednesdayAlert"
-            case 5: alertName = "localThursdayAlert"
-            case 6: alertName = "localFridayAlert"
-            case 7: alertName = "localSaturdayAlert"
-            default: print("🤷🏼‍♂️ something wrong with localAlert")
-            }
-            
             // content of our notification (what it looks like)
             let content = UNMutableNotificationContent()
-            content.title = "Time to wake up"
-            content.body = "It works???"
+            content.title = "TIME TO WAKE UP!!!"
+            content.body = "Today is a great day, wake up now to enjoy it 😃"
             let notificationSound = UNNotificationSoundName("Birds.caf")
             content.sound = UNNotificationSound.init(named: notificationSound)
             
@@ -230,6 +205,7 @@ class AlarmController {
                 let customAlertName = UUID().uuidString
                 // the completed request ( identifier + content + trigger)
                 let request = UNNotificationRequest(identifier: customAlertName, content: content, trigger: trigger)
+                
                 // schedule the request
                 UNUserNotificationCenter.current().add(request) { (error) in
                     if let error = error {

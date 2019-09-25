@@ -68,8 +68,12 @@ class SoundManager {
     
     func stopSound() {
         guard let audioPlayer = audioPlayer else { return }
-        
         audioPlayer.stop()
+    }
+    
+    func pauseSound() {
+        guard let audioPlayer = audioPlayer else { return }
+        audioPlayer.pause()
     }
 } // End of class
 

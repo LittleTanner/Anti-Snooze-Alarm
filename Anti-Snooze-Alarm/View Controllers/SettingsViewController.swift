@@ -28,29 +28,13 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func playSound(_ sender: Any) {
-        
-//        guard let alarms = AlarmController.sharedInstance.alarm,
-//            let alarm = alarms.first else { return }
-        
         guard let alarms = AlarmController.sharedInstance.alarm,
         let alarm = alarms.first else { return }
         SoundManager.sharedInstance.playSound(withVolume: alarm.alarmVolume)
-        
-//        let date = Date().addingTimeInterval(5)
-//        let timer = Timer(fireAt: date, interval: 0, target: self, selector: #selector(runCode), userInfo: nil, repeats: false)
-//        RunLoop.main.add(timer, forMode: .common)
-        
-//        SoundManager.sharedInstance.playSound(withVolume: alarm.alarmVolume)
     }
     
     
     // MARK: - Custom Methods
-    
-    @objc func runCode() {
-        guard let alarms = AlarmController.sharedInstance.alarm,
-        let alarm = alarms.first else { return }
-        SoundManager.sharedInstance.playSound(withVolume: alarm.alarmVolume)
-    }
     
     func presentAlarmAlert() {
         // Create alert controller
