@@ -25,7 +25,7 @@ class LeftBrainRightBrainViewController: UIViewController {
     
     // MARK: - Properties
     
-    var buttonBackgroundColors: [UIColor] = [UIColor.mainTextColor!, UIColor.red, UIColor.blueAccent!, UIColor.unSelectedTextColor!]
+    var buttonBackgroundColors: [UIColor] = [UIColor.mainTextColor!, UIColor.redAccent!, UIColor.blueAccent!, UIColor.unSelectedTextColor!]
     var buttonState: Bool = true
     
     var colorsToSelect = ["RED", "WHITE", "BLUE", "GREY"]
@@ -36,8 +36,10 @@ class LeftBrainRightBrainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setsUpUI()
+        guard let alarms = AlarmController.sharedInstance.alarm,
+            let alarm = alarms.first else { return }
+        SoundManager.sharedInstance.playRepeatingSound(withVolume: alarm.alarmVolume)
     }
     
     // MARK: - Actions
@@ -48,7 +50,7 @@ class LeftBrainRightBrainViewController: UIViewController {
         var correctColor = ""
         
         switch buttonBackgroundColors[0] {
-        case UIColor.red:
+        case UIColor.redAccent:
             correctColor = "RED"
         case UIColor.mainTextColor:
             correctColor = "WHITE"
@@ -78,12 +80,7 @@ class LeftBrainRightBrainViewController: UIViewController {
         
         if correctCount >= 10 {
             print("YOU WIN")
-            // Create an instance of the main storyboard
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            // Create an instance of the view controller
-            let controller = storyboard.instantiateViewController(withIdentifier: "mainNavigationController")
-            // Present the user with the main view controller
-            self.present(controller, animated: true, completion: nil)
+            goToViewController(withIdentifier: "FinishedGameViewController")
         }
         
     }
@@ -94,7 +91,7 @@ class LeftBrainRightBrainViewController: UIViewController {
         var correctColor = ""
         
         switch buttonBackgroundColors[1] {
-        case UIColor.red:
+        case UIColor.redAccent:
             correctColor = "RED"
         case UIColor.mainTextColor:
             correctColor = "WHITE"
@@ -125,12 +122,7 @@ class LeftBrainRightBrainViewController: UIViewController {
         
         if correctCount >= 10 {
             print("YOU WIN")
-            // Create an instance of the main storyboard
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            // Create an instance of the view controller
-            let controller = storyboard.instantiateViewController(withIdentifier: "mainNavigationController")
-            // Present the user with the main view controller
-            self.present(controller, animated: true, completion: nil)
+            goToViewController(withIdentifier: "FinishedGameViewController")
         }
     }
     
@@ -139,7 +131,7 @@ class LeftBrainRightBrainViewController: UIViewController {
         var correctColor = ""
         
         switch buttonBackgroundColors[2] {
-        case UIColor.red:
+        case UIColor.redAccent:
             correctColor = "RED"
         case UIColor.mainTextColor:
             correctColor = "WHITE"
@@ -169,12 +161,7 @@ class LeftBrainRightBrainViewController: UIViewController {
         
         if correctCount >= 10 {
             print("YOU WIN")
-            // Create an instance of the main storyboard
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            // Create an instance of the view controller
-            let controller = storyboard.instantiateViewController(withIdentifier: "mainNavigationController")
-            // Present the user with the main view controller
-            self.present(controller, animated: true, completion: nil)
+            goToViewController(withIdentifier: "FinishedGameViewController")
         }
     }
     
@@ -184,7 +171,7 @@ class LeftBrainRightBrainViewController: UIViewController {
         var correctColor = ""
         
         switch buttonBackgroundColors[3] {
-        case UIColor.red:
+        case UIColor.redAccent:
             correctColor = "RED"
         case UIColor.mainTextColor:
             correctColor = "WHITE"
@@ -214,12 +201,7 @@ class LeftBrainRightBrainViewController: UIViewController {
         
         if correctCount >= 10 {
             print("YOU WIN")
-            // Create an instance of the main storyboard
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            // Create an instance of the view controller
-            let controller = storyboard.instantiateViewController(withIdentifier: "mainNavigationController")
-            // Present the user with the main view controller
-            self.present(controller, animated: true, completion: nil)
+            goToViewController(withIdentifier: "FinishedGameViewController")
         }
     }
     
@@ -232,7 +214,7 @@ class LeftBrainRightBrainViewController: UIViewController {
     
     
     func setsUpUI() {
-        self.view.backgroundColor = UIColor.darkBlue
+        self.view.backgroundColor = UIColor.darkColor
         
         colorToSelectLabel.text = colorsToSelect.first
         countOfCorrectLabel.text = "\(correctCount)"
@@ -250,7 +232,7 @@ class LeftBrainRightBrainViewController: UIViewController {
     
     func randomizeColorToSelectLabelColor() {
         let randomNumber = Int.random(in: 0...2)
-        let backgroundColors: [UIColor] = [UIColor.mainTextColor!, UIColor.red, UIColor.blueAccent!]
+        let backgroundColors: [UIColor] = [UIColor.mainTextColor!, UIColor.redAccent!, UIColor.blueAccent!]
         colorToSelectLabel.textColor = backgroundColors[randomNumber]
     }
     
@@ -276,12 +258,12 @@ class LeftBrainRightBrainViewController: UIViewController {
             case UIColor.mainTextColor!:
                 if buttonState == true {
                     button.setTitle("RED", for: .normal)
-                    button.setTitleColor(UIColor.red, for: .normal)
+                    button.setTitleColor(UIColor.redAccent, for: .normal)
                 } else {
                     button.setTitle("BLUE", for: .normal)
                     button.setTitleColor(UIColor.blueAccent, for: .normal)
                 }
-            case UIColor.red:
+            case UIColor.redAccent!:
                 if buttonState == true {
                     button.setTitle("WHITE", for: .normal)
                     button.setTitleColor(UIColor.mainTextColor, for: .normal)
@@ -303,7 +285,7 @@ class LeftBrainRightBrainViewController: UIViewController {
                     button.setTitleColor(UIColor.blueAccent, for: .normal)
                 } else {
                     button.setTitle("RED", for: .normal)
-                    button.setTitleColor(UIColor.red, for: .normal)
+                    button.setTitleColor(UIColor.redAccent, for: .normal)
                 }
             default: print("Error in \(#function). 🤷🏼‍♂️")
             }
@@ -311,22 +293,4 @@ class LeftBrainRightBrainViewController: UIViewController {
         buttonState.toggle()
         //        print(buttonState)
     }
-    
-    // MARK: - Custom Methods
-    
-    
-    
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
-    
-}
+} // End of Class

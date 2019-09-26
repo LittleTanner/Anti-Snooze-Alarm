@@ -33,6 +33,9 @@ class MathViewController: UIViewController {
         updateNumberLabels()
         inputNumberTextField.becomeFirstResponder()
         inputNumberTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
+        guard let alarms = AlarmController.sharedInstance.alarm,
+            let alarm = alarms.first else { return }
+        SoundManager.sharedInstance.playRepeatingSound(withVolume: alarm.alarmVolume)
     }
     
     // MARK: - Actions
@@ -51,12 +54,8 @@ class MathViewController: UIViewController {
         
         if countCorrect >= 10 {
             print("YOU WIN")
-            // Create an instance of the main storyboard
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            // Create an instance of the view controller
-            let controller = storyboard.instantiateViewController(withIdentifier: "mainNavigationController")
-            // Present the user with the main view controller
-            self.present(controller, animated: true, completion: nil)
+            
+            goToViewController(withIdentifier: "FinishedGameViewController")
         }
         
         if numberInput == (leftNumber * rightNumber) {
@@ -98,12 +97,7 @@ class MathViewController: UIViewController {
         
         if countCorrect >= 10 {
             print("YOU WIN")
-            // Create an instance of the main storyboard
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            // Create an instance of the view controller
-            let controller = storyboard.instantiateViewController(withIdentifier: "mainNavigationController")
-            // Present the user with the main view controller
-            self.present(controller, animated: true, completion: nil)
+            goToViewController(withIdentifier: "FinishedGameViewController")
         }
     }
     
@@ -114,7 +108,7 @@ class MathViewController: UIViewController {
     }
     
     func setsUpUI() {
-        self.view.backgroundColor = UIColor.darkBlue
+        self.view.backgroundColor = UIColor.darkColor
         inputNumberTextField.keyboardType = .numberPad
         countCorrectLabel.text = "0"
     }
@@ -127,15 +121,4 @@ class MathViewController: UIViewController {
         leftNumberLabel.text = "\(leftNumber)"
         rightNumberLabel.text = "\(rightNumber)"
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-
-}
+} // End of class

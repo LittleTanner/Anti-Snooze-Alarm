@@ -15,7 +15,7 @@ extension UIView {
 
 
 extension UIColor {
-    static let darkBlue = UIColor(named: "darkBlue")
+    static let darkColor = UIColor(named: "darkColor")
     static let blueAccent = UIColor(named: "blueAccent")
     static let mainTextColor = UIColor(named: "mainText")
     static let unSelectedTextColor = UIColor(named: "unSelectedText")

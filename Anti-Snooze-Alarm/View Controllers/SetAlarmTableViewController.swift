@@ -24,6 +24,7 @@ class SetAlarmTableViewController: UITableViewController {
     @IBOutlet weak var saturdayButton: UIButton!
     @IBOutlet weak var volumeSlider: UISlider!
     
+    @IBOutlet weak var navigationBarItem: UINavigationItem!
     
     // MARK: - Properties
     
@@ -41,16 +42,14 @@ class SetAlarmTableViewController: UITableViewController {
     var fridayButtonIsSelected = false
     var saturdayButtonIsSelected = false
     
-    
     var daysOfTheWeekSelected: [String] = AlarmController.sharedInstance.alarm?.first?.daysOfWeek ?? []
     
     // MARK: - Lifecycle Methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationBarItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(returnToMainScreen))
         
-        // This does not work????
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: nil, action: nil)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -63,7 +62,13 @@ class SetAlarmTableViewController: UITableViewController {
     }
     
     // MARK: - Actions
-    
+
+    @objc func volumeSliderValuedChanged() {
+        SoundManager.sharedInstance.stopSound()
+        print("Volume slider value changed to: \(volumeSlider.value)")
+        SoundManager.sharedInstance.playSoundOnce(withVolume: volumeSlider.value)
+    }
+
     @IBAction func alarmValuePickerValueChanged(_ sender: Any) {
         print("Alarm Time changed to: \(alarmValuePicker.date)")
         let dateFormatter = DateFormatter()
@@ -79,10 +84,10 @@ class SetAlarmTableViewController: UITableViewController {
         
         if sundayButtonIsSelected == true {
             sundayButton.backgroundColor = UIColor.blueAccent
-            sundayButton.setTitleColor(UIColor.darkBlue, for: .normal)
+            sundayButton.setTitleColor(UIColor.darkColor, for: .normal)
             daysOfTheWeekSelected.append(Alarm.daysOfWeek.sunday.rawValue)
         } else {
-            sundayButton.backgroundColor = UIColor.darkBlue
+            sundayButton.backgroundColor = UIColor.darkColor
             sundayButton.setTitleColor(UIColor.mainTextColor, for: .normal)
             if let dayToRemove = daysOfTheWeekSelected.firstIndex(of: Alarm.daysOfWeek.sunday.rawValue) {
                 daysOfTheWeekSelected.remove(at: dayToRemove)
@@ -97,10 +102,10 @@ class SetAlarmTableViewController: UITableViewController {
         
         if mondayButtonIsSelected == true {
             mondayButton.backgroundColor = UIColor.blueAccent
-            mondayButton.setTitleColor(UIColor.darkBlue, for: .normal)
+            mondayButton.setTitleColor(UIColor.darkColor, for: .normal)
             daysOfTheWeekSelected.append(Alarm.daysOfWeek.monday.rawValue)
         } else {
-            mondayButton.backgroundColor = UIColor.darkBlue
+            mondayButton.backgroundColor = UIColor.darkColor
             mondayButton.setTitleColor(UIColor.mainTextColor, for: .normal)
             if let dayToRemove = daysOfTheWeekSelected.firstIndex(of: Alarm.daysOfWeek.monday.rawValue) {
                 daysOfTheWeekSelected.remove(at: dayToRemove)
@@ -115,10 +120,10 @@ class SetAlarmTableViewController: UITableViewController {
         
         if tuesdayButtonIsSelected == true {
             tuesdayButton.backgroundColor = UIColor.blueAccent
-            tuesdayButton.setTitleColor(UIColor.darkBlue, for: .normal)
+            tuesdayButton.setTitleColor(UIColor.darkColor, for: .normal)
             daysOfTheWeekSelected.append(Alarm.daysOfWeek.tuesday.rawValue)
         } else {
-            tuesdayButton.backgroundColor = UIColor.darkBlue
+            tuesdayButton.backgroundColor = UIColor.darkColor
             tuesdayButton.setTitleColor(UIColor.mainTextColor, for: .normal)
             if let dayToRemove = daysOfTheWeekSelected.firstIndex(of: Alarm.daysOfWeek.tuesday.rawValue) {
                 daysOfTheWeekSelected.remove(at: dayToRemove)
@@ -133,10 +138,10 @@ class SetAlarmTableViewController: UITableViewController {
         
         if wednesdayButtonIsSelected == true {
             wednesdayButton.backgroundColor = UIColor.blueAccent
-            wednesdayButton.setTitleColor(UIColor.darkBlue, for: .normal)
+            wednesdayButton.setTitleColor(UIColor.darkColor, for: .normal)
             daysOfTheWeekSelected.append(Alarm.daysOfWeek.wednesday.rawValue)
         } else {
-            wednesdayButton.backgroundColor = UIColor.darkBlue
+            wednesdayButton.backgroundColor = UIColor.darkColor
             wednesdayButton.setTitleColor(UIColor.mainTextColor, for: .normal)
             if let dayToRemove = daysOfTheWeekSelected.firstIndex(of: Alarm.daysOfWeek.wednesday.rawValue) {
                 daysOfTheWeekSelected.remove(at: dayToRemove)
@@ -151,10 +156,10 @@ class SetAlarmTableViewController: UITableViewController {
         
         if thursdayButtonIsSelected == true {
             thursdayButton.backgroundColor = UIColor.blueAccent
-            thursdayButton.setTitleColor(UIColor.darkBlue, for: .normal)
+            thursdayButton.setTitleColor(UIColor.darkColor, for: .normal)
             daysOfTheWeekSelected.append(Alarm.daysOfWeek.thursday.rawValue)
         } else {
-            thursdayButton.backgroundColor = UIColor.darkBlue
+            thursdayButton.backgroundColor = UIColor.darkColor
             thursdayButton.setTitleColor(UIColor.mainTextColor, for: .normal)
             if let dayToRemove = daysOfTheWeekSelected.firstIndex(of: Alarm.daysOfWeek.thursday.rawValue) {
                 daysOfTheWeekSelected.remove(at: dayToRemove)
@@ -169,10 +174,10 @@ class SetAlarmTableViewController: UITableViewController {
         
         if fridayButtonIsSelected == true {
             fridayButton.backgroundColor = UIColor.blueAccent
-            fridayButton.setTitleColor(UIColor.darkBlue, for: .normal)
+            fridayButton.setTitleColor(UIColor.darkColor, for: .normal)
             daysOfTheWeekSelected.append(Alarm.daysOfWeek.friday.rawValue)
         } else {
-            fridayButton.backgroundColor = UIColor.darkBlue
+            fridayButton.backgroundColor = UIColor.darkColor
             fridayButton.setTitleColor(UIColor.mainTextColor, for: .normal)
             if let dayToRemove = daysOfTheWeekSelected.firstIndex(of: Alarm.daysOfWeek.friday.rawValue) {
                 daysOfTheWeekSelected.remove(at: dayToRemove)
@@ -187,10 +192,10 @@ class SetAlarmTableViewController: UITableViewController {
         
         if saturdayButtonIsSelected == true {
             saturdayButton.backgroundColor = UIColor.blueAccent
-            saturdayButton.setTitleColor(UIColor.darkBlue, for: .normal)
+            saturdayButton.setTitleColor(UIColor.darkColor, for: .normal)
             daysOfTheWeekSelected.append(Alarm.daysOfWeek.saturday.rawValue)
         } else {
-            saturdayButton.backgroundColor = UIColor.darkBlue
+            saturdayButton.backgroundColor = UIColor.darkColor
             saturdayButton.setTitleColor(UIColor.mainTextColor, for: .normal)
             if let dayToRemove = daysOfTheWeekSelected.firstIndex(of: Alarm.daysOfWeek.saturday.rawValue) {
                 daysOfTheWeekSelected.remove(at: dayToRemove)
@@ -202,30 +207,30 @@ class SetAlarmTableViewController: UITableViewController {
         
         if let alarms = alarms, let alarm = alarms.first {
             AlarmController.sharedInstance.updateAlarm(alarm: alarm, alarmTime: alarmValuePicker.date, daysOfWeek: daysOfTheWeekSelected, alarmSound: "default", alarmVolume: self.volumeSlider.value, isEnabled: true)
-            
+            AlarmController.sharedInstance.removeNotifications()
             AlarmController.ScheduleNotifications(alarms: alarms, alarmValuePicker: alarmValuePicker.date, daysOfTheWeekSelected: daysOfTheWeekSelected, volumeSlider: self.volumeSlider.value)
         } else {
             AlarmController.sharedInstance.createAlarm(alarmTime: alarmValuePicker.date, daysOfWeek: daysOfTheWeekSelected, alarmSound: "default", alarmVolume: self.volumeSlider.value)
-            
+            AlarmController.sharedInstance.removeNotifications()
             AlarmController.ScheduleNotifications(alarms: alarms, alarmValuePicker: alarmValuePicker.date, daysOfTheWeekSelected: daysOfTheWeekSelected, volumeSlider: self.volumeSlider.value)
         }
         
         MPVolumeView.setVolume(self.volumeSlider.value)
-        
+        SoundManager.sharedInstance.stopSound()
         navigationController?.popViewController(animated: true)
     }
-    
-    // MARK: - Custom Methods
-    
     
     // MARK: - UI Adjustments
 
     func setsUpUI() {
         
-        // Changes the alarm color picker color to white
+        // Changes the alarm color picker text color and bg color
         alarmValuePicker.setValue(UIColor.white, forKey: "textColor")
+        alarmValuePicker.backgroundColor = UIColor.darkColor
         
         // Changes UISlider
+        volumeSlider.isContinuous = false
+        volumeSlider.addTarget(self, action: #selector(volumeSliderValuedChanged), for: .valueChanged)
         volumeSlider.minimumTrackTintColor = UIColor.blueAccent
         
         // Changes the days of the week buttons to be circles
@@ -248,74 +253,82 @@ class SetAlarmTableViewController: UITableViewController {
         
         if daysOfWeek.contains(Alarm.daysOfWeek.sunday.rawValue) {
             sundayButton.backgroundColor = UIColor.blueAccent
-            sundayButton.setTitleColor(UIColor.darkBlue, for: .normal)
+            sundayButton.setTitleColor(UIColor.darkColor, for: .normal)
             sundayButtonIsSelected = true
         } else {
-            sundayButton.backgroundColor = UIColor.darkBlue
+            sundayButton.backgroundColor = UIColor.darkColor
             sundayButton.setTitleColor(UIColor.mainTextColor, for: .normal)
             sundayButtonIsSelected = false
         }
         
         if daysOfWeek.contains(Alarm.daysOfWeek.monday.rawValue) {
             mondayButton.backgroundColor = UIColor.blueAccent
-            mondayButton.setTitleColor(UIColor.darkBlue, for: .normal)
+            mondayButton.setTitleColor(UIColor.darkColor, for: .normal)
             mondayButtonIsSelected = true
         } else {
-            mondayButton.backgroundColor = UIColor.darkBlue
+            mondayButton.backgroundColor = UIColor.darkColor
             mondayButton.setTitleColor(UIColor.mainTextColor, for: .normal)
             mondayButtonIsSelected = false
         }
         
         if daysOfWeek.contains(Alarm.daysOfWeek.tuesday.rawValue) {
             tuesdayButton.backgroundColor = UIColor.blueAccent
-            tuesdayButton.setTitleColor(UIColor.darkBlue, for: .normal)
+            tuesdayButton.setTitleColor(UIColor.darkColor, for: .normal)
             tuesdayButtonIsSelected = true
         } else {
-            tuesdayButton.backgroundColor = UIColor.darkBlue
+            tuesdayButton.backgroundColor = UIColor.darkColor
             tuesdayButton.setTitleColor(UIColor.mainTextColor, for: .normal)
             tuesdayButtonIsSelected = false
         }
         
         if daysOfWeek.contains(Alarm.daysOfWeek.wednesday.rawValue) {
             wednesdayButton.backgroundColor = UIColor.blueAccent
-            wednesdayButton.setTitleColor(UIColor.darkBlue, for: .normal)
+            wednesdayButton.setTitleColor(UIColor.darkColor, for: .normal)
             wednesdayButtonIsSelected = true
         } else {
-            wednesdayButton.backgroundColor = UIColor.darkBlue
+            wednesdayButton.backgroundColor = UIColor.darkColor
             wednesdayButton.setTitleColor(UIColor.mainTextColor, for: .normal)
             wednesdayButtonIsSelected = false
         }
         
         if daysOfWeek.contains(Alarm.daysOfWeek.thursday.rawValue) {
             thursdayButton.backgroundColor = UIColor.blueAccent
-            thursdayButton.setTitleColor(UIColor.darkBlue, for: .normal)
+            thursdayButton.setTitleColor(UIColor.darkColor, for: .normal)
             thursdayButtonIsSelected = true
         } else {
-            thursdayButton.backgroundColor = UIColor.darkBlue
+            thursdayButton.backgroundColor = UIColor.darkColor
             thursdayButton.setTitleColor(UIColor.mainTextColor, for: .normal)
             thursdayButtonIsSelected = false
         }
         
         if daysOfWeek.contains(Alarm.daysOfWeek.friday.rawValue) {
             fridayButton.backgroundColor = UIColor.blueAccent
-            fridayButton.setTitleColor(UIColor.darkBlue, for: .normal)
+            fridayButton.setTitleColor(UIColor.darkColor, for: .normal)
             fridayButtonIsSelected = true
         } else {
-            fridayButton.backgroundColor = UIColor.darkBlue
+            fridayButton.backgroundColor = UIColor.darkColor
             fridayButton.setTitleColor(UIColor.mainTextColor, for: .normal)
             fridayButtonIsSelected = false
         }
         
         if daysOfWeek.contains(Alarm.daysOfWeek.saturday.rawValue) {
             saturdayButton.backgroundColor = UIColor.blueAccent
-            saturdayButton.setTitleColor(UIColor.darkBlue, for: .normal)
+            saturdayButton.setTitleColor(UIColor.darkColor, for: .normal)
             saturdayButtonIsSelected = true
         } else {
-            saturdayButton.backgroundColor = UIColor.darkBlue
+            saturdayButton.backgroundColor = UIColor.darkColor
             saturdayButton.setTitleColor(UIColor.mainTextColor, for: .normal)
             saturdayButtonIsSelected = false
         }
     }
+    
+    // MARK: - Custom Methods
+    
+    @objc func returnToMainScreen() {
+        SoundManager.sharedInstance.stopSound()
+        self.navigationController?.popViewController(animated: true)
+    }
+
 
 } // End of class
 

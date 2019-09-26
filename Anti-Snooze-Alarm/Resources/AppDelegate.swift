@@ -16,17 +16,16 @@ import MediaPlayer
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
-//    var player: AVAudioPlayer?
-    
-//    var audioPlayer: AVAudioPlayer?
+//    var countdownTimer = Timer()
+//    var timeUntilAlarm: Double = 10.0
+
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        
         // Request authorization to send notifications, This might need to be assigned to a variable for storage.. not sure yet
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (success, error) in
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, /*.sound, */.badge]) { (success, error) in
             // Check for error
             if let error = error {
                 print("There was an error in \(#function), error: \(error), error localized description: \(error.localizedDescription)")
@@ -45,15 +44,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         return true
     }
     
-    
-    
-    
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         
         // Create an instance of the main storyboard
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         // Create a random number
-        let randomNumber = 0 //Int.random(in: 0...4)
+        let randomNumber = Int.random(in: 0...4)
 
         // Create an instance of the view controller
         switch randomNumber {
@@ -93,9 +89,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         guard let alarms = AlarmController.sharedInstance.alarm,
             let alarm = alarms.first else { return }
-        SoundManager.sharedInstance.playSound(withVolume: alarm.alarmVolume)
+        SoundManager.sharedInstance.playRepeatingSound(withVolume: alarm.alarmVolume)
         print("AppDelegate AudioPlayer is set too: \(String(describing: SoundManager.sharedInstance.audioPlayer?.isPlaying))")
-        // removed alert from showing in the app, need to have some way for them to get to the mini game from the home screen if they open the app directly and don't click on a notification.
+        
+        
+        // Testing to create notifications on the fly
+        
+        
+        let date = Date()
+        print(date.stringWith(timeStyle: .short))
+        
+        // removed alert/sound/badge from showing in the app, need to have some way for them to get to the mini game from the home screen if they open the app directly and don't click on a notification.
         completionHandler([/*.alert, .sound, .badge*/])
     }
     
@@ -108,7 +112,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -122,14 +125,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
-        guard let alarms = AlarmController.sharedInstance.alarm,
-        let alarm = alarms.first else { return }
-        AlarmController.ScheduleNotifications(alarms: alarms, alarmValuePicker: alarm.alarmTime!, daysOfTheWeekSelected: alarm.daysOfWeek!, volumeSlider: alarm.alarmVolume)
-        
         self.saveContext()
     }
 
-    // MARK: - Core Data stack
+    // MARK: - Core Data Stack
 
     lazy var persistentContainer: NSPersistentContainer = {
         /*
@@ -158,7 +157,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         return container
     }()
 
-    // MARK: - Core Data Saving support
+    // MARK: - Core Data Saving Support
 
     func saveContext () {
         let context = persistentContainer.viewContext

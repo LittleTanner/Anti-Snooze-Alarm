@@ -48,17 +48,7 @@ class MemorizeNumberViewController: UIViewController {
         if inputNumberText == String(randomNumber) {
             print("Correct")
             
-            // Create an instance of the main storyboard
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            // Create an instance of the view controller
-            let controller = storyboard.instantiateViewController(withIdentifier: "mainNavigationController")
-            // Present the user with the main view controller
-            self.present(controller, animated: true, completion: nil)
-            
-            AlarmController.sharedInstance.removeNotifications()
-            SoundManager.sharedInstance.stopSound()
-            print("MemorizeNumber AudioPlayer is set too: \(String(describing: SoundManager.sharedInstance.audioPlayer?.isPlaying))")
-            
+            goToViewController(withIdentifier: "FinishedGameViewController")
         } else {
             print("Incorrect")
             self.presentAnswerIncorrectAlert()
@@ -71,7 +61,7 @@ class MemorizeNumberViewController: UIViewController {
     }
 
     func setsUpUI() {
-        self.view.backgroundColor = UIColor.darkBlue
+        self.view.backgroundColor = UIColor.darkColor
         randomNumberLabel.text = String(randomNumber)
         forgotNumberButton.isHidden = true
         enterButton.isHidden = true
@@ -84,16 +74,8 @@ class MemorizeNumberViewController: UIViewController {
         
         if numberTextField.text == String(randomNumber) {
             print("Correct")
-            // Create an instance of the main storyboard
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            // Create an instance of the view controller
-            let controller = storyboard.instantiateViewController(withIdentifier: "mainNavigationController")
-            // Present the user with the main view controller
-            self.present(controller, animated: true, completion: nil)
             
-            AlarmController.sharedInstance.removeNotifications()
-            SoundManager.sharedInstance.stopSound()
-            print("MemorizeNumber AudioPlayer is set too: \(String(describing: SoundManager.sharedInstance.audioPlayer?.isPlaying))")
+            goToViewController(withIdentifier: "FinishedGameViewController")
         }
     }
     
@@ -125,7 +107,7 @@ class MemorizeNumberViewController: UIViewController {
             countdownTimer.invalidate()
             guard let alarms = AlarmController.sharedInstance.alarm,
                 let alarm = alarms.first else { return }
-            SoundManager.sharedInstance.playSound(withVolume: alarm.alarmVolume)
+            SoundManager.sharedInstance.playRepeatingSound(withVolume: alarm.alarmVolume)
             print("MemorizeNumber AudioPlayer is set too: \(String(describing: SoundManager.sharedInstance.audioPlayer?.isPlaying))")
         }
     }

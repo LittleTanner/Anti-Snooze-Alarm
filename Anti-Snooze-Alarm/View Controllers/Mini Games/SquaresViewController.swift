@@ -22,20 +22,17 @@ class SquaresViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setsUpUI()
+        guard let alarms = AlarmController.sharedInstance.alarm,
+            let alarm = alarms.first else { return }
+        SoundManager.sharedInstance.playRepeatingSound(withVolume: alarm.alarmVolume)
     }
     
     // MARK: - Actions
     
     @IBAction func enterButtonTapped(_ sender: Any) {
         if numberOfRedSquares == numberOfRedButtonsTapped {
-            // Create an instance of the main storyboard
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            // Create an instance of the view controller
-            let controller = storyboard.instantiateViewController(withIdentifier: "mainNavigationController")
-            // Present the user with the main view controller
-            self.present(controller, animated: true, completion: nil)
+            goToViewController(withIdentifier: "FinishedGameViewController")
         }
     }
     
@@ -52,7 +49,7 @@ class SquaresViewController: UIViewController {
         for button in squareButtons {
             switch count {
             case _ where count <= 7:
-                button.backgroundColor = UIColor.red
+                button.backgroundColor = UIColor.redAccent
             case _ where (count > 7) && (count <= 14):
                 button.backgroundColor = UIColor.blueAccent
             case _ where (count > 14) && (count <= 21):
@@ -71,14 +68,14 @@ class SquaresViewController: UIViewController {
         
         for button in squareButtons {
             
-            if button.backgroundColor == UIColor.red {
+            if button.backgroundColor == UIColor.redAccent {
                 redSquareTotal += 1
             }
         }
         numberOfRedSquares = redSquareTotal
         print("total number of red buttons: \(redSquareTotal)")
         
-        if sender.backgroundColor == UIColor.red {
+        if sender.backgroundColor == UIColor.redAccent {
             print("Red button tapped")
             numberOfRedButtonsTapped += 1
             sender.isEnabled = false
@@ -94,12 +91,7 @@ class SquaresViewController: UIViewController {
         print("number of red buttons tapped: \(numberOfRedButtonsTapped)")
         
         if numberOfRedSquares == numberOfRedButtonsTapped {
-            // Create an instance of the main storyboard
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            // Create an instance of the view controller
-            let controller = storyboard.instantiateViewController(withIdentifier: "mainNavigationController")
-            // Present the user with the main view controller
-            self.present(controller, animated: true, completion: nil)
+            goToViewController(withIdentifier: "FinishedGameViewController")
         }
     }
     
@@ -110,7 +102,7 @@ class SquaresViewController: UIViewController {
     }
     
     func setsUpUI() {
-        self.view.backgroundColor = UIColor.darkBlue
+        self.view.backgroundColor = UIColor.darkColor
         
         for button in squareButtons {
             button.isEnabled = true
@@ -121,7 +113,7 @@ class SquaresViewController: UIViewController {
         for button in squareButtons {
             switch count {
             case _ where count <= 7:
-                button.backgroundColor = UIColor.red
+                button.backgroundColor = UIColor.redAccent
             case _ where (count > 7) && (count <= 14):
                 button.backgroundColor = UIColor.blueAccent
             case _ where (count > 14) && (count <= 21):
