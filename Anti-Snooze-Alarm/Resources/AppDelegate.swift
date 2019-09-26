@@ -88,16 +88,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         print("Notification sent")
         
         guard let alarms = AlarmController.sharedInstance.alarm,
-            let alarm = alarms.first else { return }
+            let alarm = alarms.first,
+            let alarmTime = alarm.alarmTimeAsString else { return }
         SoundManager.sharedInstance.playRepeatingSound(withVolume: alarm.alarmVolume)
         print("AppDelegate AudioPlayer is set too: \(String(describing: SoundManager.sharedInstance.audioPlayer?.isPlaying))")
         
         
+        
         // Testing to create notifications on the fly
         
+//        let currentTime = Date().stringWith(timeStyle: .short)
+//
+//        var numberOfNotificationsScheduled = 0
+//        print(numberOfNotificationsScheduled)
+//
+//        UNUserNotificationCenter.current().getPendingNotificationRequests { (notifications) in
+//            numberOfNotificationsScheduled = notifications.count
+//            print("Pending notifications scheduled: \(notifications.count)")
+//            if currentTime == alarmTime && (notifications.count > 0) {
+//                SoundManager.sharedInstance.playRepeatingSound(withVolume: alarm.alarmVolume)
+//                print("AppDelegate AudioPlayer is set too: \(String(describing: SoundManager.sharedInstance.audioPlayer?.isPlaying))")
+//            } else {
+//                SoundManager.sharedInstance.audioPlayer?.stop()
+//                print("AppDelegate AudioPlayer is set too: \(String(describing: SoundManager.sharedInstance.audioPlayer?.isPlaying))")
+//            }
+//        }
+//        print(numberOfNotificationsScheduled)
+//        print("currentTime: \(currentTime)")
+//        print("alarmTime: \(alarmTime)")
         
-        let date = Date()
-        print(date.stringWith(timeStyle: .short))
+        
         
         // removed alert/sound/badge from showing in the app, need to have some way for them to get to the mini game from the home screen if they open the app directly and don't click on a notification.
         completionHandler([/*.alert, .sound, .badge*/])
