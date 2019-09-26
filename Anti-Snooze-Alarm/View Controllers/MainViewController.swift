@@ -28,13 +28,13 @@ class MainViewController: UIViewController {
     
     // MARK: - Properties
     
-    
     // MARK: - Lifecycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setsUpUI()
-
+        SoundManager.sharedInstance.stopSound()
+        NotificationCenter.default.addObserver(self, selector: #selector(presentGame), name: NName(rawValue: "AlarmIsSounding"), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,7 +44,7 @@ class MainViewController: UIViewController {
         UNUserNotificationCenter.current().getPendingNotificationRequests { (notifications) in
             print("Pending notifications scheduled: \(notifications.count)")
         }
-        
+        SoundManager.sharedInstance.stopSound()
         guard AlarmController.sharedInstance.alarm != nil else { return }
         updateViews()
     }
@@ -151,6 +151,18 @@ class MainViewController: UIViewController {
             print("Alarm is nil")
         }
     }
+    
+    // MARK: - Custom Methods
+    
+    @objc func presentGame() {
+            // Create a random number
+            let randomNumber = Int.random(in: 0...4)
+            // Create an array of the view controller's identifier mini game names
+            let arrayOfMiniGames = ["MemorizeNumberGame", "WordOfTheDayGame", "MathGame", "SquaresGame", "LeftBrainRightBrainGame"]
+            
+            goToViewController(withIdentifier: arrayOfMiniGames[randomNumber])
+    }
+
 
     // MARK: - Navigation
     

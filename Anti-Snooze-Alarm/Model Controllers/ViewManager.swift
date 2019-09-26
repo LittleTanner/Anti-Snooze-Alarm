@@ -19,3 +19,11 @@ extension UIViewController {
         self.present(controller, animated: true, completion: nil)
     }
 }
+
+class ViewManager {
+    
+    static let sharedInstance = ViewManager()
+    
+    var alarmIsSounding = false
+    
+}
