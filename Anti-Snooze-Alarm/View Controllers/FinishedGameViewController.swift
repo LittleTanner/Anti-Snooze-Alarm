@@ -26,7 +26,7 @@ class FinishedGameViewController: UIViewController {
     let locationManager = CLLocationManager()
     var userLatitude: CLLocationDegrees = 0.0
     var userLongitude: CLLocationDegrees = 0.0
-    var weatherFetched: Weather?
+    var weatherFetchedArray = WeatherController.sharedInstance.weather
     
     // MARK: - Viewcycle Methods
 
@@ -73,7 +73,8 @@ class FinishedGameViewController: UIViewController {
     func setsUpUI() {
         self.view.backgroundColor = UIColor.darkColor
         
-        guard let weatherFetched = weatherFetched else { return }
+        guard let weatherFetchedArray = weatherFetchedArray,
+            let weatherFetched = weatherFetchedArray.first else { return }
         self.currentWeatherLabel.text = "\(Int(weatherFetched.currentWeatherTemp))°"
         self.currentWeatherSummaryLabel.text = weatherFetched.currentWeatherSummary
         self.currentFeelsLikeTempLabel.text = "\(Int(weatherFetched.currentFeelsLikeTemp))°"
