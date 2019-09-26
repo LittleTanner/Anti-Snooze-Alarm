@@ -32,6 +32,9 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        AlarmController.sharedInstance.removeNotificationsForToday()
+        
         setsUpUI()
         SoundManager.sharedInstance.stopSound()
         NotificationCenter.default.addObserver(self, selector: #selector(presentGame), name: NName(rawValue: "AlarmIsSounding"), object: nil)

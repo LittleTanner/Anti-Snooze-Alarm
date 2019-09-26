@@ -53,7 +53,7 @@ class WordOfTheDayViewController: UIViewController {
         if definition == inputText {
             print("Correct")
             
-            goToViewController(withIdentifier: "FinishedGameViewController")
+            goToViewController(withIdentifier: "AreYouAwakeViewController")
         } else {
             print("Incorrect")
             presentAnswerIncorrectAlert()
@@ -132,7 +132,7 @@ extension WordOfTheDayViewController: UITextViewDelegate {
         if definition == inputText {
             print("Correct")
             
-            goToViewController(withIdentifier: "FinishedGameViewController")
+            goToViewController(withIdentifier: "AreYouAwakeViewController")
         }
     }
 }

@@ -24,8 +24,6 @@ class MemorizeNumberViewController: UIViewController {
     var countdownTimer = Timer()
     var isTimerRunning = true
     
-    var player: AVAudioPlayer?
-    
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +46,7 @@ class MemorizeNumberViewController: UIViewController {
         if inputNumberText == String(randomNumber) {
             print("Correct")
             
-            goToViewController(withIdentifier: "FinishedGameViewController")
+            goToViewController(withIdentifier: "AreYouAwakeViewController")
         } else {
             print("Incorrect")
             self.presentAnswerIncorrectAlert()
@@ -75,7 +73,7 @@ class MemorizeNumberViewController: UIViewController {
         if numberTextField.text == String(randomNumber) {
             print("Correct")
             
-            goToViewController(withIdentifier: "FinishedGameViewController")
+            goToViewController(withIdentifier: "AreYouAwakeViewController")
         }
     }
     
