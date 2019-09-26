@@ -44,6 +44,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let alarm = alarms.first,
         let alarmTime = alarm.alarmTimeAsString else { return true }
         
+        MPVolumeView.setVolume(alarm.alarmVolume)
+        
         let currentTime = Date().stringWith(timeStyle: .short)
         print("Current Time: \(currentTime)")
         print("Current Time: \(alarmTime)")
@@ -132,6 +134,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         guard let alarms = AlarmController.sharedInstance.alarm,
             let alarm = alarms.first else { return }
+        MPVolumeView.setVolume(alarm.alarmVolume)
         SoundManager.sharedInstance.playRepeatingSound(withVolume: alarm.alarmVolume)
         print("AppDelegate AudioPlayer is set too: \(String(describing: SoundManager.sharedInstance.audioPlayer?.isPlaying))")
         
@@ -163,6 +166,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         guard let alarms = AlarmController.sharedInstance.alarm,
         let alarm = alarms.first,
         let alarmTime = alarm.alarmTimeAsString else { return }
+        
+        MPVolumeView.setVolume(alarm.alarmVolume)
         
         let currentTime = Date().stringWith(timeStyle: .short)
         print("Current Time: \(currentTime)")
