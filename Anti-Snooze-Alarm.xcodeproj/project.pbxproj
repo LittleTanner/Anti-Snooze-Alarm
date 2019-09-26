@@ -23,6 +23,7 @@
 		FC887E0123295C260019CEF9 /* WeatherDecoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC887E0023295C260019CEF9 /* WeatherDecoding.swift */; };
 		FC887E032329610B0019CEF9 /* WeatherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC887E022329610B0019CEF9 /* WeatherController.swift */; };
 		FC887E05232963250019CEF9 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC887E04232963250019CEF9 /* Weather.swift */; };
+		FC8AF17B233D3470004871FC /* AreYouAwakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8AF17A233D3470004871FC /* AreYouAwakeViewController.swift */; };
 		FC9D7FB6232C2126009960E3 /* AlarmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9D7FB5232C2126009960E3 /* AlarmController.swift */; };
 		FCAD137023283C57000F4EF5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAD136F23283C57000F4EF5 /* MainViewController.swift */; };
 		FCAD137223284065000F4EF5 /* MemorizeNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAD137123284065000F4EF5 /* MemorizeNumberViewController.swift */; };
@@ -78,6 +79,7 @@
 		FC887E0023295C260019CEF9 /* WeatherDecoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDecoding.swift; sourceTree = "<group>"; };
 		FC887E022329610B0019CEF9 /* WeatherController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherController.swift; sourceTree = "<group>"; };
 		FC887E04232963250019CEF9 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		FC8AF17A233D3470004871FC /* AreYouAwakeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreYouAwakeViewController.swift; sourceTree = "<group>"; };
 		FC9D7FB5232C2126009960E3 /* AlarmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmController.swift; sourceTree = "<group>"; };
 		FCAD136F23283C57000F4EF5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FCAD137123284065000F4EF5 /* MemorizeNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeNumberViewController.swift; sourceTree = "<group>"; };
@@ -191,11 +193,12 @@
 		FC5C49422326C62E00106CB9 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				FCAD136F23283C57000F4EF5 /* MainViewController.swift */,
-				FCAD13732328406B000F4EF5 /* Mini Games */,
-				FCAD137D23284ACA000F4EF5 /* SetAlarmTableViewController.swift */,
 				FC32FFE2232FDFC00066397F /* MainNavigationViewController.swift */,
+				FCAD136F23283C57000F4EF5 /* MainViewController.swift */,
 				FCE24B432334251100A9A29F /* SettingsViewController.swift */,
+				FCAD137D23284ACA000F4EF5 /* SetAlarmTableViewController.swift */,
+				FCAD13732328406B000F4EF5 /* Mini Games */,
+				FC8AF17A233D3470004871FC /* AreYouAwakeViewController.swift */,
 				FC18CE0E233BE14C005AB2AC /* FinishedGameViewController.swift */,
 			);
 			path = "View Controllers";
@@ -329,6 +332,7 @@
 				FCE24B4E233457CD00A9A29F /* RandomWord.swift in Sources */,
 				FC32FFE52330211A0066397F /* CoreDataStack.swift in Sources */,
 				FCAD1375232842A7000F4EF5 /* WordOfTheDayViewController.swift in Sources */,
+				FC8AF17B233D3470004871FC /* AreYouAwakeViewController.swift in Sources */,
 				FCE24B442334251100A9A29F /* SettingsViewController.swift in Sources */,
 				FCAD137023283C57000F4EF5 /* MainViewController.swift in Sources */,
 				FCE24B4C233456D900A9A29F /* RandomWordController.swift in Sources */,

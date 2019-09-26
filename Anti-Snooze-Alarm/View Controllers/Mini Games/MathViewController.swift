@@ -55,7 +55,7 @@ class MathViewController: UIViewController {
         if countCorrect >= 10 {
             print("YOU WIN")
             
-            goToViewController(withIdentifier: "FinishedGameViewController")
+            goToViewController(withIdentifier: "AreYouAwakeViewController")
         }
         
         if numberInput == (leftNumber * rightNumber) {
@@ -97,7 +97,7 @@ class MathViewController: UIViewController {
         
         if countCorrect >= 10 {
             print("YOU WIN")
-            goToViewController(withIdentifier: "FinishedGameViewController")
+            goToViewController(withIdentifier: "AreYouAwakeViewController")
         }
     }
     

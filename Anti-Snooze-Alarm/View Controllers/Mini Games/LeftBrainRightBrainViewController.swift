@@ -80,7 +80,7 @@ class LeftBrainRightBrainViewController: UIViewController {
         
         if correctCount >= 10 {
             print("YOU WIN")
-            goToViewController(withIdentifier: "FinishedGameViewController")
+            goToViewController(withIdentifier: "AreYouAwakeViewController")
         }
         
     }
@@ -122,7 +122,7 @@ class LeftBrainRightBrainViewController: UIViewController {
         
         if correctCount >= 10 {
             print("YOU WIN")
-            goToViewController(withIdentifier: "FinishedGameViewController")
+            goToViewController(withIdentifier: "AreYouAwakeViewController")
         }
     }
     
@@ -161,7 +161,7 @@ class LeftBrainRightBrainViewController: UIViewController {
         
         if correctCount >= 10 {
             print("YOU WIN")
-            goToViewController(withIdentifier: "FinishedGameViewController")
+            goToViewController(withIdentifier: "AreYouAwakeViewController")
         }
     }
     
@@ -201,7 +201,7 @@ class LeftBrainRightBrainViewController: UIViewController {
         
         if correctCount >= 10 {
             print("YOU WIN")
-            goToViewController(withIdentifier: "FinishedGameViewController")
+            goToViewController(withIdentifier: "AreYouAwakeViewController")
         }
     }
     

@@ -61,7 +61,8 @@ class FinishedGameViewController: UIViewController {
         goToViewController(withIdentifier: "mainNavigationController")
         guard let alarms = AlarmController.sharedInstance.alarm,
         let alarm = alarms.first else { return }
-        AlarmController.ScheduleNotifications(alarms: alarms, alarmValuePicker: alarm.alarmTime!, daysOfTheWeekSelected: alarm.daysOfWeek!, volumeSlider: alarm.alarmVolume)
+//        AlarmController.ScheduleNotifications(alarms: alarms, alarmValuePicker: alarm.alarmTime!, daysOfTheWeekSelected: alarm.daysOfWeek!, volumeSlider: alarm.alarmVolume)
+        AlarmController.scheduleNotificationsForAllDaysBesidesToday()
         ViewManager.sharedInstance.alarmIsSounding = false
     }
     
