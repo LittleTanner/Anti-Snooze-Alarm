@@ -62,6 +62,7 @@ class FinishedGameViewController: UIViewController {
         guard let alarms = AlarmController.sharedInstance.alarm,
         let alarm = alarms.first else { return }
         AlarmController.ScheduleNotifications(alarms: alarms, alarmValuePicker: alarm.alarmTime!, daysOfTheWeekSelected: alarm.daysOfWeek!, volumeSlider: alarm.alarmVolume)
+        ViewManager.sharedInstance.alarmIsSounding = false
     }
     
     
