@@ -12,6 +12,10 @@ import MediaPlayer
 
 class SettingsViewController: UIViewController {
 
+    // MARK: - Outlets
+
+    @IBOutlet weak var navigationBarItem: UINavigationItem!
+    
     // MARK: - Properties
 
     // MARK: - Lifecycle Methods
@@ -19,6 +23,11 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationBarItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(returnToMainScreen))
     }
     
     // MARK: - Actions
@@ -30,7 +39,7 @@ class SettingsViewController: UIViewController {
     @IBAction func playSound(_ sender: Any) {
         guard let alarms = AlarmController.sharedInstance.alarm,
         let alarm = alarms.first else { return }
-        SoundManager.sharedInstance.playSound(withVolume: alarm.alarmVolume)
+        SoundManager.sharedInstance.playRepeatingSound(withVolume: alarm.alarmVolume)
     }
     
     
@@ -47,11 +56,11 @@ class SettingsViewController: UIViewController {
             // Create an instance of the main storyboard
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             // Create a random number
-//            let randomNumber = Int.random(in: 0...4)
-//            // Create an array of the view controller's identifier mini game names
-//            let arrayOfMiniGames = ["MemorizeNumberGame", "WordOfTheDayGame", "MathGame", "SquaresGame", "LeftBrainRightBrainGame"]
+            let randomNumber = Int.random(in: 0...4)
+            // Create an array of the view controller's identifier mini game names
+            let arrayOfMiniGames = ["MemorizeNumberGame", "WordOfTheDayGame", "MathGame", "SquaresGame", "LeftBrainRightBrainGame"]
             // Create an instance of the view controller
-            let controller = storyboard.instantiateViewController(withIdentifier: "MemorizeNumberGame")
+            let controller = storyboard.instantiateViewController(withIdentifier: arrayOfMiniGames[randomNumber])
             // Present the user with the random mini game view controller
             self.present(controller, animated: true, completion: nil)
         }
@@ -62,15 +71,9 @@ class SettingsViewController: UIViewController {
         // Present alert controller
         self.present(alertController, animated: true, completion: nil)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @objc func returnToMainScreen() {
+        self.navigationController?.popViewController(animated: true)
     }
-    */
-
 } // End of class
+

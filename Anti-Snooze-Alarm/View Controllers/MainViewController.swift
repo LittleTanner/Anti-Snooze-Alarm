@@ -13,14 +13,7 @@ import UserNotifications
 class MainViewController: UIViewController {
     
     // MARK: - Outlets
-    
-    @IBOutlet weak var currentWeatherIconLabel: UILabel!
-    @IBOutlet weak var currentWeatherLabel: UILabel!
-    @IBOutlet weak var currentWeatherSummaryLabel: UILabel!
-    @IBOutlet weak var currentFeelsLikeTempLabel: UILabel!
-    @IBOutlet weak var dailyTempLowLabel: UILabel!
-    @IBOutlet weak var dailyTempHighLabel: UILabel!
-    @IBOutlet weak var dayWeatherSummaryLabel: UILabel!
+
     @IBOutlet weak var alarmHourLabel: UILabel!
     @IBOutlet weak var alarmMinuteLabel: UILabel!
     @IBOutlet weak var alarmAMOrPMLabel: UILabel!
@@ -35,24 +28,13 @@ class MainViewController: UIViewController {
     
     // MARK: - Properties
     
-    let locationManager = CLLocationManager()
-    var userLatitude: CLLocationDegrees = 0.0
-    var userLongitude: CLLocationDegrees = 0.0
-    var weather: Weather?
-    //    var hasFetchedWeather = false
     
     // MARK: - Lifecycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setsUpUI()
-        self.locationManager.requestWhenInUseAuthorization()
-        
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
-            locationManager.startUpdatingLocation()
-        }
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,9 +46,6 @@ class MainViewController: UIViewController {
         }
         
         guard AlarmController.sharedInstance.alarm != nil else { return }
-        updateViews()
-        
-        guard weather != nil else { return }
         updateViews()
     }
     
@@ -90,14 +69,17 @@ class MainViewController: UIViewController {
                 print("Alarm is set to: \(alarm.isEnabled)")
                 AlarmController.sharedInstance.removeNotifications()
             }
+        } else {
+            print("No alarm detected")
         }
     }
     
     // MARK: - UI Adjustments
     
     func setsUpUI() {
+        self.view.backgroundColor = UIColor.darkColor
         navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.barTintColor = UIColor.darkBlue
+        navigationController?.navigationBar.barTintColor = UIColor.darkColor
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.mainTextColor ?? UIColor.darkGray]
         navigationController?.navigationBar.tintColor = UIColor.blueAccent
         sundayLabel.textColor = UIColor.unSelectedTextColor
@@ -108,8 +90,6 @@ class MainViewController: UIViewController {
         fridayLabel.textColor = UIColor.unSelectedTextColor
         saturdayLabel.textColor = UIColor.unSelectedTextColor
     }
-    
-    // MARK: - Custom Methods
     
     func updateViews() {
         if let alarms = AlarmController.sharedInstance.alarm, let alarm = alarms.first, let daysOfWeek = alarm.daysOfWeek  {
@@ -167,32 +147,6 @@ class MainViewController: UIViewController {
             } else {
                 saturdayLabel.textColor = UIColor.unSelectedTextColor
             }
-            
-            // THERE APPEARS TO BE A SAVING THE WEATHER ISSUE
-            if let weatherArray = WeatherController.sharedInstance.weather, let weather = weatherArray.first {
-                currentWeatherLabel.text = "\(Int(weather.currentWeatherTemp))°"
-                currentFeelsLikeTempLabel.text = "\(Int(weather.currentFeelsLikeTemp))°"
-                currentWeatherSummaryLabel.text = weather.currentWeatherSummary
-                //                currentWeatherIconLabel.text = weather.currentWeatherIconName
-                dailyTempLowLabel.text = "\(Int(weather.dailyMinTemp))°"
-                dailyTempLowLabel.text = "\(Int(weather.dailyMaxTemp))°"
-                dayWeatherSummaryLabel.text = weather.hourlyWeatherSummary
-                var currentWeatherIcon = ""
-                switch weather.currentWeatherIconName {
-                case Weather.currentWeatherIconImage.clearDay.rawValue: currentWeatherIcon = "☀️"
-                case Weather.currentWeatherIconImage.clearNight.rawValue: currentWeatherIcon = "☀️"
-                case Weather.currentWeatherIconImage.rain.rawValue: currentWeatherIcon = "🌧"
-                case Weather.currentWeatherIconImage.snow.rawValue: currentWeatherIcon = "🌨"
-                case Weather.currentWeatherIconImage.sleet.rawValue: currentWeatherIcon = "🌨"
-                case Weather.currentWeatherIconImage.wind.rawValue: currentWeatherIcon = "💨"
-                case Weather.currentWeatherIconImage.fog.rawValue: currentWeatherIcon = "🌫"
-                case Weather.currentWeatherIconImage.cloudy.rawValue: currentWeatherIcon = "☁️"
-                case Weather.currentWeatherIconImage.partlyCloudyDay.rawValue: currentWeatherIcon = "🌥"
-                case Weather.currentWeatherIconImage.partlyCloudyNight.rawValue: currentWeatherIcon = "🌥"
-                default: currentWeatherIcon = "🤷🏼‍♂️"
-                }
-                currentWeatherIconLabel.text = currentWeatherIcon
-            }
         } else {
             print("Alarm is nil")
         }
@@ -216,51 +170,3 @@ class MainViewController: UIViewController {
     }
     
 } // End of class
-
-extension MainViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let currentLocation: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-        //        print("The user's current location is at latitude: \(currentLocation.latitude) and longitude: \(currentLocation.longitude)")
-        userLatitude = currentLocation.latitude
-        userLongitude = currentLocation.longitude
-        
-        let weather = WeatherController()
-        
-        self.locationManager.stopUpdatingLocation()
-        weather.fetchWeatherForecast(latitude: userLatitude, longitude: userLongitude) { (weather) in
-            guard let weather = weather else { return }
-            DispatchQueue.main.async {
-                self.currentWeatherLabel.text = "\(Int(weather.currentWeatherTemp))°"
-                self.currentWeatherSummaryLabel.text = weather.currentWeatherSummary
-                self.currentFeelsLikeTempLabel.text = "\(Int(weather.currentFeelsLikeTemp))°"
-                self.dayWeatherSummaryLabel.text = weather.hourlyWeatherSummary
-                
-                let temperatureLow = weather.dailyMinTemp
-                self.dailyTempLowLabel.text = "\(Int(temperatureLow))°"
-                
-                
-                let temperatureHigh = weather.dailyMaxTemp
-                self.dailyTempHighLabel.text = "\(Int(temperatureHigh))°"
-                
-                
-                var currentWeatherIcon = ""
-                switch weather.currentWeatherIconName {
-                case Weather.currentWeatherIconImage.clearDay.rawValue: currentWeatherIcon = "☀️"
-                case Weather.currentWeatherIconImage.clearNight.rawValue: currentWeatherIcon = "☀️"
-                case Weather.currentWeatherIconImage.rain.rawValue: currentWeatherIcon = "🌧"
-                case Weather.currentWeatherIconImage.snow.rawValue: currentWeatherIcon = "🌨"
-                case Weather.currentWeatherIconImage.sleet.rawValue: currentWeatherIcon = "🌨"
-                case Weather.currentWeatherIconImage.wind.rawValue: currentWeatherIcon = "💨"
-                case Weather.currentWeatherIconImage.fog.rawValue: currentWeatherIcon = "🌫"
-                case Weather.currentWeatherIconImage.cloudy.rawValue: currentWeatherIcon = "☁️"
-                case Weather.currentWeatherIconImage.partlyCloudyDay.rawValue: currentWeatherIcon = "🌥"
-                case Weather.currentWeatherIconImage.partlyCloudyNight.rawValue: currentWeatherIcon = "🌥"
-                default: currentWeatherIcon = "🤷🏼‍♂️"
-                }
-                //                self.hasFetchedWeather = true
-                self.currentWeatherIconLabel.text = currentWeatherIcon
-                self.weather = weather
-            }
-        }
-    }
-}

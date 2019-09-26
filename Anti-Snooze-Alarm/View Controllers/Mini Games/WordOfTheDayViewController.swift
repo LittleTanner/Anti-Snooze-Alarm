@@ -35,6 +35,9 @@ class WordOfTheDayViewController: UIViewController {
         generateRandomWord()
         updateViews()
         fetchWord()
+        guard let alarms = AlarmController.sharedInstance.alarm,
+            let alarm = alarms.first else { return }
+        SoundManager.sharedInstance.playRepeatingSound(withVolume: alarm.alarmVolume)
     }
     
     // MARK: - Actions
@@ -49,12 +52,8 @@ class WordOfTheDayViewController: UIViewController {
         
         if definition == inputText {
             print("Correct")
-            // Create an instance of the main storyboard
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            // Create an instance of the view controller
-            let controller = storyboard.instantiateViewController(withIdentifier: "mainNavigationController")
-            // Present the user with the main view controller
-            self.present(controller, animated: true, completion: nil)
+            
+            goToViewController(withIdentifier: "FinishedGameViewController")
         } else {
             print("Incorrect")
             presentAnswerIncorrectAlert()
@@ -104,7 +103,7 @@ class WordOfTheDayViewController: UIViewController {
     }
     
     func setsUpUI() {
-        self.view.backgroundColor = UIColor.darkBlue
+        self.view.backgroundColor = UIColor.darkColor
         self.wordLabel.text = self.word
         self.wordDefinitionLabel.text = self.definition
         skipButton.isHidden = true
@@ -124,18 +123,6 @@ class WordOfTheDayViewController: UIViewController {
             self.enterButton.isHidden = false
         }
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-
-
 } // End of class
 
 extension WordOfTheDayViewController: UITextViewDelegate {
@@ -144,12 +131,8 @@ extension WordOfTheDayViewController: UITextViewDelegate {
         
         if definition == inputText {
             print("Correct")
-            // Create an instance of the main storyboard
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            // Create an instance of the view controller
-            let controller = storyboard.instantiateViewController(withIdentifier: "mainNavigationController")
-            // Present the user with the main view controller
-            self.present(controller, animated: true, completion: nil)
+            
+            goToViewController(withIdentifier: "FinishedGameViewController")
         }
     }
 }
