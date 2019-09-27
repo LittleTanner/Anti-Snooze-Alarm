@@ -61,12 +61,12 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func alarmToggleButtonTapped(_ sender: Any) {
-        if let alarms = AlarmController.sharedInstance.alarm, let alarm = alarms.first {
+        if let alarms = AlarmController.sharedInstance.alarm, let alarm = alarms.first, let alarmSound = alarm.alarmSound {
             
             if alarmToggleButton.isOn == true {
                 alarm.isEnabled = true
                 print("Alarm is set to: \(alarm.isEnabled)")
-                AlarmController.ScheduleNotifications(alarms: alarms, alarmValuePicker: alarm.alarmTime!, daysOfTheWeekSelected: alarm.daysOfWeek!, volumeSlider: alarm.alarmVolume)
+                AlarmController.ScheduleNotifications(alarms: alarms, alarmValuePicker: alarm.alarmTime!, daysOfTheWeekSelected: alarm.daysOfWeek!, volumeSlider: alarm.alarmVolume, alarmSound: alarmSound)
             } else {
                 alarm.isEnabled = false
                 print("Alarm is set to: \(alarm.isEnabled)")

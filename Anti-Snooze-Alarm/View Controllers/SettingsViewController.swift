@@ -38,8 +38,13 @@ class SettingsViewController: UIViewController {
     
     @IBAction func playSound(_ sender: Any) {
         guard let alarms = AlarmController.sharedInstance.alarm,
-        let alarm = alarms.first else { return }
-        SoundManager.sharedInstance.playRepeatingSound(withVolume: alarm.alarmVolume)
+        let alarm = alarms.first,
+            let alarmSound = alarm.alarmSound else { return }
+//        AudioServicesPlaySystemSound(1005)
+//        AudioServicesPlayAlertSound(1005)
+//        SoundManager.sharedInstance.playRepeatingSound(withVolume: alarm.alarmVolume)
+        
+        SoundManager.sharedInstance.playSoundOnce(withVolume: 0.5, alarmSound: alarmSound)
     }
     
     
