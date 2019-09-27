@@ -44,7 +44,7 @@ class SettingsViewController: UIViewController {
 //        AudioServicesPlayAlertSound(1005)
 //        SoundManager.sharedInstance.playRepeatingSound(withVolume: alarm.alarmVolume)
         
-        SoundManager.sharedInstance.playSoundOnce(withVolume: 0.5, alarmSound: alarmSound)
+        SoundManager.sharedInstance.playSoundOnce(withVolume: alarm.alarmVolume, alarmSound: alarmSound)
     }
     
     
@@ -61,10 +61,17 @@ class SettingsViewController: UIViewController {
             // Create an instance of the main storyboard
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             // Create a random number
-            let randomNumber = Int.random(in: 0...4)
+            var randomNumber = 1
+            
+            if Reachability.isConnectedToNetwork() {
+                randomNumber = Int.random(in: 0...4)
+            } else {
+                randomNumber = Int.random(in: 1...4)
+            }
             // Create an array of the view controller's identifier mini game names
-            let arrayOfMiniGames = ["MemorizeNumberGame", "WordOfTheDayGame", "MathGame", "SquaresGame", "LeftBrainRightBrainGame"]
+            let arrayOfMiniGames = ["WordOfTheDayGame", "MemorizeNumberGame", "MathGame", "SquaresGame", "LeftBrainRightBrainGame"]
             // Create an instance of the view controller
+//            let controller = storyboard.instantiateViewController(withIdentifier: "SquaresGame")
             let controller = storyboard.instantiateViewController(withIdentifier: arrayOfMiniGames[randomNumber])
             // Present the user with the random mini game view controller
             self.present(controller, animated: true, completion: nil)

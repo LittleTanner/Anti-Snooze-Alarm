@@ -11,6 +11,7 @@ import CoreData
 import UserNotifications
 import AVKit
 import MediaPlayer
+import Network
 
 typealias NName = Notification.Name
 
@@ -18,11 +19,12 @@ typealias NName = Notification.Name
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
+    let networkMonitor = NWPathMonitor()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         // Request authorization to send notifications, This might need to be assigned to a variable for storage.. not sure yet
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, /*.sound, */.badge]) { (success, error) in
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { (success, error) in
             // Check for error
             if let error = error {
                 print("There was an error in \(#function), error: \(error), error localized description: \(error.localizedDescription)")
@@ -54,16 +56,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             // Create an instance of the main storyboard
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             // Create a random number
-            let randomNumber = Int.random(in: 0...4)
+            
+            var randomNumber = 1
+            
+            if Reachability.isConnectedToNetwork() {
+                randomNumber = Int.random(in: 0...4)
+            } else {
+                randomNumber = Int.random(in: 1...4)
+            }
+            
 
             // Create an instance of the view controller
             switch randomNumber {
             case 0:
-                if let controller = storyboard.instantiateViewController(withIdentifier: "MemorizeNumberGame") as? MemorizeNumberViewController {
+                if let controller = storyboard.instantiateViewController(withIdentifier: "WordOfTheDayGame") as? WordOfTheDayViewController {
                     self.window?.rootViewController = controller
                 }
             case 1:
-                if let controller = storyboard.instantiateViewController(withIdentifier: "WordOfTheDayGame") as? WordOfTheDayViewController {
+                if let controller = storyboard.instantiateViewController(withIdentifier: "MemorizeNumberGame") as? MemorizeNumberViewController {
                     self.window?.rootViewController = controller
                 }
             case 2:
@@ -94,16 +104,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Create an instance of the main storyboard
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         // Create a random number
-        let randomNumber = Int.random(in: 0...4)
+        var randomNumber = 1
+        
+        if Reachability.isConnectedToNetwork() {
+            randomNumber = Int.random(in: 0...4)
+        } else {
+            randomNumber = Int.random(in: 1...4)
+        }
 
         // Create an instance of the view controller
+        
+        
         switch randomNumber {
         case 0:
-            if let controller = storyboard.instantiateViewController(withIdentifier: "MemorizeNumberGame") as? MemorizeNumberViewController {
+            if let controller = storyboard.instantiateViewController(withIdentifier: "WordOfTheDayGame") as? WordOfTheDayViewController {
                 self.window?.rootViewController = controller
             }
         case 1:
-            if let controller = storyboard.instantiateViewController(withIdentifier: "WordOfTheDayGame") as? WordOfTheDayViewController {
+            if let controller = storyboard.instantiateViewController(withIdentifier: "MemorizeNumberGame") as? MemorizeNumberViewController {
                 self.window?.rootViewController = controller
             }
         case 2:
@@ -174,19 +192,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         print("Current Time: \(alarmTime)")
         
         if currentTime == alarmTime {
+            
             // Create an instance of the main storyboard
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             // Create a random number
-            let randomNumber = Int.random(in: 0...4)
+            var randomNumber = 1
+            
+            if Reachability.isConnectedToNetwork() {
+                randomNumber = Int.random(in: 0...4)
+            } else {
+                randomNumber = Int.random(in: 1...4)
+            }
 
             // Create an instance of the view controller
             switch randomNumber {
             case 0:
-                if let controller = storyboard.instantiateViewController(withIdentifier: "MemorizeNumberGame") as? MemorizeNumberViewController {
+                if let controller = storyboard.instantiateViewController(withIdentifier: "WordOfTheDayGame") as? WordOfTheDayViewController {
                     self.window?.rootViewController = controller
                 }
             case 1:
-                if let controller = storyboard.instantiateViewController(withIdentifier: "WordOfTheDayGame") as? WordOfTheDayViewController {
+                if let controller = storyboard.instantiateViewController(withIdentifier: "MemorizeNumberGame") as? MemorizeNumberViewController {
                     self.window?.rootViewController = controller
                 }
             case 2:

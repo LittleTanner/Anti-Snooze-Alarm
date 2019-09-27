@@ -105,7 +105,7 @@ class WordOfTheDayViewController: UIViewController {
     func setsUpUI() {
         self.view.backgroundColor = UIColor.darkColor
         self.wordLabel.text = self.word
-        self.wordDefinitionLabel.text = self.definition
+        self.wordDefinitionLabel.text = "Definition: \(self.definition)"
         skipButton.isHidden = true
         enterButton.isHidden = true
     }
@@ -113,7 +113,7 @@ class WordOfTheDayViewController: UIViewController {
     func updateViews() {
         DispatchQueue.main.async {
             self.wordLabel.text = self.word
-            self.wordDefinitionLabel.text = self.definition
+            self.wordDefinitionLabel.text = "Definition: \(self.definition)"
         }
     }
     

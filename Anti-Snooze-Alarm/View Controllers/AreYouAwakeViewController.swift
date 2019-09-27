@@ -23,14 +23,24 @@ class AreYouAwakeViewController: UIViewController {
     // MARK: - Actions
     @IBAction func noButtonTapped(_ sender: Any) {
         // Create a random number
-        let randomNumber = Int.random(in: 0...4)
+        var randomNumber = 1
+        
+        if Reachability.isConnectedToNetwork() {
+            randomNumber = Int.random(in: 0...4)
+        } else {
+            randomNumber = Int.random(in: 1...4)
+        }
         // Create an array of the view controller's identifier mini game names
-        let arrayOfMiniGames = ["MemorizeNumberGame", "WordOfTheDayGame", "MathGame", "SquaresGame", "LeftBrainRightBrainGame"]
+        let arrayOfMiniGames = ["WordOfTheDayGame", "MemorizeNumberGame", "MathGame", "SquaresGame", "LeftBrainRightBrainGame"]
         goToViewController(withIdentifier: arrayOfMiniGames[randomNumber])
     }
     
     @IBAction func yesButtonTapped(_ sender: Any) {
-        goToViewController(withIdentifier: "FinishedGameViewController")
+        if Reachability.isConnectedToNetwork() {
+            goToViewController(withIdentifier: "FinishedGameViewController")
+        } else {
+            goToViewController(withIdentifier: "mainNavigationController")
+        }
     }
     
     // MARK: - UI Adjustments
