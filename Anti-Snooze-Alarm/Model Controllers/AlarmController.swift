@@ -47,13 +47,13 @@ class AlarmController {
         saveToPersistentStore()
     }
     
-    static func ScheduleNotifications(alarms: [Alarm]?, alarmValuePicker: Date, daysOfTheWeekSelected: [String], volumeSlider: Float, alarmSound: String) {
+    func scheduleNotifications(alarms: [Alarm]?, alarmValuePicker: Date, daysOfTheWeekSelected: [String], volumeSlider: Float, alarmSound: String) {
         
-        if let alarms = alarms, let alarm = alarms.first {
-            AlarmController.sharedInstance.updateAlarm(alarm: alarm, alarmTime: alarmValuePicker, daysOfWeek: daysOfTheWeekSelected, alarmSound: alarmSound, alarmVolume: volumeSlider, isEnabled: true)
-        } else {
-            AlarmController.sharedInstance.createAlarm(alarmTime: alarmValuePicker, daysOfWeek: daysOfTheWeekSelected, alarmSound: alarmSound, alarmVolume: volumeSlider)
-        }
+//        if let alarms = alarms, let alarm = alarms.first {
+//            AlarmController.sharedInstance.updateAlarm(alarm: alarm, alarmTime: alarmValuePicker, daysOfWeek: daysOfTheWeekSelected, alarmSound: alarmSound, alarmVolume: volumeSlider, isEnabled: true)
+//        } else {
+//            AlarmController.sharedInstance.createAlarm(alarmTime: alarmValuePicker, daysOfWeek: daysOfTheWeekSelected, alarmSound: alarmSound, alarmVolume: volumeSlider)
+//        }
         
         print("Volume Selected From Slider: \(volumeSlider)")
         
@@ -85,9 +85,46 @@ class AlarmController {
             CreateNotifications(forDay: 7)
         }
         
+        saveToPersistentStore()
     }
     
-    static func scheduleNotificationsForAllDaysBesidesToday() {
+    func scheduleAllNotifications() {
+        
+        guard let alarms = AlarmController.sharedInstance.alarm,
+            let alarm = alarms.first,
+            let daysOfWeek = alarm.daysOfWeek else { return }
+        
+        if daysOfWeek.contains(Alarm.daysOfWeek.sunday.rawValue) {
+            CreateNotifications(forDay: 1)
+        }
+        
+        if daysOfWeek.contains(Alarm.daysOfWeek.monday.rawValue) {
+            CreateNotifications(forDay: 2)
+        }
+        
+        if daysOfWeek.contains(Alarm.daysOfWeek.tuesday.rawValue) {
+            CreateNotifications(forDay: 3)
+        }
+        
+        if daysOfWeek.contains(Alarm.daysOfWeek.wednesday.rawValue) {
+            CreateNotifications(forDay: 4)
+        }
+        
+        if daysOfWeek.contains(Alarm.daysOfWeek.thursday.rawValue) {
+            CreateNotifications(forDay: 5)
+        }
+        
+        if daysOfWeek.contains(Alarm.daysOfWeek.friday.rawValue) {
+            CreateNotifications(forDay: 6)
+        }
+        
+        if daysOfWeek.contains(Alarm.daysOfWeek.saturday.rawValue) {
+            CreateNotifications(forDay: 7)
+        }
+        saveToPersistentStore()
+    }
+    
+    func scheduleNotificationsForAllDaysBesidesToday() {
         let today = Calendar.current.component(.weekday, from: Date())
         
         guard let alarms = AlarmController.sharedInstance.alarm,
@@ -127,13 +164,15 @@ class AlarmController {
             CreateNotifications(forDay: 7)
             print("Notifications scheduled for Saturday")
         }
+        saveToPersistentStore()
     }
     
-    static func CreateNotifications(forDay dayOfWeek: Int) {
+    func CreateNotifications(forDay dayOfWeek: Int) {
         
-        guard let alarms = AlarmController.sharedInstance.alarm, let alarm = alarms.first else { return }
-        
-        guard let alarmTimeAsString = alarm.alarmTimeAsString else { return }
+        guard let alarms = AlarmController.sharedInstance.alarm,
+            let alarm = alarms.first,
+            let alarmTimeAsString = alarm.alarmTimeAsString,
+            let alarmSound = alarm.alarmSound else { return }
         
         var date = DateComponents()
         
@@ -178,8 +217,11 @@ class AlarmController {
         let content = UNMutableNotificationContent()
         content.title = "TIME TO WAKE UP!!!"
         content.body = "Today is a great day, wake up now to enjoy it 😃"
-        let notificationSound = UNNotificationSoundName("Birds.caf")
+        
+        let notificationSound = UNNotificationSoundName("\(alarmSound).mp3")
         content.sound = UNNotificationSound.init(named: notificationSound)
+//        let notificationSound = UNNotificationSoundName("Birds.caf")
+//        content.sound = UNNotificationSound.init(named: notificationSound)
         
         for num in 1...8 {
             date.second = date.second! + 7
@@ -202,6 +244,7 @@ class AlarmController {
         UNUserNotificationCenter.current().getPendingNotificationRequests { (notifications) in
             print("Pending notifications scheduled: \(notifications.count)")
         }
+        saveToPersistentStore()
     }
     
     // Update Alarm

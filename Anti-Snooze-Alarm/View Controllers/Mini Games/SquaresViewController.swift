@@ -79,6 +79,8 @@ class SquaresViewController: UIViewController {
             print("Red button tapped")
             numberOfRedButtonsTapped += 1
             sender.isEnabled = false
+            sender.setTitle("✔︎", for: .disabled)
+            sender.setTitleColor(UIColor.mainTextColor, for: .disabled)
         } else {
             print("Tapped a button that isn't red, you lose")
             resetButtonTapped(self)

@@ -32,9 +32,6 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        AlarmController.sharedInstance.removeNotificationsForToday()
-        
         setsUpUI()
         SoundManager.sharedInstance.stopSound()
         NotificationCenter.default.addObserver(self, selector: #selector(presentGame), name: NName(rawValue: "AlarmIsSounding"), object: nil)
@@ -54,19 +51,18 @@ class MainViewController: UIViewController {
     
     // MARK: - Actions
     
-    @IBAction func poweredByDarkSkyButtonTapped(_ sender: Any) {
-        if let darkSkyURL = URL(string: "https://darksky.net/poweredby/") {
-            UIApplication.shared.open(darkSkyURL, options: [:], completionHandler: nil)
-        }
-    }
-    
     @IBAction func alarmToggleButtonTapped(_ sender: Any) {
-        if let alarms = AlarmController.sharedInstance.alarm, let alarm = alarms.first, let alarmSound = alarm.alarmSound {
+        if let alarms = AlarmController.sharedInstance.alarm,
+            let alarm = alarms.first,
+            let alarmSound = alarm.alarmSound,
+            let alarmTime = alarm.alarmTime,
+            let daysOfWeek = alarm.daysOfWeek {
             
             if alarmToggleButton.isOn == true {
                 alarm.isEnabled = true
                 print("Alarm is set to: \(alarm.isEnabled)")
-                AlarmController.ScheduleNotifications(alarms: alarms, alarmValuePicker: alarm.alarmTime!, daysOfTheWeekSelected: alarm.daysOfWeek!, volumeSlider: alarm.alarmVolume, alarmSound: alarmSound)
+                AlarmController.sharedInstance.scheduleAllNotifications()
+//                AlarmController.sharedInstance.scheduleNotifications(alarms: alarms, alarmValuePicker: alarmTime, daysOfTheWeekSelected: daysOfWeek, volumeSlider: alarm.alarmVolume, alarmSound: alarmSound)
             } else {
                 alarm.isEnabled = false
                 print("Alarm is set to: \(alarm.isEnabled)")
@@ -159,9 +155,15 @@ class MainViewController: UIViewController {
     
     @objc func presentGame() {
             // Create a random number
-            let randomNumber = Int.random(in: 0...4)
+            var randomNumber = 1
+            
+            if Reachability.isConnectedToNetwork() {
+                randomNumber = Int.random(in: 0...4)
+            } else {
+                randomNumber = Int.random(in: 1...4)
+            }
             // Create an array of the view controller's identifier mini game names
-            let arrayOfMiniGames = ["MemorizeNumberGame", "WordOfTheDayGame", "MathGame", "SquaresGame", "LeftBrainRightBrainGame"]
+            let arrayOfMiniGames = ["WordOfTheDayGame", "MemorizeNumberGame", "MathGame", "SquaresGame", "LeftBrainRightBrainGame"]
             
             goToViewController(withIdentifier: arrayOfMiniGames[randomNumber])
     }

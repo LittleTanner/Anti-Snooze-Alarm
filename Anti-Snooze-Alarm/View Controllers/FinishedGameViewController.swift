@@ -59,10 +59,7 @@ class FinishedGameViewController: UIViewController {
     
     @IBAction func toHomeScreenButtonTapped(_ sender: UIButton) {
         goToViewController(withIdentifier: "mainNavigationController")
-        guard let alarms = AlarmController.sharedInstance.alarm,
-        let alarm = alarms.first else { return }
-//        AlarmController.ScheduleNotifications(alarms: alarms, alarmValuePicker: alarm.alarmTime!, daysOfTheWeekSelected: alarm.daysOfWeek!, volumeSlider: alarm.alarmVolume)
-        AlarmController.scheduleNotificationsForAllDaysBesidesToday()
+        AlarmController.sharedInstance.scheduleNotificationsForAllDaysBesidesToday()
         ViewManager.sharedInstance.alarmIsSounding = false
     }
     
