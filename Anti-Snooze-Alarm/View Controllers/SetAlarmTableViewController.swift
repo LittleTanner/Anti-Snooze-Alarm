@@ -35,7 +35,7 @@ class SetAlarmTableViewController: UITableViewController {
         }
     }
     
-    var selectedSound = "Drum"
+    var selectedSound = "Sonar"
     
     var sundayButtonIsSelected = false
     var mondayButtonIsSelected = false
@@ -258,10 +258,20 @@ class SetAlarmTableViewController: UITableViewController {
         var alarmIndex = 0
         
         switch alarmSound {
-        case "Drum":
+        case "Sonar":
             alarmIndex = 0
-        case "Old Fashion Alarm Clock":
+        case "Magical":
             alarmIndex = 1
+        case "Doorbell":
+            alarmIndex = 2
+        case "Thunder":
+            alarmIndex = 3
+        case "SciFi":
+            alarmIndex = 4
+        case "Drum":
+            alarmIndex = 5
+        case "Old Fashion Alarm Clock":
+            alarmIndex = 6
         default:
             alarmIndex = 0
             print("alarmSound not found")
