@@ -53,16 +53,13 @@ class MainViewController: UIViewController {
     
     @IBAction func alarmToggleButtonTapped(_ sender: Any) {
         if let alarms = AlarmController.sharedInstance.alarm,
-            let alarm = alarms.first,
-            let alarmSound = alarm.alarmSound,
-            let alarmTime = alarm.alarmTime,
-            let daysOfWeek = alarm.daysOfWeek {
+            let alarm = alarms.first, let daysOfTheWeek = alarm.daysOfWeek {
             
             if alarmToggleButton.isOn == true {
                 alarm.isEnabled = true
                 print("Alarm is set to: \(alarm.isEnabled)")
                 AlarmController.sharedInstance.scheduleAllNotifications()
-//                AlarmController.sharedInstance.scheduleNotifications(alarms: alarms, alarmValuePicker: alarmTime, daysOfTheWeekSelected: daysOfWeek, volumeSlider: alarm.alarmVolume, alarmSound: alarmSound)
+
             } else {
                 alarm.isEnabled = false
                 print("Alarm is set to: \(alarm.isEnabled)")
@@ -88,11 +85,22 @@ class MainViewController: UIViewController {
         thursdayLabel.textColor = UIColor.unSelectedTextColor
         fridayLabel.textColor = UIColor.unSelectedTextColor
         saturdayLabel.textColor = UIColor.unSelectedTextColor
+        if let alarms = AlarmController.sharedInstance.alarm,
+            let alarm = alarms.first, let daysOfTheWeek = alarm.daysOfWeek {
+        if daysOfTheWeek.count == 0 {
+            alarm.isEnabled = false
+            alarmToggleButton.isHidden = true
+        }
+        }
     }
     
     func updateViews() {
         if let alarms = AlarmController.sharedInstance.alarm, let alarm = alarms.first, let daysOfWeek = alarm.daysOfWeek  {
             guard let alarmTimeAsString = alarm.alarmTimeAsString else { return }
+            
+            if daysOfWeek.count == 0 {
+                alarm.isEnabled = false
+            }
             
             alarmToggleButton.isOn = alarm.isEnabled
             

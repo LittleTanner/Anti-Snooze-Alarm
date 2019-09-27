@@ -224,6 +224,23 @@ class SetAlarmTableViewController: UITableViewController {
         AlarmController.sharedInstance.scheduleAllNotifications()
         MPVolumeView.setVolume(self.volumeSlider.value)
         SoundManager.sharedInstance.stopSound()
+        
+        if daysOfTheWeekSelected.count == 0 {
+            presentAlarmNotActiveAlert()
+        }
+        
+        if daysOfTheWeekSelected.count == 1 {
+            presentAlarmWontRepeatAlert()
+        }
+        
+        let alarmTime = alarmValuePicker.date.stringWith(timeStyle: .short).components(separatedBy: [":", " "])
+
+        let AMorPM = alarmTime[2]
+        
+        if AMorPM == "PM" {
+            presentSelectedPMAlert()
+        }
+
         goToViewController(withIdentifier: "mainNavigationController")
     }
     
@@ -369,26 +386,6 @@ class SetAlarmTableViewController: UITableViewController {
         goToViewController(withIdentifier: "mainNavigationController")
     }
 } // End of class
-
-
-//extension MPVolumeView {
-//    static func setVolume(_ volume: Float) {
-//        // Need to use the MPVolumeView in order to change volume, but don't care about UI set so frame to .zero
-//        let volumeView = MPVolumeView(frame: .zero)
-//        // Search for the slider
-//        let slider = volumeView.subviews.first(where: { $0 is UISlider }) as? UISlider
-//        // Update the slider value with the desired volume.
-//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.01) {
-//            slider?.value = volume
-//        }
-//        // Optional - Remove the HUD
-//        if let app = UIApplication.shared.delegate as? AppDelegate, let window = app.window {
-//            volumeView.alpha = 0.000001
-//            window.addSubview(volumeView)
-//        }
-//    }
-//}
-
 
 extension SetAlarmTableViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
