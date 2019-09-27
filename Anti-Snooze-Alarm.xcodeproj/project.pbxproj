@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC03C2E3233E778C00CA0522 /* SciFi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC03C2E2233E778C00CA0522 /* SciFi.mp3 */; };
+		FC03C2E8233E7A8100CA0522 /* Sonar.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC03C2E4233E7A8100CA0522 /* Sonar.mp3 */; };
+		FC03C2E9233E7A8100CA0522 /* Thunder.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC03C2E5233E7A8100CA0522 /* Thunder.mp3 */; };
+		FC03C2EA233E7A8100CA0522 /* Magical.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC03C2E6233E7A8100CA0522 /* Magical.mp3 */; };
+		FC03C2EB233E7A8100CA0522 /* Doorbell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC03C2E7233E7A8100CA0522 /* Doorbell.mp3 */; };
 		FC18CE0D233BDD2E005AB2AC /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC18CE0C233BDD2E005AB2AC /* AlertManager.swift */; };
 		FC18CE0F233BE14C005AB2AC /* FinishedGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC18CE0E233BE14C005AB2AC /* FinishedGameViewController.swift */; };
 		FC18CE11233BF834005AB2AC /* ViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC18CE10233BF834005AB2AC /* ViewManager.swift */; };
@@ -26,8 +31,6 @@
 		FC8AF17B233D3470004871FC /* AreYouAwakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8AF17A233D3470004871FC /* AreYouAwakeViewController.swift */; };
 		FC8AF17D233D6FD1004871FC /* Drum.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC8AF17C233D6FD1004871FC /* Drum.mp3 */; };
 		FC8AF17F233D7180004871FC /* Old Fashion Alarm Clock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC8AF17E233D7180004871FC /* Old Fashion Alarm Clock.mp3 */; };
-		FC8AF187233D7953004871FC /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8AF186233D7953004871FC /* Sound.swift */; };
-		FC8AF189233D79DD004871FC /* SoundController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8AF188233D79DD004871FC /* SoundController.swift */; };
 		FC9D7FB6232C2126009960E3 /* AlarmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9D7FB5232C2126009960E3 /* AlarmController.swift */; };
 		FCAD137023283C57000F4EF5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAD136F23283C57000F4EF5 /* MainViewController.swift */; };
 		FCAD137223284065000F4EF5 /* MemorizeNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAD137123284065000F4EF5 /* MemorizeNumberViewController.swift */; };
@@ -62,6 +65,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FC03C2E2233E778C00CA0522 /* SciFi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = SciFi.mp3; sourceTree = "<group>"; };
+		FC03C2E4233E7A8100CA0522 /* Sonar.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Sonar.mp3; sourceTree = "<group>"; };
+		FC03C2E5233E7A8100CA0522 /* Thunder.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Thunder.mp3; sourceTree = "<group>"; };
+		FC03C2E6233E7A8100CA0522 /* Magical.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Magical.mp3; sourceTree = "<group>"; };
+		FC03C2E7233E7A8100CA0522 /* Doorbell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Doorbell.mp3; sourceTree = "<group>"; };
 		FC18CE0C233BDD2E005AB2AC /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		FC18CE0E233BE14C005AB2AC /* FinishedGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedGameViewController.swift; sourceTree = "<group>"; };
 		FC18CE10233BF834005AB2AC /* ViewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewManager.swift; sourceTree = "<group>"; };
@@ -83,8 +91,6 @@
 		FC8AF17A233D3470004871FC /* AreYouAwakeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreYouAwakeViewController.swift; sourceTree = "<group>"; };
 		FC8AF17C233D6FD1004871FC /* Drum.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Drum.mp3; sourceTree = "<group>"; };
 		FC8AF17E233D7180004871FC /* Old Fashion Alarm Clock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Old Fashion Alarm Clock.mp3"; sourceTree = "<group>"; };
-		FC8AF186233D7953004871FC /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
-		FC8AF188233D79DD004871FC /* SoundController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundController.swift; sourceTree = "<group>"; };
 		FC9D7FB5232C2126009960E3 /* AlarmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmController.swift; sourceTree = "<group>"; };
 		FCAD136F23283C57000F4EF5 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FCAD137123284065000F4EF5 /* MemorizeNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeNumberViewController.swift; sourceTree = "<group>"; };
@@ -174,7 +180,6 @@
 				FCE24B4523342B2200A9A29F /* Word.swift */,
 				FCE24B4D233457CD00A9A29F /* RandomWord.swift */,
 				FCB2A55123352642005FCDED /* ListOfWords.swift */,
-				FC8AF186233D7953004871FC /* Sound.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -189,7 +194,6 @@
 				FCFBF08B233A89A2006B5120 /* SoundManager.swift */,
 				FC18CE0C233BDD2E005AB2AC /* AlertManager.swift */,
 				FC18CE10233BF834005AB2AC /* ViewManager.swift */,
-				FC8AF188233D79DD004871FC /* SoundController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -239,6 +243,11 @@
 		FCEC4EB0233922C100344469 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				FC03C2E7233E7A8100CA0522 /* Doorbell.mp3 */,
+				FC03C2E6233E7A8100CA0522 /* Magical.mp3 */,
+				FC03C2E4233E7A8100CA0522 /* Sonar.mp3 */,
+				FC03C2E5233E7A8100CA0522 /* Thunder.mp3 */,
+				FC03C2E2233E778C00CA0522 /* SciFi.mp3 */,
 				FC8AF17C233D6FD1004871FC /* Drum.mp3 */,
 				FC8AF17E233D7180004871FC /* Old Fashion Alarm Clock.mp3 */,
 			);
@@ -316,10 +325,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC8AF17D233D6FD1004871FC /* Drum.mp3 in Resources */,
+				FC03C2EA233E7A8100CA0522 /* Magical.mp3 in Resources */,
 				FC5C49382326C55B00106CB9 /* LaunchScreen.storyboard in Resources */,
+				FC03C2E8233E7A8100CA0522 /* Sonar.mp3 in Resources */,
 				FCAD138423286236000F4EF5 /* Colors.xcassets in Resources */,
 				FC5C49352326C55B00106CB9 /* Assets.xcassets in Resources */,
+				FC03C2E9233E7A8100CA0522 /* Thunder.mp3 in Resources */,
+				FC03C2E3233E778C00CA0522 /* SciFi.mp3 in Resources */,
 				FC8AF17F233D7180004871FC /* Old Fashion Alarm Clock.mp3 in Resources */,
+				FC03C2EB233E7A8100CA0522 /* Doorbell.mp3 in Resources */,
 				FC5C49302326C55B00106CB9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,13 +350,11 @@
 				FCAD1375232842A7000F4EF5 /* WordOfTheDayViewController.swift in Sources */,
 				FC8AF17B233D3470004871FC /* AreYouAwakeViewController.swift in Sources */,
 				FCE24B442334251100A9A29F /* SettingsViewController.swift in Sources */,
-				FC8AF187233D7953004871FC /* Sound.swift in Sources */,
 				FCAD137023283C57000F4EF5 /* MainViewController.swift in Sources */,
 				FCE24B4C233456D900A9A29F /* RandomWordController.swift in Sources */,
 				FCAD137923284315000F4EF5 /* SquaresViewController.swift in Sources */,
 				FCAD137223284065000F4EF5 /* MemorizeNumberViewController.swift in Sources */,
 				FC887E05232963250019CEF9 /* Weather.swift in Sources */,
-				FC8AF189233D79DD004871FC /* SoundController.swift in Sources */,
 				FCE24B4823342BAD00A9A29F /* WordController.swift in Sources */,
 				FC32FFE3232FDFC00066397F /* MainNavigationViewController.swift in Sources */,
 				FCAD138023285B7E000F4EF5 /* Alarm.swift in Sources */,

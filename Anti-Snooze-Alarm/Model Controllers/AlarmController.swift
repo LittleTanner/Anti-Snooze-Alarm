@@ -27,9 +27,15 @@ class AlarmController {
     }
     
     let sounds: [String] = [
+        "Sonar",
+        "Magical",
+        "Doorbell",
+        "Thunder",
+        "SciFi",
         "Drum",
         "Old Fashion Alarm Clock"
     ]
+    
     
     // CRUD
     

@@ -23,7 +23,7 @@ class WordOfTheDayViewController: UIViewController {
     // MARK: - Properties
     
     var word = ""
-    var definition = "Pulling Definition From The Web.. Please wait typically about 5 seconds"
+    var definition = "Pulling Definition From The Web.. Please wait typically about 5 seconds."
     
     // MARK: - Lifecycle Methods
     
