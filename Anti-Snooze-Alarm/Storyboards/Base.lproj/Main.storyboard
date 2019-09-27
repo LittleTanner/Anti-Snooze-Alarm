@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8U5-Xr-Avg">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,7 +11,7 @@
         <!--Snooze You Lose-->
         <scene sceneID="NuF-LD-x3R">
             <objects>
-                <viewController storyboardIdentifier="mainStoryboard" modalPresentationStyle="fullScreen" id="lSY-zc-XCT" customClass="MainViewController" customModule="Anti_Snooze_Alarm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainStoryboard" modalPresentationStyle="fullScreen" id="lSY-zc-XCT" customClass="MainViewController" customModule="Snooze_You_Lose" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="us0-SG-Vhd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -118,7 +117,7 @@
                                             <constraint firstItem="AUr-aJ-0ut" firstAttribute="centerX" secondItem="d8A-yG-PwR" secondAttribute="centerX" id="7CN-na-ON6"/>
                                         </constraints>
                                     </stackView>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nwx-e0-DTe">
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="nwx-e0-DTe">
                                         <rect key="frame" x="324" y="56.5" width="51" height="31"/>
                                         <color key="onTintColor" name="blueAccent"/>
                                         <color key="thumbTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -138,12 +137,6 @@
                         <viewLayoutGuide key="safeArea" id="3TT-lZ-U2O"/>
                     </view>
                     <navigationItem key="navigationItem" title="Snooze You Lose" id="IsP-dE-pZA">
-                        <barButtonItem key="leftBarButtonItem" title="⚙︎" id="e1C-hO-8gp">
-                            <color key="tintColor" red="0.31417581439999998" green="0.61853557830000006" blue="0.80394870039999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            <connections>
-                                <segue destination="jtt-qf-AbN" kind="show" id="9pM-8W-rGC"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="R41-f9-Qap">
                             <color key="tintColor" red="0.31417581439999998" green="0.61853557830000006" blue="0.80394870039999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
@@ -176,51 +169,10 @@
             </objects>
             <point key="canvasLocation" x="1962.3188405797102" y="115.84821428571428"/>
         </scene>
-        <!--Settings-->
-        <scene sceneID="93l-qk-6wE">
-            <objects>
-                <viewController id="jtt-qf-AbN" customClass="SettingsViewController" customModule="Anti_Snooze_Alarm" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="5zt-yQ-EJV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NxW-a9-Jyo">
-                                <rect key="frame" x="154.5" y="460" width="105" height="30"/>
-                                <state key="normal" title="Play Mini Game"/>
-                                <connections>
-                                    <action selector="playMiniGameButtonTapped:" destination="jtt-qf-AbN" eventType="touchUpInside" id="NOL-PI-YFf"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="byg-Wg-i3n">
-                                <rect key="frame" x="168.5" y="520" width="77" height="30"/>
-                                <state key="normal" title="Play Sound"/>
-                                <connections>
-                                    <action selector="playSound:" destination="jtt-qf-AbN" eventType="touchUpInside" id="Cgf-gD-ExE"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" name="darkBlue"/>
-                        <constraints>
-                            <constraint firstItem="byg-Wg-i3n" firstAttribute="top" secondItem="NxW-a9-Jyo" secondAttribute="bottom" constant="30" id="1De-E3-TPP"/>
-                            <constraint firstItem="NxW-a9-Jyo" firstAttribute="centerY" secondItem="mxR-qd-7k8" secondAttribute="centerY" id="Gam-RF-nue"/>
-                            <constraint firstItem="NxW-a9-Jyo" firstAttribute="centerX" secondItem="mxR-qd-7k8" secondAttribute="centerX" id="YF0-QL-83w"/>
-                            <constraint firstItem="byg-Wg-i3n" firstAttribute="centerX" secondItem="mxR-qd-7k8" secondAttribute="centerX" id="j0t-VV-utW"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="mxR-qd-7k8"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Settings" id="eTb-GZ-DAM"/>
-                    <connections>
-                        <outlet property="navigationBarItem" destination="eTb-GZ-DAM" id="xqq-2U-p0s"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ooB-yN-3gh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1252" y="852"/>
-        </scene>
         <!--Set Alarm-->
         <scene sceneID="1lM-Vx-Z53">
             <objects>
-                <tableViewController id="4sc-Yk-ZsX" customClass="SetAlarmTableViewController" customModule="Anti_Snooze_Alarm" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="4sc-Yk-ZsX" customClass="SetAlarmTableViewController" customModule="Snooze_You_Lose" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2nu-Ay-brk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -408,14 +360,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="yYB-WP-JKl">
-                                                    <rect key="frame" x="60" y="27" width="294" height="31"/>
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" minimumValueImage="volume-mute" maximumValueImage="volume-high" translatesAutoresizingMaskIntoConstraints="NO" id="yYB-WP-JKl">
+                                                    <rect key="frame" x="18.5" y="27" width="377" height="31"/>
                                                     <color key="tintColor" red="0.31417581439999998" green="0.61853557830000006" blue="0.80394870039999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </slider>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="yYB-WP-JKl" firstAttribute="centerX" secondItem="yiy-Zv-40A" secondAttribute="centerX" id="Blu-1x-C2D"/>
-                                                <constraint firstItem="yYB-WP-JKl" firstAttribute="width" secondItem="yiy-Zv-40A" secondAttribute="width" multiplier="0.7" id="a0N-z3-7NV"/>
+                                                <constraint firstItem="yYB-WP-JKl" firstAttribute="width" secondItem="yiy-Zv-40A" secondAttribute="width" multiplier="0.9" id="a0N-z3-7NV"/>
                                                 <constraint firstItem="yYB-WP-JKl" firstAttribute="centerY" secondItem="yiy-Zv-40A" secondAttribute="centerY" id="jLG-xS-Znu"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -452,12 +404,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ofL-OV-fTy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2000.0000000000002" y="851.78571428571422"/>
+            <point key="canvasLocation" x="2888" y="116"/>
         </scene>
         <!--Memorize Number View Controller-->
         <scene sceneID="c3q-um-x9K">
             <objects>
-                <viewController storyboardIdentifier="MemorizeNumberGame" modalPresentationStyle="fullScreen" id="DEw-tw-U5f" customClass="MemorizeNumberViewController" customModule="Anti_Snooze_Alarm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemorizeNumberGame" modalPresentationStyle="fullScreen" id="DEw-tw-U5f" customClass="MemorizeNumberViewController" customModule="Snooze_You_Lose" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5iS-Pd-IMH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -560,12 +512,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JiI-Ll-prH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3205.7971014492755" y="851.78571428571422"/>
+            <point key="canvasLocation" x="983" y="923"/>
         </scene>
         <!--Word Of The Day View Controller-->
         <scene sceneID="wNW-HT-2GW">
             <objects>
-                <viewController storyboardIdentifier="WordOfTheDayGame" modalPresentationStyle="fullScreen" id="L0v-1i-trh" customClass="WordOfTheDayViewController" customModule="Anti_Snooze_Alarm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WordOfTheDayGame" modalPresentationStyle="fullScreen" id="L0v-1i-trh" customClass="WordOfTheDayViewController" customModule="Snooze_You_Lose" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tiK-Hr-oJG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -672,12 +624,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qic-mn-4bB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4066.666666666667" y="851.78571428571422"/>
+            <point key="canvasLocation" x="1843" y="923"/>
         </scene>
         <!--Math View Controller-->
         <scene sceneID="bpy-FK-kCJ">
             <objects>
-                <viewController storyboardIdentifier="MathGame" modalPresentationStyle="fullScreen" id="khe-eC-XKs" customClass="MathViewController" customModule="Anti_Snooze_Alarm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MathGame" modalPresentationStyle="fullScreen" id="khe-eC-XKs" customClass="MathViewController" customModule="Snooze_You_Lose" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dc2-SG-6Jv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -799,12 +751,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fmn-0O-TLs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4937.68115942029" y="851.78571428571422"/>
+            <point key="canvasLocation" x="2714" y="923"/>
         </scene>
         <!--Are You Awake View Controller-->
         <scene sceneID="hja-gh-zAx">
             <objects>
-                <viewController storyboardIdentifier="AreYouAwakeViewController" modalPresentationStyle="fullScreen" id="cUX-ec-qbK" customClass="AreYouAwakeViewController" customModule="Anti_Snooze_Alarm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AreYouAwakeViewController" modalPresentationStyle="fullScreen" id="cUX-ec-qbK" customClass="AreYouAwakeViewController" customModule="Snooze_You_Lose" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qnk-13-bpv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -860,12 +812,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9n0-LF-bVB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4574" y="1568"/>
+            <point key="canvasLocation" x="2351" y="1639"/>
         </scene>
         <!--Finished Game View Controller-->
         <scene sceneID="yAX-Lu-Yqq">
             <objects>
-                <viewController storyboardIdentifier="FinishedGameViewController" modalPresentationStyle="fullScreen" id="7c6-V3-Moy" customClass="FinishedGameViewController" customModule="Anti_Snooze_Alarm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FinishedGameViewController" modalPresentationStyle="fullScreen" id="7c6-V3-Moy" customClass="FinishedGameViewController" customModule="Snooze_You_Lose" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ujF-cM-iGQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1018,12 +970,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oMd-yi-v2n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5691" y="1578"/>
+            <point key="canvasLocation" x="3277" y="1639"/>
         </scene>
         <!--Squares View Controller-->
         <scene sceneID="nsg-Xz-rOd">
             <objects>
-                <viewController storyboardIdentifier="SquaresGame" modalPresentationStyle="fullScreen" id="r8w-lT-SKc" customClass="SquaresViewController" customModule="Anti_Snooze_Alarm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SquaresGame" modalPresentationStyle="fullScreen" id="r8w-lT-SKc" customClass="SquaresViewController" customModule="Snooze_You_Lose" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BTI-A5-Tpn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1499,12 +1451,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tpA-dG-QRx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5779.7101449275369" y="851.78571428571422"/>
+            <point key="canvasLocation" x="3557" y="923"/>
         </scene>
         <!--Left Brain Right Brain View Controller-->
         <scene sceneID="GWq-ma-GxI">
             <objects>
-                <viewController storyboardIdentifier="LeftBrainRightBrainGame" modalPresentationStyle="fullScreen" id="wBB-38-n2w" customClass="LeftBrainRightBrainViewController" customModule="Anti_Snooze_Alarm" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LeftBrainRightBrainGame" modalPresentationStyle="fullScreen" id="wBB-38-n2w" customClass="LeftBrainRightBrainViewController" customModule="Snooze_You_Lose" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OsE-x2-n7j">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1638,12 +1590,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ax6-Cz-jNK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6624.6376811594209" y="851.78571428571422"/>
+            <point key="canvasLocation" x="4401" y="923"/>
         </scene>
         <!--Main Navigation View Controller-->
         <scene sceneID="Unv-jg-Zfe">
             <objects>
-                <navigationController storyboardIdentifier="mainNavigationController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="8U5-Xr-Avg" customClass="MainNavigationViewController" customModule="Anti_Snooze_Alarm" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="mainNavigationController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="8U5-Xr-Avg" customClass="MainNavigationViewController" customModule="Snooze_You_Lose" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8LK-JJ-3OA">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -1656,11 +1608,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hpR-sY-KfJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1962" y="-727"/>
+            <point key="canvasLocation" x="983" y="116"/>
         </scene>
     </scenes>
     <resources>
         <image name="poweredByDarkSky" width="3350" height="759"/>
+        <image name="volume-high" width="22" height="18"/>
+        <image name="volume-mute" width="23" height="16"/>
         <namedColor name="blueAccent">
             <color red="0.15686274509803921" green="0.66666666666666663" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -87,21 +87,18 @@ class MainViewController: UIViewController {
         saturdayLabel.textColor = UIColor.unSelectedTextColor
         if let alarms = AlarmController.sharedInstance.alarm,
             let alarm = alarms.first, let daysOfTheWeek = alarm.daysOfWeek {
-        if daysOfTheWeek.count == 0 {
-            alarm.isEnabled = false
-            alarmToggleButton.isHidden = true
+            if daysOfTheWeek.count == 0 {
+                alarm.isEnabled = false
+                alarmToggleButton.isHidden = true
+            }
         }
-        }
+        
     }
     
     func updateViews() {
         if let alarms = AlarmController.sharedInstance.alarm, let alarm = alarms.first, let daysOfWeek = alarm.daysOfWeek  {
             guard let alarmTimeAsString = alarm.alarmTimeAsString else { return }
-            
-            if daysOfWeek.count == 0 {
-                alarm.isEnabled = false
-            }
-            
+
             alarmToggleButton.isOn = alarm.isEnabled
             
             let alarmTime = alarmTimeAsString.components(separatedBy: [":", " "])
@@ -156,6 +153,7 @@ class MainViewController: UIViewController {
             }
         } else {
             print("Alarm is nil")
+            alarmToggleButton.isHidden = true
         }
     }
     
