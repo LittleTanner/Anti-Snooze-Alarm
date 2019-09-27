@@ -26,6 +26,11 @@ class AlarmController {
         return (try? moc.fetch(fetchRequest)) ?? []
     }
     
+    let sounds: [String] = [
+        "Drum",
+        "Old Fashion Alarm Clock"
+    ]
+    
     // CRUD
     
     // Create Alarm
@@ -36,12 +41,12 @@ class AlarmController {
         saveToPersistentStore()
     }
     
-    static func ScheduleNotifications(alarms: [Alarm]?, alarmValuePicker: Date, daysOfTheWeekSelected: [String], volumeSlider: Float) {
+    static func ScheduleNotifications(alarms: [Alarm]?, alarmValuePicker: Date, daysOfTheWeekSelected: [String], volumeSlider: Float, alarmSound: String) {
         
         if let alarms = alarms, let alarm = alarms.first {
-            AlarmController.sharedInstance.updateAlarm(alarm: alarm, alarmTime: alarmValuePicker, daysOfWeek: daysOfTheWeekSelected, alarmSound: "default", alarmVolume: volumeSlider, isEnabled: true)
+            AlarmController.sharedInstance.updateAlarm(alarm: alarm, alarmTime: alarmValuePicker, daysOfWeek: daysOfTheWeekSelected, alarmSound: alarmSound, alarmVolume: volumeSlider, isEnabled: true)
         } else {
-            AlarmController.sharedInstance.createAlarm(alarmTime: alarmValuePicker, daysOfWeek: daysOfTheWeekSelected, alarmSound: "default", alarmVolume: volumeSlider)
+            AlarmController.sharedInstance.createAlarm(alarmTime: alarmValuePicker, daysOfWeek: daysOfTheWeekSelected, alarmSound: alarmSound, alarmVolume: volumeSlider)
         }
         
         print("Volume Selected From Slider: \(volumeSlider)")

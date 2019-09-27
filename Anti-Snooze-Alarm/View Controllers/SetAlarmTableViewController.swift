@@ -23,8 +23,9 @@ class SetAlarmTableViewController: UITableViewController {
     @IBOutlet weak var fridayButton: UIButton!
     @IBOutlet weak var saturdayButton: UIButton!
     @IBOutlet weak var volumeSlider: UISlider!
-    
     @IBOutlet weak var navigationBarItem: UINavigationItem!
+    @IBOutlet weak var soundPickerView: UIPickerView!
+    
     
     // MARK: - Properties
     
@@ -33,6 +34,8 @@ class SetAlarmTableViewController: UITableViewController {
             updateViews()
         }
     }
+    
+    var selectedSound = "Drum"
     
     var sundayButtonIsSelected = false
     var mondayButtonIsSelected = false
@@ -49,7 +52,8 @@ class SetAlarmTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationBarItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(returnToMainScreen))
-        
+        soundPickerView.delegate = self
+        soundPickerView.dataSource = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -61,12 +65,13 @@ class SetAlarmTableViewController: UITableViewController {
         setsUpUI()
     }
     
+    
     // MARK: - Actions
 
     @objc func volumeSliderValuedChanged() {
         SoundManager.sharedInstance.stopSound()
         print("Volume slider value changed to: \(volumeSlider.value)")
-        SoundManager.sharedInstance.playSoundOnce(withVolume: volumeSlider.value)
+        SoundManager.sharedInstance.playSoundOnce(withVolume: volumeSlider.value, alarmSound: selectedSound)
     }
 
     @IBAction func alarmValuePickerValueChanged(_ sender: Any) {
@@ -205,23 +210,23 @@ class SetAlarmTableViewController: UITableViewController {
     
     @IBAction func saveButtonTapped(_ sender: Any) {
         
-        if let alarms = alarms, let alarm = alarms.first {
-            AlarmController.sharedInstance.updateAlarm(alarm: alarm, alarmTime: alarmValuePicker.date, daysOfWeek: daysOfTheWeekSelected, alarmSound: "default", alarmVolume: self.volumeSlider.value, isEnabled: true)
+        if let alarms = AlarmController.sharedInstance.alarm, let alarm = alarms.first {
+            AlarmController.sharedInstance.updateAlarm(alarm: alarm, alarmTime: alarmValuePicker.date, daysOfWeek: daysOfTheWeekSelected, alarmSound: selectedSound, alarmVolume: self.volumeSlider.value, isEnabled: true)
             AlarmController.sharedInstance.removeNotifications()
-            AlarmController.ScheduleNotifications(alarms: alarms, alarmValuePicker: alarmValuePicker.date, daysOfTheWeekSelected: daysOfTheWeekSelected, volumeSlider: self.volumeSlider.value)
+            AlarmController.ScheduleNotifications(alarms: alarms, alarmValuePicker: alarmValuePicker.date, daysOfTheWeekSelected: daysOfTheWeekSelected, volumeSlider: self.volumeSlider.value, alarmSound: selectedSound)
         } else {
-            AlarmController.sharedInstance.createAlarm(alarmTime: alarmValuePicker.date, daysOfWeek: daysOfTheWeekSelected, alarmSound: "default", alarmVolume: self.volumeSlider.value)
+            AlarmController.sharedInstance.createAlarm(alarmTime: alarmValuePicker.date, daysOfWeek: daysOfTheWeekSelected, alarmSound: selectedSound, alarmVolume: self.volumeSlider.value)
             AlarmController.sharedInstance.removeNotifications()
-            AlarmController.ScheduleNotifications(alarms: alarms, alarmValuePicker: alarmValuePicker.date, daysOfTheWeekSelected: daysOfTheWeekSelected, volumeSlider: self.volumeSlider.value)
+            AlarmController.ScheduleNotifications(alarms: alarms, alarmValuePicker: alarmValuePicker.date, daysOfTheWeekSelected: daysOfTheWeekSelected, volumeSlider: self.volumeSlider.value, alarmSound: selectedSound)
         }
         
         MPVolumeView.setVolume(self.volumeSlider.value)
         SoundManager.sharedInstance.stopSound()
-        navigationController?.popViewController(animated: true)
+        goToViewController(withIdentifier: "mainNavigationController")
     }
     
     // MARK: - UI Adjustments
-
+    
     func setsUpUI() {
         
         // Changes the alarm color picker text color and bg color
@@ -241,8 +246,31 @@ class SetAlarmTableViewController: UITableViewController {
         thursdayButton.layer.cornerRadius = thursdayButton.frame.height / 2
         fridayButton.layer.cornerRadius = fridayButton.frame.height / 2
         saturdayButton.layer.cornerRadius = saturdayButton.frame.height / 2
+        
+        // Stylize Picker View
+        soundPickerView.backgroundColor = UIColor.darkColor
+        soundPickerView.setValue(UIColor.mainTextColor, forKey: "textColor")
+        
+        guard let alarms = AlarmController.sharedInstance.alarm,
+            let alarm = alarms.first,
+            let alarmSound = alarm.alarmSound else { return }
+        
+        var alarmIndex = 0
+        
+        switch alarmSound {
+        case "Drum":
+            alarmIndex = 0
+        case "Old Fashion Alarm Clock":
+            alarmIndex = 1
+        default:
+            alarmIndex = 0
+            print("alarmSound not found")
+        }
+        
+        soundPickerView.selectRow(alarmIndex, inComponent: 0, animated: true)
+        selectedSound = AlarmController.sharedInstance.sounds[alarmIndex]
     }
-   
+    
     func updateViews() {
         guard let alarms = alarms, let alarm = alarms.first, let alarmTime = alarm.alarmTime, let daysOfWeek = alarm.daysOfWeek else { return }
         
@@ -326,10 +354,8 @@ class SetAlarmTableViewController: UITableViewController {
     
     @objc func returnToMainScreen() {
         SoundManager.sharedInstance.stopSound()
-        self.navigationController?.popViewController(animated: true)
+        goToViewController(withIdentifier: "mainNavigationController")
     }
-
-
 } // End of class
 
 
@@ -349,4 +375,28 @@ extension MPVolumeView {
             window.addSubview(volumeView)
         }
     }
+}
+
+
+extension SetAlarmTableViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return AlarmController.sharedInstance.sounds.count
+    }
+    
+    public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.selectedSound = AlarmController.sharedInstance.sounds[row]
+        print(row)
+        print(AlarmController.sharedInstance.sounds[row])
+    }
+    
+    public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        let sound = AlarmController.sharedInstance.sounds[row]
+        
+        return sound
+    }
+    
 }

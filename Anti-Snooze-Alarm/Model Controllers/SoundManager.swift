@@ -20,14 +20,17 @@ class SoundManager {
     
     
     func playRepeatingSound(withVolume volume: Float) {
+        guard let alarms = AlarmController.sharedInstance.alarm,
+        let alarm = alarms.first,
+        let alarmSound = alarm.alarmSound else { return }
         
-        guard let url = Bundle.main.url(forResource: "Birds", withExtension: "caf") else { return }
+        guard let url = Bundle.main.url(forResource: alarmSound, withExtension: "mp3") else { return }
         
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
             try AVAudioSession.sharedInstance().setActive(true)
 
-            audioPlayer = try AVAudioPlayer(contentsOf: url, fileTypeHint: "caf")
+            audioPlayer = try AVAudioPlayer(contentsOf: url, fileTypeHint: "mp3")
 
             guard let audioPlayer = audioPlayer else { return }
             
@@ -42,15 +45,17 @@ class SoundManager {
         }
     }
     
-    func playSoundOnce(withVolume volume: Float) {
+    func playSoundOnce(withVolume volume: Float, alarmSound: String) {
+        guard let alarms = AlarmController.sharedInstance.alarm,
+            let alarm = alarms.first else { return }
         
-        guard let url = Bundle.main.url(forResource: "Birds", withExtension: "caf") else { return }
+        guard let url = Bundle.main.url(forResource: alarmSound, withExtension: "mp3") else { return }
         
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
             try AVAudioSession.sharedInstance().setActive(true)
 
-            audioPlayer = try AVAudioPlayer(contentsOf: url, fileTypeHint: "caf")
+            audioPlayer = try AVAudioPlayer(contentsOf: url, fileTypeHint: "mp3")
 
             guard let audioPlayer = audioPlayer else { return }
             
