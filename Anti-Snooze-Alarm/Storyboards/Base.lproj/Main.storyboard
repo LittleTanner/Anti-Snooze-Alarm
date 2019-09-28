@@ -195,6 +195,7 @@
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="BLM-5n-07z">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="244"/>
+                                                    <color key="backgroundColor" name="darkColor"/>
                                                     <connections>
                                                         <action selector="alarmValuePickerValueChanged:" destination="4sc-Yk-ZsX" eventType="valueChanged" id="GeX-55-CBJ"/>
                                                     </connections>
@@ -328,7 +329,7 @@
                                                 <constraint firstItem="QuT-6U-bHr" firstAttribute="centerY" secondItem="zkD-Ut-Xhv" secondAttribute="centerY" id="ODB-Oo-KNM"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" name="darkBlue"/>
+                                        <color key="backgroundColor" name="darkColor"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -366,7 +367,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" minimumValueImage="volume-mute" maximumValueImage="volume-high" translatesAutoresizingMaskIntoConstraints="NO" id="yYB-WP-JKl">
-                                                    <rect key="frame" x="18.5" y="27" width="377" height="31"/>
+                                                    <rect key="frame" x="18.5" y="24.5" width="377" height="36"/>
                                                     <color key="tintColor" red="0.31417581439999998" green="0.61853557830000006" blue="0.80394870039999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </slider>
                                             </subviews>
@@ -376,7 +377,7 @@
                                                 <constraint firstItem="yYB-WP-JKl" firstAttribute="centerY" secondItem="yiy-Zv-40A" secondAttribute="centerY" id="jLG-xS-Znu"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" name="darkBlue"/>
+                                        <color key="backgroundColor" name="darkColor"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
