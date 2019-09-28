@@ -71,6 +71,7 @@ class LeftBrainRightBrainViewController: UIViewController {
             correctCount += 1
             countOfCorrectLabel.text = "\(correctCount)"
         } else {
+            UIDevice.vibrate()
             randomizeColorsToSelect()
             randomizeButtons()
             randomizeColorToSelectLabelColor()
@@ -113,6 +114,7 @@ class LeftBrainRightBrainViewController: UIViewController {
             correctCount += 1
             countOfCorrectLabel.text = "\(correctCount)"
         } else {
+            UIDevice.vibrate()
             randomizeColorsToSelect()
             randomizeButtons()
             randomizeColorToSelectLabelColor()
@@ -152,6 +154,7 @@ class LeftBrainRightBrainViewController: UIViewController {
             correctCount += 1
             countOfCorrectLabel.text = "\(correctCount)"
         } else {
+            UIDevice.vibrate()
             randomizeColorsToSelect()
             randomizeButtons()
             randomizeColorToSelectLabelColor()
@@ -192,6 +195,7 @@ class LeftBrainRightBrainViewController: UIViewController {
             correctCount += 1
             countOfCorrectLabel.text = "\(correctCount)"
         } else {
+            UIDevice.vibrate()
             randomizeColorsToSelect()
             randomizeButtons()
             randomizeColorToSelectLabelColor()

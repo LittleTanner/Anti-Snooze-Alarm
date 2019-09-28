@@ -83,6 +83,7 @@ class SquaresViewController: UIViewController {
             sender.setTitleColor(UIColor.mainTextColor, for: .disabled)
         } else {
 //            print("Tapped a button that isn't red, you lose")
+            UIDevice.vibrate()
             resetButtonTapped(self)
             for button in squareButtons {
                 button.isEnabled = true

@@ -49,6 +49,7 @@ class MemorizeNumberViewController: UIViewController {
             goToViewController(withIdentifier: "AreYouAwakeViewController")
         } else {
 //            print("Incorrect")
+            UIDevice.vibrate()
             self.presentAnswerIncorrectAlert()
         }
     }

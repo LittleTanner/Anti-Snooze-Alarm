@@ -56,6 +56,7 @@ class WordOfTheDayViewController: UIViewController {
             goToViewController(withIdentifier: "AreYouAwakeViewController")
         } else {
 //            print("Incorrect")
+            UIDevice.vibrate()
             presentAnswerIncorrectAlert()
         }
     }
