@@ -73,16 +73,16 @@ class SquaresViewController: UIViewController {
             }
         }
         numberOfRedSquares = redSquareTotal
-        print("total number of red buttons: \(redSquareTotal)")
+//        print("total number of red buttons: \(redSquareTotal)")
         
         if sender.backgroundColor == UIColor.redAccent {
-            print("Red button tapped")
+//            print("Red button tapped")
             numberOfRedButtonsTapped += 1
             sender.isEnabled = false
             sender.setTitle("✔︎", for: .disabled)
             sender.setTitleColor(UIColor.mainTextColor, for: .disabled)
         } else {
-            print("Tapped a button that isn't red, you lose")
+//            print("Tapped a button that isn't red, you lose")
             resetButtonTapped(self)
             for button in squareButtons {
                 button.isEnabled = true
@@ -90,7 +90,7 @@ class SquaresViewController: UIViewController {
             numberOfRedButtonsTapped = 0
         }
         
-        print("number of red buttons tapped: \(numberOfRedButtonsTapped)")
+//        print("number of red buttons tapped: \(numberOfRedButtonsTapped)")
         
         if numberOfRedSquares == numberOfRedButtonsTapped {
             goToViewController(withIdentifier: "AreYouAwakeViewController")

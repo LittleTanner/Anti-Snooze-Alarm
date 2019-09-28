@@ -34,7 +34,7 @@ class SoundManager {
 
             guard let audioPlayer = audioPlayer else { return }
             
-            print("Output Volume: \(AVAudioSession.sharedInstance().outputVolume)")
+//            print("Output Volume: \(AVAudioSession.sharedInstance().outputVolume)")
             
             MPVolumeView.setVolume(volume)
             
@@ -58,7 +58,7 @@ class SoundManager {
 
             guard let audioPlayer = audioPlayer else { return }
             
-            print("Output Volume: \(AVAudioSession.sharedInstance().outputVolume)")
+//            print("Output Volume: \(AVAudioSession.sharedInstance().outputVolume)")
             
             MPVolumeView.setVolume(volume)
             

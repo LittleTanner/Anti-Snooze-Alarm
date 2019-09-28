@@ -53,19 +53,19 @@ class MathViewController: UIViewController {
             let rightNumber = Int(rightNumberAsString) else { return }
         
         if countCorrect >= 10 {
-            print("YOU WIN")
+//            print("YOU WIN")
             
             goToViewController(withIdentifier: "AreYouAwakeViewController")
         }
         
         if numberInput == (leftNumber * rightNumber) {
-            print("Correct")
+//            print("Correct")
             countCorrect += 1
             countCorrectLabel.text = "\(countCorrect)"
             updateNumberLabels()
             inputNumberTextField.text = ""
         } else {
-            print("Incorrect")
+//            print("Incorrect")
             presentAnswerIncorrectAlert()
             inputNumberTextField.text = ""
             if countCorrect < 1 {
@@ -88,7 +88,7 @@ class MathViewController: UIViewController {
             let rightNumber = Int(rightNumberAsString) else { return }
         
         if numberInput == (leftNumber * rightNumber) {
-            print("Correct")
+//            print("Correct")
             countCorrect += 1
             countCorrectLabel.text = "\(countCorrect)"
             updateNumberLabels()
@@ -96,7 +96,7 @@ class MathViewController: UIViewController {
         }
         
         if countCorrect >= 10 {
-            print("YOU WIN")
+//            print("YOU WIN")
             goToViewController(withIdentifier: "AreYouAwakeViewController")
         }
     }

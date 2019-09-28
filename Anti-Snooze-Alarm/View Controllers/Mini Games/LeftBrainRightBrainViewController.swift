@@ -45,7 +45,7 @@ class LeftBrainRightBrainViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func topLeftButtonTapped(_ sender: Any) {
-        print("Tapped on topLeftButton")
+//        print("Tapped on topLeftButton")
         
         var correctColor = ""
         
@@ -61,8 +61,8 @@ class LeftBrainRightBrainViewController: UIViewController {
         default: print("IDK, error in \(#function)")
         }
         
-        print("label: \(colorToSelectLabel.text!)")
-        print("correct Color: \(correctColor)")
+//        print("label: \(colorToSelectLabel.text!)")
+//        print("correct Color: \(correctColor)")
         
         if colorToSelectLabel.text == correctColor {
             randomizeColorsToSelect()
@@ -79,14 +79,14 @@ class LeftBrainRightBrainViewController: UIViewController {
         }
         
         if correctCount >= 10 {
-            print("YOU WIN")
+//            print("YOU WIN")
             goToViewController(withIdentifier: "AreYouAwakeViewController")
         }
         
     }
     
     @IBAction func topRightButtonTapped(_ sender: Any) {
-        print("Tapped on topRightButton")
+//        print("Tapped on topRightButton")
         
         var correctColor = ""
         
@@ -103,8 +103,8 @@ class LeftBrainRightBrainViewController: UIViewController {
             //            }
         }
         
-        print("label: \(colorToSelectLabel.text!)")
-        print("correct Color: \(correctColor)")
+//        print("label: \(colorToSelectLabel.text!)")
+//        print("correct Color: \(correctColor)")
         
         if colorToSelectLabel.text == correctColor {
             randomizeColorsToSelect()
@@ -121,7 +121,7 @@ class LeftBrainRightBrainViewController: UIViewController {
         }
         
         if correctCount >= 10 {
-            print("YOU WIN")
+//            print("YOU WIN")
             goToViewController(withIdentifier: "AreYouAwakeViewController")
         }
     }
@@ -142,8 +142,8 @@ class LeftBrainRightBrainViewController: UIViewController {
         default: print("IDK")
         }
         
-        print("label: \(colorToSelectLabel.text!)")
-        print("correct Color: \(correctColor)")
+//        print("label: \(colorToSelectLabel.text!)")
+//        print("correct Color: \(correctColor)")
         
         if colorToSelectLabel.text == correctColor {
             randomizeColorsToSelect()
@@ -160,13 +160,13 @@ class LeftBrainRightBrainViewController: UIViewController {
         }
         
         if correctCount >= 10 {
-            print("YOU WIN")
+//            print("YOU WIN")
             goToViewController(withIdentifier: "AreYouAwakeViewController")
         }
     }
     
     @IBAction func bottomRightButtonTapped(_ sender: Any) {
-        print("Tapped on bottomRightButton")
+//        print("Tapped on bottomRightButton")
         
         var correctColor = ""
         
@@ -182,8 +182,8 @@ class LeftBrainRightBrainViewController: UIViewController {
         default: print("IDK")
         }
         
-        print("label: \(colorToSelectLabel.text!)")
-        print("correct Color: \(correctColor)")
+//        print("label: \(colorToSelectLabel.text!)")
+//        print("correct Color: \(correctColor)")
         
         if colorToSelectLabel.text == correctColor {
             randomizeColorsToSelect()
@@ -200,7 +200,7 @@ class LeftBrainRightBrainViewController: UIViewController {
         }
         
         if correctCount >= 10 {
-            print("YOU WIN")
+//            print("YOU WIN")
             goToViewController(withIdentifier: "AreYouAwakeViewController")
         }
     }
@@ -223,8 +223,6 @@ class LeftBrainRightBrainViewController: UIViewController {
         topRightButton.backgroundColor = buttonBackgroundColors[1]
         bottomLeftButton.backgroundColor = buttonBackgroundColors[2]
         bottomRightButton.backgroundColor = buttonBackgroundColors[3]
-        // Use this to change the label text color of certain words
-        // https://www.hackingwithswift.com/articles/113/nsattributedstring-by-example
     }
     
     //    var buttonTitles: [String] = ["RED", "WHITE", "GREY", "BLUE"]

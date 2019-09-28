@@ -43,8 +43,8 @@ class RandomWordController {
         urlRequest.httpMethod = "GET"
         
         
-        print("The builtURL is: \(builtURL)")
-        print("The urlRequestURL is : \(urlRequest)")
+//        print("The builtURL is: \(builtURL)")
+//        print("The urlRequestURL is : \(urlRequest)")
         
         let dataTask = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             if let error = error {
