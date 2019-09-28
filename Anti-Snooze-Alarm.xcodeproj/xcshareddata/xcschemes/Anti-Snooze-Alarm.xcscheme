@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FC5C49262326C55B00106CB9"
-               BuildableName = "Anti-Snooze-Alarm.app"
+               BuildableName = "Snooze You Lose.app"
                BlueprintName = "Anti-Snooze-Alarm"
                ReferencedContainer = "container:Anti-Snooze-Alarm.xcodeproj">
             </BuildableReference>
@@ -27,19 +27,17 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
-      <Testables>
-      </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FC5C49262326C55B00106CB9"
-            BuildableName = "Anti-Snooze-Alarm.app"
+            BuildableName = "Snooze You Lose.app"
             BlueprintName = "Anti-Snooze-Alarm"
             ReferencedContainer = "container:Anti-Snooze-Alarm.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
+      <Testables>
+      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -56,13 +54,11 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FC5C49262326C55B00106CB9"
-            BuildableName = "Anti-Snooze-Alarm.app"
+            BuildableName = "Snooze You Lose.app"
             BlueprintName = "Anti-Snooze-Alarm"
             ReferencedContainer = "container:Anti-Snooze-Alarm.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <AdditionalOptions>
-      </AdditionalOptions>
       <LocationScenarioReference
          identifier = "com.apple.dt.IDEFoundation.CurrentLocationScenarioIdentifier"
          referenceType = "1">
@@ -79,7 +75,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FC5C49262326C55B00106CB9"
-            BuildableName = "Anti-Snooze-Alarm.app"
+            BuildableName = "Snooze You Lose.app"
             BlueprintName = "Anti-Snooze-Alarm"
             ReferencedContainer = "container:Anti-Snooze-Alarm.xcodeproj">
          </BuildableReference>

@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Snooze You Lose-->
+        <!--Anti Snooze-->
         <scene sceneID="NuF-LD-x3R">
             <objects>
-                <viewController storyboardIdentifier="mainStoryboard" modalPresentationStyle="fullScreen" id="lSY-zc-XCT" customClass="MainViewController" customModule="Snooze_You_Lose" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainStoryboard" modalPresentationStyle="fullScreen" id="lSY-zc-XCT" customClass="MainViewController" customModule="Anti_Snooze" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="us0-SG-Vhd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -136,7 +136,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3TT-lZ-U2O"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Snooze You Lose" id="IsP-dE-pZA">
+                    <navigationItem key="navigationItem" title="Anti Snooze" id="IsP-dE-pZA">
+                        <barButtonItem key="leftBarButtonItem" image="link" catalog="system" id="LJW-nl-tNt">
+                            <connections>
+                                <action selector="privacyPolicyButtonTapped:" destination="lSY-zc-XCT" id="vQM-H6-nQo"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="R41-f9-Qap">
                             <color key="tintColor" red="0.31417581439999998" green="0.61853557830000006" blue="0.80394870039999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
@@ -172,7 +177,7 @@
         <!--Set Alarm-->
         <scene sceneID="1lM-Vx-Z53">
             <objects>
-                <tableViewController id="4sc-Yk-ZsX" customClass="SetAlarmTableViewController" customModule="Snooze_You_Lose" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="4sc-Yk-ZsX" customClass="SetAlarmTableViewController" customModule="Anti_Snooze" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2nu-Ay-brk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -409,7 +414,7 @@
         <!--Memorize Number View Controller-->
         <scene sceneID="c3q-um-x9K">
             <objects>
-                <viewController storyboardIdentifier="MemorizeNumberGame" modalPresentationStyle="fullScreen" id="DEw-tw-U5f" customClass="MemorizeNumberViewController" customModule="Snooze_You_Lose" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MemorizeNumberGame" modalPresentationStyle="fullScreen" id="DEw-tw-U5f" customClass="MemorizeNumberViewController" customModule="Anti_Snooze" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5iS-Pd-IMH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -517,7 +522,7 @@
         <!--Word Of The Day View Controller-->
         <scene sceneID="wNW-HT-2GW">
             <objects>
-                <viewController storyboardIdentifier="WordOfTheDayGame" modalPresentationStyle="fullScreen" id="L0v-1i-trh" customClass="WordOfTheDayViewController" customModule="Snooze_You_Lose" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WordOfTheDayGame" modalPresentationStyle="fullScreen" id="L0v-1i-trh" customClass="WordOfTheDayViewController" customModule="Anti_Snooze" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tiK-Hr-oJG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -629,7 +634,7 @@
         <!--Math View Controller-->
         <scene sceneID="bpy-FK-kCJ">
             <objects>
-                <viewController storyboardIdentifier="MathGame" modalPresentationStyle="fullScreen" id="khe-eC-XKs" customClass="MathViewController" customModule="Snooze_You_Lose" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MathGame" modalPresentationStyle="fullScreen" id="khe-eC-XKs" customClass="MathViewController" customModule="Anti_Snooze" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dc2-SG-6Jv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -756,7 +761,7 @@
         <!--Are You Awake View Controller-->
         <scene sceneID="hja-gh-zAx">
             <objects>
-                <viewController storyboardIdentifier="AreYouAwakeViewController" modalPresentationStyle="fullScreen" id="cUX-ec-qbK" customClass="AreYouAwakeViewController" customModule="Snooze_You_Lose" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AreYouAwakeViewController" modalPresentationStyle="fullScreen" id="cUX-ec-qbK" customClass="AreYouAwakeViewController" customModule="Anti_Snooze" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qnk-13-bpv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -817,7 +822,7 @@
         <!--Finished Game View Controller-->
         <scene sceneID="yAX-Lu-Yqq">
             <objects>
-                <viewController storyboardIdentifier="FinishedGameViewController" modalPresentationStyle="fullScreen" id="7c6-V3-Moy" customClass="FinishedGameViewController" customModule="Snooze_You_Lose" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FinishedGameViewController" modalPresentationStyle="fullScreen" id="7c6-V3-Moy" customClass="FinishedGameViewController" customModule="Anti_Snooze" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ujF-cM-iGQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -975,7 +980,7 @@
         <!--Squares View Controller-->
         <scene sceneID="nsg-Xz-rOd">
             <objects>
-                <viewController storyboardIdentifier="SquaresGame" modalPresentationStyle="fullScreen" id="r8w-lT-SKc" customClass="SquaresViewController" customModule="Snooze_You_Lose" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SquaresGame" modalPresentationStyle="fullScreen" id="r8w-lT-SKc" customClass="SquaresViewController" customModule="Anti_Snooze" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BTI-A5-Tpn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1456,7 +1461,7 @@
         <!--Left Brain Right Brain View Controller-->
         <scene sceneID="GWq-ma-GxI">
             <objects>
-                <viewController storyboardIdentifier="LeftBrainRightBrainGame" modalPresentationStyle="fullScreen" id="wBB-38-n2w" customClass="LeftBrainRightBrainViewController" customModule="Snooze_You_Lose" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LeftBrainRightBrainGame" modalPresentationStyle="fullScreen" id="wBB-38-n2w" customClass="LeftBrainRightBrainViewController" customModule="Anti_Snooze" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OsE-x2-n7j">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1474,16 +1479,16 @@
                                 <rect key="frame" x="20.5" y="152" width="373" height="282"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="cP3-S1-OWK">
-                                        <rect key="frame" x="0.0" y="0.0" width="373" height="220.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="373" height="152"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the square with the background color that matches the word below. After 10 correct answers in a row the alarm will stop." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azO-GT-mUm">
-                                                <rect key="frame" x="0.0" y="0.0" width="186.5" height="220.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="186.5" height="152"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                                 <color key="textColor" name="mainText"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppv-XZ-6yk">
-                                                <rect key="frame" x="186.5" y="0.0" width="186.5" height="220.5"/>
+                                                <rect key="frame" x="186.5" y="0.0" width="186.5" height="152"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="35"/>
                                                 <color key="textColor" name="blueAccent"/>
                                                 <nil key="highlightedColor"/>
@@ -1491,7 +1496,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(COLOR)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNm-ea-IoB">
-                                        <rect key="frame" x="0.0" y="220.5" width="373" height="61.5"/>
+                                        <rect key="frame" x="0.0" y="152" width="373" height="130"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
                                         <color key="textColor" name="mainText"/>
                                         <nil key="highlightedColor"/>
@@ -1595,7 +1600,7 @@
         <!--Main Navigation View Controller-->
         <scene sceneID="Unv-jg-Zfe">
             <objects>
-                <navigationController storyboardIdentifier="mainNavigationController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="8U5-Xr-Avg" customClass="MainNavigationViewController" customModule="Snooze_You_Lose" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="mainNavigationController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="8U5-Xr-Avg" customClass="MainNavigationViewController" customModule="Anti_Snooze" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8LK-JJ-3OA">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -1612,6 +1617,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="link" catalog="system" width="64" height="58"/>
         <image name="poweredByDarkSky" width="3350" height="759"/>
         <image name="volume-high" width="22" height="18"/>
         <image name="volume-mute" width="23" height="16"/>

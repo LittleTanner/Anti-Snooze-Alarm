@@ -51,9 +51,15 @@ class MainViewController: UIViewController {
     
     // MARK: - Actions
     
+    @IBAction func privacyPolicyButtonTapped(_ sender: Any) {
+        if let privacyPolicyURL = URL(string: "https://sites.google.com/view/antisnoozeprivacypolicy/home") {
+            UIApplication.shared.open(privacyPolicyURL, options: [:], completionHandler: nil)
+        }
+    }
+    
     @IBAction func alarmToggleButtonTapped(_ sender: Any) {
         if let alarms = AlarmController.sharedInstance.alarm,
-            let alarm = alarms.first, let daysOfTheWeek = alarm.daysOfWeek {
+            let alarm = alarms.first {
             
             if alarmToggleButton.isOn == true {
                 alarm.isEnabled = true
