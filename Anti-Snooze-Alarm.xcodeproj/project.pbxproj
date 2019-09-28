@@ -515,6 +515,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Anti-Snooze-Alarm/Anti-Snooze-Alarm.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0;
 				DEVELOPMENT_TEAM = C39EPG5VUE;
 				INFOPLIST_FILE = "$(SRCROOT)/Anti-Snooze-Alarm/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -522,6 +523,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kevintanner.Anti-Snooze";
 				PRODUCT_NAME = "Anti Snooze";
 				SWIFT_VERSION = 5.0;
@@ -535,6 +537,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Anti-Snooze-Alarm/Anti-Snooze-Alarm.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0;
 				DEVELOPMENT_TEAM = C39EPG5VUE;
 				INFOPLIST_FILE = "$(SRCROOT)/Anti-Snooze-Alarm/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -542,6 +545,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kevintanner.Anti-Snooze";
 				PRODUCT_NAME = "Anti Snooze";
 				SWIFT_VERSION = 5.0;
