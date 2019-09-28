@@ -79,7 +79,7 @@
 		FC32FFE62330225E0066397F /* Alarm+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alarm+Convenience.swift"; sourceTree = "<group>"; };
 		FC32FFE8233023AE0066397F /* DateFormatterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterHelper.swift; sourceTree = "<group>"; };
 		FC32FFEA23303DED0066397F /* Weather+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Weather+Convenience.swift"; sourceTree = "<group>"; };
-		FC5C49272326C55B00106CB9 /* Snooze You Lose.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Snooze You Lose.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC5C49272326C55B00106CB9 /* Anti Snooze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Anti Snooze.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC5C492A2326C55B00106CB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC5C492F2326C55B00106CB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FC5C49322326C55B00106CB9 /* Anti_Snooze_Alarm.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Anti_Snooze_Alarm.xcdatamodel; sourceTree = "<group>"; };
@@ -135,7 +135,7 @@
 		FC5C49282326C55B00106CB9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FC5C49272326C55B00106CB9 /* Snooze You Lose.app */,
+				FC5C49272326C55B00106CB9 /* Anti Snooze.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -272,7 +272,7 @@
 			);
 			name = "Anti-Snooze-Alarm";
 			productName = "Anti-Snooze-Alarm";
-			productReference = FC5C49272326C55B00106CB9 /* Snooze You Lose.app */;
+			productReference = FC5C49272326C55B00106CB9 /* Anti Snooze.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -530,8 +530,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kevintanner.Snooze-You-Lose";
-				PRODUCT_NAME = "Snooze You Lose";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kevintanner.Anti-Snooze";
+				PRODUCT_NAME = "Anti Snooze";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -550,8 +550,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.kevintanner.Snooze-You-Lose";
-				PRODUCT_NAME = "Snooze You Lose";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kevintanner.Anti-Snooze";
+				PRODUCT_NAME = "Anti Snooze";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
