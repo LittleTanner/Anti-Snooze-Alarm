@@ -51,6 +51,4 @@ class AreYouAwakeViewController: UIViewController {
     func setsUpUI() {
         self.view.backgroundColor = UIColor.darkColor
     }
-    
-    
 }

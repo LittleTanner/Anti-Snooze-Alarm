@@ -40,10 +40,10 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadViewIfNeeded()
-        print("MainVC AudioPlayer is set too: \(String(describing: SoundManager.sharedInstance.audioPlayer?.isPlaying))")
-        UNUserNotificationCenter.current().getPendingNotificationRequests { (notifications) in
-            print("Pending notifications scheduled: \(notifications.count)")
-        }
+//        print("MainVC AudioPlayer is set too: \(String(describing: SoundManager.sharedInstance.audioPlayer?.isPlaying))")
+//        UNUserNotificationCenter.current().getPendingNotificationRequests { (notifications) in
+//            print("Pending notifications scheduled: \(notifications.count)")
+//        }
         SoundManager.sharedInstance.stopSound()
         guard AlarmController.sharedInstance.alarm != nil else { return }
         updateViews()
@@ -63,16 +63,16 @@ class MainViewController: UIViewController {
             
             if alarmToggleButton.isOn == true {
                 alarm.isEnabled = true
-                print("Alarm is set to: \(alarm.isEnabled)")
+//                print("Alarm is set to: \(alarm.isEnabled)")
                 AlarmController.sharedInstance.scheduleAllNotifications()
 
             } else {
                 alarm.isEnabled = false
-                print("Alarm is set to: \(alarm.isEnabled)")
+//                print("Alarm is set to: \(alarm.isEnabled)")
                 AlarmController.sharedInstance.removeNotifications()
             }
         } else {
-            print("No alarm detected")
+//            print("No alarm detected")
         }
     }
     
@@ -158,7 +158,7 @@ class MainViewController: UIViewController {
                 saturdayLabel.textColor = UIColor.unSelectedTextColor
             }
         } else {
-            print("Alarm is nil")
+//            print("Alarm is nil")
             alarmToggleButton.isHidden = true
         }
     }

@@ -28,7 +28,6 @@
 		FC5C49382326C55B00106CB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC5C49362326C55B00106CB9 /* LaunchScreen.storyboard */; };
 		FC887E0123295C260019CEF9 /* WeatherDecoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC887E0023295C260019CEF9 /* WeatherDecoding.swift */; };
 		FC887E032329610B0019CEF9 /* WeatherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC887E022329610B0019CEF9 /* WeatherController.swift */; };
-		FC887E05232963250019CEF9 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC887E04232963250019CEF9 /* Weather.swift */; };
 		FC8AF17B233D3470004871FC /* AreYouAwakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8AF17A233D3470004871FC /* AreYouAwakeViewController.swift */; };
 		FC8AF17D233D6FD1004871FC /* Drum.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC8AF17C233D6FD1004871FC /* Drum.mp3 */; };
 		FC8AF17F233D7180004871FC /* Old Fashion Alarm Clock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC8AF17E233D7180004871FC /* Old Fashion Alarm Clock.mp3 */; };
@@ -40,7 +39,6 @@
 		FCAD137923284315000F4EF5 /* SquaresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAD137823284315000F4EF5 /* SquaresViewController.swift */; };
 		FCAD137B2328432C000F4EF5 /* LeftBrainRightBrainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAD137A2328432C000F4EF5 /* LeftBrainRightBrainViewController.swift */; };
 		FCAD137E23284ACA000F4EF5 /* SetAlarmTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAD137D23284ACA000F4EF5 /* SetAlarmTableViewController.swift */; };
-		FCAD138023285B7E000F4EF5 /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAD137F23285B7E000F4EF5 /* Alarm.swift */; };
 		FCAD138223286161000F4EF5 /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCAD138123286161000F4EF5 /* StyleGuide.swift */; };
 		FCAD138423286236000F4EF5 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCAD138323286236000F4EF5 /* Colors.xcassets */; };
 		FCB2A55223352642005FCDED /* ListOfWords.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB2A55123352642005FCDED /* ListOfWords.swift */; };
@@ -88,7 +86,6 @@
 		FC5C49392326C55B00106CB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC887E0023295C260019CEF9 /* WeatherDecoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDecoding.swift; sourceTree = "<group>"; };
 		FC887E022329610B0019CEF9 /* WeatherController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherController.swift; sourceTree = "<group>"; };
-		FC887E04232963250019CEF9 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		FC8AF17A233D3470004871FC /* AreYouAwakeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreYouAwakeViewController.swift; sourceTree = "<group>"; };
 		FC8AF17C233D6FD1004871FC /* Drum.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Drum.mp3; sourceTree = "<group>"; };
 		FC8AF17E233D7180004871FC /* Old Fashion Alarm Clock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Old Fashion Alarm Clock.mp3"; sourceTree = "<group>"; };
@@ -101,7 +98,6 @@
 		FCAD137A2328432C000F4EF5 /* LeftBrainRightBrainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftBrainRightBrainViewController.swift; sourceTree = "<group>"; };
 		FCAD137C2328473A000F4EF5 /* Anti-Snooze-Alarm.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Anti-Snooze-Alarm.entitlements"; sourceTree = "<group>"; };
 		FCAD137D23284ACA000F4EF5 /* SetAlarmTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAlarmTableViewController.swift; sourceTree = "<group>"; };
-		FCAD137F23285B7E000F4EF5 /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		FCAD138123286161000F4EF5 /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleGuide.swift; sourceTree = "<group>"; };
 		FCAD138323286236000F4EF5 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		FCB2A55123352642005FCDED /* ListOfWords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfWords.swift; sourceTree = "<group>"; };
@@ -170,9 +166,7 @@
 		FC5C49402326C62000106CB9 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				FCAD137F23285B7E000F4EF5 /* Alarm.swift */,
 				FC887E0023295C260019CEF9 /* WeatherDecoding.swift */,
-				FC887E04232963250019CEF9 /* Weather.swift */,
 				FC32FFE42330211A0066397F /* CoreDataStack.swift */,
 				FC32FFE62330225E0066397F /* Alarm+Convenience.swift */,
 				FC32FFE8233023AE0066397F /* DateFormatterHelper.swift */,
@@ -353,10 +347,8 @@
 				FCE24B4C233456D900A9A29F /* RandomWordController.swift in Sources */,
 				FCAD137923284315000F4EF5 /* SquaresViewController.swift in Sources */,
 				FCAD137223284065000F4EF5 /* MemorizeNumberViewController.swift in Sources */,
-				FC887E05232963250019CEF9 /* Weather.swift in Sources */,
 				FCE24B4823342BAD00A9A29F /* WordController.swift in Sources */,
 				FC32FFE3232FDFC00066397F /* MainNavigationViewController.swift in Sources */,
-				FCAD138023285B7E000F4EF5 /* Alarm.swift in Sources */,
 				FC18CE11233BF834005AB2AC /* ViewManager.swift in Sources */,
 				FC18CE0D233BDD2E005AB2AC /* AlertManager.swift in Sources */,
 				FC32FFE72330225E0066397F /* Alarm+Convenience.swift in Sources */,

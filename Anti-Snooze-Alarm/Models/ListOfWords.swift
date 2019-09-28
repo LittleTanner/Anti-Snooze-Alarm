@@ -13,7 +13,6 @@ class ListOfWords {
     static let sharedInstance = ListOfWords()
     
     let arrayOfEnglishWords = [
-        "abandon",
         "abash",
         "abate",
         "abide",
@@ -51,7 +50,6 @@ class ListOfWords {
         "assert",
         "assort",
         "astonish",
-        "attack",
         "atten",
         "attract",
         "audit",
@@ -195,7 +193,6 @@ class ListOfWords {
         "coo",
         "cook",
         "cool",
-        "co-operate",
         "cope",
         "copy",
         "correct",
@@ -291,7 +288,6 @@ class ListOfWords {
         "dye",
         "earn",
         "eat",
-        "educat",
         "empower",
         "empty",
         "encircle",

@@ -76,6 +76,4 @@ class WordController {
         }
         dataTask.resume()
     }
-    
-    
 }

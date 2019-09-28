@@ -70,20 +70,20 @@ class SetAlarmTableViewController: UITableViewController {
 
     @objc func volumeSliderValuedChanged() {
         SoundManager.sharedInstance.stopSound()
-        print("Volume slider value changed to: \(volumeSlider.value)")
+//        print("Volume slider value changed to: \(volumeSlider.value)")
         SoundManager.sharedInstance.playSoundOnce(withVolume: volumeSlider.value, alarmSound: selectedSound)
     }
 
     @IBAction func alarmValuePickerValueChanged(_ sender: Any) {
-        print("Alarm Time changed to: \(alarmValuePicker.date)")
+//        print("Alarm Time changed to: \(alarmValuePicker.date)")
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .short
         dateFormatter.string(from: alarmValuePicker.date)
-        print("Formatted Alarm Time changed to: \(dateFormatter.string(from: alarmValuePicker.date))")
+//        print("Formatted Alarm Time changed to: \(dateFormatter.string(from: alarmValuePicker.date))")
     }
     
     @IBAction func sundayButtonTapped(_ sender: Any) {
-        print("Sunday Button Tapped")
+//        print("Sunday Button Tapped")
         
         sundayButtonIsSelected.toggle()
         
@@ -101,7 +101,7 @@ class SetAlarmTableViewController: UITableViewController {
     }
     
     @IBAction func mondayButtonTapped(_ sender: Any) {
-        print("Monday Button Tapped")
+//        print("Monday Button Tapped")
         
         mondayButtonIsSelected.toggle()
         
@@ -119,7 +119,7 @@ class SetAlarmTableViewController: UITableViewController {
     }
     
     @IBAction func tuesdayButtonTapped(_ sender: Any) {
-        print("Tuesday Button Tapped")
+//        print("Tuesday Button Tapped")
         
         tuesdayButtonIsSelected.toggle()
         
@@ -137,7 +137,7 @@ class SetAlarmTableViewController: UITableViewController {
     }
     
     @IBAction func wednesdayButtonTapped(_ sender: Any) {
-        print("Wednesday Button Tapped")
+//        print("Wednesday Button Tapped")
         
         wednesdayButtonIsSelected.toggle()
         
@@ -155,7 +155,7 @@ class SetAlarmTableViewController: UITableViewController {
     }
     
     @IBAction func thursdayButtonTapped(_ sender: Any) {
-        print("Thursday Button Tapped")
+//        print("Thursday Button Tapped")
         
         thursdayButtonIsSelected.toggle()
         
@@ -173,7 +173,7 @@ class SetAlarmTableViewController: UITableViewController {
     }
     
     @IBAction func fridayButtonTapped(_ sender: Any) {
-        print("Friday Button Tapped")
+//        print("Friday Button Tapped")
         
         fridayButtonIsSelected.toggle()
         
@@ -191,7 +191,7 @@ class SetAlarmTableViewController: UITableViewController {
     }
     
     @IBAction func saturdayButtonTapped(_ sender: Any) {
-        print("Saturday Button Tapped")
+//        print("Saturday Button Tapped")
         
         saturdayButtonIsSelected.toggle()
         
@@ -213,12 +213,9 @@ class SetAlarmTableViewController: UITableViewController {
         if let alarms = AlarmController.sharedInstance.alarm, let alarm = alarms.first {
             AlarmController.sharedInstance.updateAlarm(alarm: alarm, alarmTime: alarmValuePicker.date, daysOfWeek: daysOfTheWeekSelected, alarmSound: selectedSound, alarmVolume: self.volumeSlider.value, isEnabled: true)
             AlarmController.sharedInstance.removeNotifications()
-//            AlarmController.sharedInstance.scheduleAllNotifications()
-//            AlarmController.scheduleNotifications(alarms: alarms, alarmValuePicker: alarmValuePicker.date, daysOfTheWeekSelected: daysOfTheWeekSelected, volumeSlider: self.volumeSlider.value, alarmSound: selectedSound)
         } else {
             AlarmController.sharedInstance.createAlarm(alarmTime: alarmValuePicker.date, daysOfWeek: daysOfTheWeekSelected, alarmSound: selectedSound, alarmVolume: self.volumeSlider.value)
             AlarmController.sharedInstance.removeNotifications()
-            AlarmController.sharedInstance.scheduleNotifications(alarms: alarms, alarmValuePicker: alarmValuePicker.date, daysOfTheWeekSelected: daysOfTheWeekSelected, volumeSlider: self.volumeSlider.value, alarmSound: selectedSound)
         }
         
         AlarmController.sharedInstance.scheduleAllNotifications()
@@ -407,5 +404,4 @@ extension SetAlarmTableViewController: UIPickerViewDelegate, UIPickerViewDataSou
         
         return sound
     }
-    
 }

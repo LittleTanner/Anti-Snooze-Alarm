@@ -40,7 +40,6 @@ class FinishedGameViewController: UIViewController {
             locationManager.desiredAccuracy = kCLLocationAccuracyThreeKilometers
             locationManager.startUpdatingLocation()
         }
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
