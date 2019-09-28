@@ -128,7 +128,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="0.071311362087726593" green="0.21222692728042603" blue="0.30050021409988403" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="darkColor"/>
                         <constraints>
                             <constraint firstItem="sdL-R7-Ik4" firstAttribute="width" secondItem="us0-SG-Vhd" secondAttribute="width" multiplier="0.9" id="6Pi-eA-BNt"/>
                             <constraint firstItem="sdL-R7-Ik4" firstAttribute="centerY" secondItem="3TT-lZ-U2O" secondAttribute="centerY" id="EQz-F6-Yti"/>
@@ -410,7 +410,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ofL-OV-fTy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2888" y="116"/>
+            <point key="canvasLocation" x="2754" y="116"/>
         </scene>
         <!--Memorize Number View Controller-->
         <scene sceneID="c3q-um-x9K">
@@ -486,7 +486,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" name="darkBlue"/>
+                        <color key="backgroundColor" name="darkColor"/>
                         <constraints>
                             <constraint firstItem="yNm-Bx-3t2" firstAttribute="centerY" secondItem="B0q-Be-i0C" secondAttribute="centerY" multiplier="1.2" id="AOK-BL-TCJ"/>
                             <constraint firstItem="yNm-Bx-3t2" firstAttribute="height" secondItem="5iS-Pd-IMH" secondAttribute="height" multiplier="0.05" id="BEK-AW-g0g"/>
@@ -518,7 +518,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JiI-Ll-prH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="983" y="923"/>
+            <point key="canvasLocation" x="1148" y="822"/>
         </scene>
         <!--Word Of The Day View Controller-->
         <scene sceneID="wNW-HT-2GW">
@@ -595,7 +595,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" name="darkBlue"/>
+                        <color key="backgroundColor" name="darkColor"/>
                         <constraints>
                             <constraint firstItem="D8p-KV-P8h" firstAttribute="width" secondItem="tiK-Hr-oJG" secondAttribute="width" multiplier="0.9" id="0Es-G2-JCx"/>
                             <constraint firstItem="rJB-ey-c0k" firstAttribute="centerY" secondItem="89l-CU-yIC" secondAttribute="centerY" multiplier="0.9" id="4fI-IH-sa3"/>
@@ -630,7 +630,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qic-mn-4bB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1843" y="923"/>
+            <point key="canvasLocation" x="1962" y="822"/>
         </scene>
         <!--Math View Controller-->
         <scene sceneID="bpy-FK-kCJ">
@@ -724,7 +724,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" name="darkBlue"/>
+                        <color key="backgroundColor" name="darkColor"/>
                         <constraints>
                             <constraint firstItem="wIt-ul-APJ" firstAttribute="centerY" secondItem="BvQ-Iq-PyG" secondAttribute="centerY" multiplier="1.2" id="19u-u5-4VT"/>
                             <constraint firstItem="ybv-Ob-lc4" firstAttribute="centerX" secondItem="BvQ-Iq-PyG" secondAttribute="centerX" id="3zM-UL-bZD"/>
@@ -748,16 +748,18 @@
                     </view>
                     <connections>
                         <outlet property="countCorrectLabel" destination="iUK-V9-Ffe" id="N2t-7S-dS8"/>
+                        <outlet property="enterButton" destination="LEm-kk-nz7" id="ZhT-rd-UE0"/>
                         <outlet property="inputNumberTextField" destination="BHP-4g-URH" id="QB0-Dz-hg5"/>
                         <outlet property="instructionsLabel" destination="ChX-en-71R" id="SMY-iy-MIB"/>
                         <outlet property="leftNumberLabel" destination="S5n-C0-rcf" id="xBs-ck-6zh"/>
                         <outlet property="rightNumberLabel" destination="YbY-ws-VLf" id="eGg-iV-qfg"/>
+                        <outlet property="skipButton" destination="FJK-vV-heD" id="TSV-ee-FZT"/>
                         <outlet property="titleLabel" destination="ybv-Ob-lc4" id="h9a-uq-7xQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fmn-0O-TLs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2714" y="923"/>
+            <point key="canvasLocation" x="2754" y="822"/>
         </scene>
         <!--Are You Awake View Controller-->
         <scene sceneID="hja-gh-zAx">
@@ -814,11 +816,13 @@
                     </view>
                     <connections>
                         <outlet property="areYouAwakeLabel" destination="SeD-OT-Glg" id="XY7-ll-nwv"/>
+                        <outlet property="noButton" destination="0Qm-EM-bKr" id="Oke-4v-sjm"/>
+                        <outlet property="yesButton" destination="osN-0b-X8R" id="lPv-fr-t7s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9n0-LF-bVB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2351" y="1639"/>
+            <point key="canvasLocation" x="2291" y="1507"/>
         </scene>
         <!--Finished Game View Controller-->
         <scene sceneID="yAX-Lu-Yqq">
@@ -829,7 +833,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="tg3-31-bkM">
-                                <rect key="frame" x="0.0" y="287" width="414" height="241"/>
+                                <rect key="frame" x="0.0" y="48.5" width="414" height="241"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's Weather Forecast" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5I7-35-9pB">
                                         <rect key="frame" x="49.5" y="0.0" width="315" height="36"/>
@@ -944,7 +948,8 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4hv-JG-m6b">
-                                <rect key="frame" x="118.5" y="638" width="177" height="30"/>
+                                <rect key="frame" x="41.5" y="434" width="331" height="41"/>
+                                <color key="backgroundColor" name="blueAccent"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                 <state key="normal" title="Continue To Home Screen">
                                     <color key="titleColor" name="mainText"/>
@@ -954,13 +959,15 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" name="darkBlue"/>
+                        <color key="backgroundColor" name="darkColor"/>
                         <constraints>
-                            <constraint firstItem="tg3-31-bkM" firstAttribute="centerY" secondItem="lTC-fH-EMX" secondAttribute="centerY" multiplier="0.9" id="1d9-kd-FdM"/>
                             <constraint firstItem="tg3-31-bkM" firstAttribute="width" secondItem="ujF-cM-iGQ" secondAttribute="width" id="DeX-eK-eq3"/>
-                            <constraint firstItem="4hv-JG-m6b" firstAttribute="top" secondItem="tg3-31-bkM" secondAttribute="bottom" constant="110" id="LYA-gj-DXk"/>
+                            <constraint firstItem="4hv-JG-m6b" firstAttribute="top" secondItem="tg3-31-bkM" secondAttribute="bottom" multiplier="1.5" id="LYA-gj-DXk"/>
+                            <constraint firstItem="4hv-JG-m6b" firstAttribute="width" secondItem="lTC-fH-EMX" secondAttribute="width" multiplier="0.8" id="hFX-7n-IpM"/>
                             <constraint firstItem="tg3-31-bkM" firstAttribute="centerX" secondItem="lTC-fH-EMX" secondAttribute="centerX" id="hH6-pv-VpY"/>
                             <constraint firstItem="4hv-JG-m6b" firstAttribute="centerX" secondItem="lTC-fH-EMX" secondAttribute="centerX" id="ivg-4G-4YP"/>
+                            <constraint firstItem="tg3-31-bkM" firstAttribute="top" secondItem="lTC-fH-EMX" secondAttribute="top" multiplier="1.1" id="w3k-Gx-c3r"/>
+                            <constraint firstItem="4hv-JG-m6b" firstAttribute="height" secondItem="lTC-fH-EMX" secondAttribute="height" multiplier="0.05" id="ycl-8b-Ltl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lTC-fH-EMX"/>
                     </view>
@@ -972,11 +979,12 @@
                         <outlet property="dailyTempHighLabel" destination="hUN-HO-B4H" id="Ozh-lm-KBU"/>
                         <outlet property="dailyTempLowLabel" destination="Zlk-6J-f9n" id="bLY-pC-ADJ"/>
                         <outlet property="dayWeatherSummaryLabel" destination="Q67-We-Ihm" id="bOk-iD-XPG"/>
+                        <outlet property="toHomeScreenButton" destination="4hv-JG-m6b" id="5RZ-CW-EGb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oMd-yi-v2n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3277" y="1639"/>
+            <point key="canvasLocation" x="3217" y="1507"/>
         </scene>
         <!--Squares View Controller-->
         <scene sceneID="nsg-Xz-rOd">
@@ -1403,7 +1411,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" name="darkBlue"/>
+                        <color key="backgroundColor" name="darkColor"/>
                         <constraints>
                             <constraint firstItem="1gK-9u-neh" firstAttribute="centerX" secondItem="vwc-gU-MyC" secondAttribute="centerX" id="7PR-0H-ncY"/>
                             <constraint firstItem="mOc-ow-Quz" firstAttribute="top" secondItem="vwc-gU-MyC" secondAttribute="top" multiplier="1.1" id="FM3-H0-8Ql"/>
@@ -1423,6 +1431,8 @@
                         <viewLayoutGuide key="safeArea" id="vwc-gU-MyC"/>
                     </view>
                     <connections>
+                        <outlet property="enterButton" destination="ZBz-Vw-3Ds" id="qyh-1E-wVf"/>
+                        <outlet property="resetButton" destination="vWC-tb-aUu" id="0DL-ug-56r"/>
                         <outletCollection property="squareButtons" destination="kNi-qO-lEP" collectionClass="NSMutableArray" id="n88-aV-g1c"/>
                         <outletCollection property="squareButtons" destination="Iva-ZQ-ZDJ" collectionClass="NSMutableArray" id="adM-83-HO3"/>
                         <outletCollection property="squareButtons" destination="pdP-OB-bih" collectionClass="NSMutableArray" id="fms-0p-pR5"/>
@@ -1457,7 +1467,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tpA-dG-QRx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3557" y="923"/>
+            <point key="canvasLocation" x="3565" y="822"/>
         </scene>
         <!--Left Brain Right Brain View Controller-->
         <scene sceneID="GWq-ma-GxI">
@@ -1480,16 +1490,16 @@
                                 <rect key="frame" x="20.5" y="152" width="373" height="282"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="cP3-S1-OWK">
-                                        <rect key="frame" x="0.0" y="0.0" width="373" height="152"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="373" height="220.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the square with the background color that matches the word below. After 10 correct answers in a row the alarm will stop." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azO-GT-mUm">
-                                                <rect key="frame" x="0.0" y="0.0" width="186.5" height="152"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="186.5" height="220.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                                 <color key="textColor" name="mainText"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppv-XZ-6yk">
-                                                <rect key="frame" x="186.5" y="0.0" width="186.5" height="152"/>
+                                                <rect key="frame" x="186.5" y="0.0" width="186.5" height="220.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="35"/>
                                                 <color key="textColor" name="blueAccent"/>
                                                 <nil key="highlightedColor"/>
@@ -1497,7 +1507,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(COLOR)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNm-ea-IoB">
-                                        <rect key="frame" x="0.0" y="152" width="373" height="130"/>
+                                        <rect key="frame" x="0.0" y="220.5" width="373" height="61.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="30"/>
                                         <color key="textColor" name="mainText"/>
                                         <nil key="highlightedColor"/>
@@ -1567,7 +1577,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" name="darkBlue"/>
+                        <color key="backgroundColor" name="darkColor"/>
                         <constraints>
                             <constraint firstItem="K1m-Qm-uGI" firstAttribute="width" secondItem="OsE-x2-n7j" secondAttribute="width" id="0qF-17-zc6"/>
                             <constraint firstItem="TSP-Un-5yN" firstAttribute="centerX" secondItem="tHU-Cw-nly" secondAttribute="centerX" id="EWx-sx-uYg"/>
@@ -1596,7 +1606,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ax6-Cz-jNK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4401" y="923"/>
+            <point key="canvasLocation" x="4409" y="822"/>
         </scene>
         <!--Main Navigation View Controller-->
         <scene sceneID="Unv-jg-Zfe">
@@ -1614,7 +1624,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hpR-sY-KfJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="983" y="116"/>
+            <point key="canvasLocation" x="1148" y="116"/>
         </scene>
     </scenes>
     <resources>
@@ -1635,7 +1645,7 @@
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="unSelectedText">
-            <color red="0.27450980392156865" green="0.27450980392156865" blue="0.27450980392156865" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.27500000596046448" green="0.27500000596046448" blue="0.27500000596046448" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
