@@ -56,7 +56,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             // Create an instance of the main storyboard
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             // Create a random number
-            
             var randomNumber = 1
             
             if Reachability.isConnectedToNetwork() {
@@ -65,7 +64,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 randomNumber = Int.random(in: 1...4)
             }
             
-
             // Create an instance of the view controller
             switch randomNumber {
             case 0:

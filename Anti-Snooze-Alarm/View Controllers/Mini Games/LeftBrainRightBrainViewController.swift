@@ -29,8 +29,8 @@ class LeftBrainRightBrainViewController: UIViewController {
     var buttonState: Bool = true
     
     var colorsToSelect = ["RED", "WHITE", "BLUE", "GREY"]
-    
     var correctCount = 0
+    var correctColor = ""
     
     // MARK: - Lifecycle Methods
     
@@ -45,10 +45,6 @@ class LeftBrainRightBrainViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func topLeftButtonTapped(_ sender: Any) {
-//        print("Tapped on topLeftButton")
-        
-        var correctColor = ""
-        
         switch buttonBackgroundColors[0] {
         case UIColor.redAccent:
             correctColor = "RED"
@@ -60,9 +56,6 @@ class LeftBrainRightBrainViewController: UIViewController {
             correctColor = "GREY"
         default: print("IDK, error in \(#function)")
         }
-        
-//        print("label: \(colorToSelectLabel.text!)")
-//        print("correct Color: \(correctColor)")
         
         if colorToSelectLabel.text == correctColor {
             randomizeColorsToSelect()
@@ -80,17 +73,13 @@ class LeftBrainRightBrainViewController: UIViewController {
         }
         
         if correctCount >= 10 {
-//            print("YOU WIN")
+            // You Win, go to are you awake page
             goToViewController(withIdentifier: "AreYouAwakeViewController")
         }
         
     }
     
     @IBAction func topRightButtonTapped(_ sender: Any) {
-//        print("Tapped on topRightButton")
-        
-        var correctColor = ""
-        
         switch buttonBackgroundColors[1] {
         case UIColor.redAccent:
             correctColor = "RED"
@@ -104,9 +93,6 @@ class LeftBrainRightBrainViewController: UIViewController {
             //            }
         }
         
-//        print("label: \(colorToSelectLabel.text!)")
-//        print("correct Color: \(correctColor)")
-        
         if colorToSelectLabel.text == correctColor {
             randomizeColorsToSelect()
             randomizeButtons()
@@ -123,15 +109,12 @@ class LeftBrainRightBrainViewController: UIViewController {
         }
         
         if correctCount >= 10 {
-//            print("YOU WIN")
+            // You Win, go to are you awake page
             goToViewController(withIdentifier: "AreYouAwakeViewController")
         }
     }
     
     @IBAction func bottomLeftButtonTapped(_ sender: Any) {
-        print("Tapped on bottomLeftButton")
-        var correctColor = ""
-        
         switch buttonBackgroundColors[2] {
         case UIColor.redAccent:
             correctColor = "RED"
@@ -144,9 +127,6 @@ class LeftBrainRightBrainViewController: UIViewController {
         default: print("IDK")
         }
         
-//        print("label: \(colorToSelectLabel.text!)")
-//        print("correct Color: \(correctColor)")
-        
         if colorToSelectLabel.text == correctColor {
             randomizeColorsToSelect()
             randomizeButtons()
@@ -163,16 +143,12 @@ class LeftBrainRightBrainViewController: UIViewController {
         }
         
         if correctCount >= 10 {
-//            print("YOU WIN")
+            // You Win, go to are you awake page
             goToViewController(withIdentifier: "AreYouAwakeViewController")
         }
     }
     
     @IBAction func bottomRightButtonTapped(_ sender: Any) {
-//        print("Tapped on bottomRightButton")
-        
-        var correctColor = ""
-        
         switch buttonBackgroundColors[3] {
         case UIColor.redAccent:
             correctColor = "RED"
@@ -185,9 +161,6 @@ class LeftBrainRightBrainViewController: UIViewController {
         default: print("IDK")
         }
         
-//        print("label: \(colorToSelectLabel.text!)")
-//        print("correct Color: \(correctColor)")
-        
         if colorToSelectLabel.text == correctColor {
             randomizeColorsToSelect()
             randomizeButtons()
@@ -204,18 +177,16 @@ class LeftBrainRightBrainViewController: UIViewController {
         }
         
         if correctCount >= 10 {
-//            print("YOU WIN")
+            // You Win, go to are you awake page
             goToViewController(withIdentifier: "AreYouAwakeViewController")
         }
     }
-    
     
     // MARK: - UI Adjustments
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    
     
     func setsUpUI() {
         self.view.backgroundColor = UIColor.darkColor
@@ -229,9 +200,6 @@ class LeftBrainRightBrainViewController: UIViewController {
         bottomRightButton.backgroundColor = buttonBackgroundColors[3]
     }
     
-    //    var buttonTitles: [String] = ["RED", "WHITE", "GREY", "BLUE"]
-    //    var buttonTitleColors: [UIColor] = [UIColor.red, UIColor.mainTextColor!, UIColor.unSelectedTextColor!, UIColor.blueAccent!]
-    
     func randomizeColorToSelectLabelColor() {
         let randomNumber = Int.random(in: 0...2)
         let backgroundColors: [UIColor] = [UIColor.mainTextColor!, UIColor.redAccent!, UIColor.blueAccent!]
@@ -244,7 +212,6 @@ class LeftBrainRightBrainViewController: UIViewController {
     }
     
     func randomizeButtons() {
-        
         buttonBackgroundColors.shuffle()
         
         topLeftButton.backgroundColor = buttonBackgroundColors[0]
@@ -255,7 +222,7 @@ class LeftBrainRightBrainViewController: UIViewController {
         let arrayOfButtons: [UIButton] = [topLeftButton, topRightButton, bottomLeftButton, bottomRightButton]
         
         for button in arrayOfButtons {
-            
+                        
             switch button.backgroundColor {
             case UIColor.mainTextColor!:
                 if buttonState == true {
@@ -293,6 +260,5 @@ class LeftBrainRightBrainViewController: UIViewController {
             }
         }
         buttonState.toggle()
-        //        print(buttonState)
     }
 } // End of Class

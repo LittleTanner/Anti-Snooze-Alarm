@@ -12,6 +12,7 @@ import AVFoundation
 class MemorizeNumberViewController: UIViewController {
 
     // MARK: - Outlets
+    
     @IBOutlet weak var countdownLabel: UILabel!
     @IBOutlet weak var randomNumberLabel: UILabel!
     @IBOutlet weak var numberTextField: UITextField!
@@ -19,12 +20,14 @@ class MemorizeNumberViewController: UIViewController {
     @IBOutlet weak var enterButton: UIButton!
     
     // MARK: - Properties
+    
     var randomNumber = Int.random(in: 100000...999999)
     var seconds = 4
     var countdownTimer = Timer()
     var isTimerRunning = true
     
     // MARK: - Lifecycle Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setsUpUI()
@@ -33,6 +36,7 @@ class MemorizeNumberViewController: UIViewController {
     }
     
     // MARK: - Actions
+    
     @IBAction func forgotNumberButtonTapped(_ sender: Any) {
         randomNumber = Int.random(in: 100000...999999)
         randomNumberLabel.text = String(randomNumber)
@@ -44,11 +48,9 @@ class MemorizeNumberViewController: UIViewController {
         guard let inputNumberText = numberTextField.text else { return }
         
         if inputNumberText == String(randomNumber) {
-//            print("Correct")
-            
+            // Answer Correct, go to are you awake page
             goToViewController(withIdentifier: "AreYouAwakeViewController")
         } else {
-//            print("Incorrect")
             UIDevice.vibrate()
             self.presentAnswerIncorrectAlert()
         }
@@ -72,10 +74,8 @@ class MemorizeNumberViewController: UIViewController {
     // MARK: - Custom Methods
     
     @objc func textFieldDidChange(_ textField: UITextField) {
-        
         if numberTextField.text == String(randomNumber) {
-//            print("Correct")
-            
+            // Answer Correct, go to are you awake page
             goToViewController(withIdentifier: "AreYouAwakeViewController")
         }
     }
@@ -97,10 +97,8 @@ class MemorizeNumberViewController: UIViewController {
             forgotNumberButton.isHidden = true
             enterButton.isHidden = true
             SoundManager.sharedInstance.pauseSound()
-//            print("MemorizeNumber AudioPlayer is set too: \(String(describing: SoundManager.sharedInstance.audioPlayer?.isPlaying))")
         } else {
             numberTextField.becomeFirstResponder()
-//            print("The correct answer is: \(randomNumber)")
             randomNumberLabel.isHidden = true
             numberTextField.isHidden = false
             forgotNumberButton.isHidden = false
@@ -109,7 +107,6 @@ class MemorizeNumberViewController: UIViewController {
             guard let alarms = AlarmController.sharedInstance.alarm,
                 let alarm = alarms.first else { return }
             SoundManager.sharedInstance.playRepeatingSound(withVolume: alarm.alarmVolume)
-//            print("MemorizeNumber AudioPlayer is set too: \(String(describing: SoundManager.sharedInstance.audioPlayer?.isPlaying))")
         }
     }
 } // End of class

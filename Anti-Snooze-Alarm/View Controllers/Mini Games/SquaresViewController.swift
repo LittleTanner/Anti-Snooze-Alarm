@@ -17,6 +17,7 @@ class SquaresViewController: UIViewController {
     @IBOutlet weak var enterButton: UIButton!
     
     // MARK: - Properties
+    
     var numberOfRedButtonsTapped = 0
     var numberOfRedSquares = 0
     
@@ -39,12 +40,7 @@ class SquaresViewController: UIViewController {
     }
     
     @IBAction func resetButtonTapped(_ sender: Any) {
-        
         numberOfRedButtonsTapped = 0
-        
-        for button in squareButtons {
-            button.isEnabled = true
-        }
         
         var count = 0
         squareButtons.shuffle()
@@ -58,33 +54,29 @@ class SquaresViewController: UIViewController {
                 button.backgroundColor = UIColor.mainTextColor
             case _ where count > 21:
                 button.backgroundColor = UIColor.unSelectedTextColor
-            default: print("Error")
+            default:
+                print("Error in \(#function)")
             }
             count += 1
         }
     }
     
     @IBAction func squareButtonTapped(_ sender: UIButton) {
-        
         var redSquareTotal = 0
         
         for button in squareButtons {
-            
             if button.backgroundColor == UIColor.redAccent {
                 redSquareTotal += 1
             }
         }
         numberOfRedSquares = redSquareTotal
-//        print("total number of red buttons: \(redSquareTotal)")
         
         if sender.backgroundColor == UIColor.redAccent {
-//            print("Red button tapped")
             numberOfRedButtonsTapped += 1
             sender.isEnabled = false
             sender.setTitle("✔︎", for: .disabled)
             sender.setTitleColor(UIColor.mainTextColor, for: .disabled)
         } else {
-//            print("Tapped a button that isn't red, you lose")
             UIDevice.vibrate()
             resetButtonTapped(self)
             for button in squareButtons {
@@ -92,9 +84,7 @@ class SquaresViewController: UIViewController {
             }
             numberOfRedButtonsTapped = 0
         }
-        
-//        print("number of red buttons tapped: \(numberOfRedButtonsTapped)")
-        
+                
         if numberOfRedSquares == numberOfRedButtonsTapped {
             goToViewController(withIdentifier: "AreYouAwakeViewController")
         }
@@ -128,7 +118,8 @@ class SquaresViewController: UIViewController {
                 button.backgroundColor = UIColor.mainTextColor
             case _ where count > 21:
                 button.backgroundColor = UIColor.unSelectedTextColor
-            default: print("Error")
+            default:
+                print("Error in \(#function)")
             }
             count += 1
         }

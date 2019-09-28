@@ -11,18 +11,20 @@ import UIKit
 class AreYouAwakeViewController: UIViewController {
 
     // MARK: - Outlets
+    
     @IBOutlet weak var areYouAwakeLabel: UILabel!
     @IBOutlet weak var yesButton: UIButton!
     @IBOutlet weak var noButton: UIButton!
     
-    
+    // MARK: - Lifecycle Methods
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         setsUpUI()
     }
     
     // MARK: - Actions
+    
     @IBAction func noButtonTapped(_ sender: Any) {
         // Create a random number
         var randomNumber = 1
@@ -39,13 +41,22 @@ class AreYouAwakeViewController: UIViewController {
     
     @IBAction func yesButtonTapped(_ sender: Any) {
         if Reachability.isConnectedToNetwork() {
+            SoundManager.sharedInstance.stopSound()
+            ViewManager.sharedInstance.alarmIsSounding = false
+            AlarmController.sharedInstance.removeNotifications()
+            AlarmController.sharedInstance.scheduleNotificationsForAllDaysBesidesToday()
             goToViewController(withIdentifier: "FinishedGameViewController")
         } else {
+            SoundManager.sharedInstance.stopSound()
+            ViewManager.sharedInstance.alarmIsSounding = false
+            AlarmController.sharedInstance.removeNotifications()
+            AlarmController.sharedInstance.scheduleNotificationsForAllDaysBesidesToday()
             goToViewController(withIdentifier: "mainNavigationController")
         }
     }
     
     // MARK: - UI Adjustments
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
