@@ -13,6 +13,8 @@ class SquaresViewController: UIViewController {
     // MARK: - Outlets
     
     @IBOutlet var squareButtons: [UIButton]!
+    @IBOutlet weak var resetButton: UIButton!
+    @IBOutlet weak var enterButton: UIButton!
     
     // MARK: - Properties
     var numberOfRedButtonsTapped = 0
@@ -106,6 +108,9 @@ class SquaresViewController: UIViewController {
     
     func setsUpUI() {
         self.view.backgroundColor = UIColor.darkColor
+        
+        enterButton.layer.cornerRadius = enterButton.frame.height / 4
+        resetButton.layer.cornerRadius = resetButton.frame.height / 4
         
         for button in squareButtons {
             button.isEnabled = true

@@ -65,6 +65,8 @@ class MemorizeNumberViewController: UIViewController {
         forgotNumberButton.isHidden = true
         enterButton.isHidden = true
         numberTextField.isHidden = true
+        enterButton.layer.cornerRadius = enterButton.frame.height / 4
+        forgotNumberButton.layer.cornerRadius = forgotNumberButton.frame.height / 4
     }
     
     // MARK: - Custom Methods

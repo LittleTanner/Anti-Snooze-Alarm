@@ -20,7 +20,8 @@ class FinishedGameViewController: UIViewController {
     @IBOutlet weak var dailyTempLowLabel: UILabel!
     @IBOutlet weak var dailyTempHighLabel: UILabel!
     @IBOutlet weak var dayWeatherSummaryLabel: UILabel!
-
+    @IBOutlet weak var toHomeScreenButton: UIButton!
+    
     // MARK: - Properties
     
     let locationManager = CLLocationManager()
@@ -70,6 +71,9 @@ class FinishedGameViewController: UIViewController {
 
     func setsUpUI() {
         self.view.backgroundColor = UIColor.darkColor
+        toHomeScreenButton.backgroundColor = UIColor.blueAccent
+        toHomeScreenButton.setTitleColor(UIColor.mainTextColor, for: .normal)
+        toHomeScreenButton.layer.cornerRadius = toHomeScreenButton.frame.height / 4
         
         guard let weatherFetchedArray = weatherFetchedArray,
             let weatherFetched = weatherFetchedArray.first else { return }

@@ -109,6 +109,8 @@ class WordOfTheDayViewController: UIViewController {
         self.wordDefinitionLabel.text = "Definition: \(self.definition)"
         skipButton.isHidden = true
         enterButton.isHidden = true
+        enterButton.layer.cornerRadius = enterButton.frame.height / 4
+        skipButton.layer.cornerRadius = skipButton.frame.height / 4
     }
     
     func updateViews() {

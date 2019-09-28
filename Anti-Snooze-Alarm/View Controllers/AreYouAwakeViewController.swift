@@ -12,6 +12,8 @@ class AreYouAwakeViewController: UIViewController {
 
     // MARK: - Outlets
     @IBOutlet weak var areYouAwakeLabel: UILabel!
+    @IBOutlet weak var yesButton: UIButton!
+    @IBOutlet weak var noButton: UIButton!
     
     
     override func viewDidLoad() {
@@ -50,5 +52,7 @@ class AreYouAwakeViewController: UIViewController {
     
     func setsUpUI() {
         self.view.backgroundColor = UIColor.darkColor
+        noButton.layer.cornerRadius = noButton.frame.height / 4
+        yesButton.layer.cornerRadius = yesButton.frame.height / 4
     }
 }

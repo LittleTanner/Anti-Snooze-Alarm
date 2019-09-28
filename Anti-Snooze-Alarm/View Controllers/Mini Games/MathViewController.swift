@@ -21,6 +21,10 @@ class MathViewController: UIViewController {
     
     @IBOutlet weak var inputNumberTextField: UITextField!
     
+    @IBOutlet weak var skipButton: UIButton!
+    @IBOutlet weak var enterButton: UIButton!
+    
+    
     // MARK: - Properties
     var countCorrect = 0
     
@@ -111,6 +115,8 @@ class MathViewController: UIViewController {
         self.view.backgroundColor = UIColor.darkColor
         inputNumberTextField.keyboardType = .numberPad
         countCorrectLabel.text = "0"
+        enterButton.layer.cornerRadius = enterButton.frame.height / 4
+        skipButton.layer.cornerRadius = skipButton.frame.height / 4
     }
     
     func updateNumberLabels() {
