@@ -46,6 +46,7 @@
 		FCE24B4823342BAD00A9A29F /* WordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE24B4723342BAD00A9A29F /* WordController.swift */; };
 		FCE24B4C233456D900A9A29F /* RandomWordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE24B4B233456D900A9A29F /* RandomWordController.swift */; };
 		FCE24B4E233457CD00A9A29F /* RandomWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE24B4D233457CD00A9A29F /* RandomWord.swift */; };
+		FCF67D65233FB2A50085E631 /* Vibrate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF67D64233FB2A50085E631 /* Vibrate.swift */; };
 		FCFBF08C233A89A2006B5120 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFBF08B233A89A2006B5120 /* SoundManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +106,7 @@
 		FCE24B4723342BAD00A9A29F /* WordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordController.swift; sourceTree = "<group>"; };
 		FCE24B4B233456D900A9A29F /* RandomWordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomWordController.swift; sourceTree = "<group>"; };
 		FCE24B4D233457CD00A9A29F /* RandomWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomWord.swift; sourceTree = "<group>"; };
+		FCF67D64233FB2A50085E631 /* Vibrate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vibrate.swift; sourceTree = "<group>"; };
 		FCFBF08B233A89A2006B5120 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -189,6 +191,7 @@
 				FC18CE0C233BDD2E005AB2AC /* AlertManager.swift */,
 				FC18CE10233BF834005AB2AC /* ViewManager.swift */,
 				FC03C2EE233E867200CA0522 /* ReachAbility.swift */,
+				FCF67D64233FB2A50085E631 /* Vibrate.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCE24B4E233457CD00A9A29F /* RandomWord.swift in Sources */,
+				FCF67D65233FB2A50085E631 /* Vibrate.swift in Sources */,
 				FC32FFE52330211A0066397F /* CoreDataStack.swift in Sources */,
 				FCAD1375232842A7000F4EF5 /* WordOfTheDayViewController.swift in Sources */,
 				FC8AF17B233D3470004871FC /* AreYouAwakeViewController.swift in Sources */,

@@ -54,7 +54,6 @@ class MathViewController: UIViewController {
         
         if countCorrect >= 10 {
 //            print("YOU WIN")
-            
             goToViewController(withIdentifier: "AreYouAwakeViewController")
         }
         
@@ -66,6 +65,7 @@ class MathViewController: UIViewController {
             inputNumberTextField.text = ""
         } else {
 //            print("Incorrect")
+            UIDevice.vibrate()
             presentAnswerIncorrectAlert()
             inputNumberTextField.text = ""
             if countCorrect < 1 {
