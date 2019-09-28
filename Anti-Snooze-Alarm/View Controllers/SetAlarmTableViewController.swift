@@ -245,6 +245,8 @@ class SetAlarmTableViewController: UITableViewController {
     
     func setsUpUI() {
         
+        tableView.backgroundColor = UIColor.darkColor
+        
         // Changes the alarm color picker text color and bg color
         alarmValuePicker.setValue(UIColor.white, forKey: "textColor")
         alarmValuePicker.backgroundColor = UIColor.darkColor
