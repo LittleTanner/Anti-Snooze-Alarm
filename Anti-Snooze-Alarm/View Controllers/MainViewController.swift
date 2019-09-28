@@ -38,10 +38,6 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadViewIfNeeded()
-//        print("MainVC AudioPlayer is set too: \(String(describing: SoundManager.sharedInstance.audioPlayer?.isPlaying))")
-//        UNUserNotificationCenter.current().getPendingNotificationRequests { (notifications) in
-//            print("Pending notifications scheduled: \(notifications.count)")
-//        }
         SoundManager.sharedInstance.stopSound()
         guard AlarmController.sharedInstance.alarm != nil else { return }
         updateViews()
