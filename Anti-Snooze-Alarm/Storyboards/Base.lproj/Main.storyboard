@@ -177,7 +177,7 @@
         <!--Set Alarm-->
         <scene sceneID="1lM-Vx-Z53">
             <objects>
-                <tableViewController id="4sc-Yk-ZsX" customClass="SetAlarmTableViewController" customModule="Anti_Snooze" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="setAlarmViewController" id="4sc-Yk-ZsX" customClass="SetAlarmTableViewController" customModule="Anti_Snooze" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="2nu-Ay-brk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
