@@ -51,11 +51,9 @@ class WordOfTheDayViewController: UIViewController {
         guard let inputText = inputDefinitionTextField.text else { return }
         
         if definition == inputText {
-//            print("Correct")
-            
+            // Answer correct, go to are you awake page
             goToViewController(withIdentifier: "AreYouAwakeViewController")
         } else {
-//            print("Incorrect")
             UIDevice.vibrate()
             presentAnswerIncorrectAlert()
         }
@@ -65,10 +63,8 @@ class WordOfTheDayViewController: UIViewController {
     
     func generateRandomWord() {
         let count = ListOfWords.sharedInstance.arrayOfEnglishWords.count
-        let randomNumber = Int.random(in: 0...count)
-        
+        let randomNumber = Int.random(in: 0...(count - 1))
         word = ListOfWords.sharedInstance.arrayOfEnglishWords[randomNumber]
-//        print("Generated Random Word: \(word)")
     }
     
     func fetchWord() {
@@ -88,10 +84,6 @@ class WordOfTheDayViewController: UIViewController {
                 }.joined(separator: "")
             
             self.definition = definitionRandomizedCases
-            
-//            print("Searched Word: \(searchedWord)")
-//            print("Definition: \(definition)")
-            
             self.updateViews()
             self.unhideButtons()
         }
@@ -133,8 +125,7 @@ extension WordOfTheDayViewController: UITextViewDelegate {
         guard let inputText = inputDefinitionTextField.text else { return }
         
         if definition == inputText {
-//            print("Correct")
-            
+            // Answer correct, go to are you awake page
             goToViewController(withIdentifier: "AreYouAwakeViewController")
         }
     }

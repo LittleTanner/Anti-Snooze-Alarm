@@ -196,9 +196,6 @@
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="BLM-5n-07z">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="244"/>
                                                     <color key="backgroundColor" name="darkColor"/>
-                                                    <connections>
-                                                        <action selector="alarmValuePickerValueChanged:" destination="4sc-Yk-ZsX" eventType="valueChanged" id="GeX-55-CBJ"/>
-                                                    </connections>
                                                 </datePicker>
                                             </subviews>
                                             <constraints>

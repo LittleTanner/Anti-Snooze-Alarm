@@ -26,13 +26,13 @@ class MathViewController: UIViewController {
     
     
     // MARK: - Properties
+    
     var countCorrect = 0
     
     // MARK: - Lifecycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setsUpUI()
         updateNumberLabels()
         inputNumberTextField.becomeFirstResponder()
@@ -57,18 +57,16 @@ class MathViewController: UIViewController {
             let rightNumber = Int(rightNumberAsString) else { return }
         
         if countCorrect >= 10 {
-//            print("YOU WIN")
+            // You Win, go to are you awake page
             goToViewController(withIdentifier: "AreYouAwakeViewController")
         }
         
         if numberInput == (leftNumber * rightNumber) {
-//            print("Correct")
             countCorrect += 1
             countCorrectLabel.text = "\(countCorrect)"
             updateNumberLabels()
             inputNumberTextField.text = ""
         } else {
-//            print("Incorrect")
             UIDevice.vibrate()
             presentAnswerIncorrectAlert()
             inputNumberTextField.text = ""
@@ -92,7 +90,6 @@ class MathViewController: UIViewController {
             let rightNumber = Int(rightNumberAsString) else { return }
         
         if numberInput == (leftNumber * rightNumber) {
-//            print("Correct")
             countCorrect += 1
             countCorrectLabel.text = "\(countCorrect)"
             updateNumberLabels()
@@ -100,7 +97,7 @@ class MathViewController: UIViewController {
         }
         
         if countCorrect >= 10 {
-//            print("YOU WIN")
+            // You win, go to are you awake page
             goToViewController(withIdentifier: "AreYouAwakeViewController")
         }
     }
@@ -120,7 +117,6 @@ class MathViewController: UIViewController {
     }
     
     func updateNumberLabels() {
-        
         let leftNumber = Int.random(in: 1...12)
         let rightNumber = Int.random(in: 1...12)
         

@@ -43,12 +43,6 @@ class FinishedGameViewController: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        SoundManager.sharedInstance.stopSound()
-        AlarmController.sharedInstance.removeNotifications()
-    }
-    
     // MARK: - Actions
     
     @IBAction func poweredByDarkSkyButtonTapped(_ sender: UIButton) {
@@ -59,12 +53,10 @@ class FinishedGameViewController: UIViewController {
     
     @IBAction func toHomeScreenButtonTapped(_ sender: UIButton) {
         goToViewController(withIdentifier: "mainNavigationController")
-        AlarmController.sharedInstance.scheduleNotificationsForAllDaysBesidesToday()
-        ViewManager.sharedInstance.alarmIsSounding = false
     }
     
-    
     // MARK: - UI Adjustments
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -77,6 +69,7 @@ class FinishedGameViewController: UIViewController {
         
         guard let weatherFetchedArray = weatherFetchedArray,
             let weatherFetched = weatherFetchedArray.first else { return }
+        
         self.currentWeatherLabel.text = "\(Int(weatherFetched.currentWeatherTemp))°"
         self.currentWeatherSummaryLabel.text = weatherFetched.currentWeatherSummary
         self.currentFeelsLikeTempLabel.text = "\(Int(weatherFetched.currentFeelsLikeTemp))°"
@@ -85,31 +78,39 @@ class FinishedGameViewController: UIViewController {
         let temperatureLow = weatherFetched.dailyMinTemp
         self.dailyTempLowLabel.text = "\(Int(temperatureLow))°"
         
-        
         let temperatureHigh = weatherFetched.dailyMaxTemp
         self.dailyTempHighLabel.text = "\(Int(temperatureHigh))°"
         
-        
         var currentWeatherIcon = ""
         switch weatherFetched.currentWeatherIconName {
-        case Weather.currentWeatherIconImage.clearDay.rawValue: currentWeatherIcon = "☀️"
-        case Weather.currentWeatherIconImage.clearNight.rawValue: currentWeatherIcon = "☀️"
-        case Weather.currentWeatherIconImage.rain.rawValue: currentWeatherIcon = "🌧"
-        case Weather.currentWeatherIconImage.snow.rawValue: currentWeatherIcon = "🌨"
-        case Weather.currentWeatherIconImage.sleet.rawValue: currentWeatherIcon = "🌨"
-        case Weather.currentWeatherIconImage.wind.rawValue: currentWeatherIcon = "💨"
-        case Weather.currentWeatherIconImage.fog.rawValue: currentWeatherIcon = "🌫"
-        case Weather.currentWeatherIconImage.cloudy.rawValue: currentWeatherIcon = "☁️"
-        case Weather.currentWeatherIconImage.partlyCloudyDay.rawValue: currentWeatherIcon = "🌥"
-        case Weather.currentWeatherIconImage.partlyCloudyNight.rawValue: currentWeatherIcon = "🌥"
-        default: currentWeatherIcon = "🤷🏼‍♂️"
+        case Weather.currentWeatherIconImage.clearDay.rawValue:
+            currentWeatherIcon = "☀️"
+        case Weather.currentWeatherIconImage.clearNight.rawValue:
+            currentWeatherIcon = "☀️"
+        case Weather.currentWeatherIconImage.rain.rawValue:
+            currentWeatherIcon = "🌧"
+        case Weather.currentWeatherIconImage.snow.rawValue:
+            currentWeatherIcon = "🌨"
+        case Weather.currentWeatherIconImage.sleet.rawValue:
+            currentWeatherIcon = "🌨"
+        case Weather.currentWeatherIconImage.wind.rawValue:
+            currentWeatherIcon = "💨"
+        case Weather.currentWeatherIconImage.fog.rawValue:
+            currentWeatherIcon = "🌫"
+        case Weather.currentWeatherIconImage.cloudy.rawValue:
+            currentWeatherIcon = "☁️"
+        case Weather.currentWeatherIconImage.partlyCloudyDay.rawValue:
+            currentWeatherIcon = "🌥"
+        case Weather.currentWeatherIconImage.partlyCloudyNight.rawValue:
+            currentWeatherIcon = "🌥"
+        default:
+            currentWeatherIcon = "🤷🏼‍♂️"
         }
         self.currentWeatherIconLabel.text = currentWeatherIcon
     }
-    
-    // MARK: - Custom Methods
-    
 } // End of class
+
+// MARK: - Extensions
 
 extension FinishedGameViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -132,24 +133,33 @@ extension FinishedGameViewController: CLLocationManagerDelegate {
                 let temperatureLow = weather.dailyMinTemp
                 self.dailyTempLowLabel.text = "\(Int(temperatureLow))°"
                 
-                
                 let temperatureHigh = weather.dailyMaxTemp
                 self.dailyTempHighLabel.text = "\(Int(temperatureHigh))°"
                 
-                
                 var currentWeatherIcon = ""
                 switch weather.currentWeatherIconName {
-                case Weather.currentWeatherIconImage.clearDay.rawValue: currentWeatherIcon = "☀️"
-                case Weather.currentWeatherIconImage.clearNight.rawValue: currentWeatherIcon = "☀️"
-                case Weather.currentWeatherIconImage.rain.rawValue: currentWeatherIcon = "🌧"
-                case Weather.currentWeatherIconImage.snow.rawValue: currentWeatherIcon = "🌨"
-                case Weather.currentWeatherIconImage.sleet.rawValue: currentWeatherIcon = "🌨"
-                case Weather.currentWeatherIconImage.wind.rawValue: currentWeatherIcon = "💨"
-                case Weather.currentWeatherIconImage.fog.rawValue: currentWeatherIcon = "🌫"
-                case Weather.currentWeatherIconImage.cloudy.rawValue: currentWeatherIcon = "☁️"
-                case Weather.currentWeatherIconImage.partlyCloudyDay.rawValue: currentWeatherIcon = "🌥"
-                case Weather.currentWeatherIconImage.partlyCloudyNight.rawValue: currentWeatherIcon = "🌥"
-                default: currentWeatherIcon = "🤷🏼‍♂️"
+                case Weather.currentWeatherIconImage.clearDay.rawValue:
+                    currentWeatherIcon = "☀️"
+                case Weather.currentWeatherIconImage.clearNight.rawValue:
+                    currentWeatherIcon = "☀️"
+                case Weather.currentWeatherIconImage.rain.rawValue:
+                    currentWeatherIcon = "🌧"
+                case Weather.currentWeatherIconImage.snow.rawValue:
+                    currentWeatherIcon = "🌨"
+                case Weather.currentWeatherIconImage.sleet.rawValue:
+                    currentWeatherIcon = "🌨"
+                case Weather.currentWeatherIconImage.wind.rawValue:
+                    currentWeatherIcon = "💨"
+                case Weather.currentWeatherIconImage.fog.rawValue:
+                    currentWeatherIcon = "🌫"
+                case Weather.currentWeatherIconImage.cloudy.rawValue:
+                    currentWeatherIcon = "☁️"
+                case Weather.currentWeatherIconImage.partlyCloudyDay.rawValue:
+                    currentWeatherIcon = "🌥"
+                case Weather.currentWeatherIconImage.partlyCloudyNight.rawValue:
+                    currentWeatherIcon = "🌥"
+                default:
+                    currentWeatherIcon = "🤷🏼‍♂️"
                 }
                 self.currentWeatherIconLabel.text = currentWeatherIcon
             }

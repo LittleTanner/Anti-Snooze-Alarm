@@ -26,8 +26,6 @@ class MainViewController: UIViewController {
     @IBOutlet weak var saturdayLabel: UILabel!
     @IBOutlet weak var alarmToggleButton: UISwitch!
     
-    // MARK: - Properties
-    
     // MARK: - Lifecycle Methods
     
     override func viewDidLoad() {
@@ -91,20 +89,23 @@ class MainViewController: UIViewController {
         thursdayLabel.textColor = UIColor.unSelectedTextColor
         fridayLabel.textColor = UIColor.unSelectedTextColor
         saturdayLabel.textColor = UIColor.unSelectedTextColor
-        if let alarms = AlarmController.sharedInstance.alarm,
-            let alarm = alarms.first, let daysOfTheWeek = alarm.daysOfWeek {
-            if daysOfTheWeek.count == 0 {
-                alarm.isEnabled = false
-                alarmToggleButton.isHidden = true
-            }
-        }
-        
     }
     
     func updateViews() {
-        if let alarms = AlarmController.sharedInstance.alarm, let alarm = alarms.first, let daysOfWeek = alarm.daysOfWeek  {
-            guard let alarmTimeAsString = alarm.alarmTimeAsString else { return }
-
+        if let alarms = AlarmController.sharedInstance.alarm, let alarm = alarms.first, let daysOfWeek = alarm.daysOfWeek, let alarmTimeAsString = alarm.alarmTimeAsString  {
+            
+            if daysOfWeek.count == 0 {
+                alarm.isEnabled = false
+                alarmToggleButton.isHidden = true
+                sundayLabel.isHidden = true
+                mondayLabel.isHidden = true
+                tuesdayLabel.isHidden = true
+                wednesdayLabel.isHidden = true
+                thursdayLabel.isHidden = true
+                fridayLabel.isHidden = true
+                saturdayLabel.isHidden = true
+            }
+            
             alarmToggleButton.isOn = alarm.isEnabled
             
             let alarmTime = alarmTimeAsString.components(separatedBy: [":", " "])
@@ -158,8 +159,15 @@ class MainViewController: UIViewController {
                 saturdayLabel.textColor = UIColor.unSelectedTextColor
             }
         } else {
-//            print("Alarm is nil")
+            // Alarm is nil
             alarmToggleButton.isHidden = true
+            sundayLabel.isHidden = true
+            mondayLabel.isHidden = true
+            tuesdayLabel.isHidden = true
+            wednesdayLabel.isHidden = true
+            thursdayLabel.isHidden = true
+            fridayLabel.isHidden = true
+            saturdayLabel.isHidden = true
         }
     }
     
@@ -197,5 +205,4 @@ class MainViewController: UIViewController {
             destinationVC.alarms = alarmsToSend
         }
     }
-    
 } // End of class
