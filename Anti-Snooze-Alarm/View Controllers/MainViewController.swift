@@ -35,15 +35,12 @@ class MainViewController: UIViewController {
     @IBOutlet weak var secondsLabel: UILabel!
     @IBOutlet weak var noAlarmScheduledLabel: UILabel!
     
-    
-    
     // MARK: - Properties
     
     var seconds = 0
     var countdownTimer = Timer()
     var isTimerRunning = true
     var currentTime = Date()
-    
     
     // MARK: - Lifecycle Methods
     
@@ -95,8 +92,6 @@ class MainViewController: UIViewController {
         
         if daysOfWeek.count != 0 {
             self.runTimer()
-        } else {
-//            self.timeUntilNextAlarm.text = "No Alarm Scheduled"
         }
     }
     
@@ -106,8 +101,6 @@ class MainViewController: UIViewController {
     }
     
     // MARK: - Actions
-    
-    
     
     @IBAction func privacyPolicyButtonTapped(_ sender: Any) {
         if let privacyPolicyURL = URL(string: "https://sites.google.com/view/antisnoozeprivacypolicy/home") {
@@ -121,12 +114,10 @@ class MainViewController: UIViewController {
             
             if alarmToggleButton.isOn == true {
                 alarm.isEnabled = true
-                //                print("Alarm is set to: \(alarm.isEnabled)")
                 AlarmController.sharedInstance.scheduleAllNotifications()
                 
             } else {
                 alarm.isEnabled = false
-                //                print("Alarm is set to: \(alarm.isEnabled)")
                 AlarmController.sharedInstance.removeNotifications()
                 updateViews()
                 countdownHoursLabel.isHidden = true
@@ -137,8 +128,6 @@ class MainViewController: UIViewController {
                 secondsLabel.isHidden = true
                 noAlarmScheduledLabel.isHidden = false
             }
-        } else {
-            //            print("No alarm detected")
         }
     }
     
@@ -235,7 +224,6 @@ class MainViewController: UIViewController {
                 saturdayLabel.textColor = UIColor.unSelectedTextColor
             }
             
-
         } else {
             // Alarm is nil
             alarmToggleButton.isHidden = true
@@ -267,11 +255,9 @@ class MainViewController: UIViewController {
                     self.fridayLabel.isHidden = true
                     self.saturdayLabel.isHidden = true
                     self.countdownTimer.invalidate()
-//                    self.timeUntilNextAlarm.text = "No Alarm Scheduled"
                 }
             }
         }
-        
     }
     
     // MARK: - Custom Methods
@@ -317,7 +303,6 @@ class MainViewController: UIViewController {
     func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
         return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
     }
-    
     
     // MARK: - Navigation
     

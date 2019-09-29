@@ -468,7 +468,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" minimumValueImage="volume-mute" maximumValueImage="volume-high" translatesAutoresizingMaskIntoConstraints="NO" id="yYB-WP-JKl">
-                                                    <rect key="frame" x="18.5" y="27" width="377" height="31"/>
+                                                    <rect key="frame" x="18.5" y="24.5" width="377" height="36"/>
                                                     <color key="tintColor" red="0.31417581439999998" green="0.61853557830000006" blue="0.80394870039999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </slider>
                                             </subviews>
