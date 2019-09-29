@@ -271,13 +271,10 @@ class MainViewController: UIViewController {
         } else {
             randomNumber = Int.random(in: 1...4)
         }
-        // Create an array of the view controller's identifier mini game names
-        let arrayOfMiniGames = ["WordOfTheDayGame", "MemorizeNumberGame", "MathGame", "SquaresGame", "LeftBrainRightBrainGame"]
         
-        goToViewController(withIdentifier: arrayOfMiniGames[randomNumber])
+        goToViewController(withIdentifier: ViewManager.sharedInstance.arrayOfMiniGames[randomNumber])
     }
     
-    // Testing Timer
     func runTimer() {
         countdownTimer.invalidate()
         countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(updateTimer)), userInfo: nil, repeats: true)

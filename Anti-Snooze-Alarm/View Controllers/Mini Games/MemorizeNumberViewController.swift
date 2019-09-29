@@ -49,7 +49,7 @@ class MemorizeNumberViewController: UIViewController {
         
         if inputNumberText == String(randomNumber) {
             // Answer Correct, go to are you awake page
-            goToViewController(withIdentifier: "AreYouAwakeViewController")
+            goToViewController(withIdentifier: ViewManager.ViewController.areYouAwake.rawValue)
         } else {
             UIDevice.vibrate()
             self.presentAnswerIncorrectAlert()
@@ -76,7 +76,7 @@ class MemorizeNumberViewController: UIViewController {
     @objc func textFieldDidChange(_ textField: UITextField) {
         if numberTextField.text == String(randomNumber) {
             // Answer Correct, go to are you awake page
-            goToViewController(withIdentifier: "AreYouAwakeViewController")
+            goToViewController(withIdentifier: ViewManager.ViewController.areYouAwake.rawValue)
         }
     }
     

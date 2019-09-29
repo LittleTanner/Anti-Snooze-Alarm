@@ -10,7 +10,6 @@ import UIKit
 import CoreData
 import UserNotifications
 
-
 class AlarmController {
     
     static let sharedInstance = AlarmController()
@@ -25,17 +24,6 @@ class AlarmController {
         
         return (try? moc.fetch(fetchRequest)) ?? []
     }
-    
-    let sounds: [String] = [
-        "Sonar",
-        "Magical",
-        "Doorbell",
-        "Thunder",
-        "SciFi",
-        "Drum",
-        "Old Fashion Alarm Clock"
-    ]
-    
     
     // CRUD
     
@@ -91,37 +79,30 @@ class AlarmController {
         
         if daysOfWeek.contains(Alarm.daysOfWeek.sunday.rawValue) && today != 1 {
             CreateNotifications(forDay: 1)
-//            print("Notifications scheduled for Sunday")
         }
         
         if daysOfWeek.contains(Alarm.daysOfWeek.monday.rawValue) && today != 2 {
             CreateNotifications(forDay: 2)
-//            print("Notifications scheduled for Monday")
         }
         
         if daysOfWeek.contains(Alarm.daysOfWeek.tuesday.rawValue) && today != 3 {
             CreateNotifications(forDay: 3)
-//            print("Notifications scheduled for Tuesday")
         }
         
         if daysOfWeek.contains(Alarm.daysOfWeek.wednesday.rawValue) && today != 4 {
             CreateNotifications(forDay: 4)
-//            print("Notifications scheduled for Wednesday")
         }
         
         if daysOfWeek.contains(Alarm.daysOfWeek.thursday.rawValue) && today != 5 {
             CreateNotifications(forDay: 5)
-//            print("Notifications scheduled for Thursday")
         }
         
         if daysOfWeek.contains(Alarm.daysOfWeek.friday.rawValue) && today != 6 {
             CreateNotifications(forDay: 6)
-//            print("Notifications scheduled for Friday")
         }
         
         if daysOfWeek.contains(Alarm.daysOfWeek.saturday.rawValue) && today != 7 {
             CreateNotifications(forDay: 7)
-//            print("Notifications scheduled for Saturday")
         }
         saveToPersistentStore()
     }
@@ -197,10 +178,6 @@ class AlarmController {
                 }
             }
         }
-        
-//        UNUserNotificationCenter.current().getPendingNotificationRequests { (notifications) in
-//            print("Pending notifications scheduled: \(notifications.count)")
-//        }
         saveToPersistentStore()
     }
     
@@ -215,7 +192,6 @@ class AlarmController {
         
         // save to core data
         saveToPersistentStore()
-        
     }
     
     
@@ -223,9 +199,6 @@ class AlarmController {
     func removeNotifications() {
         UNUserNotificationCenter.current().removeAllDeliveredNotifications()
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-//        UNUserNotificationCenter.current().getPendingNotificationRequests { (notifications) in
-//            print("Pending notifications scheduled: \(notifications.count)")
-//        }
         saveToPersistentStore()
     }
     

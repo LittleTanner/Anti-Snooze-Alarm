@@ -210,7 +210,7 @@ class SetAlarmTableViewController: UITableViewController {
             presentSelectedPMAlert()
         }
 
-        goToViewController(withIdentifier: "mainNavigationController")
+        goToViewController(withIdentifier: ViewManager.ViewController.homeScreen.rawValue)
     }
     
     // MARK: - UI Adjustments
@@ -323,34 +323,33 @@ class SetAlarmTableViewController: UITableViewController {
         var alarmIndex = 0
         
         switch alarmSound {
-        case "Sonar":
+        case SoundManager.AlarmSounds.sonar.rawValue:
             alarmIndex = 0
-        case "Magical":
+        case SoundManager.AlarmSounds.magical.rawValue:
             alarmIndex = 1
-        case "Doorbell":
+        case SoundManager.AlarmSounds.doorbell.rawValue:
             alarmIndex = 2
-        case "Thunder":
+        case SoundManager.AlarmSounds.thunder.rawValue:
             alarmIndex = 3
-        case "SciFi":
+        case SoundManager.AlarmSounds.sciFi.rawValue:
             alarmIndex = 4
-        case "Drum":
+        case SoundManager.AlarmSounds.drum.rawValue:
             alarmIndex = 5
-        case "Old Fashion Alarm Clock":
+        case SoundManager.AlarmSounds.oldFashionAlarmClock.rawValue:
             alarmIndex = 6
         default:
             // Alarm sound not found so revert to default
             alarmIndex = 0
         }
-        
         soundPickerView.selectRow(alarmIndex, inComponent: 0, animated: true)
-        selectedSound = AlarmController.sharedInstance.sounds[alarmIndex]
+        selectedSound = SoundManager.sharedInstance.arrayOfAlarmSounds[alarmIndex]
     }
     
     // MARK: - Custom Methods
     
     @objc func returnToMainScreen() {
         SoundManager.sharedInstance.stopSound()
-        goToViewController(withIdentifier: "mainNavigationController")
+        goToViewController(withIdentifier: ViewManager.ViewController.homeScreen.rawValue)
     }
 } // End of class
 
@@ -362,15 +361,15 @@ extension SetAlarmTableViewController: UIPickerViewDelegate, UIPickerViewDataSou
     }
     
     public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return AlarmController.sharedInstance.sounds.count
+        return SoundManager.sharedInstance.arrayOfAlarmSounds.count
     }
     
     public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.selectedSound = AlarmController.sharedInstance.sounds[row]
+        self.selectedSound = SoundManager.sharedInstance.arrayOfAlarmSounds[row]
     }
     
     public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        let sound = AlarmController.sharedInstance.sounds[row]
+        let sound = SoundManager.sharedInstance.arrayOfAlarmSounds[row]
         return sound
     }
 }

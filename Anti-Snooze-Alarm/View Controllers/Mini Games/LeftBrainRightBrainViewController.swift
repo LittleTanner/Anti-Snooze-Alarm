@@ -74,7 +74,7 @@ class LeftBrainRightBrainViewController: UIViewController {
         
         if correctCount >= 10 {
             // You Win, go to are you awake page
-            goToViewController(withIdentifier: "AreYouAwakeViewController")
+            goToViewController(withIdentifier: ViewManager.ViewController.areYouAwake.rawValue)
         }
         
     }
@@ -90,7 +90,6 @@ class LeftBrainRightBrainViewController: UIViewController {
         case UIColor.unSelectedTextColor:
             correctColor = "GREY"
         default: print("IDK")
-            //            }
         }
         
         if colorToSelectLabel.text == correctColor {
@@ -110,7 +109,7 @@ class LeftBrainRightBrainViewController: UIViewController {
         
         if correctCount >= 10 {
             // You Win, go to are you awake page
-            goToViewController(withIdentifier: "AreYouAwakeViewController")
+            goToViewController(withIdentifier: ViewManager.ViewController.areYouAwake.rawValue)
         }
     }
     
@@ -144,7 +143,7 @@ class LeftBrainRightBrainViewController: UIViewController {
         
         if correctCount >= 10 {
             // You Win, go to are you awake page
-            goToViewController(withIdentifier: "AreYouAwakeViewController")
+            goToViewController(withIdentifier: ViewManager.ViewController.areYouAwake.rawValue)
         }
     }
     
@@ -178,7 +177,7 @@ class LeftBrainRightBrainViewController: UIViewController {
         
         if correctCount >= 10 {
             // You Win, go to are you awake page
-            goToViewController(withIdentifier: "AreYouAwakeViewController")
+            goToViewController(withIdentifier: ViewManager.ViewController.areYouAwake.rawValue)
         }
     }
     

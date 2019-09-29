@@ -35,7 +35,7 @@ class SquaresViewController: UIViewController {
     
     @IBAction func enterButtonTapped(_ sender: Any) {
         if numberOfRedSquares == numberOfRedButtonsTapped {
-            goToViewController(withIdentifier: "AreYouAwakeViewController")
+            goToViewController(withIdentifier: ViewManager.ViewController.areYouAwake.rawValue)
         }
     }
     
@@ -86,7 +86,7 @@ class SquaresViewController: UIViewController {
         }
                 
         if numberOfRedSquares == numberOfRedButtonsTapped {
-            goToViewController(withIdentifier: "AreYouAwakeViewController")
+            goToViewController(withIdentifier: ViewManager.ViewController.areYouAwake.rawValue)
         }
     }
     

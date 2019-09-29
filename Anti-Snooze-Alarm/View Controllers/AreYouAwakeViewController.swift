@@ -34,9 +34,7 @@ class AreYouAwakeViewController: UIViewController {
         } else {
             randomNumber = Int.random(in: 1...4)
         }
-        // Create an array of the view controller's identifier mini game names
-        let arrayOfMiniGames = ["WordOfTheDayGame", "MemorizeNumberGame", "MathGame", "SquaresGame", "LeftBrainRightBrainGame"]
-        goToViewController(withIdentifier: arrayOfMiniGames[randomNumber])
+        goToViewController(withIdentifier: ViewManager.sharedInstance.arrayOfMiniGames[randomNumber])
     }
     
     @IBAction func yesButtonTapped(_ sender: Any) {
@@ -45,13 +43,13 @@ class AreYouAwakeViewController: UIViewController {
             ViewManager.sharedInstance.alarmIsSounding = false
             AlarmController.sharedInstance.removeNotifications()
             AlarmController.sharedInstance.scheduleNotificationsForAllDaysBesidesToday()
-            goToViewController(withIdentifier: "FinishedGameViewController")
+            goToViewController(withIdentifier: ViewManager.ViewController.weatherForecast.rawValue)
         } else {
             SoundManager.sharedInstance.stopSound()
             ViewManager.sharedInstance.alarmIsSounding = false
             AlarmController.sharedInstance.removeNotifications()
             AlarmController.sharedInstance.scheduleNotificationsForAllDaysBesidesToday()
-            goToViewController(withIdentifier: "mainNavigationController")
+            goToViewController(withIdentifier: ViewManager.ViewController.homeScreen.rawValue)
         }
     }
     
