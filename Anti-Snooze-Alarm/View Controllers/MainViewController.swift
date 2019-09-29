@@ -26,8 +26,16 @@ class MainViewController: UIViewController {
     @IBOutlet weak var saturdayLabel: UILabel!
     @IBOutlet weak var alarmToggleButton: UISwitch!
     
-    @IBOutlet weak var timeUntilNextAlarm: UILabel!
-    @IBOutlet weak var hoursUntilNextAlarm: UILabel!
+    @IBOutlet weak var countdownHoursLabel: UILabel!
+    @IBOutlet weak var countdownMinutesLabel: UILabel!
+    @IBOutlet weak var countdownSecondsLabel: UILabel!
+    
+    @IBOutlet weak var hoursLabel: UILabel!
+    @IBOutlet weak var minutesLabel: UILabel!
+    @IBOutlet weak var secondsLabel: UILabel!
+    @IBOutlet weak var noAlarmScheduledLabel: UILabel!
+    
+    
     
     // MARK: - Properties
     
@@ -88,7 +96,7 @@ class MainViewController: UIViewController {
         if daysOfWeek.count != 0 {
             self.runTimer()
         } else {
-            self.timeUntilNextAlarm.text = "No Alarm Scheduled"
+//            self.timeUntilNextAlarm.text = "No Alarm Scheduled"
         }
     }
     
@@ -121,6 +129,13 @@ class MainViewController: UIViewController {
                 //                print("Alarm is set to: \(alarm.isEnabled)")
                 AlarmController.sharedInstance.removeNotifications()
                 updateViews()
+                countdownHoursLabel.isHidden = true
+                countdownMinutesLabel.isHidden = true
+                countdownSecondsLabel.isHidden = true
+                hoursLabel.isHidden = true
+                minutesLabel.isHidden = true
+                secondsLabel.isHidden = true
+                noAlarmScheduledLabel.isHidden = false
             }
         } else {
             //            print("No alarm detected")
@@ -142,6 +157,7 @@ class MainViewController: UIViewController {
         thursdayLabel.textColor = UIColor.unSelectedTextColor
         fridayLabel.textColor = UIColor.unSelectedTextColor
         saturdayLabel.textColor = UIColor.unSelectedTextColor
+        noAlarmScheduledLabel.isHidden = true
     }
     
     func updateViews() {
@@ -157,6 +173,13 @@ class MainViewController: UIViewController {
                 thursdayLabel.isHidden = true
                 fridayLabel.isHidden = true
                 saturdayLabel.isHidden = true
+                noAlarmScheduledLabel.isHidden = false
+                countdownHoursLabel.isHidden = true
+                countdownMinutesLabel.isHidden = true
+                countdownSecondsLabel.isHidden = true
+                hoursLabel.isHidden = true
+                minutesLabel.isHidden = true
+                secondsLabel.isHidden = true
             }
             
             alarmToggleButton.isOn = alarm.isEnabled
@@ -223,6 +246,13 @@ class MainViewController: UIViewController {
             thursdayLabel.isHidden = true
             fridayLabel.isHidden = true
             saturdayLabel.isHidden = true
+            countdownHoursLabel.isHidden = true
+            countdownMinutesLabel.isHidden = true
+            countdownSecondsLabel.isHidden = true
+            hoursLabel.isHidden = true
+            minutesLabel.isHidden = true
+            secondsLabel.isHidden = true
+            noAlarmScheduledLabel.isHidden = false
         }
         
         UNUserNotificationCenter.current().getPendingNotificationRequests { (notifications) in
@@ -237,10 +267,11 @@ class MainViewController: UIViewController {
                     self.fridayLabel.isHidden = true
                     self.saturdayLabel.isHidden = true
                     self.countdownTimer.invalidate()
-                    self.timeUntilNextAlarm.text = "No Alarm Scheduled"
+//                    self.timeUntilNextAlarm.text = "No Alarm Scheduled"
                 }
             }
         }
+        
     }
     
     // MARK: - Custom Methods
@@ -275,7 +306,9 @@ class MainViewController: UIViewController {
             let hoursString = String(format: "%02d", hours)
             let minutesString = String(format: "%02d", minutes)
             let secondsString = String(format: "%02d", seconds)
-            self.timeUntilNextAlarm.text = "Next alarm in: \(hoursString)h \(minutesString)m \(secondsString)s"
+            self.countdownHoursLabel.text = hoursString
+            self.countdownMinutesLabel.text = minutesString
+            self.countdownSecondsLabel.text = secondsString
         } else {
             
         }
