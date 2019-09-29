@@ -78,5 +78,4 @@ class RandomWordController {
         }
         dataTask.resume()
     }
-    
 }

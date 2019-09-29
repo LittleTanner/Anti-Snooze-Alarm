@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         UNUserNotificationCenter.current().delegate = self
         
         
-        // Testing how to control where the user is sent based on if the alarm is going off
+        // If the alarm is going off send them to a mini game
         guard let alarms = AlarmController.sharedInstance.alarm,
         let alarm = alarms.first,
         let alarmTime = alarm.alarmTimeAsString else { return true }
@@ -49,12 +49,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         MPVolumeView.setVolume(alarm.alarmVolume)
         
         let currentTime = Date().stringWith(timeStyle: .short)
-        print("Current Time: \(currentTime)")
-        print("Current Time: \(alarmTime)")
         
         if currentTime == alarmTime {
-            // Create an instance of the main storyboard
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
             // Create a random number
             var randomNumber = 1
             
@@ -63,35 +59,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             } else {
                 randomNumber = Int.random(in: 1...4)
             }
-            
+
             // Create an instance of the view controller
-            switch randomNumber {
-            case 0:
-                if let controller = storyboard.instantiateViewController(withIdentifier: "WordOfTheDayGame") as? WordOfTheDayViewController {
-                    self.window?.rootViewController = controller
-                }
-            case 1:
-                if let controller = storyboard.instantiateViewController(withIdentifier: "MemorizeNumberGame") as? MemorizeNumberViewController {
-                    self.window?.rootViewController = controller
-                }
-            case 2:
-                if let controller = storyboard.instantiateViewController(withIdentifier: "MathGame") as? MathViewController {
-                    self.window?.rootViewController = controller
-                }
-            case 3:
-                if let controller = storyboard.instantiateViewController(withIdentifier: "SquaresGame") as? SquaresViewController {
-                    self.window?.rootViewController = controller
-                }
-            case 4:
-                if let controller = storyboard.instantiateViewController(withIdentifier: "LeftBrainRightBrainGame") as? LeftBrainRightBrainViewController {
-                    self.window?.rootViewController = controller
-                }
-            default:
-                if let controller = storyboard.instantiateViewController(withIdentifier: "mainNavigationController") as? MainNavigationViewController {
-                    self.window?.rootViewController = controller
-                }
-                print("User clicked on the app icon during the same minute as the alarm. There was an error sending user to random game so sent them to the main page")
-            }
+            self.window?.rootViewController?.goToViewController(withIdentifier: ViewManager.sharedInstance.arrayOfMiniGames[randomNumber])
         }
         
         return true
@@ -99,8 +69,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         
-        // Create an instance of the main storyboard
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         // Create a random number
         var randomNumber = 1
         
@@ -111,39 +79,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
 
         // Create an instance of the view controller
-        
-        
-        switch randomNumber {
-        case 0:
-            if let controller = storyboard.instantiateViewController(withIdentifier: "WordOfTheDayGame") as? WordOfTheDayViewController {
-                self.window?.rootViewController = controller
-            }
-        case 1:
-            if let controller = storyboard.instantiateViewController(withIdentifier: "MemorizeNumberGame") as? MemorizeNumberViewController {
-                self.window?.rootViewController = controller
-            }
-        case 2:
-            if let controller = storyboard.instantiateViewController(withIdentifier: "MathGame") as? MathViewController {
-                self.window?.rootViewController = controller
-            }
-        case 3:
-            if let controller = storyboard.instantiateViewController(withIdentifier: "SquaresGame") as? SquaresViewController {
-                self.window?.rootViewController = controller
-            }
-        case 4:
-            if let controller = storyboard.instantiateViewController(withIdentifier: "LeftBrainRightBrainGame") as? LeftBrainRightBrainViewController {
-                self.window?.rootViewController = controller
-            }
-        default:
-            if let controller = storyboard.instantiateViewController(withIdentifier: "mainNavigationController") as? MainNavigationViewController {
-                self.window?.rootViewController = controller
-            }
-            print("User clicked on local notification. There was an error sending user to random game so sent them to the main page")
-        }
+        self.window?.rootViewController?.goToViewController(withIdentifier: ViewManager.sharedInstance.arrayOfMiniGames[randomNumber])
         
         completionHandler()
     }
-    
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         print("Notification sent")
@@ -160,7 +99,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             NotificationCenter.default.post(name: NName(rawValue: "AlarmIsSounding"), object: nil)
         }
         
-        // removed alert/sound/badge from showing in the app, need to have some way for them to get to the mini game from the home screen if they open the app directly and don't click on a notification.
+        // removed alert/sound/badge from showing in the app
         completionHandler([/*.alert, .sound, .badge*/])
     }
     
@@ -178,7 +117,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
         
-        // Testing how to control where the user is sent based on if the alarm is going off
+        // When the alarm is going off send them to a mini game
         guard let alarms = AlarmController.sharedInstance.alarm,
         let alarm = alarms.first,
         let alarmTime = alarm.alarmTimeAsString else { return }
@@ -186,13 +125,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         MPVolumeView.setVolume(alarm.alarmVolume)
         
         let currentTime = Date().stringWith(timeStyle: .short)
-        print("Current Time: \(currentTime)")
-        print("Current Time: \(alarmTime)")
         
         if currentTime == alarmTime {
-            
-            // Create an instance of the main storyboard
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
             // Create a random number
             var randomNumber = 1
             
@@ -203,33 +137,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
 
             // Create an instance of the view controller
-            switch randomNumber {
-            case 0:
-                if let controller = storyboard.instantiateViewController(withIdentifier: "WordOfTheDayGame") as? WordOfTheDayViewController {
-                    self.window?.rootViewController = controller
-                }
-            case 1:
-                if let controller = storyboard.instantiateViewController(withIdentifier: "MemorizeNumberGame") as? MemorizeNumberViewController {
-                    self.window?.rootViewController = controller
-                }
-            case 2:
-                if let controller = storyboard.instantiateViewController(withIdentifier: "MathGame") as? MathViewController {
-                    self.window?.rootViewController = controller
-                }
-            case 3:
-                if let controller = storyboard.instantiateViewController(withIdentifier: "SquaresGame") as? SquaresViewController {
-                    self.window?.rootViewController = controller
-                }
-            case 4:
-                if let controller = storyboard.instantiateViewController(withIdentifier: "LeftBrainRightBrainGame") as? LeftBrainRightBrainViewController {
-                    self.window?.rootViewController = controller
-                }
-            default:
-                if let controller = storyboard.instantiateViewController(withIdentifier: "mainNavigationController") as? MainNavigationViewController {
-                    self.window?.rootViewController = controller
-                }
-                print("User clicked on the app icon during the same minute as the alarm. There was an error sending user to random game so sent them to the main page")
-            }
+            self.window?.rootViewController?.goToViewController(withIdentifier: ViewManager.sharedInstance.arrayOfMiniGames[randomNumber])
         }
     }
 

@@ -18,6 +18,25 @@ class SoundManager {
     
     var audioPlayer: AVAudioPlayer?
     
+    enum AlarmSounds: String {
+        case sonar = "Sonar"
+        case magical = "Magical"
+        case doorbell = "Doorbell"
+        case thunder = "Thunder"
+        case sciFi = "SciFi"
+        case drum = "Drum"
+        case oldFashionAlarmClock = "Old Fashion Alarm Clock"
+    }
+    
+    let arrayOfAlarmSounds: [String] = [
+        AlarmSounds.sonar.rawValue,
+        AlarmSounds.magical.rawValue,
+        AlarmSounds.doorbell.rawValue,
+        AlarmSounds.thunder.rawValue,
+        AlarmSounds.sciFi.rawValue,
+        AlarmSounds.drum.rawValue,
+        AlarmSounds.oldFashionAlarmClock.rawValue
+    ]
     
     func playRepeatingSound(withVolume volume: Float) {
         guard let alarms = AlarmController.sharedInstance.alarm,
@@ -33,9 +52,7 @@ class SoundManager {
             audioPlayer = try AVAudioPlayer(contentsOf: url, fileTypeHint: "mp3")
 
             guard let audioPlayer = audioPlayer else { return }
-            
-//            print("Output Volume: \(AVAudioSession.sharedInstance().outputVolume)")
-            
+                        
             MPVolumeView.setVolume(volume)
             
             audioPlayer.numberOfLoops = -1
@@ -57,9 +74,7 @@ class SoundManager {
             audioPlayer = try AVAudioPlayer(contentsOf: url, fileTypeHint: "mp3")
 
             guard let audioPlayer = audioPlayer else { return }
-            
-//            print("Output Volume: \(AVAudioSession.sharedInstance().outputVolume)")
-            
+                        
             MPVolumeView.setVolume(volume)
             
             audioPlayer.play()
@@ -79,8 +94,6 @@ class SoundManager {
         audioPlayer.pause()
     }
 } // End of class
-
-
 
 
 extension MPVolumeView {

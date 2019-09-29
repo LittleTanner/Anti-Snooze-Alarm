@@ -58,7 +58,7 @@ class MathViewController: UIViewController {
         
         if countCorrect >= 10 {
             // You Win, go to are you awake page
-            goToViewController(withIdentifier: "AreYouAwakeViewController")
+            goToViewController(withIdentifier: ViewManager.ViewController.areYouAwake.rawValue)
         }
         
         if numberInput == (leftNumber * rightNumber) {
@@ -98,7 +98,7 @@ class MathViewController: UIViewController {
         
         if countCorrect >= 10 {
             // You win, go to are you awake page
-            goToViewController(withIdentifier: "AreYouAwakeViewController")
+            goToViewController(withIdentifier: ViewManager.ViewController.areYouAwake.rawValue)
         }
     }
     

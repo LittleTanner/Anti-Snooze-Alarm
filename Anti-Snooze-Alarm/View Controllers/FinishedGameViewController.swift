@@ -52,7 +52,7 @@ class FinishedGameViewController: UIViewController {
     }
     
     @IBAction func toHomeScreenButtonTapped(_ sender: UIButton) {
-        goToViewController(withIdentifier: "mainNavigationController")
+        goToViewController(withIdentifier: ViewManager.ViewController.homeScreen.rawValue)
     }
     
     // MARK: - UI Adjustments

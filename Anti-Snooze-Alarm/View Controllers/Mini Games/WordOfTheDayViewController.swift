@@ -52,7 +52,7 @@ class WordOfTheDayViewController: UIViewController {
         
         if definition == inputText {
             // Answer correct, go to are you awake page
-            goToViewController(withIdentifier: "AreYouAwakeViewController")
+            goToViewController(withIdentifier: ViewManager.ViewController.areYouAwake.rawValue)
         } else {
             UIDevice.vibrate()
             presentAnswerIncorrectAlert()
@@ -126,7 +126,7 @@ extension WordOfTheDayViewController: UITextViewDelegate {
         
         if definition == inputText {
             // Answer correct, go to are you awake page
-            goToViewController(withIdentifier: "AreYouAwakeViewController")
+            goToViewController(withIdentifier: ViewManager.ViewController.areYouAwake.rawValue)
         }
     }
 }
