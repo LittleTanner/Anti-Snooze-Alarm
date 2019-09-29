@@ -13,7 +13,7 @@ import UserNotifications
 class MainViewController: UIViewController {
     
     // MARK: - Outlets
-
+    
     @IBOutlet weak var alarmHourLabel: UILabel!
     @IBOutlet weak var alarmMinuteLabel: UILabel!
     @IBOutlet weak var alarmAMOrPMLabel: UILabel!
@@ -25,6 +25,17 @@ class MainViewController: UIViewController {
     @IBOutlet weak var fridayLabel: UILabel!
     @IBOutlet weak var saturdayLabel: UILabel!
     @IBOutlet weak var alarmToggleButton: UISwitch!
+    
+    @IBOutlet weak var timeUntilNextAlarm: UILabel!
+    @IBOutlet weak var hoursUntilNextAlarm: UILabel!
+    
+    // MARK: - Properties
+    
+    var seconds = 0
+    var countdownTimer = Timer()
+    var isTimerRunning = true
+    var currentTime = Date()
+    
     
     // MARK: - Lifecycle Methods
     
@@ -41,9 +52,54 @@ class MainViewController: UIViewController {
         SoundManager.sharedInstance.stopSound()
         guard AlarmController.sharedInstance.alarm != nil else { return }
         updateViews()
+        
+        // Testing Timer
+        guard let alarms = AlarmController.sharedInstance.alarm,
+            let alarm = alarms.first,
+            let daysOfWeek = alarm.daysOfWeek else { return }
+        
+        UNUserNotificationCenter.current().getPendingNotificationRequests { (notifications) in
+            
+            var notificationsArray: [UNNotificationRequest] = []
+            
+            for nextNotificationTest in notifications {
+                notificationsArray.append(nextNotificationTest)
+            }
+            
+            var notificationTriggerArray: [UNCalendarNotificationTrigger] = []
+            
+            for nextNotificationTriggerTest in notificationsArray {
+                guard let triggerToAppend = nextNotificationTriggerTest.trigger as? UNCalendarNotificationTrigger else { return }
+                notificationTriggerArray.append(triggerToAppend)
+            }
+            
+            var nextTriggerDateArray: [Date] = []
+            
+            for nextTriggerDateTest in notificationTriggerArray {
+                guard let triggerDateToAppend = nextTriggerDateTest.nextTriggerDate() else { return }
+                nextTriggerDateArray.append(triggerDateToAppend)
+            }
+            
+            if let closestDate = nextTriggerDateArray.sorted().first(where: {$0.timeIntervalSinceNow > 0}) {
+                self.seconds = Int(closestDate.timeIntervalSince1970 - self.currentTime.timeIntervalSince1970)
+            }
+        }
+        
+        if daysOfWeek.count != 0 {
+            self.runTimer()
+        } else {
+            self.timeUntilNextAlarm.text = "No Alarm Scheduled"
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        countdownTimer.invalidate()
     }
     
     // MARK: - Actions
+    
+    
     
     @IBAction func privacyPolicyButtonTapped(_ sender: Any) {
         if let privacyPolicyURL = URL(string: "https://sites.google.com/view/antisnoozeprivacypolicy/home") {
@@ -57,16 +113,17 @@ class MainViewController: UIViewController {
             
             if alarmToggleButton.isOn == true {
                 alarm.isEnabled = true
-//                print("Alarm is set to: \(alarm.isEnabled)")
+                //                print("Alarm is set to: \(alarm.isEnabled)")
                 AlarmController.sharedInstance.scheduleAllNotifications()
-
+                
             } else {
                 alarm.isEnabled = false
-//                print("Alarm is set to: \(alarm.isEnabled)")
+                //                print("Alarm is set to: \(alarm.isEnabled)")
                 AlarmController.sharedInstance.removeNotifications()
+                updateViews()
             }
         } else {
-//            print("No alarm detected")
+            //            print("No alarm detected")
         }
     }
     
@@ -154,6 +211,8 @@ class MainViewController: UIViewController {
             } else {
                 saturdayLabel.textColor = UIColor.unSelectedTextColor
             }
+            
+
         } else {
             // Alarm is nil
             alarmToggleButton.isHidden = true
@@ -165,26 +224,68 @@ class MainViewController: UIViewController {
             fridayLabel.isHidden = true
             saturdayLabel.isHidden = true
         }
+        
+        UNUserNotificationCenter.current().getPendingNotificationRequests { (notifications) in
+            if notifications.count == 0 {
+                DispatchQueue.main.async {
+                    self.alarmToggleButton.isHidden = true
+                    self.sundayLabel.isHidden = true
+                    self.mondayLabel.isHidden = true
+                    self.tuesdayLabel.isHidden = true
+                    self.wednesdayLabel.isHidden = true
+                    self.thursdayLabel.isHidden = true
+                    self.fridayLabel.isHidden = true
+                    self.saturdayLabel.isHidden = true
+                    self.countdownTimer.invalidate()
+                    self.timeUntilNextAlarm.text = "No Alarm Scheduled"
+                }
+            }
+        }
     }
     
     // MARK: - Custom Methods
     
     @objc func presentGame() {
-            // Create a random number
-            var randomNumber = 1
-            
-            if Reachability.isConnectedToNetwork() {
-                randomNumber = Int.random(in: 0...4)
-            } else {
-                randomNumber = Int.random(in: 1...4)
-            }
-            // Create an array of the view controller's identifier mini game names
-            let arrayOfMiniGames = ["WordOfTheDayGame", "MemorizeNumberGame", "MathGame", "SquaresGame", "LeftBrainRightBrainGame"]
-            
-            goToViewController(withIdentifier: arrayOfMiniGames[randomNumber])
+        // Create a random number
+        var randomNumber = 1
+        
+        if Reachability.isConnectedToNetwork() {
+            randomNumber = Int.random(in: 0...4)
+        } else {
+            randomNumber = Int.random(in: 1...4)
+        }
+        // Create an array of the view controller's identifier mini game names
+        let arrayOfMiniGames = ["WordOfTheDayGame", "MemorizeNumberGame", "MathGame", "SquaresGame", "LeftBrainRightBrainGame"]
+        
+        goToViewController(withIdentifier: arrayOfMiniGames[randomNumber])
     }
-
-
+    
+    // Testing Timer
+    func runTimer() {
+        countdownTimer.invalidate()
+        countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(updateTimer)), userInfo: nil, repeats: true)
+    }
+    
+    @objc func updateTimer() {
+        seconds -= 1
+        
+        if seconds >= 0 {
+            let (hours, minutes, seconds) = secondsToHoursMinutesSeconds(seconds: self.seconds)
+            
+            let hoursString = String(format: "%02d", hours)
+            let minutesString = String(format: "%02d", minutes)
+            let secondsString = String(format: "%02d", seconds)
+            self.timeUntilNextAlarm.text = "Next alarm in: \(hoursString)h \(minutesString)m \(secondsString)s"
+        } else {
+            
+        }
+    }
+    
+    func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
+        return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+    }
+    
+    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
