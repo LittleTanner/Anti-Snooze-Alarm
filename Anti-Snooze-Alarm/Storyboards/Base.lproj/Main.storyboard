@@ -444,10 +444,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kzb-f2-si8">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="216"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="80" id="ryq-0n-qdx"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
                                                 </pickerView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
