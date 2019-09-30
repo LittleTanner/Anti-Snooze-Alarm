@@ -48,6 +48,7 @@ class MemorizeNumberViewController: UIViewController {
         guard let inputNumberText = numberTextField.text else { return }
         
         if inputNumberText == String(randomNumber) {
+            SoundManager.sharedInstance.stopSound()
             // Answer Correct, go to are you awake page
             goToViewController(withIdentifier: ViewManager.ViewController.areYouAwake.rawValue)
         } else {
@@ -57,6 +58,7 @@ class MemorizeNumberViewController: UIViewController {
     }
     
     // MARK: - UI Adjustments
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -75,6 +77,7 @@ class MemorizeNumberViewController: UIViewController {
     
     @objc func textFieldDidChange(_ textField: UITextField) {
         if numberTextField.text == String(randomNumber) {
+            SoundManager.sharedInstance.stopSound()
             // Answer Correct, go to are you awake page
             goToViewController(withIdentifier: ViewManager.ViewController.areYouAwake.rawValue)
         }

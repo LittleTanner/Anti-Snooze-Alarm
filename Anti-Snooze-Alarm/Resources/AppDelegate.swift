@@ -61,7 +61,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
 
             // Create an instance of the view controller
-            self.window?.rootViewController?.goToViewController(withIdentifier: ViewManager.sharedInstance.arrayOfMiniGames[randomNumber])
+            if let window = self.window, let viewController = window.rootViewController {
+                viewController.goToViewController(withIdentifier: ViewManager.sharedInstance.arrayOfMiniGames[randomNumber])
+            }
         }
         
         return true
@@ -77,9 +79,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         } else {
             randomNumber = Int.random(in: 1...4)
         }
-
+        
         // Create an instance of the view controller
-        self.window?.rootViewController?.goToViewController(withIdentifier: ViewManager.sharedInstance.arrayOfMiniGames[randomNumber])
+        if let window = self.window, let viewController = window.rootViewController {
+            viewController.goToViewController(withIdentifier: ViewManager.sharedInstance.arrayOfMiniGames[randomNumber])
+        }
+
+//        self.window?.rootViewController?.goToViewController(withIdentifier: ViewManager.sharedInstance.arrayOfMiniGames[randomNumber])
         
         completionHandler()
     }
@@ -90,8 +96,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         guard let alarms = AlarmController.sharedInstance.alarm,
             let alarm = alarms.first else { return }
         MPVolumeView.setVolume(alarm.alarmVolume)
-        SoundManager.sharedInstance.playRepeatingSound(withVolume: alarm.alarmVolume)
-        print("AppDelegate AudioPlayer is set too: \(String(describing: SoundManager.sharedInstance.audioPlayer?.isPlaying))")
+//        SoundManager.sharedInstance.playRepeatingSound(withVolume: alarm.alarmVolume)
+//        print("AppDelegate AudioPlayer is set too: \(String(describing: SoundManager.sharedInstance.audioPlayer?.isPlaying))")
         
         if !ViewManager.sharedInstance.alarmIsSounding {
             ViewManager.sharedInstance.alarmIsSounding = true
@@ -137,7 +143,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
 
             // Create an instance of the view controller
-            self.window?.rootViewController?.goToViewController(withIdentifier: ViewManager.sharedInstance.arrayOfMiniGames[randomNumber])
+            if let window = self.window, let viewController = window.rootViewController {
+                viewController.goToViewController(withIdentifier: ViewManager.sharedInstance.arrayOfMiniGames[randomNumber])
+            }
         }
     }
 

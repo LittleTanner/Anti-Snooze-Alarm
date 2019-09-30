@@ -26,6 +26,7 @@
 		FC5C49332326C55B00106CB9 /* Anti_Snooze_Alarm.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC5C49312326C55B00106CB9 /* Anti_Snooze_Alarm.xcdatamodeld */; };
 		FC5C49352326C55B00106CB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC5C49342326C55B00106CB9 /* Assets.xcassets */; };
 		FC5C49382326C55B00106CB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC5C49362326C55B00106CB9 /* LaunchScreen.storyboard */; };
+		FC747273234183AF00DFE492 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC747272234183AF00DFE492 /* InformationViewController.swift */; };
 		FC887E0123295C260019CEF9 /* WeatherDecoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC887E0023295C260019CEF9 /* WeatherDecoding.swift */; };
 		FC887E032329610B0019CEF9 /* WeatherController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC887E022329610B0019CEF9 /* WeatherController.swift */; };
 		FC8AF17B233D3470004871FC /* AreYouAwakeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8AF17A233D3470004871FC /* AreYouAwakeViewController.swift */; };
@@ -85,6 +86,7 @@
 		FC5C49342326C55B00106CB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC5C49372326C55B00106CB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC5C49392326C55B00106CB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC747272234183AF00DFE492 /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		FC887E0023295C260019CEF9 /* WeatherDecoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDecoding.swift; sourceTree = "<group>"; };
 		FC887E022329610B0019CEF9 /* WeatherController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherController.swift; sourceTree = "<group>"; };
 		FC8AF17A233D3470004871FC /* AreYouAwakeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreYouAwakeViewController.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				FCAD13732328406B000F4EF5 /* Mini Games */,
 				FC8AF17A233D3470004871FC /* AreYouAwakeViewController.swift */,
 				FC18CE0E233BE14C005AB2AC /* FinishedGameViewController.swift */,
+				FC747272234183AF00DFE492 /* InformationViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 				FC32FFE3232FDFC00066397F /* MainNavigationViewController.swift in Sources */,
 				FC18CE11233BF834005AB2AC /* ViewManager.swift in Sources */,
 				FC18CE0D233BDD2E005AB2AC /* AlertManager.swift in Sources */,
+				FC747273234183AF00DFE492 /* InformationViewController.swift in Sources */,
 				FC32FFE72330225E0066397F /* Alarm+Convenience.swift in Sources */,
 				FC18CE0F233BE14C005AB2AC /* FinishedGameViewController.swift in Sources */,
 				FC9D7FB6232C2126009960E3 /* AlarmController.swift in Sources */,

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreLocation
 import UserNotifications
 
 class MainViewController: UIViewController {
@@ -24,16 +23,15 @@ class MainViewController: UIViewController {
     @IBOutlet weak var thursdayLabel: UILabel!
     @IBOutlet weak var fridayLabel: UILabel!
     @IBOutlet weak var saturdayLabel: UILabel!
-    @IBOutlet weak var alarmToggleButton: UISwitch!
     
     @IBOutlet weak var countdownHoursLabel: UILabel!
     @IBOutlet weak var countdownMinutesLabel: UILabel!
     @IBOutlet weak var countdownSecondsLabel: UILabel!
     
+    @IBOutlet weak var nextAlarmTitleLabel: UILabel!
     @IBOutlet weak var hoursLabel: UILabel!
     @IBOutlet weak var minutesLabel: UILabel!
     @IBOutlet weak var secondsLabel: UILabel!
-    @IBOutlet weak var noAlarmScheduledLabel: UILabel!
     
     // MARK: - Properties
     
@@ -100,35 +98,9 @@ class MainViewController: UIViewController {
         countdownTimer.invalidate()
     }
     
-    // MARK: - Actions
-    
-    @IBAction func privacyPolicyButtonTapped(_ sender: Any) {
-        if let privacyPolicyURL = URL(string: "https://sites.google.com/view/antisnoozeprivacypolicy/home") {
-            UIApplication.shared.open(privacyPolicyURL, options: [:], completionHandler: nil)
-        }
-    }
-    
-    @IBAction func alarmToggleButtonTapped(_ sender: Any) {
-        if let alarms = AlarmController.sharedInstance.alarm,
-            let alarm = alarms.first {
-            
-            if alarmToggleButton.isOn == true {
-                alarm.isEnabled = true
-                AlarmController.sharedInstance.scheduleAllNotifications()
-                
-            } else {
-                alarm.isEnabled = false
-                AlarmController.sharedInstance.removeNotifications()
-                updateViews()
-                countdownHoursLabel.isHidden = true
-                countdownMinutesLabel.isHidden = true
-                countdownSecondsLabel.isHidden = true
-                hoursLabel.isHidden = true
-                minutesLabel.isHidden = true
-                secondsLabel.isHidden = true
-                noAlarmScheduledLabel.isHidden = false
-            }
-        }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        countdownTimer.invalidate()
     }
     
     // MARK: - UI Adjustments
@@ -146,7 +118,6 @@ class MainViewController: UIViewController {
         thursdayLabel.textColor = UIColor.unSelectedTextColor
         fridayLabel.textColor = UIColor.unSelectedTextColor
         saturdayLabel.textColor = UIColor.unSelectedTextColor
-        noAlarmScheduledLabel.isHidden = true
     }
     
     func updateViews() {
@@ -154,7 +125,6 @@ class MainViewController: UIViewController {
             
             if daysOfWeek.count == 0 {
                 alarm.isEnabled = false
-                alarmToggleButton.isHidden = true
                 sundayLabel.isHidden = true
                 mondayLabel.isHidden = true
                 tuesdayLabel.isHidden = true
@@ -162,17 +132,15 @@ class MainViewController: UIViewController {
                 thursdayLabel.isHidden = true
                 fridayLabel.isHidden = true
                 saturdayLabel.isHidden = true
-                noAlarmScheduledLabel.isHidden = false
                 countdownHoursLabel.isHidden = true
                 countdownMinutesLabel.isHidden = true
                 countdownSecondsLabel.isHidden = true
+                nextAlarmTitleLabel.text = "No alarm scheduled"
                 hoursLabel.isHidden = true
                 minutesLabel.isHidden = true
                 secondsLabel.isHidden = true
             }
-            
-            alarmToggleButton.isOn = alarm.isEnabled
-            
+                        
             let alarmTime = alarmTimeAsString.components(separatedBy: [":", " "])
             
             let hours = alarmTime[0]
@@ -226,7 +194,6 @@ class MainViewController: UIViewController {
             
         } else {
             // Alarm is nil
-            alarmToggleButton.isHidden = true
             sundayLabel.isHidden = true
             mondayLabel.isHidden = true
             tuesdayLabel.isHidden = true
@@ -240,13 +207,12 @@ class MainViewController: UIViewController {
             hoursLabel.isHidden = true
             minutesLabel.isHidden = true
             secondsLabel.isHidden = true
-            noAlarmScheduledLabel.isHidden = false
+            nextAlarmTitleLabel.text = "No alarm scheduled"
         }
         
         UNUserNotificationCenter.current().getPendingNotificationRequests { (notifications) in
             if notifications.count == 0 {
                 DispatchQueue.main.async {
-                    self.alarmToggleButton.isHidden = true
                     self.sundayLabel.isHidden = true
                     self.mondayLabel.isHidden = true
                     self.tuesdayLabel.isHidden = true
@@ -254,6 +220,7 @@ class MainViewController: UIViewController {
                     self.thursdayLabel.isHidden = true
                     self.fridayLabel.isHidden = true
                     self.saturdayLabel.isHidden = true
+                    self.nextAlarmTitleLabel.text = "No alarm scheduled"
                     self.countdownTimer.invalidate()
                 }
             }

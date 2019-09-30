@@ -24,11 +24,6 @@
 	<string>Requesting access to your location to provide local weather forecasts.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Requesting access to your location to provide local weather forecasts.</string>
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>audio</string>
-		<string>fetch</string>
-	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

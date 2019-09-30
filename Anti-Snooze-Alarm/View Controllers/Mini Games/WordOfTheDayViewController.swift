@@ -51,6 +51,7 @@ class WordOfTheDayViewController: UIViewController {
         guard let inputText = inputDefinitionTextField.text else { return }
         
         if definition == inputText {
+            SoundManager.sharedInstance.stopSound()
             // Answer correct, go to are you awake page
             goToViewController(withIdentifier: ViewManager.ViewController.areYouAwake.rawValue)
         } else {
@@ -103,6 +104,7 @@ class WordOfTheDayViewController: UIViewController {
         enterButton.isHidden = true
         enterButton.layer.cornerRadius = enterButton.frame.height / 4
         skipButton.layer.cornerRadius = skipButton.frame.height / 4
+        inputDefinitionTextField.backgroundColor = UIColor.mainTextColor
     }
     
     func updateViews() {
@@ -125,6 +127,7 @@ extension WordOfTheDayViewController: UITextViewDelegate {
         guard let inputText = inputDefinitionTextField.text else { return }
         
         if definition == inputText {
+            SoundManager.sharedInstance.stopSound()
             // Answer correct, go to are you awake page
             goToViewController(withIdentifier: ViewManager.ViewController.areYouAwake.rawValue)
         }
