@@ -73,6 +73,7 @@ class LeftBrainRightBrainViewController: UIViewController {
         }
         
         if correctCount >= 10 {
+            SoundManager.sharedInstance.stopSound()
             // You Win, go to are you awake page
             goToViewController(withIdentifier: ViewManager.ViewController.areYouAwake.rawValue)
         }
@@ -108,6 +109,7 @@ class LeftBrainRightBrainViewController: UIViewController {
         }
         
         if correctCount >= 10 {
+            SoundManager.sharedInstance.stopSound()
             // You Win, go to are you awake page
             goToViewController(withIdentifier: ViewManager.ViewController.areYouAwake.rawValue)
         }
@@ -142,6 +144,7 @@ class LeftBrainRightBrainViewController: UIViewController {
         }
         
         if correctCount >= 10 {
+            SoundManager.sharedInstance.stopSound()
             // You Win, go to are you awake page
             goToViewController(withIdentifier: ViewManager.ViewController.areYouAwake.rawValue)
         }
@@ -176,6 +179,7 @@ class LeftBrainRightBrainViewController: UIViewController {
         }
         
         if correctCount >= 10 {
+            SoundManager.sharedInstance.stopSound()
             // You Win, go to are you awake page
             goToViewController(withIdentifier: ViewManager.ViewController.areYouAwake.rawValue)
         }
