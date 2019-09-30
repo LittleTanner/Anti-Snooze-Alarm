@@ -51,6 +51,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let currentTime = Date().stringWith(timeStyle: .short)
         
         if currentTime == alarmTime {
+            // Create an instance of the main storyboard
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
             // Create a random number
             var randomNumber = 1
             
@@ -61,8 +64,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
 
             // Create an instance of the view controller
-            if let window = self.window, let viewController = window.rootViewController {
-                viewController.goToViewController(withIdentifier: ViewManager.sharedInstance.arrayOfMiniGames[randomNumber])
+            switch randomNumber {
+            case 0:
+                if let controller = storyboard.instantiateViewController(withIdentifier: ViewManager.ViewController.wordOfTheDay.rawValue) as? WordOfTheDayViewController {
+                    self.window?.rootViewController = controller
+                }
+            case 1:
+                if let controller = storyboard.instantiateViewController(withIdentifier: ViewManager.ViewController.memorizeNumber.rawValue) as? MemorizeNumberViewController {
+                    self.window?.rootViewController = controller
+                }
+            case 2:
+                if let controller = storyboard.instantiateViewController(withIdentifier: ViewManager.ViewController.multiplication.rawValue) as? MathViewController {
+                    self.window?.rootViewController = controller
+                }
+            case 3:
+                if let controller = storyboard.instantiateViewController(withIdentifier: ViewManager.ViewController.tapRedSquares.rawValue) as? SquaresViewController {
+                    self.window?.rootViewController = controller
+                }
+            case 4:
+                if let controller = storyboard.instantiateViewController(withIdentifier: ViewManager.ViewController.brainGame.rawValue) as? LeftBrainRightBrainViewController {
+                    self.window?.rootViewController = controller
+                }
+            default:
+                if let controller = storyboard.instantiateViewController(withIdentifier: ViewManager.ViewController.homeScreen.rawValue) as? MainNavigationViewController {
+                    self.window?.rootViewController = controller
+                }
+                print("User clicked on the app icon during the same minute as the alarm. There was an error sending user to random game so sent them to the main page")
             }
         }
         
@@ -70,6 +97,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        // Create an instance of the main storyboard
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         // Create a random number
         var randomNumber = 1
@@ -79,12 +109,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         } else {
             randomNumber = Int.random(in: 1...4)
         }
-        
-        // Create an instance of the view controller
-        if let window = self.window, let viewController = window.rootViewController {
-            viewController.goToViewController(withIdentifier: ViewManager.sharedInstance.arrayOfMiniGames[randomNumber])
-        }
 
+        // Create an instance of the view controller
+        switch randomNumber {
+        case 0:
+            if let controller = storyboard.instantiateViewController(withIdentifier: ViewManager.ViewController.wordOfTheDay.rawValue) as? WordOfTheDayViewController {
+                self.window?.rootViewController = controller
+            }
+        case 1:
+            if let controller = storyboard.instantiateViewController(withIdentifier: ViewManager.ViewController.memorizeNumber.rawValue) as? MemorizeNumberViewController {
+                self.window?.rootViewController = controller
+            }
+        case 2:
+            if let controller = storyboard.instantiateViewController(withIdentifier: ViewManager.ViewController.multiplication.rawValue) as? MathViewController {
+                self.window?.rootViewController = controller
+            }
+        case 3:
+            if let controller = storyboard.instantiateViewController(withIdentifier: ViewManager.ViewController.tapRedSquares.rawValue) as? SquaresViewController {
+                self.window?.rootViewController = controller
+            }
+        case 4:
+            if let controller = storyboard.instantiateViewController(withIdentifier: ViewManager.ViewController.brainGame.rawValue) as? LeftBrainRightBrainViewController {
+                self.window?.rootViewController = controller
+            }
+        default:
+            if let controller = storyboard.instantiateViewController(withIdentifier: ViewManager.ViewController.homeScreen.rawValue) as? MainNavigationViewController {
+                self.window?.rootViewController = controller
+            }
+            print("User clicked on the app icon during the same minute as the alarm. There was an error sending user to random game so sent them to the main page")
+        }
 //        self.window?.rootViewController?.goToViewController(withIdentifier: ViewManager.sharedInstance.arrayOfMiniGames[randomNumber])
         
         completionHandler()
@@ -133,6 +186,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let currentTime = Date().stringWith(timeStyle: .short)
         
         if currentTime == alarmTime {
+            // Create an instance of the main storyboard
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
             // Create a random number
             var randomNumber = 1
             
@@ -143,8 +199,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
 
             // Create an instance of the view controller
-            if let window = self.window, let viewController = window.rootViewController {
-                viewController.goToViewController(withIdentifier: ViewManager.sharedInstance.arrayOfMiniGames[randomNumber])
+            switch randomNumber {
+            case 0:
+                if let controller = storyboard.instantiateViewController(withIdentifier: ViewManager.ViewController.wordOfTheDay.rawValue) as? WordOfTheDayViewController {
+                    self.window?.rootViewController = controller
+                }
+            case 1:
+                if let controller = storyboard.instantiateViewController(withIdentifier: ViewManager.ViewController.memorizeNumber.rawValue) as? MemorizeNumberViewController {
+                    self.window?.rootViewController = controller
+                }
+            case 2:
+                if let controller = storyboard.instantiateViewController(withIdentifier: ViewManager.ViewController.multiplication.rawValue) as? MathViewController {
+                    self.window?.rootViewController = controller
+                }
+            case 3:
+                if let controller = storyboard.instantiateViewController(withIdentifier: ViewManager.ViewController.tapRedSquares.rawValue) as? SquaresViewController {
+                    self.window?.rootViewController = controller
+                }
+            case 4:
+                if let controller = storyboard.instantiateViewController(withIdentifier: ViewManager.ViewController.brainGame.rawValue) as? LeftBrainRightBrainViewController {
+                    self.window?.rootViewController = controller
+                }
+            default:
+                if let controller = storyboard.instantiateViewController(withIdentifier: ViewManager.ViewController.homeScreen.rawValue) as? MainNavigationViewController {
+                    self.window?.rootViewController = controller
+                }
+                print("User clicked on the app icon during the same minute as the alarm. There was an error sending user to random game so sent them to the main page")
             }
         }
     }
