@@ -30,8 +30,10 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var nextAlarmTitleLabel: UILabel!
     @IBOutlet weak var hoursLabel: UILabel!
+    @IBOutlet weak var alarmColonLabel: UILabel!
     @IBOutlet weak var minutesLabel: UILabel!
     @IBOutlet weak var secondsLabel: UILabel!
+    @IBOutlet weak var scheduleAlarmDirectionsLabel: UILabel!
     
     // MARK: - Properties
     
@@ -53,6 +55,7 @@ class MainViewController: UIViewController {
         super.viewWillAppear(animated)
         loadViewIfNeeded()
         SoundManager.sharedInstance.stopSound()
+        alarmColonLabel.isHidden = true
         guard AlarmController.sharedInstance.alarm != nil else { return }
         updateViews()
         
@@ -123,6 +126,8 @@ class MainViewController: UIViewController {
     func updateViews() {
         if let alarms = AlarmController.sharedInstance.alarm, let alarm = alarms.first, let daysOfWeek = alarm.daysOfWeek, let alarmTimeAsString = alarm.alarmTimeAsString  {
             
+            scheduleAlarmDirectionsLabel.isHidden = true
+            alarmColonLabel.isHidden = false
             if daysOfWeek.count == 0 {
                 alarm.isEnabled = false
                 sundayLabel.isHidden = true
