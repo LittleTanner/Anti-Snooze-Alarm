@@ -78,7 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                     self.window?.rootViewController = controller
                 }
             case 3:
-                if let controller = storyboard.instantiateViewController(withIdentifier: ViewManager.ViewController.tapRedSquares.rawValue) as? SquaresViewController {
+                if let controller = storyboard.instantiateViewController(withIdentifier: ViewManager.ViewController.tapSquares.rawValue) as? SquaresViewController {
                     self.window?.rootViewController = controller
                 }
             case 4:
@@ -125,7 +125,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 self.window?.rootViewController = controller
             }
         case 3:
-            if let controller = storyboard.instantiateViewController(withIdentifier: ViewManager.ViewController.tapRedSquares.rawValue) as? SquaresViewController {
+            if let controller = storyboard.instantiateViewController(withIdentifier: ViewManager.ViewController.tapSquares.rawValue) as? SquaresViewController {
                 self.window?.rootViewController = controller
             }
         case 4:
@@ -213,7 +213,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                     self.window?.rootViewController = controller
                 }
             case 3:
-                if let controller = storyboard.instantiateViewController(withIdentifier: ViewManager.ViewController.tapRedSquares.rawValue) as? SquaresViewController {
+                if let controller = storyboard.instantiateViewController(withIdentifier: ViewManager.ViewController.tapSquares.rawValue) as? SquaresViewController {
                     self.window?.rootViewController = controller
                 }
             case 4:
