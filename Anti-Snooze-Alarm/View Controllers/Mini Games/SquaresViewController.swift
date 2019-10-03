@@ -18,8 +18,8 @@ class SquaresViewController: UIViewController {
     
     // MARK: - Properties
     
-    var numberOfRedButtonsTapped = 0
-    var numberOfRedSquares = 0
+    var numberOfGreyButtonsTapped = 0
+    var numberOfGreySquares = 0
     
     // MARK: - Lifecycle Methods
     
@@ -34,27 +34,27 @@ class SquaresViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func enterButtonTapped(_ sender: Any) {
-        if numberOfRedSquares == numberOfRedButtonsTapped {
+        if numberOfGreySquares == numberOfGreyButtonsTapped {
             SoundManager.sharedInstance.stopSound()
             goToViewController(withIdentifier: ViewManager.ViewController.areYouAwake.rawValue)
         }
     }
     
     @IBAction func resetButtonTapped(_ sender: Any) {
-        numberOfRedButtonsTapped = 0
+        numberOfGreyButtonsTapped = 0
         
         var count = 0
         squareButtons.shuffle()
         for button in squareButtons {
             switch count {
             case _ where count <= 7:
-                button.backgroundColor = UIColor.redAccent
+                button.backgroundColor = UIColor.unSelectedTextColor
             case _ where (count > 7) && (count <= 14):
                 button.backgroundColor = UIColor.blueAccent
             case _ where (count > 14) && (count <= 21):
                 button.backgroundColor = UIColor.mainTextColor
             case _ where count > 21:
-                button.backgroundColor = UIColor.unSelectedTextColor
+                button.backgroundColor = UIColor.redAccent
             default:
                 print("Error in \(#function)")
             }
@@ -63,17 +63,17 @@ class SquaresViewController: UIViewController {
     }
     
     @IBAction func squareButtonTapped(_ sender: UIButton) {
-        var redSquareTotal = 0
+        var GreySquareTotal = 0
         
         for button in squareButtons {
-            if button.backgroundColor == UIColor.redAccent {
-                redSquareTotal += 1
+            if button.backgroundColor == UIColor.unSelectedTextColor {
+                GreySquareTotal += 1
             }
         }
-        numberOfRedSquares = redSquareTotal
+        numberOfGreySquares = GreySquareTotal
         
-        if sender.backgroundColor == UIColor.redAccent {
-            numberOfRedButtonsTapped += 1
+        if sender.backgroundColor == UIColor.unSelectedTextColor {
+            numberOfGreyButtonsTapped += 1
             sender.isEnabled = false
             sender.setTitle("✔︎", for: .disabled)
             sender.setTitleColor(UIColor.mainTextColor, for: .disabled)
@@ -83,10 +83,10 @@ class SquaresViewController: UIViewController {
             for button in squareButtons {
                 button.isEnabled = true
             }
-            numberOfRedButtonsTapped = 0
+            numberOfGreyButtonsTapped = 0
         }
                 
-        if numberOfRedSquares == numberOfRedButtonsTapped {
+        if numberOfGreySquares == numberOfGreyButtonsTapped {
             SoundManager.sharedInstance.stopSound()
             goToViewController(withIdentifier: ViewManager.ViewController.areYouAwake.rawValue)
         }
@@ -113,13 +113,13 @@ class SquaresViewController: UIViewController {
         for button in squareButtons {
             switch count {
             case _ where count <= 7:
-                button.backgroundColor = UIColor.redAccent
+                button.backgroundColor = UIColor.unSelectedTextColor
             case _ where (count > 7) && (count <= 14):
                 button.backgroundColor = UIColor.blueAccent
             case _ where (count > 14) && (count <= 21):
                 button.backgroundColor = UIColor.mainTextColor
             case _ where count > 21:
-                button.backgroundColor = UIColor.unSelectedTextColor
+                button.backgroundColor = UIColor.redAccent
             default:
                 print("Error in \(#function)")
             }

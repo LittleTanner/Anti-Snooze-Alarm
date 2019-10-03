@@ -30,7 +30,7 @@ class ViewManager {
         case wordOfTheDay = "WordOfTheDayGame"
         case memorizeNumber = "MemorizeNumberGame"
         case multiplication = "MathGame"
-        case tapRedSquares = "SquaresGame"
+        case tapSquares = "SquaresGame"
         case brainGame = "LeftBrainRightBrainGame"
         case homeScreen = "mainNavigationController"
         case areYouAwake = "AreYouAwakeViewController"
@@ -41,7 +41,7 @@ class ViewManager {
         ViewController.wordOfTheDay.rawValue,
         ViewController.memorizeNumber.rawValue,
         ViewController.memorizeNumber.rawValue,
-        ViewController.tapRedSquares.rawValue,
+        ViewController.tapSquares.rawValue,
         ViewController.brainGame.rawValue
     ]
     
