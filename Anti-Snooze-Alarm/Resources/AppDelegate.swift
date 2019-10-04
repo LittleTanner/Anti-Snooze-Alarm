@@ -35,6 +35,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 print("Permission to send notifications granted")
             } else {
                 print("Denied permission to send notifications")
+                DispatchQueue.main.async {
+                    self.window?.rootViewController?.noNotificationsNoAlarm()
+                }
             }
         }
 
