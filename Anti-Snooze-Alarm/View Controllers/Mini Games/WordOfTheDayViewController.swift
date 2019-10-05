@@ -25,6 +25,8 @@ class WordOfTheDayViewController: UIViewController {
     var word = ""
     var definition = "Pulling Definition From The Web.. Please wait typically about 5 seconds."
     
+    var soundCountdownTimer = Timer()
+    
     // MARK: - Lifecycle Methods
     
     override func viewDidLoad() {
@@ -35,9 +37,7 @@ class WordOfTheDayViewController: UIViewController {
         generateRandomWord()
         updateViews()
         fetchWord()
-        guard let alarms = AlarmController.sharedInstance.alarm,
-            let alarm = alarms.first else { return }
-        SoundManager.sharedInstance.playRepeatingSound(withVolume: alarm.alarmVolume)
+        runTimer()
     }
     
     // MARK: - Actions
@@ -51,6 +51,7 @@ class WordOfTheDayViewController: UIViewController {
         guard let inputText = inputDefinitionTextField.text else { return }
         
         if definition == inputText {
+            soundCountdownTimer.invalidate()
             SoundManager.sharedInstance.stopSound()
             // Answer correct, go to are you awake page
             goToViewController(withIdentifier: ViewManager.ViewController.areYouAwake.rawValue)
@@ -61,6 +62,19 @@ class WordOfTheDayViewController: UIViewController {
     }
     
     // MARK: - Custom Methods
+    
+    func runTimer() {
+        soundCountdownTimer.invalidate()
+        soundCountdownTimer = Timer.scheduledTimer(timeInterval: 17, target: self, selector: (#selector(updateTimer)), userInfo: nil, repeats: true)
+    }
+    
+    @objc func updateTimer() {
+        guard let alarms = AlarmController.sharedInstance.alarm,
+            let alarm = alarms.first,
+            let alarmSound = alarm.alarmSound else { return }
+        
+        SoundManager.sharedInstance.playSoundOnce(withVolume: alarm.alarmVolume, alarmSound: alarmSound)
+    }
     
     func generateRandomWord() {
         let count = ListOfWords.sharedInstance.arrayOfEnglishWords.count
@@ -127,6 +141,7 @@ extension WordOfTheDayViewController: UITextViewDelegate {
         guard let inputText = inputDefinitionTextField.text else { return }
         
         if definition == inputText {
+            soundCountdownTimer.invalidate()
             SoundManager.sharedInstance.stopSound()
             // Answer correct, go to are you awake page
             goToViewController(withIdentifier: ViewManager.ViewController.areYouAwake.rawValue)
