@@ -38,7 +38,7 @@ class MainViewController: UIViewController {
     // MARK: - Properties
     
     var seconds = 0
-    var countdownTimer = Timer()
+    var countdownToNextAlarmTimer = Timer()
     var isTimerRunning = true
     var currentTime = Date()
     
@@ -98,12 +98,12 @@ class MainViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        countdownTimer.invalidate()
+        countdownToNextAlarmTimer.invalidate()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        countdownTimer.invalidate()
+        countdownToNextAlarmTimer.invalidate()
     }
     
     // MARK: - UI Adjustments
@@ -226,7 +226,7 @@ class MainViewController: UIViewController {
                     self.fridayLabel.isHidden = true
                     self.saturdayLabel.isHidden = true
                     self.nextAlarmTitleLabel.text = "No alarm scheduled"
-                    self.countdownTimer.invalidate()
+                    self.countdownToNextAlarmTimer.invalidate()
                 }
             }
         }
@@ -248,11 +248,11 @@ class MainViewController: UIViewController {
     }
     
     func runTimer() {
-        countdownTimer.invalidate()
-        countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(updateTimer)), userInfo: nil, repeats: true)
+        countdownToNextAlarmTimer.invalidate()
+        countdownToNextAlarmTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(updateCountdownToNextAlarmTimer)), userInfo: nil, repeats: true)
     }
     
-    @objc func updateTimer() {
+    @objc func updateCountdownToNextAlarmTimer() {
         seconds -= 1
         
         if seconds >= 0 {

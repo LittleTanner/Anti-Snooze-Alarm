@@ -76,7 +76,6 @@ class SoundManager {
             guard let audioPlayer = audioPlayer else { return }
                         
             MPVolumeView.setVolume(volume)
-            
             audioPlayer.play()
             
         } catch let error {
@@ -107,9 +106,9 @@ extension MPVolumeView {
             slider?.value = volume
         }
         // Optional - Remove the HUD
-        if let app = UIApplication.shared.delegate as? AppDelegate, let window = app.window {
-            volumeView.alpha = 0.000001
-            window.addSubview(volumeView)
-        }
+//        if let app = UIApplication.shared.delegate as? AppDelegate, let window = app.window {
+//            volumeView.alpha = 0.000001
+//            window.addSubview(volumeView)
+//        }
     }
 }

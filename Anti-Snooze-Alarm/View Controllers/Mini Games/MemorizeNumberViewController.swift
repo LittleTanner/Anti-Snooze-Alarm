@@ -26,13 +26,21 @@ class MemorizeNumberViewController: UIViewController {
     var countdownTimer = Timer()
     var isTimerRunning = true
     
+    var soundCountdownTimer = Timer()
+    
     // MARK: - Lifecycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setsUpUI()
-        runTimer()
+        runCountdownTimer()
         numberTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
+        guard let alarms = AlarmController.sharedInstance.alarm,
+            let alarm = alarms.first,
+            let alarmSound = alarm.alarmSound else { return }
+        
+        SoundManager.sharedInstance.playSoundOnce(withVolume: alarm.alarmVolume, alarmSound: alarmSound)
+        runTimer()
     }
     
     // MARK: - Actions
@@ -41,13 +49,14 @@ class MemorizeNumberViewController: UIViewController {
         randomNumber = Int.random(in: 100000...999999)
         randomNumberLabel.text = String(randomNumber)
         seconds = 5
-        runTimer()
+        runCountdownTimer()
     }
     
     @IBAction func enterButtonTapped(_ sender: Any) {
         guard let inputNumberText = numberTextField.text else { return }
         
         if inputNumberText == String(randomNumber) {
+            soundCountdownTimer.invalidate()
             SoundManager.sharedInstance.stopSound()
             // Answer Correct, go to are you awake page
             goToViewController(withIdentifier: ViewManager.ViewController.areYouAwake.rawValue)
@@ -77,18 +86,19 @@ class MemorizeNumberViewController: UIViewController {
     
     @objc func textFieldDidChange(_ textField: UITextField) {
         if numberTextField.text == String(randomNumber) {
+            soundCountdownTimer.invalidate()
             SoundManager.sharedInstance.stopSound()
             // Answer Correct, go to are you awake page
             goToViewController(withIdentifier: ViewManager.ViewController.areYouAwake.rawValue)
         }
     }
     
-    func runTimer() {
+    func runCountdownTimer() {
         countdownTimer.invalidate()
-        countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(updateTimer)), userInfo: nil, repeats: true)
+        countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(updateCountdownTimer)), userInfo: nil, repeats: true)
     }
 
-    @objc func updateTimer() {
+    @objc func updateCountdownTimer() {
         seconds -= 1
         
         if seconds >= 0 {
@@ -99,7 +109,6 @@ class MemorizeNumberViewController: UIViewController {
             numberTextField.isHidden = true
             forgotNumberButton.isHidden = true
             enterButton.isHidden = true
-            SoundManager.sharedInstance.pauseSound()
         } else {
             numberTextField.becomeFirstResponder()
             randomNumberLabel.isHidden = true
@@ -107,9 +116,20 @@ class MemorizeNumberViewController: UIViewController {
             forgotNumberButton.isHidden = false
             enterButton.isHidden = false
             countdownTimer.invalidate()
-            guard let alarms = AlarmController.sharedInstance.alarm,
-                let alarm = alarms.first else { return }
-            SoundManager.sharedInstance.playRepeatingSound(withVolume: alarm.alarmVolume)
         }
+    }
+    
+    func runTimer() {
+        guard let durationOfSound = SoundManager.sharedInstance.audioPlayer?.duration else { return }
+        soundCountdownTimer.invalidate()
+        soundCountdownTimer = Timer.scheduledTimer(timeInterval: durationOfSound + 10, target: self, selector: (#selector(updateTimer)), userInfo: nil, repeats: true)
+    }
+    
+    @objc func updateTimer() {
+        guard let alarms = AlarmController.sharedInstance.alarm,
+            let alarm = alarms.first,
+            let alarmSound = alarm.alarmSound else { return }
+        
+        SoundManager.sharedInstance.playSoundOnce(withVolume: alarm.alarmVolume, alarmSound: alarmSound)
     }
 } // End of class

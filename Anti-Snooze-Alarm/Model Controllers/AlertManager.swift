@@ -78,4 +78,18 @@ extension UIViewController {
         // Present alert controller
         self.present(alertController, animated: true, completion: nil)
     }
+    
+    func noNotificationsNoAlarm() {
+        // Create alert controller
+        let alertController = UIAlertController(title: "Alarm Won't Sound", message: "This alarm relies on notifications to play a sound to wake you up. Without notifications enabled this app won't work. To enable notifications exit the app, go to settings, notifications, scroll down to select Anti Snooze, and select the toggle allow notifications.", preferredStyle: .alert)
+        
+        // Create action
+        let ok = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+        
+        // Add action
+        alertController.addAction(ok)
+        
+        // Present alert controller
+        self.present(alertController, animated: true, completion: nil)
+    }
 }
