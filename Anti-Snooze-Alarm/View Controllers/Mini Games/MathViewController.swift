@@ -39,6 +39,11 @@ class MathViewController: UIViewController {
         updateNumberLabels()
         inputNumberTextField.becomeFirstResponder()
         inputNumberTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
+        guard let alarms = AlarmController.sharedInstance.alarm,
+            let alarm = alarms.first,
+            let alarmSound = alarm.alarmSound else { return }
+        
+        SoundManager.sharedInstance.playSoundOnce(withVolume: alarm.alarmVolume, alarmSound: alarmSound)
         runTimer()
     }
     
@@ -84,8 +89,9 @@ class MathViewController: UIViewController {
     // MARK: - Custom Methods
     
     func runTimer() {
+        guard let durationOfSound = SoundManager.sharedInstance.audioPlayer?.duration else { return }
         soundCountdownTimer.invalidate()
-        soundCountdownTimer = Timer.scheduledTimer(timeInterval: 17, target: self, selector: (#selector(updateTimer)), userInfo: nil, repeats: true)
+        soundCountdownTimer = Timer.scheduledTimer(timeInterval: durationOfSound + 10, target: self, selector: (#selector(updateTimer)), userInfo: nil, repeats: true)
     }
     
     @objc func updateTimer() {
