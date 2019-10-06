@@ -32,14 +32,19 @@ class LeftBrainRightBrainViewController: UIViewController {
     var correctCount = 0
     var correctColor = ""
     
+    var soundCountdownTimer = Timer()
+    
     // MARK: - Lifecycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setsUpUI()
         guard let alarms = AlarmController.sharedInstance.alarm,
-            let alarm = alarms.first else { return }
-        SoundManager.sharedInstance.playRepeatingSound(withVolume: alarm.alarmVolume)
+            let alarm = alarms.first,
+            let alarmSound = alarm.alarmSound else { return }
+        
+        SoundManager.sharedInstance.playSoundOnce(withVolume: alarm.alarmVolume, alarmSound: alarmSound)
+        runTimer()
     }
     
     // MARK: - Actions
@@ -72,7 +77,8 @@ class LeftBrainRightBrainViewController: UIViewController {
             countOfCorrectLabel.text = "\(correctCount)"
         }
         
-        if correctCount >= 10 {
+        if correctCount >= 20 {
+            soundCountdownTimer.invalidate()
             SoundManager.sharedInstance.stopSound()
             // You Win, go to are you awake page
             goToViewController(withIdentifier: ViewManager.ViewController.areYouAwake.rawValue)
@@ -108,7 +114,8 @@ class LeftBrainRightBrainViewController: UIViewController {
             countOfCorrectLabel.text = "\(correctCount)"
         }
         
-        if correctCount >= 10 {
+        if correctCount >= 20 {
+            soundCountdownTimer.invalidate()
             SoundManager.sharedInstance.stopSound()
             // You Win, go to are you awake page
             goToViewController(withIdentifier: ViewManager.ViewController.areYouAwake.rawValue)
@@ -143,7 +150,8 @@ class LeftBrainRightBrainViewController: UIViewController {
             countOfCorrectLabel.text = "\(correctCount)"
         }
         
-        if correctCount >= 10 {
+        if correctCount >= 20 {
+            soundCountdownTimer.invalidate()
             SoundManager.sharedInstance.stopSound()
             // You Win, go to are you awake page
             goToViewController(withIdentifier: ViewManager.ViewController.areYouAwake.rawValue)
@@ -178,12 +186,30 @@ class LeftBrainRightBrainViewController: UIViewController {
             countOfCorrectLabel.text = "\(correctCount)"
         }
         
-        if correctCount >= 10 {
+        if correctCount >= 20 {
+            soundCountdownTimer.invalidate()
             SoundManager.sharedInstance.stopSound()
             // You Win, go to are you awake page
             goToViewController(withIdentifier: ViewManager.ViewController.areYouAwake.rawValue)
         }
     }
+    
+    // MARK: - Custom Methods
+    
+    func runTimer() {
+        guard let durationOfSound = SoundManager.sharedInstance.audioPlayer?.duration else { return }
+        soundCountdownTimer.invalidate()
+        soundCountdownTimer = Timer.scheduledTimer(timeInterval: durationOfSound + 10, target: self, selector: (#selector(updateTimer)), userInfo: nil, repeats: true)
+    }
+    
+    @objc func updateTimer() {
+        guard let alarms = AlarmController.sharedInstance.alarm,
+            let alarm = alarms.first,
+            let alarmSound = alarm.alarmSound else { return }
+        
+        SoundManager.sharedInstance.playSoundOnce(withVolume: alarm.alarmVolume, alarmSound: alarmSound)
+    }
+
     
     // MARK: - UI Adjustments
     
