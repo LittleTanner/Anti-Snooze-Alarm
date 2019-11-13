@@ -29,8 +29,6 @@ class MathViewController: UIViewController {
     
     var countCorrect = 0
     
-    var soundCountdownTimer = Timer()
-    
     // MARK: - Lifecycle Methods
     
     override func viewDidLoad() {
@@ -44,7 +42,7 @@ class MathViewController: UIViewController {
             let alarmSound = alarm.alarmSound else { return }
         
         SoundManager.sharedInstance.playSoundOnce(withVolume: alarm.alarmVolume, alarmSound: alarmSound)
-        runTimer()
+        TimerManager.sharedInstance.runTimer()
     }
     
     // MARK: - Actions
@@ -62,7 +60,7 @@ class MathViewController: UIViewController {
             let rightNumber = Int(rightNumberAsString) else { return }
         
         if countCorrect >= 20 {
-            soundCountdownTimer.invalidate()
+            TimerManager.sharedInstance.invalidateTimer()
             SoundManager.sharedInstance.stopSound()
             // You Win, go to are you awake page
             goToViewController(withIdentifier: ViewManager.ViewController.areYouAwake.rawValue)
@@ -87,22 +85,7 @@ class MathViewController: UIViewController {
     }
     
     // MARK: - Custom Methods
-    
-    func runTimer() {
-        guard let durationOfSound = SoundManager.sharedInstance.audioPlayer?.duration else { return }
-        soundCountdownTimer.invalidate()
-        soundCountdownTimer = Timer.scheduledTimer(timeInterval: durationOfSound + 10, target: self, selector: (#selector(updateTimer)), userInfo: nil, repeats: true)
-    }
-    
-    @objc func updateTimer() {
-        guard let alarms = AlarmController.sharedInstance.alarm,
-            let alarm = alarms.first,
-            let alarmSound = alarm.alarmSound else { return }
-        
-        SoundManager.sharedInstance.playSoundOnce(withVolume: alarm.alarmVolume, alarmSound: alarmSound)
-    }
-    
-    
+
     @objc func textFieldDidChange(_ textField: UITextField) {
         guard let numberInputAsString = inputNumberTextField.text,
             let numberInput = Int(numberInputAsString),
@@ -119,7 +102,7 @@ class MathViewController: UIViewController {
         }
         
         if countCorrect >= 20 {
-            soundCountdownTimer.invalidate()
+            TimerManager.sharedInstance.invalidateTimer()
             SoundManager.sharedInstance.stopSound()
             // You win, go to are you awake page
             goToViewController(withIdentifier: ViewManager.ViewController.areYouAwake.rawValue)

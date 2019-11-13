@@ -23,8 +23,6 @@ class SquaresViewController: UIViewController {
     var numberOfGreySquares = 0
     var numberOfRoundsCount = 0
     
-    var soundCountdownTimer = Timer()
-    
     // MARK: - Lifecycle Methods
     
     override func viewDidLoad() {
@@ -35,14 +33,14 @@ class SquaresViewController: UIViewController {
             let alarmSound = alarm.alarmSound else { return }
         
         SoundManager.sharedInstance.playSoundOnce(withVolume: alarm.alarmVolume, alarmSound: alarmSound)
-        runTimer()
+        TimerManager.sharedInstance.runTimer()
     }
     
     // MARK: - Actions
     
     @IBAction func enterButtonTapped(_ sender: Any) {
         if numberOfRoundsCount >= 10 {
-            soundCountdownTimer.invalidate()
+            TimerManager.sharedInstance.invalidateTimer()
             SoundManager.sharedInstance.stopSound()
             goToViewController(withIdentifier: ViewManager.ViewController.areYouAwake.rawValue)
         }
@@ -105,7 +103,7 @@ class SquaresViewController: UIViewController {
             numberOfRoundsCount += 1
             
             if numberOfRoundsCount >= 10 {
-                soundCountdownTimer.invalidate()
+                TimerManager.sharedInstance.invalidateTimer()
                 SoundManager.sharedInstance.stopSound()
                 goToViewController(withIdentifier: ViewManager.ViewController.areYouAwake.rawValue)
             }
@@ -136,22 +134,6 @@ class SquaresViewController: UIViewController {
             }
             
         }
-    }
-    
-    // MARK: - Custom Methods
-    
-    func runTimer() {
-        guard let durationOfSound = SoundManager.sharedInstance.audioPlayer?.duration else { return }
-        soundCountdownTimer.invalidate()
-        soundCountdownTimer = Timer.scheduledTimer(timeInterval: durationOfSound + 10, target: self, selector: (#selector(updateTimer)), userInfo: nil, repeats: true)
-    }
-    
-    @objc func updateTimer() {
-        guard let alarms = AlarmController.sharedInstance.alarm,
-            let alarm = alarms.first,
-            let alarmSound = alarm.alarmSound else { return }
-        
-        SoundManager.sharedInstance.playSoundOnce(withVolume: alarm.alarmVolume, alarmSound: alarmSound)
     }
     
     // MARK: - UI Adjustments
