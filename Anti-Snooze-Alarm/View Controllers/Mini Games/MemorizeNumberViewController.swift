@@ -26,8 +26,6 @@ class MemorizeNumberViewController: UIViewController {
     var countdownTimer = Timer()
     var isTimerRunning = true
     
-    var soundCountdownTimer = Timer()
-    
     // MARK: - Lifecycle Methods
     
     override func viewDidLoad() {
@@ -40,7 +38,7 @@ class MemorizeNumberViewController: UIViewController {
             let alarmSound = alarm.alarmSound else { return }
         
         SoundManager.sharedInstance.playSoundOnce(withVolume: alarm.alarmVolume, alarmSound: alarmSound)
-        runTimer()
+        TimerManager.sharedInstance.runTimer()
     }
     
     // MARK: - Actions
@@ -56,7 +54,7 @@ class MemorizeNumberViewController: UIViewController {
         guard let inputNumberText = numberTextField.text else { return }
         
         if inputNumberText == String(randomNumber) {
-            soundCountdownTimer.invalidate()
+            TimerManager.sharedInstance.invalidateTimer()
             SoundManager.sharedInstance.stopSound()
             // Answer Correct, go to are you awake page
             goToViewController(withIdentifier: ViewManager.ViewController.areYouAwake.rawValue)
@@ -86,7 +84,7 @@ class MemorizeNumberViewController: UIViewController {
     
     @objc func textFieldDidChange(_ textField: UITextField) {
         if numberTextField.text == String(randomNumber) {
-            soundCountdownTimer.invalidate()
+            TimerManager.sharedInstance.invalidateTimer()
             SoundManager.sharedInstance.stopSound()
             // Answer Correct, go to are you awake page
             goToViewController(withIdentifier: ViewManager.ViewController.areYouAwake.rawValue)
@@ -119,17 +117,4 @@ class MemorizeNumberViewController: UIViewController {
         }
     }
     
-    func runTimer() {
-        guard let durationOfSound = SoundManager.sharedInstance.audioPlayer?.duration else { return }
-        soundCountdownTimer.invalidate()
-        soundCountdownTimer = Timer.scheduledTimer(timeInterval: durationOfSound + 10, target: self, selector: (#selector(updateTimer)), userInfo: nil, repeats: true)
-    }
-    
-    @objc func updateTimer() {
-        guard let alarms = AlarmController.sharedInstance.alarm,
-            let alarm = alarms.first,
-            let alarmSound = alarm.alarmSound else { return }
-        
-        SoundManager.sharedInstance.playSoundOnce(withVolume: alarm.alarmVolume, alarmSound: alarmSound)
-    }
 } // End of class
